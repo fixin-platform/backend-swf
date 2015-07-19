@@ -1,0 +1,34 @@
+#!/usr/bin/env coffee
+
+path = require "path"
+parse = require "path-parse"
+yargs = require "yargs"
+domain = require "domain"
+Registrar = require "./Actor/Registrar"
+createLogger = require "./logger"
+createSWF = require "./swf"
+
+argv = yargs
+  .usage('Usage: $0 [options] definitionsPath')
+  .options(
+    "c":
+      alias: "config"
+      type: "string"
+      description: "Config for dependencies (SWF binding, logger, etc)"
+      demand: true
+  )
+  .demand(1)
+  .strict()
+  .argv
+
+config = require path.resolve(process.cwd(), argv.config)
+
+options = require path.resolve(process.cwd(), argv._[0])
+
+registrar = new Registrar options,
+  logger: createLogger(config.logger)
+  swf: createSWF(config.swf)
+
+registrar.registerAll()
+
+(require "death")(-> process.exit(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen

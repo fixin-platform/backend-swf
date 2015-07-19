@@ -1,0 +1,79 @@
+[
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "TestDomain",
+            "workflowExecutionRetentionPeriodInDays": "7",
+            "description": "TestDomain description"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
+            "message": "TestDomain"
+        },
+        "headers": {
+            "x-amzn-requestid": "48a5530e-2d91-11e5-aa6d-5d7f06b3c504",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "89"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "name": "ListenToYourHeart",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "ListenToYourHeart"
+            },
+            "defaultExecutionStartToCloseTimeout": "1800000",
+            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskPriority": "0",
+            "defaultChildPolicy": "REQUEST_CANCEL",
+            "description": ""
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "494a455e-2d91-11e5-9fd7-d708e1d40f3c",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "129"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "name": "Echo",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "Echo"
+            },
+            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskPriority": "0",
+            "defaultTaskScheduleToStartTimeout": "1800000",
+            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToCloseTimeout": "NONE",
+            "description": ""
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "ActivityType=[name=Echo, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "49c78b3b-2d91-11e5-a3c9-2da8e66babb1",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "116"
+        }
+    }
+]

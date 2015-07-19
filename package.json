@@ -1,0 +1,48 @@
+{
+  "name": "fixin-backend-core",
+  "version": "1.0.0",
+  "description": "Backend core for Fixin platform",
+  "readme": "README.md",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fixin-platform/backend-core.git"
+  },
+  "author": "Denis Gorbachev <denis.d.gorbachev@gmail.com>",
+  "license": "AGPLv3",
+  "bugs": {
+    "url": "https://github.com/fixin-platform/backend-core/issues"
+  },
+  "homepage": "https://github.com/fixin-platform/backend-core",
+  "devDependencies": {
+    "chai": "^3.0.0",
+    "chai-as-promised": "^5.1.0",
+    "chai-things": "^0.2.0",
+    "mocha": "=2.1.0",
+    "nconf": "^0.7.1",
+    "nock": "^2.7.0",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1.39",
+    "bluebird": "^2.9.34",
+    "death": "^1.0.0",
+    "errors": "^0.3.0",
+    "mtr-match": "0.0.4",
+    "path-parse": "^1.0.5",
+    "readable-stream": "^2.0.1",
+    "request": "^2.58.0",
+    "underscore": "^1.8.3",
+    "underscore.deep": "^0.5.1",
+    "validate-obj": "^0.8.4",
+    "winston": "^1.0.1",
+    "winston-loggly": "^1.1.0",
+    "yargs": "^3.15.0"
+  }
+}

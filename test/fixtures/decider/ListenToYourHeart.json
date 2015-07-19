@@ -1,0 +1,205 @@
+[
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "TestDomain",
+            "workflowExecutionRetentionPeriodInDays": "7",
+            "description": "TestDomain description"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
+            "message": "TestDomain"
+        },
+        "headers": {
+            "x-amzn-requestid": "30404e00-2ca3-11e5-881a-75033a1fdda0",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "89"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "name": "ListenToYourHeart",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "ListenToYourHeart"
+            },
+            "defaultExecutionStartToCloseTimeout": "1800000",
+            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskPriority": "0",
+            "defaultChildPolicy": "REQUEST_CANCEL",
+            "description": ""
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "30d75dbc-2ca3-11e5-a477-f1c791f8a1e8",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "129"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "name": "Echo",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "Echo"
+            },
+            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskPriority": "0",
+            "defaultTaskScheduleToStartTimeout": "1800000",
+            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToCloseTimeout": "NONE",
+            "description": ""
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "ActivityType=[name=Echo, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "314254b9-2ca3-11e5-b555-51f284096ec4",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "116"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "workflowId": "ListenToYourHeart-test-workflow",
+            "workflowType": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            },
+            "taskList": {
+                "name": "ListenToYourHeart"
+            }
+        },
+        "status": 200,
+        "response": {
+            "runId": "22h/quidSzfqh8xP0Ru3iBIYBaGYmpVTmRqhN9opVI9nw="
+        },
+        "headers": {
+            "x-amzn-requestid": "31ac8787-2ca3-11e5-a7b3-7d39d76fdfd0",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "58"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "taskList": {
+                "name": "ListenToYourHeart"
+            },
+            "identity": "ListenToYourHeart-test-decider"
+        },
+        "status": 200,
+        "response": {
+            "events": [
+                {
+                    "eventId": 1,
+                    "eventTimestamp": 1437151512.967,
+                    "eventType": "WorkflowExecutionStarted",
+                    "workflowExecutionStartedEventAttributes": {
+                        "childPolicy": "REQUEST_CANCEL",
+                        "executionStartToCloseTimeout": "1800000",
+                        "parentInitiatedEventId": 0,
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0",
+                        "taskStartToCloseTimeout": "600000",
+                        "workflowType": {
+                            "name": "ListenToYourHeart",
+                            "version": "1.0.0"
+                        }
+                    }
+                },
+                {
+                    "decisionTaskScheduledEventAttributes": {
+                        "startToCloseTimeout": "600000",
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0"
+                    },
+                    "eventId": 2,
+                    "eventTimestamp": 1437151512.967,
+                    "eventType": "DecisionTaskScheduled"
+                },
+                {
+                    "decisionTaskStartedEventAttributes": {
+                        "identity": "ListenToYourHeart-test-decider",
+                        "scheduledEventId": 2
+                    },
+                    "eventId": 3,
+                    "eventTimestamp": 1437151514.286,
+                    "eventType": "DecisionTaskStarted"
+                }
+            ],
+            "previousStartedEventId": 0,
+            "startedEventId": 3,
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAsFAsBW2P8iQxohL60QIq+LJ6U+JX28Xhuv7n5danlY5G0k2aXTT2w4go458gpUNbUSF4m09GN12FHiJvdG1nDS4dQaRQqYLRzsoOdlZZPhoGtwYf7SGfwsNjCotiqrS03xSVBnHK7LW91h/Qoa7hN079GR0iWTolcSJqjkFWb6/Bap2B8gTROlWZlzCYduyHuj96eVax9RhQqZFQrAB0hO1NzByFBH0cusN3P5F+ehNRpw6QdEj12iz3cq+esc2mGRF9AUZ8Nb/yc+tOYMyKmcBxmctLI6xs8HmGGKlQN7cW4j7gFtaTmlNaghgYt+bzw==",
+            "workflowExecution": {
+                "runId": "22h/quidSzfqh8xP0Ru3iBIYBaGYmpVTmRqhN9opVI9nw=",
+                "workflowId": "ListenToYourHeart-test-workflow"
+            },
+            "workflowType": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            }
+        },
+        "headers": {
+            "x-amzn-requestid": "322b54c4-2ca3-11e5-bb2a-7300aef22d0a",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "1392"
+        }
+    },
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAsFAsBW2P8iQxohL60QIq+LJ6U+JX28Xhuv7n5danlY5G0k2aXTT2w4go458gpUNbUSF4m09GN12FHiJvdG1nDS4dQaRQqYLRzsoOdlZZPhoGtwYf7SGfwsNjCotiqrS03xSVBnHK7LW91h/Qoa7hN079GR0iWTolcSJqjkFWb6/Bap2B8gTROlWZlzCYduyHuj96eVax9RhQqZFQrAB0hO1NzByFBH0cusN3P5F+ehNRpw6QdEj12iz3cq+esc2mGRF9AUZ8Nb/yc+tOYMyKmcBxmctLI6xs8HmGGKlQN7cW4j7gFtaTmlNaghgYt+bzw==",
+            "decisions": [
+                {
+                    "decisionType": "ScheduleActivityTask",
+                    "scheduleActivityTaskDecisionAttributes": {
+                        "activityType": {
+                            "name": "Echo",
+                            "version": "1.0.0"
+                        },
+                        "activityId": "Echo",
+                        "input": "{\"message\":\"h e l l o\"}"
+                    }
+                }
+            ]
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "32e29716-2ca3-11e5-bcc8-5791b67cf47d",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
+        }
+    }
+]

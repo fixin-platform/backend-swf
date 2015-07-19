@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "TestDomain",
+            "name": "Echo",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "Echo"
+            },
+            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskPriority": "0",
+            "defaultTaskScheduleToStartTimeout": "1800000",
+            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToCloseTimeout": "NONE",
+            "description": ""
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "bad3acde-2c6d-11e5-9a19-5158a6aa3af0",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
+        }
+    }
+]

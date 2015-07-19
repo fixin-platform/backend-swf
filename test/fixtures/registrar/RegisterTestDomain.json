@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "TestDomain",
+            "workflowExecutionRetentionPeriodInDays": "7",
+            "description": "TestDomain description"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
+            "message": "TestDomain"
+        },
+        "headers": {
+            "x-amzn-requestid": "73cf8d2d-2c6c-11e5-bb21-9fa39278f6ca",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "89"
+        }
+    }
+]

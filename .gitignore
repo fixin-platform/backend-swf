@@ -1,0 +1,3 @@
+node_modules
+wallaby.local.js
+test/config.json
