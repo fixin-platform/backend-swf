@@ -1,7 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 Match = require "mtr-match"
-ActivityTask = require "./core/lib/Task/ActivityTask"
+ActivityTask = require "../core/lib/Task/ActivityTask"
 
 class Echo extends ActivityTask
   constructor: (options) ->

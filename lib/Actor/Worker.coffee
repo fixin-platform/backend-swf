@@ -1,7 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-errors = require "../../test/core/helper/errors"
+errors = require "../../core/helper/errors"
 Match = require "mtr-match"
 Actor = require "../Actor"
 

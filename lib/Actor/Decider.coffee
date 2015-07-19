@@ -1,6 +1,6 @@
 _ = require "underscore"
 Promise = require "bluebird"
-errors = require "../../test/core/helper/errors"
+errors = require "../../core/helper/errors"
 Match = require "mtr-match"
 Actor = require "../Actor"
 

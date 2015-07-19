@@ -5,7 +5,7 @@ parse = require "path-parse"
 yargs = require "yargs"
 domain = require "domain"
 Decider = require "../lib/Actor/Decider"
-createLogger = require "../test/core/helper/logger"
+createLogger = require "../core/helper/logger"
 createSWF = require "../helper/swf"
 
 argv = yargs

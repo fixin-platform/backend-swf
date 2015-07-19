@@ -1,5 +1,5 @@
 _ = require "underscore"
-DecisionTask = require "./core/lib/Task/DecisionTask"
+DecisionTask = require "../core/lib/Task/DecisionTask"
 
 class ListenToYourHeart extends DecisionTask
   WorkflowExecutionStarted: (event) ->
