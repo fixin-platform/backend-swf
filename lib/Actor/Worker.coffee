@@ -57,7 +57,7 @@ class Worker extends Actor
         task = new @taskCls _.extend {}, options,
           input: input
           output: output
-        task.execute()
+        task.execute().bind(@)
         .then -> resolve _.extend {chunks: outputChunks}, task.result
         .catch reject
       .bind(@)

@@ -42,12 +42,13 @@ class Decider extends Actor
       .then ->
         @info "Decider:executing", @details({options: options})
         task = new @taskCls(options)
-        task.execute()
-        @info "Decider:completed", @details({decisions: task.decisions, modifier: task.modifier, options: options})
-        promises = []
-        promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions})
-        promises.push @updateCommand(options.workflowExecution.workflowId, task.modifier) unless _.isEmpty task.modifier
-        Promise.all(promises)
+        task.execute().bind(@)
+        .then ->
+          @info "Decider:completed", @details({decisions: task.decisions, modifier: task.modifier, options: options})
+          promises = []
+          promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions})
+          promises.push @updateCommand(options.workflowExecution.workflowId, task.modifier) unless _.isEmpty task.modifier
+          Promise.all(promises)
       .catch (error) ->
         errorInJSON = errors.errorToJSON error
         @info "Decider:failed", @details({error: errorInJSON, options: options})
