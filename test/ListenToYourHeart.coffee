@@ -3,6 +3,7 @@ DecisionTask = require "../core/lib/Task/DecisionTask"
 
 class ListenToYourHeart extends DecisionTask
   WorkflowExecutionStarted: (event) ->
+    input = JSON.parse event.workflowExecutionStartedEventAttributes.input
     @decisions.push
       decisionType: "ScheduleActivityTask"
       scheduleActivityTaskDecisionAttributes:
@@ -10,7 +11,7 @@ class ListenToYourHeart extends DecisionTask
           name: "Echo"
           version: "1.0.0"
         activityId: "Echo"
-        input: event.workflowExecutionStartedEventAttributes.input
+        input: JSON.stringify input["Echo"]
   ActivityTaskCompleted: (event) ->
     index = _.findIndex @decisions, (decision) ->
       decision.decisionType is "ScheduleActivityTask" and decision.scheduleActivityTaskDecisionAttributes.activityId is "Echo"

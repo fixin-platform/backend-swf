@@ -40,32 +40,32 @@ class Worker extends Actor
     .then (options) ->
       return false if not options.taskToken # "Call me later", said Amazon
       new Promise (resolve, reject) =>
-        inputArray = options.input = JSON.parse(options.input)
-        outputArray = []
-        @info "Worker:executing", @details({input: inputArray, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
-        Match.check(inputArray, [Object])
+        options.input = JSON.parse(options.input)
+        @info "Worker:executing", @details({options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
+        inputChunks = options.input.chunks or []
+        outputChunks = []
         input = new stream.Readable({objectMode: true})
         input.on "error", reject
         input._read = ->
-          @push object for object in inputArray
+          @push object for object in inputChunks
           @push null # end stream
         output = new stream.Writable({objectMode: true})
         output.on "error", reject
         output._write = (chunk, encoding, callback) ->
-          outputArray.push chunk
+          outputChunks.push chunk
           callback()
         task = new @taskCls _.extend {}, options,
           input: input
           output: output
         task.execute()
-        .then -> resolve(outputArray)
+        .then -> resolve _.extend {chunks: outputChunks}, task.result
         .catch reject
       .bind(@)
-      .then (outputArray) ->
-        @info "Worker:completed", @details({output: outputArray, options: options})
+      .then (result) ->
+        @info "Worker:completed", @details({result: result, options: options})
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
-          result: JSON.stringify outputArray
+          result: JSON.stringify result
       .catch (error) ->
         errorInJSON = errors.errorToJSON error
         @info "Worker:failed", @details({error: errorInJSON, options: options})

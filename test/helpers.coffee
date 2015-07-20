@@ -25,4 +25,8 @@ module.exports =
       version: "1.0.0"
     taskList:
       name: "ListenToYourHeart"
-    input: JSON.stringify [{message: message}]
+    input: JSON.stringify
+      "Echo":
+        chunks: [
+          message: message
+        ]

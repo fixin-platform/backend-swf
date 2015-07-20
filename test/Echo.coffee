@@ -6,6 +6,7 @@ ActivityTask = require "../core/lib/Task/ActivityTask"
 class Echo extends ActivityTask
   constructor: (options) ->
     _.extend @, options
+    @result = {}
   execute: ->
     Promise.bind(@)
     .then ->
@@ -18,6 +19,7 @@ class Echo extends ActivityTask
               if object.message is "Schmetterling!"
                 throw new Error("Too afraid!")
               else
+                object.message = "#{object.message} (reply)"
                 @output.write(object)
             true
           catch error
