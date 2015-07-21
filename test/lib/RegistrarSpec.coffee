@@ -1,20 +1,24 @@
-helpers = require "../helpers"
 _ = require "underscore"
 Promise = require "bluebird"
+stream = require "readable-stream"
 createLogger = require "../../core/helper/logger"
-createSWF = require "../../helper/swf"
-Registrar = require "../../lib/Actor/Registrar"
+#createKnex = require "../../core/helper/knex"
+#createBookshelf = require "../../core/helper/bookshelf"
+#createMongoDB = require "../../core/helper/mongodb"
+settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+
 definitions = require "../definitions.json"
-config = require "../config.json"
+createSWF = require "../../helper/swf"
+helpers = require "../helpers"
 
-describe "Registrar", ->
-  @timeout(10000) if process.env.NOCK_BACK_MODE is "record"
+Registrar = require "../../lib/Actor/Registrar"
 
-  registrar = null;
+describe "bin/decider", ->
+  registrar = null; decider = null; worker = null;
 
   dependencies =
-    logger: createLogger(config.logger)
-    swf: createSWF(config.swf)
+    logger: createLogger(settings.logger)
+    swf: createSWF(settings.swf)
 
   beforeEach ->
     registrar = new Registrar(definitions, dependencies)

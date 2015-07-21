@@ -42,23 +42,23 @@ class Worker extends Actor
       new Promise (resolve, reject) =>
         options.input = JSON.parse(options.input)
         @info "Worker:executing", @details({options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
-        inputChunks = options.input.chunks or []
-        outputChunks = []
-        input = new stream.Readable({objectMode: true})
-        input.on "error", reject
-        input._read = ->
-          @push object for object in inputChunks
+        inchunks = options.input.chunks or []
+        outchunks = []
+        dependencies =
+          in: new stream.Readable({objectMode: true})
+          out: new stream.Writable({objectMode: true})
+          logger: @logger
+        dependencies.in.on "error", reject
+        dependencies.in._read = ->
+          @push object for object in inchunks
           @push null # end stream
-        output = new stream.Writable({objectMode: true})
-        output.on "error", reject
-        output._write = (chunk, encoding, callback) ->
-          outputChunks.push chunk
+        dependencies.out.on "error", reject
+        dependencies.out._write = (chunk, encoding, callback) ->
+          outchunks.push chunk
           callback()
-        task = new @taskCls _.extend {}, options,
-          input: input
-          output: output
+        task = new @taskCls options, dependencies
         task.execute().bind(@)
-        .then -> resolve _.extend {chunks: outputChunks}, task.result
+        .then -> resolve _.extend {chunks: outchunks}, task.result
         .catch reject
       .bind(@)
       .then (result) ->

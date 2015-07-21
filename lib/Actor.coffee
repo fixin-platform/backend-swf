@@ -15,6 +15,7 @@ class Actor
       isStopped: false
     dependencies.logger.extend @
   details: (details) -> _.extend _.pick(@, @signature()), details
+  signature: -> throw new Error("Implement me!")
   countdown: ->
     return if not @maxLoops
     @maxLoops--

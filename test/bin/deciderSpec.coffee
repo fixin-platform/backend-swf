@@ -1,19 +1,25 @@
 _ = require "underscore"
-helpers = require "../helpers"
 Promise = require "bluebird"
-execFileAsync = Promise.promisify require("child_process").execFile
+stream = require "readable-stream"
 createLogger = require "../../core/helper/logger"
-createSWF = require "../../helper/swf"
-Registrar = require "../../lib/Actor/Registrar"
+#createKnex = require "../../core/helper/knex"
+#createBookshelf = require "../../core/helper/bookshelf"
+#createMongoDB = require "../../core/helper/mongodb"
+settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+
 definitions = require "../definitions.json"
-config = require "../config.json"
+createSWF = require "../../helper/swf"
+helpers = require "../helpers"
+
+Registrar = require "../../lib/Actor/Registrar"
+execFileAsync = Promise.promisify require("child_process").execFile
 
 describe "bin/decider", ->
   registrar = null; decider = null; worker = null;
 
   dependencies =
-    logger: createLogger(config.logger)
-    swf: createSWF(config.swf)
+    logger: createLogger(settings.logger)
+    swf: createSWF(settings.swf)
 
   beforeEach ->
     registrar = new Registrar(definitions, dependencies)
@@ -30,7 +36,7 @@ describe "bin/decider", ->
         .then -> registrar.registerAll()
         .then -> execFileAsync("#{process.env.ROOT_DIR}/bin/decider", [
           "--config"
-          "#{process.env.ROOT_DIR}/test/config.json"
+          "#{process.env.ROOT_DIR}/settings/dev.json"
           "--domain"
           "TestDomain"
           "--identity"

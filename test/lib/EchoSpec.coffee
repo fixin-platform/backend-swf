@@ -1,26 +1,43 @@
-helpers = require "../helpers"
 _ = require "underscore"
+Promise = require "bluebird"
 stream = require "readable-stream"
+createLogger = require "../../core/helper/logger"
+#createKnex = require "../../core/helper/knex"
+#createBookshelf = require "../../core/helper/bookshelf"
+#createMongoDB = require "../../core/helper/mongodb"
+settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
+
+definitions = require "../definitions.json"
+createSWF = require "../../helper/swf"
+helpers = require "../helpers"
+
 Echo = require "../Echo"
 
 describe "Echo", ->
+  logger = null;
   echo = null;
+
+  before ->
+    logger = createLogger settings.logger
 
   beforeEach ->
     echo = new Echo(
-      input: new stream.Readable({objectMode: true})
-      output: new stream.Writable({objectMode: true})
+      {}
+    ,
+      in: new stream.Readable({objectMode: true})
+      out: new stream.Writable({objectMode: true})
+      logger: logger
     )
 
   describe "error handling", ->
 
     it "should stop reading off input if it throws an exception", ->
-      echo.input._read = ->
+      echo.in._read = ->
         @push {message: "Schmetterling!"}
         @push {message: "Not read"}
         @push null
-      echo.output._write = sinon.spy()
+      echo.out._write = sinon.spy()
       echo.execute()
       .catch ((error) -> error.message is "Too afraid!"), ((error) ->)
       .finally ->
-        echo.output._write.should.have.not.been.called
+        echo.out._write.should.have.not.been.called

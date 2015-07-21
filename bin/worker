@@ -6,7 +6,11 @@ yargs = require "yargs"
 domain = require "domain"
 Worker = require "../lib/Actor/Worker"
 createLogger = require "../core/helper/logger"
+#createKnex = require "../core/helper/knex"
+#createBookshelf = require "../core/helper/bookshelf"
+#createMongoDB = require "../core/helper/mongodb"
 createSWF = require "../helper/swf"
+
 
 argv = yargs
   .usage('Usage: $0 [options] activityTaskPath')
