@@ -9,16 +9,16 @@ createLogger = require "../core/helper/logger"
 #createKnex = require "../core/helper/knex"
 #createBookshelf = require "../core/helper/bookshelf"
 #createMongoDB = require "../core/helper/mongodb"
-createSWF = require "../helper/swf"
+createSWF = require "../core/helper/swf"
 
 
 argv = yargs
   .usage('Usage: $0 [options] activityTaskPath')
   .options(
-    "c":
-      alias: "config"
+    "s":
+      alias: "settings"
       type: "string"
-      description: "Config for dependencies (SWF binding, logger, etc)"
+      description: "Settings for dependencies (SWF binding, logger, etc)"
       demand: true
     "i":
       alias: "identity"
@@ -36,10 +36,10 @@ argv = yargs
       description: "Amazon SWF taskList name (guessed from activityTaskPath by default)"
       demand: false
       default: null
-    "m":
-      alias: "max-loops"
+    "u":
+      alias: "timeout"
       type: "number"
-      description: "Execute that many loops and exit (useful for testing)"
+      description: "Override SWF socket timeout (useful for testing) (in milliseconds)"
       demand: false
       default: 0
   )
@@ -47,11 +47,15 @@ argv = yargs
   .strict()
   .argv
 
-config = require path.resolve(process.cwd(), argv.config)
+settings = require path.resolve(process.cwd(), argv.settings)
 
 taskPath = argv._[0]
 taskListName = argv.taskListName or parse(taskPath).name
 taskCls = require path.resolve(process.cwd(), taskPath)
+
+if argv.timeout
+  settings.swf.httpOptions ?= {}
+  settings.swf.httpOptions.timeout = argv.timeout
 
 worker = new Worker
   domain: argv.domain
@@ -59,10 +63,9 @@ worker = new Worker
     name: taskListName
   identity: argv.identity
   taskCls: taskCls
-  maxLoops: argv.maxLoops
 ,
-  logger: createLogger(config.logger)
-  swf: createSWF(config.swf)
+  logger: createLogger(settings.logger)
+  swf: createSWF(settings.swf)
 
 worker.start("vodka") # hope it helps
 

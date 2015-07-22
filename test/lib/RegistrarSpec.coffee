@@ -7,8 +7,10 @@ createLogger = require "../../core/helper/logger"
 #createMongoDB = require "../../core/helper/mongodb"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-definitions = require "../definitions.json"
-createSWF = require "../../helper/swf"
+domains = require "../definitions/domains.json"
+workflowTypes = require "../definitions/workflowTypes.json"
+activityTypes = require "../definitions/activityTypes.json"
+createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
@@ -16,12 +18,13 @@ Registrar = require "../../lib/Actor/Registrar"
 describe "bin/decider", ->
   registrar = null; decider = null; worker = null;
 
-  dependencies =
-    logger: createLogger(settings.logger)
-    swf: createSWF(settings.swf)
-
   beforeEach ->
-    registrar = new Registrar(definitions, dependencies)
+    registrar = new Registrar(
+      {}
+    ,
+      logger: createLogger(settings.logger)
+      swf: createSWF(settings.swf)
+    )
 
   describe "domains", ->
 
@@ -29,7 +32,7 @@ describe "bin/decider", ->
     it "should register `TestDomain` domain", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterTestDomain.json", (recordingDone) ->
-          registrar.registerAllDomains()
+          registrar.registerDomains(domains)
           .then resolve
           .catch reject
           .finally recordingDone
@@ -37,7 +40,7 @@ describe "bin/decider", ->
     it "should register `ListenToYourHeart` workflow type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterListenToYourHeartWorkflowType.json", (recordingDone) ->
-          registrar.registerAllWorkflowTypes()
+          registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
           .then resolve
           .catch reject
           .finally recordingDone
@@ -45,7 +48,7 @@ describe "bin/decider", ->
     it "should register `Echo` activity type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
-          registrar.registerAllActivityTypes()
+          registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
           .then resolve
           .catch reject
           .finally recordingDone
@@ -57,7 +60,7 @@ describe "bin/decider", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterTestDomainWithInvalidCredentials.json", (recordingDone) ->
           catcherInTheRye = sinon.spy()
-          registrar.registerAllDomains()
+          registrar.registerDomains(domains)
           .catch catcherInTheRye
           .finally ->
             catcherInTheRye.should.have.been.calledWithMatch sinon.match (error) ->
@@ -65,17 +68,3 @@ describe "bin/decider", ->
           .then resolve
           .catch reject
           .finally recordingDone
-
-#
-#      client.on "error", (msg) -> testDone(new Error(msg))
-#      client.start()
-#
-#      worker = WorkerFactory.create(addr, "EchoApi", {}, {}, ->)
-#      worker.on "error", (msg) -> testDone(new Error(msg))
-#      worker.start()
-#
-#      client.request("EchoApi", "hello")
-#      .on "error", (msg) ->
-#        msg.should.be.equal("Error: Expected object, got string")
-#        testDone()
-#

@@ -7,8 +7,8 @@ createLogger = require "../../core/helper/logger"
 #createMongoDB = require "../../core/helper/mongodb"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-definitions = require "../definitions.json"
-createSWF = require "../../helper/swf"
+definitions = require "../definitions/domains.json"
+createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Echo = require "../Echo"

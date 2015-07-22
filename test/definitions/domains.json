@@ -1,0 +1,7 @@
+[
+  {
+    "name": "TestDomain",
+    "workflowExecutionRetentionPeriodInDays": "7",
+    "description": "TestDomain description"
+  }
+]

@@ -7,8 +7,10 @@ createLogger = require "../../core/helper/logger"
 #createMongoDB = require "../../core/helper/mongodb"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-definitions = require "../definitions.json"
-createSWF = require "../../helper/swf"
+domains = require "../definitions/domains.json"
+workflowTypes = require "../definitions/workflowTypes.json"
+activityTypes = require "../definitions/activityTypes.json"
+createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
@@ -17,12 +19,13 @@ execFileAsync = Promise.promisify require("child_process").execFile
 describe "bin/decider", ->
   registrar = null; decider = null; worker = null;
 
-  dependencies =
-    logger: createLogger(settings.logger)
-    swf: createSWF(settings.swf)
-
   beforeEach ->
-    registrar = new Registrar(definitions, dependencies)
+    registrar = new Registrar(
+      {}
+    ,
+      logger: createLogger(settings.logger)
+      swf: createSWF(settings.swf)
+    )
 
   afterEach ->
 
@@ -33,22 +36,24 @@ describe "bin/decider", ->
       # bins are launched as separate process, so we can't record and replay their SWF requests
       nock.back "test/fixtures/RegisterAll.json", (recordingDone) ->
         Promise.resolve()
-        .then -> registrar.registerAll()
+        .then -> registrar.registerDomains(domains)
+        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
+        .then -> registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
         .then -> execFileAsync("#{process.env.ROOT_DIR}/bin/decider", [
-          "--config"
+          "--settings"
           "#{process.env.ROOT_DIR}/settings/dev.json"
           "--domain"
           "TestDomain"
           "--identity"
           "ListenToYourHeart-test-decider"
-          "--max-loops"
-          "1"
+          "--timeout"
+          "10"
           "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"
         ])
         .spread (stdout, stderr) ->
           stdout.should.contain("starting")
           stdout.should.contain("polling")
-          stderr.should.be.equal("")
+          stderr.should.contain("TimeoutError") # we've forced that
         .then resolve
         .catch reject
         .finally recordingDone

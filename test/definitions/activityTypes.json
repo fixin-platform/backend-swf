@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Echo",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "Echo"
+    },
+    "defaultTaskHeartbeatTimeout": "30000",
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "1800000",
+    "defaultTaskStartToCloseTimeout": "600000",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "description": ""
+  }
+]

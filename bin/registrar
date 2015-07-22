@@ -4,31 +4,67 @@ path = require "path"
 parse = require "path-parse"
 yargs = require "yargs"
 domain = require "domain"
-Registrar = require "./Actor/Registrar"
-createLogger = require "./logger"
-createSWF = require "./swf"
+Registrar = require "../lib/Actor/Registrar"
+createLogger = require "../core/helper/logger"
+createSWF = require "../core/helper/swf"
 
-argv = yargs
-  .usage('Usage: $0 [options] definitionsPath')
+commandDefaults = (yargs) ->
+  yargs
+  .usage('Usage: $0 [options] [command] definitionsPath')
   .options(
-    "c":
-      alias: "config"
+    "s":
+      alias: "settings"
       type: "string"
-      description: "Config for dependencies (SWF binding, logger, etc)"
+      description: "Dependency settings (SWF binding, logger, etc)"
       demand: true
   )
-  .demand(1)
+  .demand(2)
+  .strict()
+
+argv = yargs
+  .usage('Usage: $0 [options] [command] [command-specific arguments]')
+  .command("domains", "Register domains", commandDefaults)
+  .command("workflowTypes", "Register workflowTypes", (yargs) ->
+    commandDefaults(yargs)
+    .options(
+      "d":
+        alias: "domain"
+        type: "string"
+        description: "Where to register the types"
+        demand: true
+    )
+  )
+  .command("activityTypes", "Register activityTypes", (yargs) ->
+    commandDefaults(yargs)
+    .options(
+      "d":
+        alias: "domain"
+        type: "string"
+        description: "Where to register the types"
+        demand: true
+    )
+  )
+  .demand(1, "Please provide a command")
   .strict()
   .argv
 
-config = require path.resolve(process.cwd(), argv.config)
+command = argv._[0]
+definitions = require path.resolve(process.cwd(), argv._[1])
+settings = require path.resolve(process.cwd(), argv.settings)
+domain = argv.domain
 
-options = require path.resolve(process.cwd(), argv._[0])
+registrar = new Registrar {},
+  logger: createLogger(settings.logger)
+  swf: createSWF(settings.swf)
 
-registrar = new Registrar options,
-  logger: createLogger(config.logger)
-  swf: createSWF(config.swf)
-
-registrar.registerAll()
+switch command
+  when "domains"
+    registrar.registerDomains(definitions)
+  when "workflowTypes"
+    registrar.registerWorkflowTypesForDomain(definitions, domain)
+  when "activityTypes"
+    registrar.registerActivityTypesForDomain(definitions, domain)
+  else
+    throw new Error("Unknown command: \"#{command}\"")
 
 (require "death")(-> process.exit(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen

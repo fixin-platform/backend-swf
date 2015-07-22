@@ -7,8 +7,10 @@ createLogger = require "../../core/helper/logger"
 #createMongoDB = require "../../core/helper/mongodb"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
-definitions = require "../definitions.json"
-createSWF = require "../../helper/swf"
+domains = require "../definitions/domains.json"
+workflowTypes = require "../definitions/workflowTypes.json"
+activityTypes = require "../definitions/activityTypes.json"
+createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
@@ -23,26 +25,33 @@ describe "Boyband: Decider & Worker", ->
 
   registrar = null; decider = null; worker = null;
 
-  dependencies =
-    logger: createLogger(settings.logger)
-    swf: createSWF(settings.swf)
-
   beforeEach ->
-    registrar = new Registrar(definitions, dependencies)
+    registrar = new Registrar(
+      {}
+    ,
+      logger: createLogger(settings.logger)
+      swf: createSWF(settings.swf)
+    )
     decider = new Decider(
       domain: "TestDomain"
       taskList:
         name: "ListenToYourHeart"
       taskCls: ListenToYourHeart
       identity: "ListenToYourHeart-test-decider"
-    , dependencies)
+    ,
+      logger: createLogger(settings.logger)
+      swf: createSWF(settings.swf)
+    )
     worker = new Worker(
       domain: "TestDomain"
       taskList:
         name: "Echo"
       taskCls: Echo
       identity: "Echo-test-worker"
-    , dependencies)
+    ,
+      logger: createLogger(settings.logger)
+      swf: createSWF(settings.swf)
+    )
 
 
 
@@ -55,13 +64,15 @@ describe "Boyband: Decider & Worker", ->
           parent.apply(@, args)
         nock.back "test/fixtures/decider/ListenToYourHeartMultiple.json", (recordingDone) ->
           Promise.resolve()
-          .then -> registrar.registerAll()
-          .then -> helpers.clean(dependencies.swf)
+          .then -> registrar.registerDomains(domains)
+          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
+          .then -> registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
+          .then -> helpers.clean(registrar.swf)
           # Normally, workflow execution should be started by frontend code
-          .then -> dependencies.swf.startWorkflowExecutionAsync(
+          .then -> registrar.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-1", "h e l l o")
           )
-          .then -> dependencies.swf.startWorkflowExecutionAsync(
+          .then -> registrar.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-2", "Schmetterling!")
           )
           .then -> decider.poll() # ScheduleActivityTask 1
@@ -70,7 +81,7 @@ describe "Boyband: Decider & Worker", ->
           .then -> decider.poll() # CompleteWorkflowExecution
           .then -> worker.poll() # Echo 2 Failed
           .then -> decider.poll() # FailWorkflowExecution
-          .then -> dependencies.swf.startWorkflowExecutionAsync(
+          .then -> registrar.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-3", "Knock, knock, Neo")
           )
           .then -> decider.poll() # ScheduleActivityTask 3
