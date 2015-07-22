@@ -10,7 +10,7 @@ createSWF = require "../core/helper/swf"
 
 commandDefaults = (yargs) ->
   yargs
-  .usage('Usage: $0 [options] [command] definitionsPath')
+  .usage('Usage: $0 [options] [command] definitionsPath1 ... definitionsPathN')
   .options(
     "s":
       alias: "settings"
@@ -49,7 +49,9 @@ argv = yargs
   .argv
 
 command = argv._[0]
-definitions = require path.resolve(process.cwd(), argv._[1])
+definitions = []
+for definitionPath in argv._[1..]
+  definitions = definitions.concat(require path.resolve(process.cwd(), definitionPath))
 settings = require path.resolve(process.cwd(), argv.settings)
 domain = argv.domain
 
