@@ -7,6 +7,7 @@ domain = require "domain"
 Decider = require "../lib/Actor/Decider"
 createLogger = require "../core/helper/logger"
 createSWF = require "../core/helper/swf"
+createMongoDB = require "../core/helper/mongodb"
 
 argv = yargs
   .usage('Usage: $0 [options] decisionTaskPath')
@@ -62,6 +63,7 @@ decider = new Decider
 ,
   logger: createLogger(settings.logger)
   swf: createSWF(settings.swf)
+  mongodb: createMongoDB(settings.mongodb)
 
 decider.start()
 

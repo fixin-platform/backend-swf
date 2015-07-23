@@ -17,11 +17,12 @@ module.exports = function(wallaby) {
     //  "!test/mocha.coffee"
     //],
     files: [
+      "!core/test/**/*.coffee",
       "core/**/*.coffee",
       "helper/**/*.coffee",
       "lib/**/*.coffee",
       "test/*.coffee",
-      "test/*.json"
+      "test/**/*.json"
     ],
     tests: [
       "test/**/*Spec.coffee"

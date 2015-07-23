@@ -6,7 +6,7 @@ winston = require "winston"
 
 class Actor
   constructor: (options, dependencies) ->
-    Match.check dependencies,
+    Match.check dependencies, Match.ObjectIncluding
       swf: AWS.SWF
       logger: winston.Logger
     _.extend @, options, dependencies

@@ -13,7 +13,10 @@ class Decider extends Actor
       identity: String
       taskCls: Function # DecisionTask constructor
       maxLoops: Match.Optional(Match.Integer)
+    Match.check dependencies, Match.ObjectIncluding
+      mongodb: Match.Any
     super
+    @Commands = @mongodb.collection("Commands")
   signature: -> ["domain", "taskList", "identity"]
   start: ->
     @info "Decider:starting", @details()
@@ -46,15 +49,19 @@ class Decider extends Actor
         task = new @taskCls(options, dependencies)
         task.execute().bind(@)
         .then ->
-          @info "Decider:completed", @details({decisions: task.decisions, modifier: task.modifier, options: options})
+          @info "Decider:completed", @details({decisions: task.decisions, modifiers: task.modifiers, options: options})
           promises = []
           promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions})
-          promises.push @updateCommand(options.workflowExecution.workflowId, task.modifier) unless _.isEmpty task.modifier
+          promises.push @updateCommand(options.workflowExecution.workflowId, task.modifiers)
           Promise.all(promises)
       .catch (error) ->
         errorInJSON = errors.errorToJSON error
         @info "Decider:failed", @details({error: errorInJSON, options: options})
         throw error # rethrow, because Decider shouldn't ever fail
-  updateCommand: ->
+  updateCommand: (_id, modifiers) ->
+    Promise.all(
+      for modifier in modifiers
+        @Commands.update({_id: id}, modifier)
+    )
 
 module.exports = Decider

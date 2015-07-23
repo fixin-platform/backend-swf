@@ -4,7 +4,7 @@ stream = require "readable-stream"
 createLogger = require "../../core/helper/logger"
 #createKnex = require "../../core/helper/knex"
 #createBookshelf = require "../../core/helper/bookshelf"
-#createMongoDB = require "../../core/helper/mongodb"
+createMongoDB = require "../../core/helper/mongodb"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 domains = require "../definitions/domains.json"
@@ -41,6 +41,7 @@ describe "Boyband: Decider & Worker", ->
     ,
       logger: createLogger(settings.logger)
       swf: createSWF(settings.swf)
+      mongodb: createMongoDB(settings.mongodb)
     )
     worker = new Worker(
       domain: "TestDomain"
