@@ -35,7 +35,6 @@
     "death": "^1.0.0",
     "errors": "^0.3.0",
     "mtr-match": "0.0.4",
-    "object-path": "^0.9.2",
     "path-parse": "^1.0.5",
     "promised-mongo": "^1.2.0",
     "readable-stream": "^2.0.1",
