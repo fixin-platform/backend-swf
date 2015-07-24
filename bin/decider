@@ -17,11 +17,6 @@ argv = yargs
       type: "string"
       description: "Settings for dependencies (SWF binding, logger, etc)"
       demand: true
-    "i":
-      alias: "identity"
-      type: "string"
-      description: "Amazon SWF identity"
-      demand: true
     "d":
       alias: "domain"
       type: "string"
@@ -33,6 +28,17 @@ argv = yargs
       description: "Amazon SWF taskList name (guessed from decisionTaskPath by default)"
       demand: false
       default: null
+    "i":
+      alias: "identity"
+      type: "string"
+      description: "Amazon SWF identity (defaults to \"decider://{{hostname}}/{{task-list-name}}\#{{pid}}\")"
+      demand: false
+    "m":
+      alias: "max-loops"
+      type: "number"
+      description: "Execute that many loops and exit (useful for testing)"
+      demand: false
+      default: 0
     "u":
       alias: "timeout"
       type: "number"
@@ -45,25 +51,30 @@ argv = yargs
   .argv
 
 settings = require path.resolve(process.cwd(), argv.settings)
-
 taskPath = argv._[0]
 taskListName = argv.taskListName or parse(taskPath).name
 taskCls = require path.resolve(process.cwd(), taskPath)
+identity = argv.identity or "decider://#{require("os").hostname()}/#{taskListName}\##{process.pid}"
 
 if argv.timeout
   settings.swf.httpOptions ?= {}
   settings.swf.httpOptions.timeout = argv.timeout
 
+logger = createLogger(settings.logger)
+swf = createSWF(settings.swf)
+mongodb = createMongoDB(settings.mongodb)
+
 decider = new Decider
   domain: argv.domain
   taskList:
     name: taskListName
-  identity: argv.identity
+  identity: identity
   taskCls: taskCls
+  maxLoops: argv.maxLoops
 ,
-  logger: createLogger(settings.logger)
-  swf: createSWF(settings.swf)
-  mongodb: createMongoDB(settings.mongodb)
+  logger: logger
+  swf: swf
+  mongodb: mongodb
 
 decider.start()
 

@@ -6,9 +6,9 @@ yargs = require "yargs"
 domain = require "domain"
 Worker = require "../lib/Actor/Worker"
 createLogger = require "../core/helper/logger"
-#createKnex = require "../core/helper/knex"
-#createBookshelf = require "../core/helper/bookshelf"
-#createMongoDB = require "../core/helper/mongodb"
+createKnex = require "../core/helper/knex"
+createBookshelf = require "../core/helper/bookshelf"
+createMongoDB = require "../core/helper/mongodb"
 createSWF = require "../core/helper/swf"
 
 
@@ -19,11 +19,6 @@ argv = yargs
       alias: "settings"
       type: "string"
       description: "Settings for dependencies (SWF binding, logger, etc)"
-      demand: true
-    "i":
-      alias: "identity"
-      type: "string"
-      description: "Amazon SWF identity"
       demand: true
     "d":
       alias: "domain"
@@ -36,6 +31,17 @@ argv = yargs
       description: "Amazon SWF taskList name (guessed from activityTaskPath by default)"
       demand: false
       default: null
+    "i":
+      alias: "identity"
+      type: "string"
+      description: "Amazon SWF identity (defaults to \"worker://{{hostname}}/{{task-list-name}}\#{{pid}}\")"
+      demand: false
+    "m":
+      alias: "max-loops"
+      type: "number"
+      description: "Execute that many loops and exit (useful for testing)"
+      demand: false
+      default: 0
     "u":
       alias: "timeout"
       type: "number"
@@ -48,24 +54,34 @@ argv = yargs
   .argv
 
 settings = require path.resolve(process.cwd(), argv.settings)
-
 taskPath = argv._[0]
 taskListName = argv.taskListName or parse(taskPath).name
 taskCls = require path.resolve(process.cwd(), taskPath)
+identity = argv.identity or "worker://#{require("os").hostname()}/#{taskListName}\##{process.pid}"
 
 if argv.timeout
   settings.swf.httpOptions ?= {}
   settings.swf.httpOptions.timeout = argv.timeout
 
+logger = createLogger(settings.logger)
+knex = createKnex(settings.knex)
+bookshelf = createBookshelf(knex)
+swf = createSWF(settings.swf)
+mongodb = createMongoDB(settings.mongodb)
+
 worker = new Worker
   domain: argv.domain
   taskList:
     name: taskListName
-  identity: argv.identity
+  identity: identity
   taskCls: taskCls
+  maxLoops: argv.maxLoops
 ,
-  logger: createLogger(settings.logger)
-  swf: createSWF(settings.swf)
+  logger: logger
+  swf: swf
+  bookshelf: bookshelf
+  knex: knex
+  mongodb: mongodb
 
 worker.start("vodka") # hope it helps
 

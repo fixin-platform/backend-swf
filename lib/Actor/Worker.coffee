@@ -48,6 +48,9 @@ class Worker extends Actor
           in: new stream.Readable({objectMode: true})
           out: new stream.Writable({objectMode: true})
           logger: @logger
+          bookshelf: @bookshelf
+          knex: @knex
+          mongodb: @mongodb
         dependencies.in.on "error", reject
         dependencies.in._read = ->
           @push object for object in inchunks
