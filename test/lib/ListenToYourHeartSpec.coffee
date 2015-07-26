@@ -44,10 +44,13 @@ describe "ListenToYourHeart", ->
   before ->
     logger = createLogger settings.logger
 
+
   for history in generator.histories()
     it "should run `#{history.name}` history", ->
       task = new ListenToYourHeart(
-        events: history.events
+        history.events
+      ,
+        {}
       ,
         logger: logger
       )

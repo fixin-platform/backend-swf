@@ -8,15 +8,15 @@ class ListenToYourHeart extends DecisionTask
     @createBarrier "CompleteWorkflowExecution", ["Echo"]
     @decisions.push @ScheduleActivityTask "Echo", @input["Echo"]
 
-  ActivityTaskScheduled: (event, attributes) ->
+  ActivityTaskScheduled: (event, attributes, input) ->
     index = _.findIndex @decisions, (decision) -> decision.decisionType is "ScheduleActivityTask" and decision.scheduleActivityTaskDecisionAttributes.activityId is attributes.activityId
     throw new Error("Can't find ScheduleActivityTask(#{attributes.activityId}) decision") if not ~index
     @decisions.splice(index, 1)
 
-  ActivityTaskCompleted: (event, attributes) ->
+  ActivityTaskCompleted: (event, attributes, result) ->
     activityTaskScheduledEvent = _.findWhere @events, {eventId: attributes.scheduledEventId}
     activityId = activityTaskScheduledEvent.activityTaskScheduledEventAttributes.activityId
-    @results[activityId] = attributes.result
+    @results[activityId] = result
     @removeObstacle activityId
 
   ActivityTaskFailed: (event, attributes) ->
@@ -31,6 +31,6 @@ class ListenToYourHeart extends DecisionTask
     @decisions.push
       decisionType: "CompleteWorkflowExecution"
       completeWorkflowExecutionDecisionAttributes:
-        result: @results["Echo"]
+        result: JSON.stringify @results["Echo"]
 
 module.exports = ListenToYourHeart

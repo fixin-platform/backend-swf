@@ -24,6 +24,8 @@ describe "Echo", ->
     echo = new Echo(
       {}
     ,
+      {}
+    ,
       in: new stream.Readable({objectMode: true})
       out: new stream.Writable({objectMode: true})
       logger: logger

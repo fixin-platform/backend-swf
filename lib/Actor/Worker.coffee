@@ -26,7 +26,8 @@ class Worker extends Actor
       .then @poll
       .catch (error) ->
         @error "Worker:errored", @details(error)
-        throw error # let it crash and restart
+        @knex.destroy()
+        .then -> throw error # let it crash and restart
       .then @countdown
       .then @loop
   poll: ->
@@ -40,9 +41,9 @@ class Worker extends Actor
     .then (options) ->
       return false if not options.taskToken # "Call me later", said Amazon
       new Promise (resolve, reject) =>
-        options.input = JSON.parse(options.input)
-        @info "Worker:executing", @details({options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
-        inchunks = options.input.chunks or []
+        input = JSON.parse(options.input)
+        @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
+        inchunks = input.chunks or []
         outchunks = []
         dependencies =
           in: new stream.Readable({objectMode: true})
@@ -59,7 +60,9 @@ class Worker extends Actor
         dependencies.out._write = (chunk, encoding, callback) ->
           outchunks.push chunk
           callback()
-        task = new @taskCls options, dependencies
+        delete input.chunks
+        delete options.input
+        task = new @taskCls input, options, dependencies
         task.execute().bind(@)
         .then -> resolve _.extend {chunks: outchunks}, task.result
         .catch reject

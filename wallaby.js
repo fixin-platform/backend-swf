@@ -3,19 +3,9 @@ var _ = require("underscore");
 _.mixin(require("underscore.deep"));
 
 module.exports = function(wallaby) {
+  process.env.NODE_PATH += ":" + require('path').join(wallaby.localProjectDir, 'core', 'node_modules');
   var config = _.deepExtend({
     testFramework: "mocha",
-    //files: [
-    //  "lib/**/*.coffee",
-    //  "test/ListenToYourHeart.coffee",
-    //  "test/mocha.coffee",
-    //  "config/definitions.json"
-    //],
-    //tests: [
-    //  "test/**/*.coffee",
-    //  "!test/ListenToYourHeart.coffee",
-    //  "!test/mocha.coffee"
-    //],
     files: [
       "!core/test/**/*.coffee",
       "core/**/*.coffee",

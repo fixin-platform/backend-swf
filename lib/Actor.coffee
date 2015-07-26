@@ -1,14 +1,12 @@
 _ = require "underscore"
 Promise = require "bluebird"
 Match = require "mtr-match"
-AWS = require "aws-sdk"
-winston = require "winston"
 
 class Actor
   constructor: (options, dependencies) ->
     Match.check dependencies, Match.ObjectIncluding
-      swf: AWS.SWF
-      logger: winston.Logger
+      swf: Match.Any
+      logger: Match.Any
     _.extend @, options, dependencies
     _.defaults @,
       maxLoops: 0

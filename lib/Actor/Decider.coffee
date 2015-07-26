@@ -44,9 +44,11 @@ class Decider extends Actor
       Promise.bind(@)
       .then ->
         @info "Decider:executing", @details({options: options})
+        events = options.events
         dependencies =
           logger: @logger
-        task = new @taskCls(options, dependencies)
+        delete options.events
+        task = new @taskCls(events, options, dependencies)
         task.execute().bind(@)
         .then ->
           @info "Decider:completed", @details({decisions: task.decisions, modifiers: task.modifiers, options: options})
