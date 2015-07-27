@@ -5,8 +5,8 @@
     "defaultTaskList": {
       "name": "ListenToYourHeart"
     },
-    "defaultExecutionStartToCloseTimeout": "1800000",
-    "defaultTaskStartToCloseTimeout": "600000",
+    "defaultExecutionStartToCloseTimeout": "1800",
+    "defaultTaskStartToCloseTimeout": "600",
     "defaultTaskPriority": "0",
     "defaultChildPolicy": "REQUEST_CANCEL",
     "description": ""
