@@ -4,16 +4,16 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "Echo"
             },
-            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
-            "defaultTaskScheduleToStartTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToStartTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
             "description": ""
         },

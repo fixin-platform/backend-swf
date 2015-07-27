@@ -1,16 +1,12 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../core/helper/logger"
-#createKnex = require "../../core/helper/knex"
-#createBookshelf = require "../../core/helper/bookshelf"
-createMongoDB = require "../../core/helper/mongodb"
+createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 domains = require "../definitions/domains.json"
 workflowTypes = require "../definitions/workflowTypes.json"
 activityTypes = require "../definitions/activityTypes.json"
-createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
@@ -23,35 +19,33 @@ describe "Boyband: Decider & Worker", ->
   @timeout(30000) if process.env.NOCK_BACK_MODE is "record"
   @slow(500) # relevant for tests using fixtures
 
+  dependencies = createDependencies(settings)
+
   registrar = null; decider = null; worker = null;
 
   beforeEach ->
     registrar = new Registrar(
       {}
     ,
-      logger: createLogger(settings.logger)
-      swf: createSWF(settings.swf)
+      dependencies
     )
     decider = new Decider(
-      domain: "TestDomain"
+      domain: "Dev"
       taskList:
         name: "ListenToYourHeart"
       taskCls: ListenToYourHeart
       identity: "ListenToYourHeart-test-decider"
     ,
-      logger: createLogger(settings.logger)
-      swf: createSWF(settings.swf)
-      mongodb: createMongoDB(settings.mongodb)
+      dependencies
     )
     worker = new Worker(
-      domain: "TestDomain"
+      domain: "Dev"
       taskList:
         name: "Echo"
       taskCls: Echo
       identity: "Echo-test-worker"
     ,
-      logger: createLogger(settings.logger)
-      swf: createSWF(settings.swf)
+      dependencies
     )
 
 
@@ -66,14 +60,14 @@ describe "Boyband: Decider & Worker", ->
         nock.back "test/fixtures/decider/ListenToYourHeartMultiple.json", (recordingDone) ->
           Promise.resolve()
           .then -> registrar.registerDomains(domains)
-          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
-          .then -> registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
-          .then -> helpers.clean(registrar.swf)
+          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
+          .then -> registrar.registerActivityTypesForDomain(activityTypes, "Dev")
+          .then -> helpers.clean(dependencies.swf)
           # Normally, workflow execution should be started by frontend code
-          .then -> registrar.swf.startWorkflowExecutionAsync(
+          .then -> dependencies.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-1", "h e l l o")
           )
-          .then -> registrar.swf.startWorkflowExecutionAsync(
+          .then -> dependencies.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-2", "Schmetterling!")
           )
           .then -> decider.poll() # ScheduleActivityTask 1
@@ -82,7 +76,7 @@ describe "Boyband: Decider & Worker", ->
           .then -> decider.poll() # CompleteWorkflowExecution
           .then -> worker.poll() # Echo 2 Failed
           .then -> decider.poll() # FailWorkflowExecution
-          .then -> registrar.swf.startWorkflowExecutionAsync(
+          .then -> dependencies.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-3", "Knock, knock, Neo")
           )
           .then -> decider.poll() # ScheduleActivityTask 3

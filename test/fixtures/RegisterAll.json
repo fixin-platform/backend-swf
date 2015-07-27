@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "TestDomain",
+            "name": "Dev",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "TestDomain description"
+            "description": "Dev description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "TestDomain"
+            "message": "Dev"
         },
         "headers": {
             "x-amzn-requestid": "48a5530e-2d91-11e5-aa6d-5d7f06b3c504",
@@ -24,14 +24,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "ListenToYourHeart"
             },
-            "defaultExecutionStartToCloseTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultExecutionStartToCloseTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
             "description": ""
@@ -52,16 +52,16 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "Echo"
             },
-            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
-            "defaultTaskScheduleToStartTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToStartTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
             "description": ""
         },

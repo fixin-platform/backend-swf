@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "TestDomain",
+            "name": "Dev",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "TestDomain description"
+            "description": "Dev description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "TestDomain"
+            "message": "Dev"
         },
         "headers": {
             "x-amzn-requestid": "30404e00-2ca3-11e5-881a-75033a1fdda0",
@@ -24,14 +24,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "ListenToYourHeart"
             },
-            "defaultExecutionStartToCloseTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultExecutionStartToCloseTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
             "description": ""
@@ -52,16 +52,16 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "Echo"
             },
-            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
-            "defaultTaskScheduleToStartTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToStartTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
             "description": ""
         },
@@ -81,7 +81,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -106,7 +106,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -121,13 +121,13 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -136,7 +136,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },

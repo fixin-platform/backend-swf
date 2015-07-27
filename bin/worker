@@ -5,12 +5,7 @@ parse = require "path-parse"
 yargs = require "yargs"
 domain = require "domain"
 Worker = require "../lib/Actor/Worker"
-createLogger = require "../core/helper/logger"
-createKnex = require "../core/helper/knex"
-createBookshelf = require "../core/helper/bookshelf"
-createMongoDB = require "../core/helper/mongodb"
-createSWF = require "../core/helper/swf"
-
+createDependencies = require "../core/helper/dependencies"
 
 argv = yargs
   .usage('Usage: $0 [options] activityTaskPath')
@@ -63,11 +58,7 @@ if argv.timeout
   settings.swf.httpOptions ?= {}
   settings.swf.httpOptions.timeout = argv.timeout
 
-logger = createLogger(settings.logger)
-knex = createKnex(settings.knex)
-bookshelf = createBookshelf(knex)
-swf = createSWF(settings.swf)
-mongodb = createMongoDB(settings.mongodb)
+dependencies = createDependencies(settings)
 
 worker = new Worker
   domain: argv.domain
@@ -77,11 +68,7 @@ worker = new Worker
   taskCls: taskCls
   maxLoops: argv.maxLoops
 ,
-  logger: logger
-  swf: swf
-  bookshelf: bookshelf
-  knex: knex
-  mongodb: mongodb
+  dependencies
 
 worker.start("vodka") # hope it helps
 

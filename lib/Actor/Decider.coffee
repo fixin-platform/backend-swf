@@ -6,6 +6,7 @@ Actor = require "../Actor"
 
 class Decider extends Actor
   constructor: (options, dependencies) ->
+    console.log options
     Match.check options,
       domain: String
       taskList:
@@ -13,9 +14,9 @@ class Decider extends Actor
       identity: String
       taskCls: Function # DecisionTask constructor
       maxLoops: Match.Optional(Match.Integer)
-    Match.check dependencies, Match.ObjectIncluding
-      mongodb: Match.Any
     super
+    @mongodb = dependencies.mongodb
+    Match.check @mongodb, Match.Any
     @Commands = @mongodb.collection("Commands")
   signature: -> ["domain", "taskList", "identity"]
   start: ->

@@ -5,9 +5,7 @@ parse = require "path-parse"
 yargs = require "yargs"
 domain = require "domain"
 Decider = require "../lib/Actor/Decider"
-createLogger = require "../core/helper/logger"
-createSWF = require "../core/helper/swf"
-createMongoDB = require "../core/helper/mongodb"
+createDependencies = require "../core/helper/dependencies"
 
 argv = yargs
   .usage('Usage: $0 [options] decisionTaskPath')
@@ -60,9 +58,7 @@ if argv.timeout
   settings.swf.httpOptions ?= {}
   settings.swf.httpOptions.timeout = argv.timeout
 
-logger = createLogger(settings.logger)
-swf = createSWF(settings.swf)
-mongodb = createMongoDB(settings.mongodb)
+dependencies = createDependencies(settings)
 
 decider = new Decider
   domain: argv.domain
@@ -72,9 +68,7 @@ decider = new Decider
   taskCls: taskCls
   maxLoops: argv.maxLoops
 ,
-  logger: logger
-  swf: swf
-  mongodb: mongodb
+  dependencies
 
 decider.start()
 

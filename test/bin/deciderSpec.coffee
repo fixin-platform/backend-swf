@@ -1,30 +1,27 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../core/helper/logger"
-#createKnex = require "../../core/helper/knex"
-#createBookshelf = require "../../core/helper/bookshelf"
-#createMongoDB = require "../../core/helper/mongodb"
+createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 domains = require "../definitions/domains.json"
 workflowTypes = require "../definitions/workflowTypes.json"
 activityTypes = require "../definitions/activityTypes.json"
-createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
-execFileAsync = Promise.promisify require("child_process").execFile
+exec = require "../../core/test-helper/exec"
 
 describe "bin/decider", ->
+  dependencies = createDependencies(settings)
+
   registrar = null; decider = null; worker = null;
 
   beforeEach ->
     registrar = new Registrar(
       {}
     ,
-      logger: createLogger(settings.logger)
-      swf: createSWF(settings.swf)
+      dependencies
     )
 
   afterEach ->
@@ -37,19 +34,13 @@ describe "bin/decider", ->
       nock.back "test/fixtures/RegisterAll.json", (recordingDone) ->
         Promise.resolve()
         .then -> registrar.registerDomains(domains)
-        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
-        .then -> registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
-        .then -> execFileAsync("#{process.env.ROOT_DIR}/bin/decider", [
-          "--settings"
-          "#{process.env.ROOT_DIR}/settings/dev.json"
-          "--domain"
-          "TestDomain"
-          "--identity"
-          "ListenToYourHeart-test-decider"
+        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
+        .then -> registrar.registerActivityTypesForDomain(activityTypes, "Dev")
+        .then -> exec "bin/decider", [
           "--timeout"
           "10"
           "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"
-        ])
+        ]
         .spread (stdout, stderr) ->
           stdout.should.contain("starting")
           stdout.should.contain("polling")

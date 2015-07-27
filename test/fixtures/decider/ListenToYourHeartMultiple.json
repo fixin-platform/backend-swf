@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "TestDomain",
+            "name": "Dev",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "TestDomain description"
+            "description": "Dev description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "TestDomain"
+            "message": "Dev"
         },
         "headers": {
             "x-amzn-requestid": "d69cb57c-2ec4-11e5-9d0d-c35dab091328",
@@ -24,14 +24,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "ListenToYourHeart"
             },
-            "defaultExecutionStartToCloseTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultExecutionStartToCloseTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
             "description": ""
@@ -52,16 +52,16 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
                 "name": "Echo"
             },
-            "defaultTaskHeartbeatTimeout": "30000",
+            "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
-            "defaultTaskScheduleToStartTimeout": "1800000",
-            "defaultTaskStartToCloseTimeout": "600000",
+            "defaultTaskScheduleToStartTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
             "description": ""
         },
@@ -81,7 +81,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "startTimeFilter": {
                 "oldestDate": 0
             },
@@ -132,7 +132,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow-1"
         },
         "status": 200,
@@ -148,7 +148,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow-2"
         },
         "status": 200,
@@ -164,7 +164,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow-1",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -190,7 +190,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow-2",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -216,7 +216,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -231,14 +231,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"h e l l o\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -247,7 +247,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -318,7 +318,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -333,14 +333,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Schmetterling!\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -349,7 +349,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -420,7 +420,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "Echo"
             },
@@ -469,7 +469,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -484,14 +484,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Schmetterling!\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -500,7 +500,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -536,11 +536,11 @@
                             "version": "1.0.0"
                         },
                         "decisionTaskCompletedEventId": 4,
-                        "heartbeatTimeout": "30000",
+                        "heartbeatTimeout": "30",
                         "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}]}",
                         "scheduleToCloseTimeout": "NONE",
-                        "scheduleToStartTimeout": "1800000",
-                        "startToCloseTimeout": "600000",
+                        "scheduleToStartTimeout": "1800",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "Echo"
                         },
@@ -572,7 +572,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -639,7 +639,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "Echo"
             },
@@ -687,7 +687,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -702,14 +702,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"h e l l o\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -718,7 +718,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -754,11 +754,11 @@
                             "version": "1.0.0"
                         },
                         "decisionTaskCompletedEventId": 4,
-                        "heartbeatTimeout": "30000",
+                        "heartbeatTimeout": "30",
                         "input": "{\"chunks\":[{\"message\":\"h e l l o\"}]}",
                         "scheduleToCloseTimeout": "NONE",
-                        "scheduleToStartTimeout": "1800000",
-                        "startToCloseTimeout": "600000",
+                        "scheduleToStartTimeout": "1800",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "Echo"
                         },
@@ -789,7 +789,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -855,7 +855,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "workflowId": "ListenToYourHeart-test-workflow-3",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -881,7 +881,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -896,14 +896,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -912,7 +912,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -983,7 +983,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "Echo"
             },
@@ -1031,7 +1031,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "TestDomain",
+            "domain": "Dev",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -1046,14 +1046,14 @@
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
-                        "executionStartToCloseTimeout": "1800000",
+                        "executionStartToCloseTimeout": "1800",
                         "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]}}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
                         "taskPriority": "0",
-                        "taskStartToCloseTimeout": "600000",
+                        "taskStartToCloseTimeout": "600",
                         "workflowType": {
                             "name": "ListenToYourHeart",
                             "version": "1.0.0"
@@ -1062,7 +1062,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },
@@ -1098,11 +1098,11 @@
                             "version": "1.0.0"
                         },
                         "decisionTaskCompletedEventId": 4,
-                        "heartbeatTimeout": "30000",
+                        "heartbeatTimeout": "30",
                         "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]}",
                         "scheduleToCloseTimeout": "NONE",
-                        "scheduleToStartTimeout": "1800000",
-                        "startToCloseTimeout": "600000",
+                        "scheduleToStartTimeout": "1800",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "Echo"
                         },
@@ -1133,7 +1133,7 @@
                 },
                 {
                     "decisionTaskScheduledEventAttributes": {
-                        "startToCloseTimeout": "600000",
+                        "startToCloseTimeout": "600",
                         "taskList": {
                             "name": "ListenToYourHeart"
                         },

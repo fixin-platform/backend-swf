@@ -4,8 +4,6 @@ Match = require "mtr-match"
 ActivityTask = require "../core/lib/Task/ActivityTask"
 
 class Echo extends ActivityTask
-  constructor: (options) ->
-    super
   execute: ->
     Promise.bind(@)
     .then ->
@@ -30,6 +28,5 @@ class Echo extends ActivityTask
         @in.removeAllListeners()
         throw error
     .then -> @out.end()
-
 
 module.exports = Echo

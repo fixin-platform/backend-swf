@@ -14,6 +14,12 @@ class Worker extends Actor
       identity: String
       taskCls: Function # ActivityTask constructor
       maxLoops: Match.Optional(Match.Integer)
+    @knex = dependencies.knex
+    @bookshelf = dependencies.bookshelf
+    @mongodb = dependencies.mongodb
+    Match.check @knex, Match.Any
+    Match.check @bookshelf, Match.Any
+    Match.check @mongodb, Match.Any
     super
   signature: -> ["domain", "taskList", "identity"]
   start: ->
@@ -45,24 +51,25 @@ class Worker extends Actor
         @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
         inchunks = input.chunks or []
         outchunks = []
-        dependencies =
+        streams =
           in: new stream.Readable({objectMode: true})
           out: new stream.Writable({objectMode: true})
-          logger: @logger
-          bookshelf: @bookshelf
-          knex: @knex
-          mongodb: @mongodb
-        dependencies.in.on "error", reject
-        dependencies.in._read = ->
+        streams.in.on "error", reject
+        streams.in._read = ->
           @push object for object in inchunks
           @push null # end stream
-        dependencies.out.on "error", reject
-        dependencies.out._write = (chunk, encoding, callback) ->
+        streams.out.on "error", reject
+        streams.out._write = (chunk, encoding, callback) ->
           outchunks.push chunk
           callback()
         delete input.chunks
         delete options.input
-        task = new @taskCls input, options, dependencies
+        dependencies =
+          logger: @logger
+          bookshelf: @bookshelf
+          knex: @knex
+          mongodb: @mongodb
+        task = new @taskCls input, options, streams, dependencies
         task.execute().bind(@)
         .then -> resolve _.extend {chunks: outchunks}, task.result
         .catch reject

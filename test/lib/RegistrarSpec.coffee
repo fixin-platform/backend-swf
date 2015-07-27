@@ -1,37 +1,34 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../core/helper/logger"
-#createKnex = require "../../core/helper/knex"
-#createBookshelf = require "../../core/helper/bookshelf"
-#createMongoDB = require "../../core/helper/mongodb"
+createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 domains = require "../definitions/domains.json"
 workflowTypes = require "../definitions/workflowTypes.json"
 activityTypes = require "../definitions/activityTypes.json"
-createSWF = require "../../core/helper/swf"
 helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
 
 describe "bin/decider", ->
-  registrar = null; decider = null; worker = null;
+  dependencies = createDependencies(settings)
+
+  registrar = null
 
   beforeEach ->
     registrar = new Registrar(
       {}
     ,
-      logger: createLogger(settings.logger)
-      swf: createSWF(settings.swf)
+      dependencies
     )
 
   describe "domains", ->
 
     # a domain can't be deleted, so this test won't ever pass again in record mode
-    it "should register `TestDomain` domain", ->
+    it "should register `Dev` domain", ->
       new Promise (resolve, reject) ->
-        nock.back "test/fixtures/registrar/RegisterTestDomain.json", (recordingDone) ->
+        nock.back "test/fixtures/registrar/RegisterDevDomain.json", (recordingDone) ->
           registrar.registerDomains(domains)
           .then resolve
           .catch reject
@@ -40,7 +37,7 @@ describe "bin/decider", ->
     it "should register `ListenToYourHeart` workflow type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterListenToYourHeartWorkflowType.json", (recordingDone) ->
-          registrar.registerWorkflowTypesForDomain(workflowTypes, "TestDomain")
+          registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
           .then resolve
           .catch reject
           .finally recordingDone
@@ -48,7 +45,7 @@ describe "bin/decider", ->
     it "should register `Echo` activity type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
-          registrar.registerActivityTypesForDomain(activityTypes, "TestDomain")
+          registrar.registerActivityTypesForDomain(activityTypes, "Dev")
           .then resolve
           .catch reject
           .finally recordingDone
@@ -58,7 +55,7 @@ describe "bin/decider", ->
     it "should print the error if it happens", ->
       registrar.swf.config.credentials.accessKeyId = "Santa Claus"
       new Promise (resolve, reject) ->
-        nock.back "test/fixtures/registrar/RegisterTestDomainWithInvalidCredentials.json", (recordingDone) ->
+        nock.back "test/fixtures/registrar/RegisterDevDomainWithInvalidCredentials.json", (recordingDone) ->
           catcherInTheRye = sinon.spy()
           registrar.registerDomains(domains)
           .catch catcherInTheRye
