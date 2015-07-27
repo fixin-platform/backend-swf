@@ -6,7 +6,6 @@ Actor = require "../Actor"
 
 class Decider extends Actor
   constructor: (options, dependencies) ->
-    console.log options
     Match.check options,
       domain: String
       taskList:
@@ -22,8 +21,11 @@ class Decider extends Actor
   start: ->
     @info "Decider:starting", @details()
     @loop()
+  stop: ->
+    @info "Decider:stopping", @details()
+    process.exit(0)
   loop: ->
-    return if @isStopped
+    return @stop() if @shouldStop
     process.nextTick =>
       Promise.bind(@)
       .then @poll

@@ -12,13 +12,13 @@ class Actor
     Match.check @logger, Match.Any
     _.defaults @,
       maxLoops: 0
-      isStopped: false
+      shouldStop: false
     @logger.extend @
   details: (details) -> _.extend _.pick(@, @signature()), details
   signature: -> throw new Error("Implement me!")
   countdown: ->
     return if not @maxLoops
     @maxLoops--
-    @isStopped = true if @maxLoops <= 0
+    @shouldStop = true if @maxLoops <= 0
 
 module.exports = Actor

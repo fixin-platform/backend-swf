@@ -25,8 +25,12 @@ class Worker extends Actor
   start: ->
     @info "Worker:starting", @details()
     @loop()
+  stop: ->
+    @info "Worker:stopping", @details()
+    @knex.destroy()
+    process.exit(0)
   loop: ->
-    return if @isStopped
+    return @stop() if @shouldStop
     process.nextTick =>
       Promise.bind(@)
       .then @poll
