@@ -1,7 +1,7 @@
 {
-  "name": "fixin-backend-core",
+  "name": "fixin-backend-swf",
   "version": "1.0.0",
-  "description": "Backend core for Fixin platform",
+  "description": "SWF backend for Fixin platform",
   "readme": "README.md",
   "directories": {
     "test": "test"
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fixin-platform/backend-core.git"
+    "url": "https://github.com/fixin-platform/backend-swf.git"
   },
   "author": "Denis Gorbachev <denis.d.gorbachev@gmail.com>",
   "license": "AGPLv3",
   "bugs": {
-    "url": "https://github.com/fixin-platform/backend-core/issues"
+    "url": "https://github.com/fixin-platform/backend-swf/issues"
   },
-  "homepage": "https://github.com/fixin-platform/backend-core",
+  "homepage": "https://github.com/fixin-platform/backend-swf",
   "devDependencies": {
     "chai": "^3.0.0",
     "chai-as-promised": "^5.1.0",
