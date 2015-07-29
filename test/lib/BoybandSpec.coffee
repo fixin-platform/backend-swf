@@ -19,7 +19,7 @@ describe "Boyband: Decider & Worker", ->
   @timeout(30000) if process.env.NOCK_BACK_MODE is "record"
   @slow(500) # relevant for tests using fixtures
 
-  dependencies = createDependencies(settings)
+  dependencies = createDependencies(settings, "Boyband")
 
   registrar = null; decider = null; worker = null;
 
@@ -48,8 +48,6 @@ describe "Boyband: Decider & Worker", ->
       dependencies
     )
 
-
-
   describe "domains", ->
 
     it "should run through `ListenToYourHeart` workflow multiple times", ->
@@ -57,7 +55,7 @@ describe "Boyband: Decider & Worker", ->
         worker.details = _.wrap worker.details, (parent, args...) ->
           args[0]?.error?.stack = "~ stripped for tests ~"
           parent.apply(@, args)
-        nock.back "test/fixtures/decider/ListenToYourHeartMultiple.json", (recordingDone) ->
+        nock.back "test/fixtures/Boyband.json", (recordingDone) ->
           Promise.resolve()
           .then -> registrar.registerDomains(domains)
           .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")

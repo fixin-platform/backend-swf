@@ -5,8 +5,8 @@ parse = require "path-parse"
 yargs = require "yargs"
 domain = require "domain"
 Registrar = require "../lib/Actor/Registrar"
-createLogger = require "../core/helper/logger"
-createSWF = require "../core/helper/swf"
+loadSettings = require "../core/helper/settings"
+createDependencies = require "../core/helper/dependencies"
 
 commandDefaults = (yargs) ->
   yargs
@@ -52,12 +52,12 @@ command = argv._[0]
 definitions = []
 for definitionPath in argv._[1..]
   definitions = definitions.concat(require path.resolve(process.cwd(), definitionPath))
-settings = require path.resolve(process.cwd(), argv.settings)
+settings = loadSettings path.resolve(process.cwd(), argv.settings)
 domain = argv.domain
 
-registrar = new Registrar {},
-  logger: createLogger(settings.logger)
-  swf: createSWF(settings.swf)
+dependencies = createDependencies(settings, "bin_registrar")
+
+registrar = new Registrar {}, dependencies
 
 switch command
   when "domains"

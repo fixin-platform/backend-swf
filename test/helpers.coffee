@@ -1,5 +1,6 @@
 _ = require "underscore"
 Promise = require "bluebird"
+input = require "../core/test-helper/input"
 
 module.exports =
   clean: (swf) ->
@@ -26,7 +27,8 @@ module.exports =
     taskList:
       name: "ListenToYourHeart"
     input: JSON.stringify
-      "Echo":
+      "Echo": _.defaults
         chunks: [
           message: message
         ]
+        , input

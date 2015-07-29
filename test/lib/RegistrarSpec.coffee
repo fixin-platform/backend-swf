@@ -11,8 +11,8 @@ helpers = require "../helpers"
 
 Registrar = require "../../lib/Actor/Registrar"
 
-describe "bin/decider", ->
-  dependencies = createDependencies(settings)
+describe "Registrar", ->
+  dependencies = createDependencies(settings, "Registrar")
 
   registrar = null
 

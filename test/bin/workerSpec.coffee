@@ -14,7 +14,7 @@ Registrar = require "../../lib/Actor/Registrar"
 exec = require "../../core/test-helper/exec"
 
 describe "bin/worker", ->
-  dependencies = createDependencies(settings)
+  dependencies = createDependencies(settings, "bin_worker")
 
   registrar = null; decider = null; worker = null;
 

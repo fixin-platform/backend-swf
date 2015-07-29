@@ -1,10 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-createLogger = require "../../core/helper/logger"
-#createKnex = require "../../core/helper/knex"
-#createBookshelf = require "../../core/helper/bookshelf"
-#createMongoDB = require "../../core/helper/mongodb"
+createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
 WorkflowExecutionHistoryGenerator = require "../../core/lib/WorkflowExecutionHistoryGenerator"
@@ -13,7 +10,7 @@ helpers = require "../helpers"
 ListenToYourHeart = require "../ListenToYourHeart"
 
 describe "ListenToYourHeart", ->
-  logger = null;
+  dependencies = createDependencies(settings, "ListenToYourHeart")
   generator = null;
   task = null;
 
@@ -41,10 +38,6 @@ describe "ListenToYourHeart", ->
       ]
     ]
 
-  before ->
-    logger = createLogger settings.logger
-
-
   for history in generator.histories()
     it "should run `#{history.name}` history", ->
       task = new ListenToYourHeart(
@@ -52,7 +45,7 @@ describe "ListenToYourHeart", ->
       ,
         {}
       ,
-        logger: logger
+        dependencies
       )
       task.execute()
       .then ->

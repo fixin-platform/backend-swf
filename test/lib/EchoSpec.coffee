@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
+input = require "../../core/test-helper/input"
 createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
@@ -11,13 +12,13 @@ helpers = require "../helpers"
 Echo = require "../Echo"
 
 describe "Echo", ->
-  dependencies = createDependencies(settings)
+  dependencies = createDependencies(settings, "Echo")
 
   task = null;
 
   beforeEach ->
     task = new Echo(
-      {}
+      _.defaults {}, input
     ,
       {}
     ,
