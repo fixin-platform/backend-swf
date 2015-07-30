@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
+input = require "../../core/test-helper/input"
 createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
@@ -20,8 +21,18 @@ describe "Boyband: Decider & Worker", ->
   @slow(500) # relevant for tests using fixtures
 
   dependencies = createDependencies(settings, "Boyband")
+  mongodb = dependencies.mongodb;
+
+  Credentials = mongodb.collection("Credentials")
+  Commands = mongodb.collection("Commands")
+  Issues = mongodb.collection("Issues")
 
   registrar = null; decider = null; worker = null;
+  
+  commandIds =
+    hello: "HB59Fwwvdnbcu2fyi"
+    Schmetterling: "Sp7Eyt6HnmQdfuk79"
+    Neo: "NJ2CsND9f6iRh2HHf"
 
   beforeEach ->
     registrar = new Registrar(
@@ -47,6 +58,30 @@ describe "Boyband: Decider & Worker", ->
     ,
       dependencies
     )
+    Promise.bind(@)
+    .then ->
+    Promise.all [
+      Commands.remove()
+      Issues.remove()
+    ]
+    .then ->
+    Promise.all [
+      Commands.insert
+        _id: commandIds.hello
+        progressBars: [
+          activityId: "Echo", isStarted: false, isFinished: false
+        ]
+      Commands.insert
+        _id: commandIds.Schmetterling
+        progressBars: [
+          activityId: "Echo", isStarted: false, isFinished: false
+        ]
+      Commands.insert
+        _id: commandIds.Neo
+        progressBars: [
+          activityId: "Echo", isStarted: false, isFinished: false
+        ]
+    ]
 
   describe "domains", ->
 
@@ -63,19 +98,37 @@ describe "Boyband: Decider & Worker", ->
           .then -> helpers.clean(dependencies.swf)
           # Normally, workflow execution should be started by frontend code
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-1", "h e l l o")
+            helpers.generateWorkflowExecutionParams(commandIds.hello, "h e l l o")
           )
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-2", "Schmetterling!")
+            helpers.generateWorkflowExecutionParams(commandIds.Schmetterling, "Schmetterling!")
           )
           .then -> decider.poll() # ScheduleActivityTask 1
           .then -> decider.poll() # ScheduleActivityTask 2
-          .then -> worker.poll() # Echo 1 Completed
-          .then -> decider.poll() # CompleteWorkflowExecution
-          .then -> worker.poll() # Echo 2 Failed
-          .then -> decider.poll() # FailWorkflowExecution
+          .then ->
+            Commands.findOne(commandIds.hello).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isFinished: false
+          .then ->
+            Commands.findOne(commandIds.Schmetterling).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isFinished: false
+          .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
+          .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
+          .then ->
+            Commands.findOne(commandIds.hello).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isFinished: false
+          .then ->
+            Commands.findOne(commandIds.Schmetterling).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isFinished: false # no current, because the Worker has failed
+          .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
+          .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
+          .then ->
+            Commands.findOne(commandIds.hello).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isFinished: true
+          .then ->
+            Commands.findOne(commandIds.Schmetterling).then (command) ->
+              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isFinished: true
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams("ListenToYourHeart-test-workflow-3", "Knock, knock, Neo")
+            helpers.generateWorkflowExecutionParams(commandIds.Neo, "Knock, knock, Neo")
           )
           .then -> decider.poll() # ScheduleActivityTask 3
           .then -> worker.poll() # Echo 3 Completed

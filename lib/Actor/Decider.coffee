@@ -54,19 +54,19 @@ class Decider extends Actor
         task = new @taskCls(events, options, dependencies)
         task.execute().bind(@)
         .then ->
-          @info "Decider:completed", @details({decisions: task.decisions, modifiers: task.modifiers, options: options})
+          @info "Decider:completed", @details({decisions: task.decisions, updates: task.updates, options: options})
           promises = []
-          promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions})
-          promises.push @updateCommand(options.workflowExecution.workflowId, task.modifiers)
+          promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions, executionContext: task.executionContext})
+          promises.push @executeCommandUpdates(task.updates)
           Promise.all(promises)
       .catch (error) ->
         errorInJSON = errors.errorToJSON error
         @info "Decider:failed", @details({error: errorInJSON, options: options})
         throw error # rethrow, because Decider shouldn't ever fail
-  updateCommand: (_id, modifiers) ->
+  executeCommandUpdates: (updates) ->
     Promise.all(
-      for modifier in modifiers
-        @Commands.update({_id: id}, modifier)
+      for update in updates
+        @Commands.update.apply(@Commands, update)
     )
 
 module.exports = Decider

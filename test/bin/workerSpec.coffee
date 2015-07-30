@@ -42,9 +42,7 @@ describe "bin/worker", ->
           "10"
           "#{process.env.ROOT_DIR}/test/Echo.coffee"
         ]
-        .spread (stdout, stderr) ->
-          stdout.should.contain("starting")
-          stdout.should.contain("polling")
+        .spread (stdout, stderr, code) ->
           stderr.should.contain("TimeoutError") # we've forced that
         .then resolve
         .catch reject

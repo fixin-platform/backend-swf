@@ -6,6 +6,7 @@ ActivityTask = require "../core/lib/Task/ActivityTask"
 class Echo extends ActivityTask
   execute: ->
     Promise.bind(@)
+    .then -> @progressBarSetTotal(0)
     .then ->
       new Promise (resolve, reject) =>
         @in.on "readable", =>
@@ -18,6 +19,7 @@ class Echo extends ActivityTask
               else
                 object.message = "#{object.message} (reply)"
                 @out.write(object)
+                @progressBarIncCurrent(1)
             true
           catch error
             reject(error)

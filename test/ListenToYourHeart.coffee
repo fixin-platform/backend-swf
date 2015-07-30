@@ -1,4 +1,5 @@
 _ = require "underscore"
+stamp = require "../core/helper/stamp"
 DecisionTask = require "../core/lib/Task/DecisionTask"
 
 class ListenToYourHeart extends DecisionTask
@@ -6,31 +7,9 @@ class ListenToYourHeart extends DecisionTask
     @input = input
     @results = {}
     @createBarrier "CompleteWorkflowExecution", ["Echo"]
-    @decisions.push @ScheduleActivityTask "Echo", @input["Echo"]
-
-  ActivityTaskScheduled: (event, attributes, input) ->
-    index = _.findIndex @decisions, (decision) -> decision.decisionType is "ScheduleActivityTask" and decision.scheduleActivityTaskDecisionAttributes.activityId is attributes.activityId
-    throw new Error("Can't find ScheduleActivityTask(#{attributes.activityId}) decision") if not ~index
-    @decisions.splice(index, 1)
-
-  ActivityTaskCompleted: (event, attributes, result) ->
-    activityTaskScheduledEvent = _.findWhere @events, {eventId: attributes.scheduledEventId}
-    activityId = activityTaskScheduledEvent.activityTaskScheduledEventAttributes.activityId
-    @results[activityId] = result
-    @removeObstacle activityId
-
-  ActivityTaskFailed: (event, attributes) ->
-    @removeObstacle attributes.activityId
-    @decisions.push
-      decisionType: "FailWorkflowExecution"
-      failWorkflowExecutionDecisionAttributes:
-        reason: attributes.reason
-        details: attributes.details
+    @addDecision @ScheduleActivityTask "Echo", stamp(@input["Echo"], @input)
 
   CompleteWorkflowExecutionBarrierPassed: ->
-    @decisions.push
-      decisionType: "CompleteWorkflowExecution"
-      completeWorkflowExecutionDecisionAttributes:
-        result: JSON.stringify @results["Echo"]
+    @addDecision @CompleteWorkflowExecution(@results["Echo"])
 
 module.exports = ListenToYourHeart

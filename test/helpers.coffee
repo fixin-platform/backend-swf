@@ -18,17 +18,18 @@ module.exports =
             domain: "Dev"
             workflowId: executionInfo.execution.workflowId
       )
-  generateWorkflowExecutionParams: (workflowId, message) ->
+  generateWorkflowExecutionParams: (commandId, message) ->
     domain: "Dev"
-    workflowId: workflowId
+    workflowId: commandId
     workflowType:
       name: "ListenToYourHeart"
       version: "1.0.0"
     taskList:
       name: "ListenToYourHeart"
-    input: JSON.stringify
-      "Echo": _.defaults
+    input: JSON.stringify _.defaults
+      commandId: commandId
+      Echo:
         chunks: [
           message: message
         ]
-        , input
+    , input

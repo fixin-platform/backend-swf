@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
+input = require "../../core/test-helper/input"
 createDependencies = require "../../core/helper/dependencies"
 settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/dev.json")
 
@@ -18,35 +19,45 @@ describe "ListenToYourHeart", ->
   generator.seed ->
     [
       events: [
-        @WorkflowExecutionStarted
-          chunks: [
-            message: "h e l l o"
-          ]
+        @WorkflowExecutionStarted _.defaults
+          Echo:
+            chunks: [
+              message: "h e l l o"
+            ]
+        , input
       ]
       decisions: [
-        @ScheduleActivityTask "Echo",
+        @ScheduleActivityTask "Echo", _.defaults
           chunks: [
             message: "h e l l o"
           ]
+        , input
+      ]
+      updates: [
+        @progressBarStartUpdate input.commandId, "Echo"
       ]
       branches: [
         events: [@ActivityTaskCompleted "Echo"]
         decisions: [@CompleteWorkflowExecution()]
+        updates: [@progressBarFinishUpdate input.commandId, "Echo"]
       ,
         events: [@ActivityTaskFailed "Echo"]
         decisions: [@FailWorkflowExecution()]
+        updates: [@progressBarFinishUpdate input.commandId, "Echo"]
       ]
     ]
 
   for history in generator.histories()
-    it "should run `#{history.name}` history", ->
-      task = new ListenToYourHeart(
-        history.events
-      ,
-        {}
-      ,
-        dependencies
-      )
-      task.execute()
-      .then ->
-        task.decisions.should.be.deep.equal(history.decisions)
+    do (history) ->
+      it "should run `#{history.name}` history", ->
+        task = new ListenToYourHeart(
+          history.events
+        ,
+          {}
+        ,
+          dependencies
+        )
+        task.execute()
+        .then ->
+          task.decisions.should.be.deep.equal(history.decisions)
+          task.updates.should.be.deep.equal(history.updates)
