@@ -40,7 +40,7 @@ describe "bin/decider", ->
           timeout: 10
         , "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"
         .spread (stdout, stderr, code) ->
-          stderr.should.contain("TimeoutError") # we've forced that
+          stderr.should.contain("NetworkingError") # we've forced that
         .then resolve
         .catch reject
         .finally recordingDone

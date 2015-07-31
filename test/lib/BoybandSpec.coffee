@@ -113,6 +113,7 @@ describe "Boyband: Decider & Worker", ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isFinished: false
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
+          .catch ((error) -> error.message is "Too afraid!"), ((error) ->) # catch it
           .then ->
             Commands.findOne(commandIds.hello).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isFinished: false
