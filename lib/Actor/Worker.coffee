@@ -36,8 +36,7 @@ class Worker extends Actor
       .then @poll
       .catch (error) ->
         @error "Worker:errored", @details(error)
-        @knex.destroy()
-        .then -> throw error # let it crash and restart
+        @stop() # the process manager will restart it
       .then @countdown
       .then @loop
   poll: ->
@@ -83,13 +82,13 @@ class Worker extends Actor
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
           result: JSON.stringify result
-      .catch (error) ->
-        errorInJSON = errors.errorToJSON error
-        @info "Worker:failed", @details({error: errorInJSON, options: options})
-        @swf.respondActivityTaskFailedAsync
-          taskToken: options.taskToken
-          reason: error.name
-          details: JSON.stringify errorInJSON
-        # don't rethrow the error, because Worker can fail
+#      .catch (error) ->
+#        errorInJSON = errors.errorToJSON error
+#        @info "Worker:failed", @details({error: errorInJSON, options: options})
+#        @swf.respondActivityTaskFailedAsync
+#          taskToken: options.taskToken
+#          reason: error.name
+#          details: JSON.stringify errorInJSON
+#        # don't rethrow the error, because Worker can fail
 
 module.exports = Worker

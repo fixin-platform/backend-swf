@@ -31,7 +31,7 @@ class Decider extends Actor
       .then @poll
       .catch (error) ->
         @error "Decider:errored", @details(error)
-        throw error # let it crash and restart
+        @stop() # the process manager will restart it
       .then @countdown
       .then @loop
   poll: ->
@@ -59,10 +59,10 @@ class Decider extends Actor
           promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions, executionContext: task.executionContext})
           promises.push @executeCommandUpdates(task.updates)
           Promise.all(promises)
-      .catch (error) ->
-        errorInJSON = errors.errorToJSON error
-        @info "Decider:failed", @details({error: errorInJSON, options: options})
-        throw error # rethrow, because Decider shouldn't ever fail
+#      .catch (error) ->
+#        errorInJSON = errors.errorToJSON error
+#        @info "Decider:failed", @details({error: errorInJSON, options: options})
+#        throw error # rethrow, because Decider shouldn't ever fail
   executeCommandUpdates: (updates) ->
     Promise.all(
       for update in updates
