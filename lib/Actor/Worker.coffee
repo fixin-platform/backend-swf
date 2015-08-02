@@ -25,18 +25,19 @@ class Worker extends Actor
   start: ->
     @info "Worker:starting", @details()
     @loop()
-  stop: ->
+  stop: (code) ->
+#    console.trace("Worker:stopping trace")
     @info "Worker:stopping", @details()
     @knex.destroy()
-    process.exit(0)
+    .then -> process.exit(code)
   loop: ->
-    return @stop() if @shouldStop
+    return @stop(0) if @shouldStop
     process.nextTick =>
       Promise.bind(@)
       .then @poll
       .catch (error) ->
         @error "Worker:errored", @details(error)
-        @stop() # the process manager will restart it
+        @stop(1) # the process manager will restart it
       .then @countdown
       .then @loop
   poll: ->
@@ -82,13 +83,13 @@ class Worker extends Actor
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
           result: JSON.stringify result
-#      .catch (error) ->
-#        errorInJSON = errors.errorToJSON error
-#        @info "Worker:failed", @details({error: errorInJSON, options: options})
-#        @swf.respondActivityTaskFailedAsync
-#          taskToken: options.taskToken
-#          reason: error.name
-#          details: JSON.stringify errorInJSON
-#        # don't rethrow the error, because Worker can fail
+      .catch (error) ->
+        details = error.toJSON?() or errors.errorToJSON(error)
+        @info "Worker:failed", @details({details: details, options: options})
+        @swf.respondActivityTaskFailedAsync
+          taskToken: options.taskToken
+          reason: error.message or error.name
+          details: JSON.stringify details
+        throw error # let it crash
 
 module.exports = Worker

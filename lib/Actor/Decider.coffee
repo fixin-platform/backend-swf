@@ -21,17 +21,17 @@ class Decider extends Actor
   start: ->
     @info "Decider:starting", @details()
     @loop()
-  stop: ->
+  stop: (code) ->
     @info "Decider:stopping", @details()
-    process.exit(0)
+    process.exit(code)
   loop: ->
-    return @stop() if @shouldStop
+    return @stop(0) if @shouldStop
     process.nextTick =>
       Promise.bind(@)
       .then @poll
       .catch (error) ->
         @error "Decider:errored", @details(error)
-        @stop() # the process manager will restart it
+        @stop(1) # the process manager will restart it
       .then @countdown
       .then @loop
   poll: ->
