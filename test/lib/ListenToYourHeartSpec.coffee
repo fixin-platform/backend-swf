@@ -37,6 +37,10 @@ describe "ListenToYourHeart", ->
         @progressBarStartUpdate input.commandId, "Echo"
       ]
       branches: [
+        events: [@WorkflowExecutionCancelRequested()]
+        decisions: [@CancelWorkflowExecution()]
+        updates: []
+      ,
         events: [@ActivityTaskCompleted "Echo"]
         decisions: [@CompleteWorkflowExecution()]
         updates: [@progressBarFinishUpdate input.commandId, "Echo"]
