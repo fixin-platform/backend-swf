@@ -4,8 +4,6 @@ DecisionTask = require "../core/lib/Task/DecisionTask"
 
 class ListenToYourHeart extends DecisionTask
   WorkflowExecutionStarted: (event, attributes, input) ->
-    @input = input
-    @results = {}
     @createBarrier "CompleteWorkflowExecution", ["Echo"]
     @addDecision @ScheduleActivityTask "Echo", stamp(@input["Echo"], @input)
 

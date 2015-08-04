@@ -17,6 +17,7 @@ class Decider extends Actor
     @mongodb = dependencies.mongodb
     Match.check @mongodb, Match.Any
     @Commands = @mongodb.collection("Commands")
+    @Issues = @mongodb.collection("Issues")
   signature: -> ["domain", "taskList", "identity"]
   start: ->
     @info "Decider:starting", @details()
@@ -30,7 +31,7 @@ class Decider extends Actor
       Promise.bind(@)
       .then @poll
       .catch (error) ->
-        @error "Decider:errored", @details(error)
+        @error "Decider:failed", @details(error)
         @stop(1) # the process manager will restart it
       .then @countdown
       .then @loop
@@ -44,6 +45,7 @@ class Decider extends Actor
         identity: @identity
     .then (options) ->
       return if not options.taskToken # "Call me later", said Amazon
+      task = null # for use in .catch
       Promise.bind(@)
       .then ->
         @info "Decider:executing", @details({options: options})
@@ -59,10 +61,24 @@ class Decider extends Actor
           promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions, executionContext: task.executionContext})
           promises.push @executeCommandUpdates(task.updates)
           Promise.all(promises)
-#      .catch (error) ->
-#        errorInJSON = errors.errorToJSON error
-#        @info "Decider:failed", @details({error: errorInJSON, options: options})
-#        throw error # rethrow, because Decider shouldn't ever fail
+      .catch (error) ->
+        details = error.toJSON?() or errors.errorToJSON(error)
+        reason = error.message or error.name
+        taskToken = options.taskToken
+        now = new Date()
+        Promise.all [
+          @Issues.insert(
+            reason: reason
+            details: details
+            taskToken: taskToken
+            commandId: task.input.commandId
+            stepId: task.input.stepId
+            userId: task.input.userId
+            updatedAt: now
+            createdAt: now
+          )
+        ]
+        .then -> throw error # let it crash
   executeCommandUpdates: (updates) ->
     Promise.all(
       for update in updates

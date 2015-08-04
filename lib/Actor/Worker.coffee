@@ -20,6 +20,7 @@ class Worker extends Actor
     Match.check @knex, Match.Any
     Match.check @bookshelf, Match.Any
     Match.check @mongodb, Match.Any
+    @Issues = @mongodb.collection("Issues")
     super
   signature: -> ["domain", "taskList", "identity"]
   start: ->
@@ -36,7 +37,7 @@ class Worker extends Actor
       Promise.bind(@)
       .then @poll
       .catch (error) ->
-        @error "Worker:errored", @details(error)
+        @error "Worker:failed", @details(error)
         @stop(1) # the process manager will restart it
       .then @countdown
       .then @loop
@@ -50,33 +51,37 @@ class Worker extends Actor
         identity: @identity
     .then (options) ->
       return false if not options.taskToken # "Call me later", said Amazon
+      input = null # make it available in .catch, but parse inside new Promise
       new Promise (resolve, reject) =>
-        input = JSON.parse(options.input)
-        @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
-        inchunks = input.chunks or []
-        outchunks = []
-        streams =
-          in: new stream.Readable({objectMode: true})
-          out: new stream.Writable({objectMode: true})
-        streams.in.on "error", reject
-        streams.in._read = ->
-          @push object for object in inchunks
-          @push null # end stream
-        streams.out.on "error", reject
-        streams.out._write = (chunk, encoding, callback) ->
-          outchunks.push chunk
-          callback()
-        delete input.chunks
-        delete options.input
-        dependencies =
-          logger: @logger
-          bookshelf: @bookshelf
-          knex: @knex
-          mongodb: @mongodb
-        task = new @taskCls input, options, streams, dependencies
-        task.execute().bind(@)
-        .then -> resolve _.extend {chunks: outchunks}, task.result
-        .catch reject
+        try
+          input = JSON.parse(options.input)
+          @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
+          inchunks = input.chunks or []
+          outchunks = []
+          streams =
+            in: new stream.Readable({objectMode: true})
+            out: new stream.Writable({objectMode: true})
+          streams.in.on "error", reject
+          streams.in._read = ->
+            @push object for object in inchunks
+            @push null # end stream
+          streams.out.on "error", reject
+          streams.out._write = (chunk, encoding, callback) ->
+            outchunks.push chunk
+            callback()
+          delete input.chunks
+          delete options.input
+          dependencies =
+            logger: @logger
+            bookshelf: @bookshelf
+            knex: @knex
+            mongodb: @mongodb
+          task = new @taskCls input, options, streams, dependencies
+          task.execute().bind(@)
+          .then -> resolve _.extend {chunks: outchunks}, task.result
+          .catch reject
+        catch error
+          reject(error)
       .bind(@)
       .then (result) ->
         @info "Worker:completed", @details({result: result, options: options})
@@ -85,11 +90,26 @@ class Worker extends Actor
           result: JSON.stringify result
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
-        @info "Worker:failed", @details({details: details, options: options})
-        @swf.respondActivityTaskFailedAsync
-          taskToken: options.taskToken
-          reason: error.message or error.name
-          details: JSON.stringify details
-        throw error # let it crash
+        reason = error.message or error.name
+        taskToken = options.taskToken
+        now = new Date()
+        Promise.all [
+          @swf.respondActivityTaskFailedAsync
+            reason: reason
+            details: JSON.stringify details
+            taskToken: taskToken
+        ,
+          @Issues.insert(
+            reason: reason
+            details: details
+            taskToken: taskToken
+            commandId: input.commandId
+            stepId: input.stepId
+            userId: input.userId
+            updatedAt: now
+            createdAt: now
+          )
+        ]
+        .then -> throw error # let it crash
 
 module.exports = Worker

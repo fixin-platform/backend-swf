@@ -1,6 +1,5 @@
 _ = require "underscore"
 Promise = require "bluebird"
-input = require "../core/test-helper/input"
 
 module.exports =
   clean: (swf) ->
@@ -18,16 +17,15 @@ module.exports =
             domain: "Dev"
             workflowId: executionInfo.execution.workflowId
       )
-  generateWorkflowExecutionParams: (commandId, message) ->
+  generateWorkflowExecutionParams: (input, message) ->
     domain: "Dev"
-    workflowId: commandId
+    workflowId: input.commandId
     workflowType:
       name: "ListenToYourHeart"
       version: "1.0.0"
     taskList:
       name: "ListenToYourHeart"
     input: JSON.stringify _.defaults
-      commandId: commandId
       Echo:
         chunks: [
           message: message

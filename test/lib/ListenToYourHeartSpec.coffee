@@ -57,7 +57,7 @@ describe "ListenToYourHeart", ->
         task = new ListenToYourHeart(
           history.events
         ,
-          {}
+          activityId: "ListenToYourHeart"
         ,
           dependencies
         )

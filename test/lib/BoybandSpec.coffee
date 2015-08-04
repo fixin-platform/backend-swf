@@ -29,10 +29,23 @@ describe "Boyband: Decider & Worker", ->
 
   registrar = null; decider = null; worker = null;
   
-  commandIds =
-    hello: "HB59Fwwvdnbcu2fyi"
-    Schmetterling: "Sp7Eyt6HnmQdfuk79"
-    Neo: "NJ2CsND9f6iRh2HHf"
+  inputs =
+    hello: _.defaults
+      commandId: "HC59Fwwvdnbcu2fyi"
+      stepId: "aGLB8nRHd6WMYjAeB"
+    , input
+    Schmetterling: _.defaults
+      commandId: "SC7Eyt6HnmQdfuk79"
+      stepId: "SSqRtZSdND2WoDkwM"
+    , input
+    Neo: _.defaults
+      commandId: "NC2CsND9f6iRh2HHf"
+      stepId: "NSEZvsapGgGiE5Qw4"
+    , input
+    Bork: _.defaults
+      commandId: "BCCan2oRhKtCL8jQa"
+      stepId: "BSrLMhAvAzyXrsvxe"
+    , input
 
   beforeEach ->
     registrar = new Registrar(
@@ -67,17 +80,17 @@ describe "Boyband: Decider & Worker", ->
     .then ->
     Promise.all [
       Commands.insert
-        _id: commandIds.hello
+        _id: inputs.hello.commandId
         progressBars: [
           activityId: "Echo", isStarted: false, isFinished: false
         ]
       Commands.insert
-        _id: commandIds.Schmetterling
+        _id: inputs.Schmetterling.commandId
         progressBars: [
           activityId: "Echo", isStarted: false, isFinished: false
         ]
       Commands.insert
-        _id: commandIds.Neo
+        _id: inputs.Neo.commandId
         progressBars: [
           activityId: "Echo", isStarted: false, isFinished: false
         ]
@@ -98,46 +111,68 @@ describe "Boyband: Decider & Worker", ->
           .then -> helpers.clean(dependencies.swf)
           # Normally, workflow execution should be started by frontend code
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams(commandIds.hello, "h e l l o")
+            helpers.generateWorkflowExecutionParams(inputs.hello, "h e l l o")
           )
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams(commandIds.Schmetterling, "Schmetterling!")
+            helpers.generateWorkflowExecutionParams(inputs.Schmetterling, "Schmetterling!")
           )
           .then -> decider.poll() # ScheduleActivityTask 1
           .then -> decider.poll() # ScheduleActivityTask 2
           .then ->
-            Commands.findOne(commandIds.hello).then (command) ->
+            Commands.findOne(inputs.hello.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isFinished: false
           .then ->
-            Commands.findOne(commandIds.Schmetterling).then (command) ->
+            Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isFinished: false
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
           .catch ((error) -> error.message is "Too afraid!"), ((error) ->) # catch it
           .then ->
-            Commands.findOne(commandIds.hello).then (command) ->
+            Issues.find()
+            .then (issues) ->
+              issues.length.should.be.equal(1)
+              issues[0].reason.should.be.equal("Too afraid!")
+              issues[0].commandId.should.be.equal(inputs.Schmetterling.commandId)
+              issues[0].stepId.should.be.equal(inputs.Schmetterling.stepId)
+              issues[0].userId.should.be.equal(inputs.Schmetterling.userId)
+          .then ->
+            Commands.findOne(inputs.hello.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isFinished: false
           .then ->
-            Commands.findOne(commandIds.Schmetterling).then (command) ->
+            Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isFinished: false # no current, because the Worker has failed
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then ->
-            Commands.findOne(commandIds.hello).then (command) ->
+            Commands.findOne(inputs.hello.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isFinished: true
           .then ->
-            Commands.findOne(commandIds.Schmetterling).then (command) ->
+            Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
               command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isFinished: true
           .then -> dependencies.swf.startWorkflowExecutionAsync(
-            helpers.generateWorkflowExecutionParams(commandIds.Neo, "Knock, knock, Neo")
+            helpers.generateWorkflowExecutionParams(inputs.Neo, "Knock, knock, Neo")
           )
           .then -> decider.poll() # ScheduleActivityTask 3
           .then -> worker.poll() # Echo 3 Completed
           .then -> decider.poll() # CompleteWorkflowExecution
+          .then -> dependencies.swf.startWorkflowExecutionAsync(
+            helpers.generateWorkflowExecutionParams(inputs.Bork, "Bork!")
+          )
+          .then -> sinon.stub(ListenToYourHeart::, "WorkflowExecutionStarted").throws(new Error("Bork!"))
+          .then -> decider.poll() # Exception
+          .catch ((error) -> error.message is "Bork!"), ((error) ->) # catch it
+          .then ->
+            Issues.find()
+            .then (issues) ->
+              issues.length.should.be.equal(2)
+              issues[1].reason.should.be.equal("Bork!")
+              issues[1].commandId.should.be.equal(inputs.Bork.commandId)
+              issues[1].stepId.should.be.equal(inputs.Bork.stepId)
+              issues[1].userId.should.be.equal(inputs.Bork.userId)
+          .then -> ListenToYourHeart::WorkflowExecutionStarted.restore()
           .then resolve
           .catch reject
           .finally recordingDone
-
 
   describe "error handling", ->
 
