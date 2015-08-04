@@ -73,4 +73,4 @@ decider = new Decider
 
 decider.start()
 
-(require "death")(-> decider.stop()) # In nomine SIGINT, SIGTERM, SIGQUIT, amen
+(require "death")(-> decider.stop(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen

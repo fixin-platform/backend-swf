@@ -25,8 +25,10 @@ class Decider extends Actor
   stop: (code) ->
     @info "Decider:stopping", @details()
     if @request.isComplete
+#      @info "request.isComplete: true", @details()
       @halt(code)
     else
+#      @info "request.isComplete: false", @details()
       @request.on "complete", @halt.bind(@, code)
       @request.abort()
   halt: (code) ->

@@ -104,11 +104,18 @@ class Worker extends Actor
         reason = error.message or error.name
         taskToken = options.taskToken
         now = new Date()
+        # SWF expects reason to be 256 chars or less
+        truncatedSuffix = " [truncated]"
+        maxlength = 256 - truncatedSuffix.length
+        truncatedReason = reason.substring(0, maxlength)
+        if truncatedReason.length is maxlength
+          truncatedReason += truncatedSuffix
         Promise.all [
-          @swf.respondActivityTaskFailedAsync
-            reason: reason
+          @swf.respondActivityTaskFailedAsync(
+            reason: truncatedReason
             details: JSON.stringify details
             taskToken: taskToken
+          )
         ,
           @Issues.insert(
             reason: reason
@@ -121,6 +128,7 @@ class Worker extends Actor
             createdAt: now
           )
         ]
-        .then -> throw error # let it crash
+        .catch (anotherError) -> throw anotherError # if we hit another error while reporting the original error, throw another error instead (we'll see it in console)
+        .then -> throw error # otherwise let it crash with original error
 
 module.exports = Worker
