@@ -43,11 +43,11 @@ describe "ListenToYourHeart", ->
       ,
         events: [@ActivityTaskCompleted "Echo"]
         decisions: [@CompleteWorkflowExecution()]
-        updates: [@progressBarFinishUpdate input.commandId, "Echo"]
+        updates: [@progressBarCompleteUpdate input.commandId, "Echo"]
       ,
         events: [@ActivityTaskFailed "Echo"]
         decisions: [@FailWorkflowExecution()]
-        updates: [@progressBarFinishUpdate input.commandId, "Echo"]
+        updates: [@progressBarFailUpdate input.commandId, "Echo"]
       ]
     ]
 
