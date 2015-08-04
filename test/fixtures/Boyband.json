@@ -14,7 +14,7 @@
             "message": "Dev"
         },
         "headers": {
-            "x-amzn-requestid": "529530fd-3aa2-11e5-8837-0fa32c112efd",
+            "x-amzn-requestid": "3ad4c28d-3ae2-11e5-a6cf-89b45d5ef118",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "82"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "52fccbd6-3aa2-11e5-9a13-4b1b4c70121b",
+            "x-amzn-requestid": "3b3f4449-3ae2-11e5-b2b9-d7417d6921f8",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -71,7 +71,7 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "5365035a-3aa2-11e5-8309-bb0bffced896",
+            "x-amzn-requestid": "3bb9cc2a-3ae2-11e5-9180-35a1967670ec",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
@@ -92,42 +92,12 @@
         },
         "status": 200,
         "response": {
-            "executionInfos": [
-                {
-                    "cancelRequested": false,
-                    "execution": {
-                        "runId": "22xQHPolkom4XaX333OdWPXXmMd53pvMvdS4vLc3DgoqQ=",
-                        "workflowId": "BCCan2oRhKtCL8jQa"
-                    },
-                    "executionStatus": "OPEN",
-                    "startTimestamp": 1438690077.118,
-                    "workflowType": {
-                        "name": "ListenToYourHeart",
-                        "version": "1.0.0"
-                    }
-                }
-            ]
+            "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "53cd3b9b-3aa2-11e5-9210-f5aa80fd3538",
+            "x-amzn-requestid": "3c2f49b8-3ae2-11e5-b047-937f7643ed8a",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "271"
-        }
-    },
-    {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
-        "method": "POST",
-        "path": "/",
-        "body": {
-            "domain": "Dev",
-            "workflowId": "BCCan2oRhKtCL8jQa"
-        },
-        "status": 200,
-        "response": "",
-        "headers": {
-            "x-amzn-requestid": "5443caa8-3aa2-11e5-9b9b-8d40232db275",
-            "content-type": "application/x-amz-json-1.0",
-            "content-length": "0"
+            "content-length": "21"
         }
     },
     {
@@ -148,10 +118,10 @@
         },
         "status": 200,
         "response": {
-            "runId": "22H2owd7UFt6nSS3EZkUkUnwX2MYXFo8j/52xVKA5//VA="
+            "runId": "226MBFtbeO31TaR5HjFQ7PPV7RhlzlkNuvMlvpziRiHog="
         },
         "headers": {
-            "x-amzn-requestid": "54d81bff-3aa2-11e5-9a13-4b1b4c70121b",
+            "x-amzn-requestid": "3c97a873-3ae2-11e5-b155-43a732740ecd",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -174,10 +144,10 @@
         },
         "status": 200,
         "response": {
-            "runId": "22kL3wnku4LqHqzq4TH1RYOxQEGdoo8eKWe9iBIMLcKp8="
+            "runId": "22XnT72h66t3PylXnlu02Xo2B2cvTSL6/cRuBibkOz0+E="
         },
         "headers": {
-            "x-amzn-requestid": "554d9a33-3aa2-11e5-9d2f-e7e8516d81c4",
+            "x-amzn-requestid": "3d03d7ee-3ae2-11e5-9c8a-4946a2b2dda9",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -198,7 +168,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690458.804,
+                    "eventTimestamp": 1438717905.845,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -225,7 +195,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690458.804,
+                    "eventTimestamp": 1438717905.845,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -234,15 +204,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690460.439,
+                    "eventTimestamp": 1438717907.344,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAlmNIEKoCElkVo3dmp4CHHLKHW9aZqJCE95UWk/cb0gOZVs3SVpXd2UydAt5Jmi7EwfOcCNqgXSHtHrP6gRH2HGUHIY+duEz3PpcmIpwhXUZKw8IaF6IR9oTGzNFXSrLfzHS7t9sCPoq0q+LnnPqlV8m0vmitnK/VxJqN6n+cL7E28peswVO7DxIrTdNSP+ITVz63YeQjolgPBkAKfKAnS0jlldSm+6FgKvG7M8m2WbyV04kvXmSDZ1dZNCWm9MvXpEoOPzFVf4cwDZSeKdW9OTut4HPVQ4wMIhanrBosvfc",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAl7Fm9vtkteSGK3XtiI13ifMxVI61obzukN1rZk+ODKXfcFOgt/YA2gptz6bbfw00yELOQPoRmobcLayydZmC4B/tM2/iSL0ZKSYuMs4VouvHQi0s0fUUjfJR/TzLP7BiwmlWsv4xUJ4cV/VVEKZAMHStX0sfLTfnlk4AgqRwGjvTjupLBvM+tMJ82Jl6Gkj4T3eDLvbTiAQLTX3tO8q5vLcTMUO91CEddDCYF2O/1XvFGES9OXRGr9Zj7u5fd+ocBb4M3S+h5HxrOQ/KguojLY+DO//ZH1yWjhmp2QTdl59",
             "workflowExecution": {
-                "runId": "22H2owd7UFt6nSS3EZkUkUnwX2MYXFo8j/52xVKA5//VA=",
+                "runId": "226MBFtbeO31TaR5HjFQ7PPV7RhlzlkNuvMlvpziRiHog=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -251,7 +221,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "55c9a7cb-3aa2-11e5-b2fc-25a164f22a3e",
+            "x-amzn-requestid": "3d7648ce-3ae2-11e5-abe5-8fd0c0ac8d10",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1546"
         }
@@ -261,7 +231,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAlmNIEKoCElkVo3dmp4CHHLKHW9aZqJCE95UWk/cb0gOZVs3SVpXd2UydAt5Jmi7EwfOcCNqgXSHtHrP6gRH2HGUHIY+duEz3PpcmIpwhXUZKw8IaF6IR9oTGzNFXSrLfzHS7t9sCPoq0q+LnnPqlV8m0vmitnK/VxJqN6n+cL7E28peswVO7DxIrTdNSP+ITVz63YeQjolgPBkAKfKAnS0jlldSm+6FgKvG7M8m2WbyV04kvXmSDZ1dZNCWm9MvXpEoOPzFVf4cwDZSeKdW9OTut4HPVQ4wMIhanrBosvfc",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAl7Fm9vtkteSGK3XtiI13ifMxVI61obzukN1rZk+ODKXfcFOgt/YA2gptz6bbfw00yELOQPoRmobcLayydZmC4B/tM2/iSL0ZKSYuMs4VouvHQi0s0fUUjfJR/TzLP7BiwmlWsv4xUJ4cV/VVEKZAMHStX0sfLTfnlk4AgqRwGjvTjupLBvM+tMJ82Jl6Gkj4T3eDLvbTiAQLTX3tO8q5vLcTMUO91CEddDCYF2O/1XvFGES9OXRGr9Zj7u5fd+ocBb4M3S+h5HxrOQ/KguojLY+DO//ZH1yWjhmp2QTdl59",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -275,12 +245,12 @@
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\"},{\"$set\":{\"isStarted\":true}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "564f0460-3aa2-11e5-ae0a-991ab5102a94",
+            "x-amzn-requestid": "3dea8e09-3ae2-11e5-bf7f-f1010ee4dc49",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -301,7 +271,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690459.532,
+                    "eventTimestamp": 1438717906.581,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -328,7 +298,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690459.532,
+                    "eventTimestamp": 1438717906.581,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -337,15 +307,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690461.935,
+                    "eventTimestamp": 1438717908.777,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjPAj/y/OtWI08h8IwZ5lZ0ZK+j7BuLtCl98pN6CjtTZOud27DpKTwpdYI+p6RwvPxmD3KSsHbOFL3pZSWevuDXw/2LzEs2oOAC/za1IES06XKh5TYTSyCmaXQo+mcTaiAjR5c1LKzTKhnR3a0l/ywO6BHVDuQOaZFaseHg2EUQJalIxPvbAcBGHV3X2nk+poJ31X3tlUdE4M4ddV5v5GLQLreHUHVA0wRSVEhSk6UXpVaeJcXIstaTRqs5QIL+xMDUqotudRdXldpEbHzrhjyp6bEer5kVbPphaM1Hu3bpa",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAmNmDD31W7xtn1d9uuCEDAqPoX5V5SkboqL3PZio3GmJJqkNI/wUhbRnFIUINOz9k+zVkZE2IAwB5ylMoe+VSpTAUCmEbBqjGzt+GDOwTjID1Mug2OmgrkMFxhig+6AyUdTp13Gt6jNVXeSvaXr2N5Bi/o9u1wCBHcFo/usmlyQsxix00JA10FxONlVxNhq4olFKeSLX/lDKHD9mue9is3hntwt4vaiLt+bQKCo/wSSajdsL24o+osd1UUfoHJ0pCFrs2eVAdic5bIn47SnvtwLcKAXfYd3G81jwivYgj30a",
             "workflowExecution": {
-                "runId": "22kL3wnku4LqHqzq4TH1RYOxQEGdoo8eKWe9iBIMLcKp8=",
+                "runId": "22XnT72h66t3PylXnlu02Xo2B2cvTSL6/cRuBibkOz0+E=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -354,7 +324,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "56bba872-3aa2-11e5-b524-1bec20fc9792",
+            "x-amzn-requestid": "3e5648f3-3ae2-11e5-8f20-57c0f437c60d",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1551"
         }
@@ -364,7 +334,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjPAj/y/OtWI08h8IwZ5lZ0ZK+j7BuLtCl98pN6CjtTZOud27DpKTwpdYI+p6RwvPxmD3KSsHbOFL3pZSWevuDXw/2LzEs2oOAC/za1IES06XKh5TYTSyCmaXQo+mcTaiAjR5c1LKzTKhnR3a0l/ywO6BHVDuQOaZFaseHg2EUQJalIxPvbAcBGHV3X2nk+poJ31X3tlUdE4M4ddV5v5GLQLreHUHVA0wRSVEhSk6UXpVaeJcXIstaTRqs5QIL+xMDUqotudRdXldpEbHzrhjyp6bEer5kVbPphaM1Hu3bpa",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAmNmDD31W7xtn1d9uuCEDAqPoX5V5SkboqL3PZio3GmJJqkNI/wUhbRnFIUINOz9k+zVkZE2IAwB5ylMoe+VSpTAUCmEbBqjGzt+GDOwTjID1Mug2OmgrkMFxhig+6AyUdTp13Gt6jNVXeSvaXr2N5Bi/o9u1wCBHcFo/usmlyQsxix00JA10FxONlVxNhq4olFKeSLX/lDKHD9mue9is3hntwt4vaiLt+bQKCo/wSSajdsL24o+osd1UUfoHJ0pCFrs2eVAdic5bIn47SnvtwLcKAXfYd3G81jwivYgj30a",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -378,12 +348,12 @@
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\"},{\"$set\":{\"isStarted\":true}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5729101e-3aa2-11e5-8f5f-61a3ef9085b2",
+            "x-amzn-requestid": "3eccff57-3ae2-11e5-b155-43a732740ecd",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -408,14 +378,14 @@
             },
             "input": "{\"chunks\":[{\"message\":\"h e l l o\"}],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAvbVeX6xPZWXNpR7+ExKv4gWSpZc16pg3uxuow4MLACYwp+EMyTlz13hxUgLPTGshtnjfe3N6P/eUykVwbeo1OPIW3LJLMa58/GIYRd0P60GFe1pJgW9zddzED5kY88SxHwIkFFRdrsqHadWee+G2i41Mc3T+Ud7S01uKJeRgUifJZGQpijxxQZginHaRx72b4mUHGLgCZaLI/b04y7QebXq8QjKDLFBthGQTte4JE8gmcr79VNsUPxQKv6sSOC7Cue4Fb0t8KQevbVYWfq8jToNnCSsQYcR2eIjOounXsUu",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAkY6Z33ZlV5yn1DUXW4tbEzOuzngct4Tpm/O2esQjCXuYWJEC14MgTJY630Ch0uz5glyrbWgjXrjPyMsOVkJkpL8FLxSR76mbcbfhiYJIw4vIb/NBa/gaBnx5+cyH360EF7ppHPEiXrjvWIUps7LkdI/ln9jRSFau4CfUD40WN00DWcHvt3ycoINDHdDAz9LcAHUucG7OuQmWXPs2K1lNg34RwLtSSDeqzdynu1++pFDKQlEPf7A4ZrEbn/fVBJP9GmbJ0ANP9dER+5RPQWs0nzGumLfJou5akL50ZS8dnLy",
             "workflowExecution": {
-                "runId": "22H2owd7UFt6nSS3EZkUkUnwX2MYXFo8j/52xVKA5//VA=",
+                "runId": "226MBFtbeO31TaR5HjFQ7PPV7RhlzlkNuvMlvpziRiHog=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             }
         },
         "headers": {
-            "x-amzn-requestid": "5795b4cf-3aa2-11e5-88f9-859c41eeefcf",
+            "x-amzn-requestid": "3fd48400-3ae2-11e5-8f20-57c0f437c60d",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "726"
         }
@@ -425,13 +395,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAvbVeX6xPZWXNpR7+ExKv4gWSpZc16pg3uxuow4MLACYwp+EMyTlz13hxUgLPTGshtnjfe3N6P/eUykVwbeo1OPIW3LJLMa58/GIYRd0P60GFe1pJgW9zddzED5kY88SxHwIkFFRdrsqHadWee+G2i41Mc3T+Ud7S01uKJeRgUifJZGQpijxxQZginHaRx72b4mUHGLgCZaLI/b04y7QebXq8QjKDLFBthGQTte4JE8gmcr79VNsUPxQKv6sSOC7Cue4Fb0t8KQevbVYWfq8jToNnCSsQYcR2eIjOounXsUu",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAkY6Z33ZlV5yn1DUXW4tbEzOuzngct4Tpm/O2esQjCXuYWJEC14MgTJY630Ch0uz5glyrbWgjXrjPyMsOVkJkpL8FLxSR76mbcbfhiYJIw4vIb/NBa/gaBnx5+cyH360EF7ppHPEiXrjvWIUps7LkdI/ln9jRSFau4CfUD40WN00DWcHvt3ycoINDHdDAz9LcAHUucG7OuQmWXPs2K1lNg34RwLtSSDeqzdynu1++pFDKQlEPf7A4ZrEbn/fVBJP9GmbJ0ANP9dER+5RPQWs0nzGumLfJou5akL50ZS8dnLy",
             "result": "{\"chunks\":[{\"message\":\"h e l l o (reply)\"}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "58112653-3aa2-11e5-a533-cbbf9cf4264e",
+            "x-amzn-requestid": "403e4275-3ae2-11e5-bd77-217a3eb62b57",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -456,14 +426,14 @@
             },
             "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjNEXJYkWyzzSyCMMlWMJoRzP8sv2e6rcS2RpUbBGbVj1nK4jKpnmBTYvl22hRXGGQtLp/1+eH0WRwurYpKzNBMIDPeeF7tf4mKRt8GfmyFlxdQkOLx+uNuO8IgS7zh5YuVdvGDoArcYs971zNcsDm9O/6RKCKAtx0L9vdZyuoIdTASce802HivbGc83i2qcC+0BOrbtvjC48Fmd0LVo/gBaJbWe+Sfls2k1ESnZfoV4ZInRbHMe1eozv9MojkVvgBnup4cdSdoZdsTsKO9ICv2TAjwvXjpD+C0UhtIh4Loo",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAufJ/RIABL3ItBsalhluKrtl0+ugtUNDcSHAQ/Ml0/qBMCqANgDdtekE4CW80PSRekZQdN/VLs0sxYU29tTUtfajBxwJ1uYkExz5/FvNzItNIbQNdbMpqP7mR6JjtpW9RP/AXfVAOxMbiT0qi/22FX7FXPW0S/NYyxNHnG0SDUTBoRdF5HRACKqyXZP0Bdk/u4y/a0Zi/5ff2hnjEvDAQfJLXn/+I7Tw+7p3Tx1tS6XHht927TeHRQ558nNVNmi89Zp9Wua0n8xUyj4kjRqrFBkJ4n3ZHd5496x/CLFnFPFO",
             "workflowExecution": {
-                "runId": "22kL3wnku4LqHqzq4TH1RYOxQEGdoo8eKWe9iBIMLcKp8=",
+                "runId": "22XnT72h66t3PylXnlu02Xo2B2cvTSL6/cRuBibkOz0+E=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             }
         },
         "headers": {
-            "x-amzn-requestid": "58782604-3aa2-11e5-8309-bb0bffced896",
+            "x-amzn-requestid": "40ad7ede-3ae2-11e5-a7a3-9bd141f05fe2",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "731"
         }
@@ -474,13 +444,13 @@
         "path": "/",
         "body": {
             "reason": "Too afraid!",
-            "details": "{\"stack\":\"Error: Too afraid!\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\n  at Readable.emit (events.js:104:17)\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\n  at process._tickDomainCallback (node.js:381:11)\\nFrom previous event:\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\nFrom previous event:\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:80:16\\nFrom previous event:\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:55:11)\\nFrom previous event:\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:52:6)\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:27)\\nFrom previous event:\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:12)\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:106:14\\nFrom previous event:\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:102:11)\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjNEXJYkWyzzSyCMMlWMJoRzP8sv2e6rcS2RpUbBGbVj1nK4jKpnmBTYvl22hRXGGQtLp/1+eH0WRwurYpKzNBMIDPeeF7tf4mKRt8GfmyFlxdQkOLx+uNuO8IgS7zh5YuVdvGDoArcYs971zNcsDm9O/6RKCKAtx0L9vdZyuoIdTASce802HivbGc83i2qcC+0BOrbtvjC48Fmd0LVo/gBaJbWe+Sfls2k1ESnZfoV4ZInRbHMe1eozv9MojkVvgBnup4cdSdoZdsTsKO9ICv2TAjwvXjpD+C0UhtIh4Loo"
+            "details": "{\"stack\":\"Error: Too afraid!\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\n  at Readable.emit (events.js:104:17)\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\n  at process._tickDomainCallback (node.js:381:11)\\nFrom previous event:\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\nFrom previous event:\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:91:16\\nFrom previous event:\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:66:11)\\nFrom previous event:\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:63:6)\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:27)\\nFrom previous event:\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:12)\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:109:14\\nFrom previous event:\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:105:11)\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAufJ/RIABL3ItBsalhluKrtl0+ugtUNDcSHAQ/Ml0/qBMCqANgDdtekE4CW80PSRekZQdN/VLs0sxYU29tTUtfajBxwJ1uYkExz5/FvNzItNIbQNdbMpqP7mR6JjtpW9RP/AXfVAOxMbiT0qi/22FX7FXPW0S/NYyxNHnG0SDUTBoRdF5HRACKqyXZP0Bdk/u4y/a0Zi/5ff2hnjEvDAQfJLXn/+I7Tw+7p3Tx1tS6XHht927TeHRQ558nNVNmi89Zp9Wua0n8xUyj4kjRqrFBkJ4n3ZHd5496x/CLFnFPFO"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "58eda43b-3aa2-11e5-8f2c-8f79a10365ec",
+            "x-amzn-requestid": "41256e36-3ae2-11e5-bd77-217a3eb62b57",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -501,7 +471,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690458.804,
+                    "eventTimestamp": 1438717905.845,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -528,7 +498,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690458.804,
+                    "eventTimestamp": 1438717905.845,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -537,17 +507,17 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690460.439,
+                    "eventTimestamp": 1438717907.344,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
                     "decisionTaskCompletedEventAttributes": {
-                        "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}",
+                        "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\"},{\"$set\":{\"isStarted\":true}}]]}",
                         "scheduledEventId": 2,
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438690461.209,
+                    "eventTimestamp": 1438717908.072,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -569,7 +539,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438690461.209,
+                    "eventTimestamp": 1438717908.072,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -578,7 +548,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438690463.448,
+                    "eventTimestamp": 1438717911.291,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -588,7 +558,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438690464.145,
+                    "eventTimestamp": 1438717911.998,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -600,7 +570,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438690464.145,
+                    "eventTimestamp": 1438717911.998,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -609,15 +579,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438690466.321,
+                    "eventTimestamp": 1438717914.212,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjT3Th7k04ir5asVVOnAHwdpl7a06Wl5AY31yKOXe7M3/JwWh/9ROepN6VlWkP2zI6OT9ZlHerb+Ah8gbvHpjkhT4KyBlYI9SuTpCIZTQSAc4lrCl7ZEHrRk4CyumM5T9LxA0bbdimd7UOfcOQx6lBE4oE422VbfKyOWg8AKvnDJVE8aUYh6tfa1fUwGJZossnb9Fpg9u9z5hk4c241WY30sHJOV0ORfIzyt6fTZHD5+S6mHjhg67NEyjZeYARzIZe31D8OAc9hsmkg2PLWnu8wbqXno/Dx0d2oVwf+0gomd",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAvGIYFPk/EzwSgBYJM7A3zXmge1XQvv0sqQEpMjynePuL3wrc732ENhyubudoyELbik5xKmulQ5Ny8JTj6X1GPeEVdFZMYZGNhsHN+vPyzA0RRXsMMJyBp/YSUjNZFJ6gXJbA5k115XFX6ZtOO+w+1JwWiyU4IJmlz5fMRP771g8oFksDlheCabXRRXgZyhq7ZbqTJQCKS3dvMm9ljnt2tsP4FhJyEwcBDWuHt6VDRQsVjrmXSIa054vXyrWFVS8L4fUrA69NIfQpZ2NdwPDL51I6P3RJGTIpKr1c9EYLhNf",
             "workflowExecution": {
-                "runId": "22H2owd7UFt6nSS3EZkUkUnwX2MYXFo8j/52xVKA5//VA=",
+                "runId": "226MBFtbeO31TaR5HjFQ7PPV7RhlzlkNuvMlvpziRiHog=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -626,9 +596,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "595c4473-3aa2-11e5-adf6-35586511b6d1",
+            "x-amzn-requestid": "41939945-3ae2-11e5-a966-2feaf5409d65",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3242"
+            "content-length": "3190"
         }
     },
     {
@@ -636,19 +606,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjT3Th7k04ir5asVVOnAHwdpl7a06Wl5AY31yKOXe7M3/JwWh/9ROepN6VlWkP2zI6OT9ZlHerb+Ah8gbvHpjkhT4KyBlYI9SuTpCIZTQSAc4lrCl7ZEHrRk4CyumM5T9LxA0bbdimd7UOfcOQx6lBE4oE422VbfKyOWg8AKvnDJVE8aUYh6tfa1fUwGJZossnb9Fpg9u9z5hk4c241WY30sHJOV0ORfIzyt6fTZHD5+S6mHjhg67NEyjZeYARzIZe31D8OAc9hsmkg2PLWnu8wbqXno/Dx0d2oVwf+0gomd",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAvGIYFPk/EzwSgBYJM7A3zXmge1XQvv0sqQEpMjynePuL3wrc732ENhyubudoyELbik5xKmulQ5Ny8JTj6X1GPeEVdFZMYZGNhsHN+vPyzA0RRXsMMJyBp/YSUjNZFJ6gXJbA5k115XFX6ZtOO+w+1JwWiyU4IJmlz5fMRP771g8oFksDlheCabXRRXgZyhq7ZbqTJQCKS3dvMm9ljnt2tsP4FhJyEwcBDWuHt6VDRQsVjrmXSIa054vXyrWFVS8L4fUrA69NIfQpZ2NdwPDL51I6P3RJGTIpKr1c9EYLhNf",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
-                    "completeWorkflowExecutionDecisionAttributes": {}
+                    "completeWorkflowExecutionDecisionAttributes": {
+                        "result": "{\"message\":\"h e l l o (reply)\"}"
+                    }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isCompleted\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"HC59Fwwvdnbcu2fyi\"},{\"$set\":{\"isCompleted\":true}}],[{\"_id\":\"HC59Fwwvdnbcu2fyi\"},{\"$set\":{\"result\":{\"message\":\"h e l l o (reply)\"}}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "59c8e937-3aa2-11e5-af47-2ff8a6598bed",
+            "x-amzn-requestid": "41ff2ca8-3ae2-11e5-b85d-f953fc94721f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -669,7 +641,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690459.532,
+                    "eventTimestamp": 1438717906.581,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -696,7 +668,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690459.532,
+                    "eventTimestamp": 1438717906.581,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -705,17 +677,17 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690461.935,
+                    "eventTimestamp": 1438717908.777,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
                     "decisionTaskCompletedEventAttributes": {
-                        "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}",
+                        "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\"},{\"$set\":{\"isStarted\":true}}]]}",
                         "scheduledEventId": 2,
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438690462.639,
+                    "eventTimestamp": 1438717910.555,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -737,7 +709,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438690462.639,
+                    "eventTimestamp": 1438717910.555,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -746,18 +718,18 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438690464.822,
+                    "eventTimestamp": 1438717912.712,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
                     "activityTaskFailedEventAttributes": {
-                        "details": "{\"stack\":\"Error: Too afraid!\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\n  at Readable.emit (events.js:104:17)\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\n  at process._tickDomainCallback (node.js:381:11)\\nFrom previous event:\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\nFrom previous event:\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:80:16\\nFrom previous event:\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:55:11)\\nFrom previous event:\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:52:6)\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:27)\\nFrom previous event:\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:12)\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:106:14\\nFrom previous event:\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:102:11)\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
+                        "details": "{\"stack\":\"Error: Too afraid!\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\n  at Readable.emit (events.js:104:17)\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\n  at process._tickDomainCallback (node.js:381:11)\\nFrom previous event:\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\nFrom previous event:\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:91:16\\nFrom previous event:\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:66:11)\\nFrom previous event:\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:63:6)\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:27)\\nFrom previous event:\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:12)\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:109:14\\nFrom previous event:\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:105:11)\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
                         "reason": "Too afraid!",
                         "scheduledEventId": 5,
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438690465.595,
+                    "eventTimestamp": 1438717913.476,
                     "eventType": "ActivityTaskFailed"
                 },
                 {
@@ -769,7 +741,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438690465.595,
+                    "eventTimestamp": 1438717913.476,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -778,15 +750,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438690467.811,
+                    "eventTimestamp": 1438717915.703,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAApLdvYI3Kj/3NTQ4AJykXa4nX3Ima9RstlwoM1rREsDxYFSJLT/lbc/xJUFOrfVIcEP2BOEz3gprpSqr6G/6GtBQr2LyfL8ZF2BGLllWKn8icf7KL3d/Dkb6xwN6ausYy/2FH+FYvVIZFoo+cec9+dzdhCpC5sDEn6c3u6KVnpE4Gcug8tNIx1NtDUum2n38lLleVm6OnDmWmoaN24JDtZ6lKEsw3uCBooqaYYRVBPloyKTizeOorZJqHf8mSy59v4U3X+0edxloqAFBioHj1pD/H2cY5/CUgPz3f6ph2YYq",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAArMlCmBy9iFPT1fiZgKyF0ektnWYigcTUpCbTt1Sjpbi6njWS1JfTiapCsV2QHOfPgNvCA1X+X0GKaMh/GmB+5NBKpbgMQBxzLktcLsCUbUy8zbXfcCPmnY5FHxmCOB14ev0hS9850lM0dJ0oaQQlTxZajxUWaBr6ndui/1e/HfVB9jEuZ6CnLbuoI6H2ko2PK4VbotlfbhgwPYzWsfSx5Y3d/v7D3XHATbmx1LJ+O0tfWm7SsWN0ADIERyDVUeYzyBDqbbO+LKebf9cxCohrkBPLC5L5jbZkPR1S7lmHcA4",
             "workflowExecution": {
-                "runId": "22kL3wnku4LqHqzq4TH1RYOxQEGdoo8eKWe9iBIMLcKp8=",
+                "runId": "22XnT72h66t3PylXnlu02Xo2B2cvTSL6/cRuBibkOz0+E=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -795,9 +767,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "5a3e670b-3aa2-11e5-980b-0731af979cb1",
+            "x-amzn-requestid": "427371a5-3ae2-11e5-8a2a-6b2a181e0028",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "5598"
+            "content-length": "5546"
         }
     },
     {
@@ -805,22 +777,22 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAApLdvYI3Kj/3NTQ4AJykXa4nX3Ima9RstlwoM1rREsDxYFSJLT/lbc/xJUFOrfVIcEP2BOEz3gprpSqr6G/6GtBQr2LyfL8ZF2BGLllWKn8icf7KL3d/Dkb6xwN6ausYy/2FH+FYvVIZFoo+cec9+dzdhCpC5sDEn6c3u6KVnpE4Gcug8tNIx1NtDUum2n38lLleVm6OnDmWmoaN24JDtZ6lKEsw3uCBooqaYYRVBPloyKTizeOorZJqHf8mSy59v4U3X+0edxloqAFBioHj1pD/H2cY5/CUgPz3f6ph2YYq",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAArMlCmBy9iFPT1fiZgKyF0ektnWYigcTUpCbTt1Sjpbi6njWS1JfTiapCsV2QHOfPgNvCA1X+X0GKaMh/GmB+5NBKpbgMQBxzLktcLsCUbUy8zbXfcCPmnY5FHxmCOB14ev0hS9850lM0dJ0oaQQlTxZajxUWaBr6ndui/1e/HfVB9jEuZ6CnLbuoI6H2ko2PK4VbotlfbhgwPYzWsfSx5Y3d/v7D3XHATbmx1LJ+O0tfWm7SsWN0ADIERyDVUeYzyBDqbbO+LKebf9cxCohrkBPLC5L5jbZkPR1S7lmHcA4",
             "decisions": [
                 {
                     "decisionType": "FailWorkflowExecution",
                     "failWorkflowExecutionDecisionAttributes": {
                         "reason": "Too afraid!",
-                        "details": "\"{\\\"stack\\\":\\\"Error: Too afraid!\\\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\\\n  at Readable.emit (events.js:104:17)\\\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\\\n  at process._tickDomainCallback (node.js:381:11)\\\\nFrom previous event:\\\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\\\nFrom previous event:\\\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:80:16\\\\nFrom previous event:\\\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:55:11)\\\\nFrom previous event:\\\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:52:6)\\\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:27)\\\\nFrom previous event:\\\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:128:12)\\\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:106:14\\\\nFrom previous event:\\\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:102:11)\\\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\\\",\\\"message\\\":\\\"Too afraid!\\\",\\\"name\\\":\\\"Error\\\"}\""
+                        "details": "\"{\\\"stack\\\":\\\"Error: Too afraid!\\\\n  at Readable.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:18:27)\\\\n  at Readable.emit (events.js:104:17)\\\\n  at emitReadable_ (/home/starfall/workspace/backend-swf/node_modules/readable-stream/lib/_stream_readable.js:460:10)\\\\n  at afterTick (/home/starfall/workspace/backend-swf/node_modules/readable-stream/node_modules/process-nextick-args/index.js:11:8)\\\\n  at process._tickDomainCallback (node.js:381:11)\\\\nFrom previous event:\\\\n  at Echo.<anonymous> (/home/starfall/workspace/backend-swf/test/Echo.coffee:11:11)\\\\nFrom previous event:\\\\n  at Echo.execute (/home/starfall/workspace/backend-swf/test/Echo.coffee:10:6)\\\\n  at /home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:91:16\\\\nFrom previous event:\\\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:66:11)\\\\nFrom previous event:\\\\n  at Worker.poll (/home/starfall/workspace/backend-swf/lib/Actor/Worker.coffee:63:6)\\\\n  at Worker.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:27)\\\\nFrom previous event:\\\\n  at Object.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:135:12)\\\\n  at Function.Back (/home/starfall/workspace/backend-swf/node_modules/nock/lib/back.js:56:12)\\\\n  at /home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:109:14\\\\nFrom previous event:\\\\n  at Context.<anonymous> (/home/starfall/workspace/backend-swf/test/lib/BoybandSpec.coffee:105:11)\\\\n  at callFn (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:251:21)\\\\n  at Test.Runnable.run (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runnable.js:244:7)\\\\n  at Runner.runTest (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:374:10)\\\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:452:12\\\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:299:14)\\\\n  at /home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:309:7\\\\n  at next (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:248:23)\\\\n  at Immediate._onImmediate (/home/starfall/workspace/backend-swf/node_modules/mocha/lib/runner.js:276:5)\\\\n  at processImmediate [as _immediateCallback] (timers.js:367:17)\\\",\\\"message\\\":\\\"Too afraid!\\\",\\\"name\\\":\\\"Error\\\"}\""
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isFailed\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"SC7Eyt6HnmQdfuk79\"},{\"$set\":{\"isFailed\":true}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5aaf5143-3aa2-11e5-b233-dbc0bbae04c3",
+            "x-amzn-requestid": "42e63144-3ae2-11e5-8f8a-a75dfeb87f77",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -843,10 +815,10 @@
         },
         "status": 200,
         "response": {
-            "runId": "223P3WEwAiGLLr0qtVAVDqzXFzRMQR8MBpw8QEyBWqOW8="
+            "runId": "225WToGopq67urraqezbW6mCC/+kOcXnUzGmD7Ej40vRw="
         },
         "headers": {
-            "x-amzn-requestid": "5b1bce96-3aa2-11e5-8a44-f515b757382f",
+            "x-amzn-requestid": "435211e5-3ae2-11e5-a6c6-3f17805480dc",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -867,7 +839,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690469.297,
+                    "eventTimestamp": 1438717917.444,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -894,7 +866,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690469.297,
+                    "eventTimestamp": 1438717917.444,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -903,15 +875,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690470.171,
+                    "eventTimestamp": 1438717918.166,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAgMnuuNERRPCyIXrIpVuiaHOMCjz0A7o0twnbX9OQ3spHaeQtLwcPv+etj4hIBu0nZqzB7NEz+TPk8iCYlUV5XnkdneyQAv5xVWvJV5abkipC5TtYQQgXVyoKOcgHM6jODGp97/T1ppnjx6W4WFeDQ7JhLIkdPqJLIL45So9rQxjliVg2IYLDmReuaE5JMb6y/NqeDylrv5YVHtMoVdeShNQZYL1QEqXWH42XOnGs0BA5AuPq4iWCkFvgxgXm8R8v0/ArKUexXOUKf44DCAHMS7wPTrk5JUfdaepANVgY5uq",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAApbzap4Xbu2zoCDdqHff59nGmerOTX4Hn1GbgV0gYpOXG6nyS5t0qmxYV+Oy9hiKODwYwBkH8B5lu/P7tIcfS9UwncWk13Nxrmaq6/R78NswGKZziwS/EBK29ERMBuzUfqVXAwn0HTG937Bcu3YbxhQDHc1/UJI6+QnvLDeUJarlS4vdDB5bv3UAo95dHb7hP6xa2Oh2+Vdg1TNsPt7Ko1ombpSKgpe0rnO/kLzALZGd1RlUy6gvWLvswqsSlUiTtZL5IvxIii/Lxbo93d+RTUsBxM8Xg2hAEaG6iHX3CMjg",
             "workflowExecution": {
-                "runId": "223P3WEwAiGLLr0qtVAVDqzXFzRMQR8MBpw8QEyBWqOW8=",
+                "runId": "225WToGopq67urraqezbW6mCC/+kOcXnUzGmD7Ej40vRw=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -920,7 +892,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "5ba8578a-3aa2-11e5-88f9-859c41eeefcf",
+            "x-amzn-requestid": "43f0751d-3ae2-11e5-8f8a-a75dfeb87f77",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1554"
         }
@@ -930,7 +902,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAgMnuuNERRPCyIXrIpVuiaHOMCjz0A7o0twnbX9OQ3spHaeQtLwcPv+etj4hIBu0nZqzB7NEz+TPk8iCYlUV5XnkdneyQAv5xVWvJV5abkipC5TtYQQgXVyoKOcgHM6jODGp97/T1ppnjx6W4WFeDQ7JhLIkdPqJLIL45So9rQxjliVg2IYLDmReuaE5JMb6y/NqeDylrv5YVHtMoVdeShNQZYL1QEqXWH42XOnGs0BA5AuPq4iWCkFvgxgXm8R8v0/ArKUexXOUKf44DCAHMS7wPTrk5JUfdaepANVgY5uq",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAApbzap4Xbu2zoCDdqHff59nGmerOTX4Hn1GbgV0gYpOXG6nyS5t0qmxYV+Oy9hiKODwYwBkH8B5lu/P7tIcfS9UwncWk13Nxrmaq6/R78NswGKZziwS/EBK29ERMBuzUfqVXAwn0HTG937Bcu3YbxhQDHc1/UJI6+QnvLDeUJarlS4vdDB5bv3UAo95dHb7hP6xa2Oh2+Vdg1TNsPt7Ko1ombpSKgpe0rnO/kLzALZGd1RlUy6gvWLvswqsSlUiTtZL5IvxIii/Lxbo93d+RTUsBxM8Xg2hAEaG6iHX3CMjg",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -944,12 +916,12 @@
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\"},{\"$set\":{\"isStarted\":true}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5c168270-3aa2-11e5-aef6-039842efafbf",
+            "x-amzn-requestid": "4459e4be-3ae2-11e5-bf19-0d09c16665d6",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -974,14 +946,14 @@
             },
             "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAndOUYb0vjpAPCSejU/223yjHDckFsetY2NWAZE99xsfX0p+UgsRG0TLSf9fwCr8Z7mmQIzPC+OgnekNlMNKaudMX5tP6AOQ5buAS2Kg5AbA/3VUDpjt5UmuKXhpiC5TNN6TE3ZQhNf4MKWYykgLYj36Pq4EKbRoIEHPaS2IWBdx42oB7On84ziV1umeVXSrbf0ynwcREy69sKMQusR0rCf4qeBMeo8WcZzwdlMm1QcLx+XC/h5+ZnOUsD/oSpGxdQ5S3+gLvUZ2ktnxjpSr0U8p8pYVgVpBRMgwyNPlm7LK",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAgtNv500zM8a9izKeRFUy23liJ/hcEwYEA5fIK0lZw34CdMY3oCzPU+3/WHpEBIV/SYPNhCS/6d8gyvfsIPRtMNzLNyL9hDcHBr/Ggz3nA8gq7PpA4191/5meZ5noew85wUEMhG5G4ayEa+5TIjKJWe9cG5/fZIPTBoIAetELVw2WtPxPv6vp+J8HYMtaul7iO4HkekGasdieQ1y26gKmRNcYNlHDPw75/1ZWFltd2wjxcRW68SR0HqL6PsbmRsvY91FGTTKOKqsYNy2eIwu6mpxD45PVxQIQnRN3INf1mP3",
             "workflowExecution": {
-                "runId": "223P3WEwAiGLLr0qtVAVDqzXFzRMQR8MBpw8QEyBWqOW8=",
+                "runId": "225WToGopq67urraqezbW6mCC/+kOcXnUzGmD7Ej40vRw=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             }
         },
         "headers": {
-            "x-amzn-requestid": "5c839c60-3aa2-11e5-8309-bb0bffced896",
+            "x-amzn-requestid": "44c72589-3ae2-11e5-bd77-217a3eb62b57",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "734"
         }
@@ -991,13 +963,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAndOUYb0vjpAPCSejU/223yjHDckFsetY2NWAZE99xsfX0p+UgsRG0TLSf9fwCr8Z7mmQIzPC+OgnekNlMNKaudMX5tP6AOQ5buAS2Kg5AbA/3VUDpjt5UmuKXhpiC5TNN6TE3ZQhNf4MKWYykgLYj36Pq4EKbRoIEHPaS2IWBdx42oB7On84ziV1umeVXSrbf0ynwcREy69sKMQusR0rCf4qeBMeo8WcZzwdlMm1QcLx+XC/h5+ZnOUsD/oSpGxdQ5S3+gLvUZ2ktnxjpSr0U8p8pYVgVpBRMgwyNPlm7LK",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAgtNv500zM8a9izKeRFUy23liJ/hcEwYEA5fIK0lZw34CdMY3oCzPU+3/WHpEBIV/SYPNhCS/6d8gyvfsIPRtMNzLNyL9hDcHBr/Ggz3nA8gq7PpA4191/5meZ5noew85wUEMhG5G4ayEa+5TIjKJWe9cG5/fZIPTBoIAetELVw2WtPxPv6vp+J8HYMtaul7iO4HkekGasdieQ1y26gKmRNcYNlHDPw75/1ZWFltd2wjxcRW68SR0HqL6PsbmRsvY91FGTTKOKqsYNy2eIwu6mpxD45PVxQIQnRN3INf1mP3",
             "result": "{\"chunks\":[{\"message\":\"Knock, knock, Neo (reply)\"}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5cece512-3aa2-11e5-ac60-75a6c638c7f3",
+            "x-amzn-requestid": "45310ae7-3ae2-11e5-b047-0ddb9c14181c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -1018,7 +990,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690469.297,
+                    "eventTimestamp": 1438717917.444,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -1045,7 +1017,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690469.297,
+                    "eventTimestamp": 1438717917.444,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1054,17 +1026,17 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690470.171,
+                    "eventTimestamp": 1438717918.166,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
                     "decisionTaskCompletedEventAttributes": {
-                        "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isStarted\":true}}]]}",
+                        "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\"},{\"$set\":{\"isStarted\":true}}]]}",
                         "scheduledEventId": 2,
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438690470.904,
+                    "eventTimestamp": 1438717918.875,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -1086,7 +1058,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438690470.904,
+                    "eventTimestamp": 1438717918.875,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -1095,7 +1067,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438690471.61,
+                    "eventTimestamp": 1438717919.587,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -1105,7 +1077,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438690472.312,
+                    "eventTimestamp": 1438717920.277,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -1117,7 +1089,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438690472.312,
+                    "eventTimestamp": 1438717920.277,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1126,15 +1098,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438690473.12,
+                    "eventTimestamp": 1438717921.036,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAsQ9jb/6TTRMT8E/VEqDw7ykwGDM52eA3mjEeZaxHB5zxu8nITJlA4aradwyEavkKO/4XjX8IQc/IB4eqVbfxosDb7GOAANzizt3HchzNJWFLTNk9UrKC3DV0V5yJxxiIktQRtITro7y50dlsltPyMGqCi5ZA6qYESABMYDA5GGTW4ksLawWgmhM7kOo+MDG8uo5ZBGk+Y6RmlKQWQd7V5sqWCTNIub3rte+6e+yOXUNXSa0Y0+LDLsGhQ4Vt2z506ndSL5BbcwD6sKoKJSrJO6Phi+kBhkiwjpyq1ZpjCzC",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAn8bQR/SE4Q1Zk51LLRFMXdOOrJqFTvibfvYB27vS0COz+0PWfa1cxRRy/nEmNmQEC5fB61IaSAKqls1T8rW6KoWoolLCGccZji4HQlNSRESMgBxJE6Vbf7l+aHcVy0DFiEsycPMfO+ej1F230lZy0WPvWoawNk9blFknSOw8ahREQyd7Xsr6QZvpDRsbb7MYZ/37od2642CQ8zgVg/N6WfGXCjbMRBo0y7Lk42BWCUlR3zYQEE+GyJ2nlhO8DehIA1Uwm+Vl388y6sqgAD2jsV/25fnR7JZ+zmx7WgJ37tC",
             "workflowExecution": {
-                "runId": "223P3WEwAiGLLr0qtVAVDqzXFzRMQR8MBpw8QEyBWqOW8=",
+                "runId": "225WToGopq67urraqezbW6mCC/+kOcXnUzGmD7Ej40vRw=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -1143,9 +1115,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "5d5a2566-3aa2-11e5-9bdd-3376cc2b3d6d",
+            "x-amzn-requestid": "45a02120-3ae2-11e5-a14a-cf990ba6cddb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3264"
+            "content-length": "3214"
         }
     },
     {
@@ -1153,19 +1125,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAsQ9jb/6TTRMT8E/VEqDw7ykwGDM52eA3mjEeZaxHB5zxu8nITJlA4aradwyEavkKO/4XjX8IQc/IB4eqVbfxosDb7GOAANzizt3HchzNJWFLTNk9UrKC3DV0V5yJxxiIktQRtITro7y50dlsltPyMGqCi5ZA6qYESABMYDA5GGTW4ksLawWgmhM7kOo+MDG8uo5ZBGk+Y6RmlKQWQd7V5sqWCTNIub3rte+6e+yOXUNXSa0Y0+LDLsGhQ4Vt2z506ndSL5BbcwD6sKoKJSrJO6Phi+kBhkiwjpyq1ZpjCzC",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAn8bQR/SE4Q1Zk51LLRFMXdOOrJqFTvibfvYB27vS0COz+0PWfa1cxRRy/nEmNmQEC5fB61IaSAKqls1T8rW6KoWoolLCGccZji4HQlNSRESMgBxJE6Vbf7l+aHcVy0DFiEsycPMfO+ej1F230lZy0WPvWoawNk9blFknSOw8ahREQyd7Xsr6QZvpDRsbb7MYZ/37od2642CQ8zgVg/N6WfGXCjbMRBo0y7Lk42BWCUlR3zYQEE+GyJ2nlhO8DehIA1Uwm+Vl388y6sqgAD2jsV/25fnR7JZ+zmx7WgJ37tC",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
-                    "completeWorkflowExecutionDecisionAttributes": {}
+                    "completeWorkflowExecutionDecisionAttributes": {
+                        "result": "{\"message\":\"Knock, knock, Neo (reply)\"}"
+                    }
                 }
             ],
-            "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\",\"progressBars.activityId\":\"Echo\"},{\"$set\":{\"progressBars.$.isCompleted\":true}}]]}"
+            "executionContext": "{\"updates\":[[{\"_id\":\"NC2CsND9f6iRh2HHf\"},{\"$set\":{\"isCompleted\":true}}],[{\"_id\":\"NC2CsND9f6iRh2HHf\"},{\"$set\":{\"result\":{\"message\":\"Knock, knock, Neo (reply)\"}}}]]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5dd4d3b0-3aa2-11e5-adf6-35586511b6d1",
+            "x-amzn-requestid": "460ec0ba-3ae2-11e5-b48d-55f109017b01",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -1188,10 +1162,10 @@
         },
         "status": 200,
         "response": {
-            "runId": "22XGLg49EFd6U4hsK5w4BENT+WP69P6gYdfMGjAniPSVg="
+            "runId": "22K2Abho0HVzwuw/cZ3B4YFwYmTjTv1GEdb49sulT0DvA="
         },
         "headers": {
-            "x-amzn-requestid": "5e3bd342-3aa2-11e5-88f9-859c41eeefcf",
+            "x-amzn-requestid": "46809623-3ae2-11e5-b56c-dbac7d21abe0",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -1212,7 +1186,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438690474.497,
+                    "eventTimestamp": 1438717922.62,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -1239,7 +1213,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438690474.497,
+                    "eventTimestamp": 1438717922.62,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1248,15 +1222,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438690475.25,
+                    "eventTimestamp": 1438717923.397,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAArMSgKwxYhGXGo9UPEULs1bpiyTIMuOTFqxoIzT5zuuR1IheARYMTfaRq3hQcY2/ASC5/gAKfC9Rgbsukwi5gFnPcemKKn08du9OOM/TiPjfQemPx4r1g2a8T+mH0PjwrGU9HH+6C50ysj3iOjPp/sVk9zEbqLMqR+9RsD8Jj1TyboCFxP/e8hC0z5kcVp4JaA4uPNWfnX0ffcnx1TQAQxPk+s4cxLQe+yElosHCU3hO91uQNPSd03OltxOGEh+68r6uWVI1SvE40aCC+8Qm++XzOjPaq90Uvma3n4sHpzXn",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAl4x/SD6ByavPCa4RgtuF+abW0EmNuij6ps3aJdGF0Y30ZkAdLyuGDJKK9z3zb9IcNdY4+plAhr3HOqVwrGlLY1r7f2r9mA5mweXzCTLukKIfuBbfi6qE8DhP++YI9PNFDiTkelg/vtP/V5wtb+d7wwF5MINrtGDFCjWlUwo3bSDgxQ3nD4SrdNKZkg8O5ntdgpzGPv+DhKJoXImElJm6+lkL03v0Y5NI7jFtwvtbJa84wUhdtpQ7Ef8vaqJPjU979JJe0bsEIdyAcFMw56Nyt06G4DK7nAtpgJZLV+MjEjN",
             "workflowExecution": {
-                "runId": "22XGLg49EFd6U4hsK5w4BENT+WP69P6gYdfMGjAniPSVg=",
+                "runId": "22K2Abho0HVzwuw/cZ3B4YFwYmTjTv1GEdb49sulT0DvA=",
                 "workflowId": "BCCan2oRhKtCL8jQa"
             },
             "workflowType": {
@@ -1265,9 +1239,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "5eace452-3aa2-11e5-9c1c-ef7af19a3ec7",
+            "x-amzn-requestid": "4704ba5c-3ae2-11e5-bb59-c12353bf772d",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1541"
+            "content-length": "1540"
         }
     }
 ]

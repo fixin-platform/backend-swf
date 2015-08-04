@@ -33,21 +33,22 @@ describe "ListenToYourHeart", ->
           ]
         , input
       ]
-      updates: [
-        @progressBarStartUpdate input.commandId, "Echo"
-      ]
+      updates: [@commandSetIsStarted input.commandId]
       branches: [
         events: [@WorkflowExecutionCancelRequested()]
         decisions: [@CancelWorkflowExecution()]
         updates: []
       ,
-        events: [@ActivityTaskCompleted "Echo"]
-        decisions: [@CompleteWorkflowExecution()]
-        updates: [@progressBarCompleteUpdate input.commandId, "Echo"]
+        events: [@ActivityTaskCompleted "Echo", {chunks: [{message: "h e l l o (reply)"}]}]
+        decisions: [@CompleteWorkflowExecution({message: "h e l l o (reply)"})]
+        updates: [
+          @commandSetIsCompleted input.commandId
+          @commandSetResult input.commandId, {message: "h e l l o (reply)"}
+        ]
       ,
         events: [@ActivityTaskFailed "Echo"]
         decisions: [@FailWorkflowExecution()]
-        updates: [@progressBarFailUpdate input.commandId, "Echo"]
+        updates: [@commandSetIsFailed input.commandId]
       ]
     ]
 

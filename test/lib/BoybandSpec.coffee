@@ -84,16 +84,19 @@ describe "Boyband: Decider & Worker", ->
         progressBars: [
           activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
         ]
+        isStarted: false, isCompleted: false, isFailed: false
       Commands.insert
         _id: inputs.Schmetterling.commandId
         progressBars: [
           activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
         ]
+        isStarted: false, isCompleted: false, isFailed: false
       Commands.insert
         _id: inputs.Neo.commandId
         progressBars: [
           activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
         ]
+        isStarted: false, isCompleted: false, isFailed: false
     ]
 
   describe "domains", ->
@@ -120,10 +123,14 @@ describe "Boyband: Decider & Worker", ->
           .then -> decider.poll() # ScheduleActivityTask 2
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isCompleted: false, isFailed: false
+              command.isStarted.should.be.true
+              command.isCompleted.should.be.false
+              command.isFailed.should.be.false
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", isStarted: true, isCompleted: false, isFailed: false
+              command.isStarted.should.be.true
+              command.isCompleted.should.be.false
+              command.isFailed.should.be.false
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
           .then -> worker.poll() # hello Completed or Schmetterling Failed (depends on SWF ordering of activity tasks)
           .catch ((error) -> error.message is "Too afraid!"), ((error) ->) # catch it
@@ -137,18 +144,30 @@ describe "Boyband: Decider & Worker", ->
               issues[0].userId.should.be.equal(inputs.Schmetterling.userId)
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isCompleted: false, isFailed: false
+              EchoProgressBar = command.progressBars[0]
+              EchoProgressBar.activityId.should.be.equal("Echo")
+              EchoProgressBar.total.should.be.equal(0)
+              EchoProgressBar.current.should.be.equal(1)
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isCompleted: false, isFailed: false # no current, because the Worker has failed
+              EchoProgressBar = command.progressBars[0]
+              EchoProgressBar.activityId.should.be.equal("Echo")
+              EchoProgressBar.total.should.be.equal(0)
+              should.not.exist(EchoProgressBar.current) # Worker has failed, so he couldn't set current
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, current: 1, isStarted: true, isCompleted: true, isFailed: false
+              command.isStarted.should.be.true
+              command.isCompleted.should.be.true
+              command.isFailed.should.be.false
+              command.result.should.be.deep.equal({message: "h e l l o (reply)"})
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
-              command.progressBars[0].should.be.deep.equal activityId: "Echo", total: 0, isStarted: true, isCompleted: false, isFailed: true
+              command.isStarted.should.be.true
+              command.isCompleted.should.be.false
+              command.isFailed.should.be.true
+              should.not.exist(command.result)
           .then -> dependencies.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams(inputs.Neo, "Knock, knock, Neo")
           )
