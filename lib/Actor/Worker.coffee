@@ -20,6 +20,7 @@ class Worker extends Actor
     Match.check @knex, Match.Any
     Match.check @bookshelf, Match.Any
     Match.check @mongodb, Match.Any
+    @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
     super
   signature: -> ["domain", "taskList", "identity"]
@@ -66,6 +67,8 @@ class Worker extends Actor
       new Promise (resolve, reject) =>
         try
           input = JSON.parse(options.input)
+          Match.check input, Match.ObjectIncluding
+            commandId: String
           @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
           inchunks = input.chunks or []
           outchunks = []
@@ -88,9 +91,15 @@ class Worker extends Actor
             knex: @knex
             mongodb: @mongodb
           task = new @taskCls input, options, streams, dependencies
-          task.execute().bind(@)
-          .then -> resolve _.extend {chunks: outchunks}, task.result
-          .catch reject
+          Promise.bind(@)
+          .then -> @progressBarSetIsStarted input.commandId, options.activityId
+          .then -> task.execute()
+          .then ->
+            @progressBarSetIsCompleted input.commandId, options.activityId
+            resolve _.extend {chunks: outchunks}, task.result
+          .catch (error) ->
+            @progressBarSetIsFailed input.commandId, options.activityId
+            reject(error)
         catch error
           reject(error)
       .bind(@)
@@ -130,5 +139,8 @@ class Worker extends Actor
         ]
         .catch (anotherError) -> throw anotherError # if we hit another error while reporting the original error, throw another error instead (we'll see it in console)
         .then -> throw error # otherwise let it crash with original error
+  progressBarSetIsStarted: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isStarted": true}}).then -> true
+  progressBarSetIsCompleted: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isCompleted": true}}).then -> true
+  progressBarSetIsFailed: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isFailed": true}}).then -> true
 
 module.exports = Worker
