@@ -24,6 +24,13 @@ class Decider extends Actor
     @loop()
   stop: (code) ->
     @info "Decider:stopping", @details()
+    if @request.isComplete
+      @halt(code)
+    else
+      @request.on "complete", @halt.bind(@, code)
+      @request.abort()
+  halt: (code) ->
+    @info "Decider:stopped", @details()
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
@@ -39,10 +46,14 @@ class Decider extends Actor
     @info "Decider:polling", @details()
     Promise.bind(@)
     .then ->
-      @swf.pollForDecisionTaskAsync
-        domain: @domain
-        taskList: @taskList
-        identity: @identity
+      Promise.fromNode (callback) =>
+        # It's possible to call @request.eachPage(callback) to get all pages or even @request.eachItem(callback) to enumerate over items with paging
+        @request = @swf.pollForDecisionTask
+          domain: @domain
+          taskList: @taskList
+          identity: @identity
+        , callback
+        @request.on "complete", => @request.isComplete = true
     .then (options) ->
       return if not options.taskToken # "Call me later", said Amazon
       task = null # for use in .catch

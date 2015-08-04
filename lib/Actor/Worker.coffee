@@ -29,8 +29,16 @@ class Worker extends Actor
   stop: (code) ->
 #    console.trace("Worker:stopping trace")
     @info "Worker:stopping", @details()
-    @knex.destroy()
-    .then -> process.exit(code)
+    @knex.destroy().bind(@)
+    .then ->
+      if @request.isComplete
+        @halt(code)
+      else
+        @request.on "complete", @halt.bind(@, code)
+        @request.abort()
+  halt: (code) ->
+    @info "Worker:stopped", @details()
+    process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
     process.nextTick =>
@@ -45,10 +53,13 @@ class Worker extends Actor
     @info "Worker:polling", @details()
     Promise.bind(@)
     .then ->
-      @swf.pollForActivityTaskAsync
-        domain: @domain
-        taskList: @taskList
-        identity: @identity
+      Promise.fromNode (callback) =>
+        @request = @swf.pollForActivityTask
+          domain: @domain
+          taskList: @taskList
+          identity: @identity
+        , callback
+        @request.on "complete", => @request.isComplete = true
     .then (options) ->
       return false if not options.taskToken # "Call me later", said Amazon
       input = null # make it available in .catch, but parse inside new Promise
