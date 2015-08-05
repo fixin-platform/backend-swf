@@ -68,6 +68,7 @@ describe "Boyband: Decider & Worker", ->
         name: "Echo"
       taskCls: Echo
       identity: "Echo-test-worker"
+      env: "test"
     ,
       dependencies
     )
@@ -103,9 +104,6 @@ describe "Boyband: Decider & Worker", ->
 
     it "should run through `ListenToYourHeart` workflow multiple times", ->
       new Promise (resolve, reject) ->
-        worker.details = _.wrap worker.details, (parent, args...) ->
-          args[0]?.error?.stack = "~ stripped for tests ~"
-          parent.apply(@, args)
         nock.back "test/fixtures/Boyband.json", (recordingDone) ->
           Promise.resolve()
           .then -> registrar.registerDomains(domains)

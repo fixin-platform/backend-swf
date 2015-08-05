@@ -14,6 +14,7 @@ class Worker extends Actor
       identity: String
       taskCls: Function # ActivityTask constructor
       maxLoops: Match.Optional(Match.Integer)
+      env: Match.Optional(String)
     @knex = dependencies.knex
     @bookshelf = dependencies.bookshelf
     @mongodb = dependencies.mongodb
@@ -110,6 +111,7 @@ class Worker extends Actor
           result: JSON.stringify result
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
+        details.stack = "~ stripped for tests ~" if @env is "test" # nock will complain about non-matching record, because stack traces are different on different machines
         reason = error.message or error.name
         taskToken = options.taskToken
         now = new Date()
