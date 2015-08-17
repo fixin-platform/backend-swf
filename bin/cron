@@ -1,0 +1,63 @@
+#!/usr/bin/env coffee
+
+path = require "path"
+parse = require "path-parse"
+yargs = require "yargs"
+domain = require "domain"
+Cron = require "../lib/Actor/Cron"
+settingsLoader = require "../core/helper/settings"
+createDependencies = require "../core/helper/dependencies"
+
+argv = yargs
+  .usage('Usage: $0 [options]')
+  .options(
+    "s":
+      alias: "settings"
+      type: "string"
+      description: "Settings for dependencies (SWF binding, logger, etc)"
+      demand: true
+    "d":
+      alias: "domain"
+      type: "string"
+      description: "Amazon SWF domain"
+      demand: true
+    "i":
+      alias: "identity"
+      type: "string"
+      description: "Amazon SWF identity (defaults to \"cron://{{hostname}}/Cron\#{{pid}}\")"
+      demand: false
+    "m":
+      alias: "max-loops"
+      type: "number"
+      description: "Execute that many loops and exit (useful for testing)"
+      demand: false
+      default: 0
+    "u":
+      alias: "timeout"
+      type: "number"
+      description: "Override SWF socket timeout (useful for testing) (in milliseconds)"
+      demand: false
+      default: 0
+  )
+  .strict()
+  .argv
+
+settings = settingsLoader path.resolve(process.cwd(), argv.settings)
+identity = argv.identity or "cron://#{require("os").hostname()}/Cron\##{process.pid}"
+
+if argv.timeout
+  settings.swf.httpOptions ?= {}
+  settings.swf.httpOptions.timeout = argv.timeout
+
+dependencies = createDependencies(settings, "bin_cron")
+
+cron = new Cron
+  domain: argv.domain
+  identity: identity
+  maxLoops: argv.maxLoops
+,
+  dependencies
+
+cron.start()
+
+(require "death")(-> cron.stop(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen

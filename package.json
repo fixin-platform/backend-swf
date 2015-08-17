@@ -30,6 +30,7 @@
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
+    "aws-sdk": "2.1.39",
     "bluebird": "^2.9.34",
     "death": "^1.0.0",
     "mtr-match": "0.0.4",
@@ -40,6 +41,7 @@
     "underscore.deep": "^0.5.1",
     "underscore.string": "^3.1.1",
     "validate-obj": "^0.8.4",
-    "yargs": "^3.15.0"
+    "yargs": "^3.15.0",
+    "meteor-random": "0.0.3"
   }
 }
