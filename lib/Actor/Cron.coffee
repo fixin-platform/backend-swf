@@ -47,7 +47,7 @@ class Cron extends Actor
         $lte: now
     )
     .map (step) ->
-      requestAsync({method: "GET", url: "#{settings.cron.url}/step/input/#{step._id}/#{settings.cron.token}"})
+      requestAsync({method: "GET", url: "#{settings.cron.url}/step/input/#{step._id}/#{settings.cron.token}", json: true})
       .spread (response, input) ->
         Commands.insert(
           _id: Random.id()
@@ -63,6 +63,10 @@ class Cron extends Actor
           updatedAt: now
           createdAt: now
         ).then (command) ->
+          _.defaults input,
+            commandId: command._id
+            stepId: step._id
+            userId: step.userId
           params =
             domain: settings.swf.domain
             workflowId: command._id
