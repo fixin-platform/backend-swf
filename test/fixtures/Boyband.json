@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Dev",
+            "name": "Test",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "Dev description"
+            "description": "Test description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "Dev"
+            "message": "Test"
         },
         "headers": {
             "x-amzn-requestid": "962e5a80-3b84-11e5-9b1b-efac9d3ccebe",
@@ -34,7 +34,7 @@
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
             "description": "",
-            "domain": "Dev"
+            "domain": "Test"
         },
         "status": 400,
         "response": {
@@ -63,7 +63,7 @@
             "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
             "description": "",
-            "domain": "Dev"
+            "domain": "Test"
         },
         "status": 400,
         "response": {
@@ -81,7 +81,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "startTimeFilter": {
                 "oldestDate": 0
             },
@@ -105,7 +105,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "workflowId": "HC59Fwwvdnbcu2fyi",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -131,7 +131,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "workflowId": "SC7Eyt6HnmQdfuk79",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -157,7 +157,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -260,7 +260,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -363,7 +363,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "Echo"
             },
@@ -411,7 +411,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "Echo"
             },
@@ -460,7 +460,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -630,7 +630,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -802,7 +802,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "workflowId": "NC2CsND9f6iRh2HHf",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -828,7 +828,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -931,7 +931,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "Echo"
             },
@@ -979,7 +979,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },
@@ -1149,7 +1149,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "workflowId": "BCCan2oRhKtCL8jQa",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -1175,7 +1175,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },

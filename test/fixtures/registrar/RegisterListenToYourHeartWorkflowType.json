@@ -4,7 +4,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {

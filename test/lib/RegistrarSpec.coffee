@@ -37,7 +37,7 @@ describe "Registrar", ->
     it "should register `ListenToYourHeart` workflow type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterListenToYourHeartWorkflowType.json", (recordingDone) ->
-          registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
+          registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
           .then resolve
           .catch reject
           .finally recordingDone
@@ -45,7 +45,7 @@ describe "Registrar", ->
     it "should register `Echo` activity type", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
-          registrar.registerActivityTypesForDomain(activityTypes, "Dev")
+          registrar.registerActivityTypesForDomain(activityTypes, "Test")
           .then resolve
           .catch reject
           .finally recordingDone

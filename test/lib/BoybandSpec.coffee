@@ -54,7 +54,7 @@ describe "Boyband: Decider & Worker", ->
       dependencies
     )
     decider = new Decider(
-      domain: "Dev"
+      domain: "Test"
       taskList:
         name: "ListenToYourHeart"
       taskCls: ListenToYourHeart
@@ -63,7 +63,7 @@ describe "Boyband: Decider & Worker", ->
       dependencies
     )
     worker = new Worker(
-      domain: "Dev"
+      domain: "Test"
       taskList:
         name: "Echo"
       taskCls: Echo
@@ -107,8 +107,8 @@ describe "Boyband: Decider & Worker", ->
         nock.back "test/fixtures/Boyband.json", (recordingDone) ->
           Promise.resolve()
           .then -> registrar.registerDomains(domains)
-          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
-          .then -> registrar.registerActivityTypesForDomain(activityTypes, "Dev")
+          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
+          .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
           .then -> helpers.clean(dependencies.swf)
           # Normally, workflow execution should be started by frontend code
           .then -> dependencies.swf.startWorkflowExecutionAsync(

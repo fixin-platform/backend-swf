@@ -4,7 +4,7 @@ Promise = require "bluebird"
 module.exports =
   clean: (swf) ->
     swf.listOpenWorkflowExecutionsAsync
-      domain: "Dev"
+      domain: "Test"
       startTimeFilter:
         oldestDate: 0
       typeFilter:
@@ -14,11 +14,11 @@ module.exports =
       Promise.all(
         for executionInfo in response.executionInfos
           swf.terminateWorkflowExecutionAsync
-            domain: "Dev"
+            domain: "Test"
             workflowId: executionInfo.execution.workflowId
       )
   generateWorkflowExecutionParams: (input, message) ->
-    domain: "Dev"
+    domain: "Test"
     workflowId: input.commandId
     workflowType:
       name: "ListenToYourHeart"

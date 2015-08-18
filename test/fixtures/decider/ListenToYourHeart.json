@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Dev",
+            "name": "Test",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "Dev description"
+            "description": "Test description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "Dev"
+            "message": "Test"
         },
         "headers": {
             "x-amzn-requestid": "30404e00-2ca3-11e5-881a-75033a1fdda0",
@@ -24,7 +24,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
@@ -52,7 +52,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
@@ -81,7 +81,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "workflowId": "ListenToYourHeart-test-workflow",
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -106,7 +106,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Dev",
+            "domain": "Test",
             "taskList": {
                 "name": "ListenToYourHeart"
             },

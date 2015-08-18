@@ -4,14 +4,14 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Dev",
+            "name": "Test",
             "workflowExecutionRetentionPeriodInDays": "7",
-            "description": "Dev description"
+            "description": "Test description"
         },
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
-            "message": "Dev"
+            "message": "Test"
         },
         "headers": {
             "x-amzn-requestid": "73cf8d2d-2c6c-11e5-bb21-9fa39278f6ca",

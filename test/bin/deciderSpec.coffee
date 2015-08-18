@@ -34,8 +34,8 @@ describe "bin/decider", ->
       nock.back "test/fixtures/RegisterAll.json", (recordingDone) ->
         Promise.resolve()
         .then -> registrar.registerDomains(domains)
-        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Dev")
-        .then -> registrar.registerActivityTypesForDomain(activityTypes, "Dev")
+        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
+        .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec "bin/decider",
           timeout: 10
         , "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"

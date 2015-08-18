@@ -1,7 +1,7 @@
 [
   {
-    "name": "Dev",
+    "name": "Test",
     "workflowExecutionRetentionPeriodInDays": "7",
-    "description": "Dev description"
+    "description": "Test description"
   }
 ]
