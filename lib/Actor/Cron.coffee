@@ -27,9 +27,10 @@ class Cron extends Actor
   signature: -> ["domain", "identity"]
   start: ->
     @info "Cron:starting", @details()
-    setInterval @workflowsRerun.bind(@), 6000
+    @interval = setInterval @workflowsRerun.bind(@), 60000
   stop: (code) ->
     @info "Cron:stopping", @details()
+    clearInterval(@interval)
     @halt(code)
   halt: (code) ->
     @info "Cron:stopped", @details()
