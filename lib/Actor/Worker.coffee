@@ -98,9 +98,9 @@ class Worker extends Actor
           Promise.bind(@)
           .then -> @progressBarSetIsStarted input.commandId, options.activityId
           .then -> task.execute()
-          .then ->
+          .then (result) ->
             @progressBarSetIsCompleted input.commandId, options.activityId
-            resolve _.extend {chunks: outchunks}, task.result
+            resolve _.extend {chunks: outchunks}, result
           .catch (error) ->
             @progressBarSetIsFailed input.commandId, options.activityId
             reject(error)
