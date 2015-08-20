@@ -73,4 +73,9 @@ worker = new Worker
 
 worker.start("vodka") # hope it helps
 
-(require "death")(-> worker.stop(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen
+# In nomine SIGINT, SIGTERM, SIGQUIT, amen
+onDeath = require "death"
+onDeath (signal) ->
+  worker.info "Worker:trapped", worker.details
+    signal: signal
+  worker.stop(0)

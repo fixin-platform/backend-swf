@@ -29,10 +29,13 @@ class Worker extends Actor
     @info "Worker:starting", @details()
     @loop()
   stop: (code) ->
-#    console.trace("Worker:stopping trace")
     @info "Worker:stopping", @details()
     @knex.destroy().bind(@)
     .then ->
+      # Don't remove extra logging
+      # I'm trying to catch a bug which causes the worker to continue running even after "Worker:failed" and "Worker:stopping"
+      @info "Worker:halting", @details
+        requestIsComplete: @request.isComplete
       if @request.isComplete
         @halt(code)
       else

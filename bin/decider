@@ -73,4 +73,9 @@ decider = new Decider
 
 decider.start()
 
-(require "death")(-> decider.stop(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen
+# In nomine SIGINT, SIGTERM, SIGQUIT, amen
+onDeath = require "death"
+onDeath (signal) ->
+  decider.info "Decider:trapped", decider.details
+    signal: signal
+  decider.stop(0)
