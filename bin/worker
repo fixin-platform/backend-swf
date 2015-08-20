@@ -79,3 +79,6 @@ onDeath (signal) ->
   worker.info "Worker:trapped", worker.details
     signal: signal
   worker.stop(0)
+
+#dependencies.memwatch.memwatch.on "leak", (info) ->
+#  console.log info
