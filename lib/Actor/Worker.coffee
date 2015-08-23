@@ -30,7 +30,8 @@ class Worker extends Actor
     @loop()
   stop: (code) ->
     @info "Worker:stopping", @details()
-    @knex.destroy().bind(@)
+    Promise.join(@knex.destroy(), @mongodb.close())
+    .bind(@)
     .then ->
       # Don't remove extra logging
       # I'm trying to catch a bug which causes the worker to continue running even after "Worker:failed" and "Worker:stopping"

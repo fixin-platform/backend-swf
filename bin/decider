@@ -78,4 +78,4 @@ onDeath = require "death"
 onDeath (signal) ->
   decider.info "Decider:trapped", decider.details
     signal: signal
-  decider.stop(0)
+  decider.trap(signal)

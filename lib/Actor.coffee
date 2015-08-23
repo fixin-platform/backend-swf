@@ -20,5 +20,7 @@ class Actor
     return if not @maxLoops
     @maxLoops--
     @shouldStop = true if @maxLoops <= 0
+  trap: ->
+    @shouldStop = true
 
 module.exports = Actor

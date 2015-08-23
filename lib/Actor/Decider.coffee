@@ -24,13 +24,18 @@ class Decider extends Actor
     @loop()
   stop: (code) ->
     @info "Decider:stopping", @details()
-    if @request.isComplete
-#      @info "request.isComplete: true", @details()
-      @halt(code)
-    else
-#      @info "request.isComplete: false", @details()
-      @request.on "complete", @halt.bind(@, code)
-      @request.abort()
+    Promise.join(@mongodb.close())
+    .bind(@)
+    .then ->
+      # Don't remove extra logging
+      # I'm trying to catch a bug which causes the decider to continue running even after "Decider:failed" and "Decider:stopping"
+      @info "Decider:halting", @details
+        requestIsComplete: @request.isComplete
+      if @request.isComplete
+        @halt(code)
+      else
+        @request.on "complete", @halt.bind(@, code)
+        @request.abort()
   halt: (code) ->
     @info "Decider:stopped", @details()
     process.exit(code)

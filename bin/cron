@@ -60,4 +60,9 @@ cron = new Cron
 
 cron.start()
 
-(require "death")(-> cron.stop(0)) # In nomine SIGINT, SIGTERM, SIGQUIT, amen
+# In nomine SIGINT, SIGTERM, SIGQUIT, amen
+onDeath = require "death"
+onDeath (signal) ->
+  cron.info "Cron:trapped", cron.details
+    signal: signal
+  cron.trap(signal)
