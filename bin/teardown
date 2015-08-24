@@ -1,0 +1,48 @@
+#!/usr/bin/env coffee
+
+path = require "path"
+parse = require "path-parse"
+yargs = require "yargs"
+domain = require "domain"
+loadSettings = require "../core/helper/settings"
+createDependencies = require "../core/helper/dependencies"
+teardown = require "../helper/teardown"
+
+argv = yargs
+  .usage('Usage: $0 [options]')
+  .options(
+    "s":
+      alias: "settings"
+      type: "string"
+      description: "Settings for dependencies (SWF binding, logger, etc)"
+      demand: true
+    "d":
+      alias: "domain"
+      type: "string"
+      description: "Amazon SWF domain"
+      demand: true
+    "u":
+      alias: "timeout"
+      type: "number"
+      description: "Override SWF socket timeout (useful for testing) (in milliseconds)"
+      demand: false
+      default: 0
+  )
+  .strict()
+  .argv
+
+settings = loadSettings path.resolve(process.cwd(), argv.settings)
+
+if argv.timeout
+  settings.swf.httpOptions ?= {}
+  settings.swf.httpOptions.timeout = argv.timeout
+
+dependencies = createDependencies(settings, "bin_teardown")
+
+teardown(
+  domain: argv.domain
+  startTimeFilter:
+    oldestDate: 0
+,
+  dependencies
+)
