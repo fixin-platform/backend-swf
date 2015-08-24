@@ -9,7 +9,7 @@ domains = require "../definitions/domains.json"
 workflowTypes = require "../definitions/workflowTypes.json"
 activityTypes = require "../definitions/activityTypes.json"
 helpers = require "../helpers"
-teardown = require "../../helper/teardown"
+cleanup = require "../../helper/cleanup"
 
 Registrar = require "../../lib/Actor/Registrar"
 Decider = require "../../lib/Actor/Decider"
@@ -110,7 +110,7 @@ describe "Boyband: Decider & Worker", ->
           .then -> registrar.registerDomains(domains)
           .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
           .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
-          .then -> teardown(
+          .then -> cleanup(
             domain: "Test"
             startTimeFilter:
               oldestDate: 0

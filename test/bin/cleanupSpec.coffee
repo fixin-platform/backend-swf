@@ -9,13 +9,13 @@ domains = require "../definitions/domains.json"
 workflowTypes = require "../definitions/workflowTypes.json"
 activityTypes = require "../definitions/activityTypes.json"
 helpers = require "../helpers"
-teardown = require "../../helper/teardown"
+cleanup = require "../../helper/cleanup"
 
 Registrar = require "../../lib/Actor/Registrar"
 exec = require "../../core/test-helper/exec"
 
-describe "bin/teardown", ->
-  dependencies = createDependencies(settings, "bin_teardown")
+describe "bin/cleanup", ->
+  dependencies = createDependencies(settings, "bin_cleanup")
 
   registrar = null; decider = null; worker = null;
 
@@ -33,12 +33,12 @@ describe "bin/teardown", ->
     @slow(10000)
     new Promise (resolve, reject) ->
       # bins are launched as separate process, so we can't record and replay their SWF requests
-      nock.back "test/fixtures/teardown/Normal.json", (recordingDone) ->
+      nock.back "test/fixtures/cleanup/Normal.json", (recordingDone) ->
         Promise.resolve()
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
-        .then -> teardown(
+        .then -> cleanup(
           domain: "Test"
           startTimeFilter:
             oldestDate: 0
@@ -61,7 +61,7 @@ describe "bin/teardown", ->
         )
         .then (data) ->
           data.executionInfos.length.should.equal(1)
-        .then -> exec "bin/teardown"
+        .then -> exec "bin/cleanup"
         .spread (stdout, stderr, code) ->
           stderr.should.be.equal("")
           code.should.be.equal(0)

@@ -6,7 +6,7 @@ yargs = require "yargs"
 domain = require "domain"
 loadSettings = require "../core/helper/settings"
 createDependencies = require "../core/helper/dependencies"
-teardown = require "../helper/teardown"
+cleanup = require "../helper/cleanup"
 
 argv = yargs
   .usage('Usage: $0 [options]')
@@ -37,9 +37,9 @@ if argv.timeout
   settings.swf.httpOptions ?= {}
   settings.swf.httpOptions.timeout = argv.timeout
 
-dependencies = createDependencies(settings, "bin_teardown")
+dependencies = createDependencies(settings, "bin_cleanup")
 
-teardown(
+cleanup(
   domain: argv.domain
   startTimeFilter:
     oldestDate: 0
