@@ -54,7 +54,7 @@ describe "ListenToYourHeart", ->
 
   for history in generator.histories()
     do (history) ->
-      it "should run `#{history.name}` history", ->
+      it "should run `#{history.name}` history @fast", ->
         task = new ListenToYourHeart(
           history.events
         ,

@@ -103,7 +103,7 @@ describe "Boyband: Decider & Worker", ->
 
   describe "domains", ->
 
-    it "should run through `ListenToYourHeart` workflow multiple times", ->
+    it "should run through `ListenToYourHeart` workflow multiple times @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/Boyband.json", (recordingDone) ->
           Promise.resolve()

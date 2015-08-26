@@ -27,7 +27,7 @@ describe "bin/worker", ->
 
   afterEach ->
 
-  it "should launch", ->
+  it "should launch @fast", ->
     @timeout(70000) # default Amazon timeout is 60000
     @slow(70000)
     new Promise (resolve, reject) ->

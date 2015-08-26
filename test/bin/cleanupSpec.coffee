@@ -28,7 +28,7 @@ describe "bin/cleanup", ->
 
   afterEach ->
 
-  it "should launch", ->
+  it "should launch @fast", ->
     @timeout(20000)
     @slow(10000)
     new Promise (resolve, reject) ->

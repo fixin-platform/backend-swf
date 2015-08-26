@@ -26,7 +26,7 @@ describe "Registrar", ->
   describe "domains", ->
 
     # a domain can't be deleted, so this test won't ever pass again in record mode
-    it "should register `Dev` domain", ->
+    it "should register `Dev` domain @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterDevDomain.json", (recordingDone) ->
           registrar.registerDomains(domains)
@@ -34,7 +34,7 @@ describe "Registrar", ->
           .catch reject
           .finally recordingDone
 
-    it "should register `ListenToYourHeart` workflow type", ->
+    it "should register `ListenToYourHeart` workflow type @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterListenToYourHeartWorkflowType.json", (recordingDone) ->
           registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
@@ -42,7 +42,7 @@ describe "Registrar", ->
           .catch reject
           .finally recordingDone
 
-    it "should register `Echo` activity type", ->
+    it "should register `Echo` activity type @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
           registrar.registerActivityTypesForDomain(activityTypes, "Test")
@@ -52,7 +52,7 @@ describe "Registrar", ->
 
   describe "error handling", ->
 
-    it "should print the error if it happens", ->
+    it "should print the error if it happens @fast", ->
       registrar.swf.config.credentials.accessKeyId = "Santa Claus"
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterDevDomainWithInvalidCredentials.json", (recordingDone) ->

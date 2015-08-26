@@ -30,7 +30,7 @@ describe "Echo", ->
 
   describe "error handling", ->
 
-    it "should stop reading off input if it throws an exception", ->
+    it "should stop reading off input if it throws an exception @fast", ->
       task.in._read = ->
         @push {message: "Schmetterling!"}
         @push {message: "Not read"}
