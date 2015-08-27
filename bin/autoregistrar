@@ -5,6 +5,7 @@ if [[ ! ("$#" == 2 && -f $1) ]]; then
   exit 1
 fi
 
+
 ./swf/bin/registrar domains -s $1 $(find . -name domains.json -not -path "**/test/*")
 ./swf/bin/registrar workflowTypes -s $1 -d $2 $(find . -name workflowTypes.json -not -path "**/test/*")
 ./swf/bin/registrar activityTypes -s $1 -d $2 $(find . -name activityTypes.json -not -path "**/test/*")
