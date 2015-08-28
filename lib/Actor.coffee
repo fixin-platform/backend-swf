@@ -12,7 +12,9 @@ class Actor
     Match.check @logger, Match.Any
     _.defaults @,
       maxLoops: 0
+      shouldCease: false
       shouldStop: false
+      isCeased: false
     @logger.extend @
   details: (details) -> _.extend _.pick(@, @signature()), details
   signature: -> throw new Error("Implement me!")
@@ -20,7 +22,17 @@ class Actor
     return if not @maxLoops
     @maxLoops--
     @shouldStop = true if @maxLoops <= 0
-  trap: ->
-    @shouldStop = true
+  cease: (code) ->
+    @info "#{@name()}:ceasing", @details()
+    @isCeased = true
+  trap: (signal) ->
+    switch signal
+      when "SIGQUIT"
+        @shouldCease = true
+      when "SIGTERM"
+        @shouldStop = true
+        @stop(0) if @isCeased # no need to wait for another @loop() call
+      else
+        @stop(0)
 
 module.exports = Actor

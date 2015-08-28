@@ -24,6 +24,7 @@ class Cron extends Actor
     @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
     @Steps = @mongodb.collection("Steps")
+  name: -> "Cron"
   signature: -> ["domain", "identity"]
   start: ->
     @info "Cron:starting", @details()
@@ -42,6 +43,7 @@ class Cron extends Actor
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
+    return @cease(0) if @shouldCease
     process.nextTick =>
       Promise.bind(@)
       .then @startWorkflowExecutions

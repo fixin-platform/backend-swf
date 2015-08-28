@@ -24,6 +24,7 @@ class Worker extends Actor
     @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
     super
+  name: -> "Worker"
   signature: -> ["domain", "taskList", "identity"]
   start: ->
     @info "Worker:starting", @details()
@@ -47,6 +48,7 @@ class Worker extends Actor
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
+    return @cease(0) if @shouldCease
     process.nextTick =>
       Promise.bind(@)
       .then @poll

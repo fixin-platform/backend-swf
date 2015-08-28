@@ -18,6 +18,7 @@ class Decider extends Actor
     Match.check @mongodb, Match.Any
     @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
+  name: -> "Decider"
   signature: -> ["domain", "taskList", "identity"]
   start: ->
     @info "Decider:starting", @details()
@@ -41,6 +42,7 @@ class Decider extends Actor
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
+    return @cease(0) if @shouldCease
     process.nextTick =>
       Promise.bind(@)
       .then @poll
