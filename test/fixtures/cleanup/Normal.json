@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -14,13 +14,13 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "f2002031-4a33-11e5-b3c4-d1058d246e17",
+            "x-amzn-requestid": "ba2a1e98-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -36,19 +36,16 @@
             "description": "",
             "domain": "Test"
         },
-        "status": 400,
-        "response": {
-            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
-            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
-        },
+        "status": 200,
+        "response": "",
         "headers": {
-            "x-amzn-requestid": "f28b973b-4a33-11e5-b32b-0b7a6fe76be1",
+            "x-amzn-requestid": "ba70c4c8-4db5-11e5-9156-13f14b7faae1",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "129"
+            "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -65,19 +62,16 @@
             "description": "",
             "domain": "Test"
         },
-        "status": 400,
-        "response": {
-            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
-            "message": "ActivityType=[name=Echo, version=1.0.0]"
-        },
+        "status": 200,
+        "response": "",
         "headers": {
-            "x-amzn-requestid": "f2f9c273-4a33-11e5-a7e1-65160d8d45e0",
+            "x-amzn-requestid": "bad4b6b6-4db5-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "116"
+            "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -92,46 +86,16 @@
         },
         "status": 200,
         "response": {
-            "executionInfos": [
-                {
-                    "cancelRequested": false,
-                    "execution": {
-                        "runId": "22nFuNgTiCnflD8ToH6KnzZE/UbJpP5rjXt8DU4PeJR/E=",
-                        "workflowId": "HC59Fwwvdnbcu2fyi"
-                    },
-                    "executionStatus": "OPEN",
-                    "startTimestamp": 1440401643.279,
-                    "workflowType": {
-                        "name": "ListenToYourHeart",
-                        "version": "1.0.0"
-                    }
-                }
-            ]
+            "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "f3646a7b-4a33-11e5-92fa-83bab232a20d",
+            "x-amzn-requestid": "bb328e48-4db5-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "271"
+            "content-length": "21"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
-        "method": "POST",
-        "path": "/",
-        "body": {
-            "domain": "Test",
-            "workflowId": "HC59Fwwvdnbcu2fyi"
-        },
-        "status": 200,
-        "response": "",
-        "headers": {
-            "x-amzn-requestid": "f3ee340c-4a33-11e5-9de9-6d40d103e3de",
-            "content-type": "application/x-amz-json-1.0",
-            "content-length": "0"
-        }
-    },
-    {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -148,16 +112,16 @@
         },
         "status": 200,
         "response": {
-            "runId": "22Aj2bGxbuEkiV18O8/XpPH9DhPNLYPeMSEEkkmmM0FY8="
+            "runId": "216DrwoqxiYs1W5X2BoXAuHah9em5vmNQUDxgrLSOGNE8="
         },
         "headers": {
-            "x-amzn-requestid": "f45421a4-4a33-11e5-9a3d-cfab829f788c",
+            "x-amzn-requestid": "bb81bf91-4db5-11e5-9967-2b6cad2aa7b2",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -172,11 +136,11 @@
                 {
                     "cancelRequested": false,
                     "execution": {
-                        "runId": "22Aj2bGxbuEkiV18O8/XpPH9DhPNLYPeMSEEkkmmM0FY8=",
+                        "runId": "216DrwoqxiYs1W5X2BoXAuHah9em5vmNQUDxgrLSOGNE8=",
                         "workflowId": "HC59Fwwvdnbcu2fyi"
                     },
                     "executionStatus": "OPEN",
-                    "startTimestamp": 1440402270.787,
+                    "startTimestamp": 1440787863.546,
                     "workflowType": {
                         "name": "ListenToYourHeart",
                         "version": "1.0.0"
@@ -185,13 +149,13 @@
             ]
         },
         "headers": {
-            "x-amzn-requestid": "f4cb4d7a-4a33-11e5-89a5-434a2c42a2a3",
+            "x-amzn-requestid": "bbd18d0e-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "271"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -205,7 +169,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "f6dfae82-4a33-11e5-84a0-3b8e9de66f71",
+            "x-amzn-requestid": "bd4f5446-4db5-11e5-9156-13f14b7faae1",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }

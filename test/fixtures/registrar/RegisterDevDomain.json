@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -14,9 +14,9 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "73cf8d2d-2c6c-11e5-bb21-9fa39278f6ca",
+            "x-amzn-requestid": "da3195a6-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "89"
+            "content-length": "83"
         }
     }
 ]

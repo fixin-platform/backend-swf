@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -14,13 +14,13 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "962e5a80-3b84-11e5-9b1b-efac9d3ccebe",
+            "x-amzn-requestid": "d2ddf910-4db5-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "82"
+            "content-length": "83"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -42,13 +42,13 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "96b00d5a-3b84-11e5-a32b-21a8d65c3c5e",
+            "x-amzn-requestid": "d317a687-4db5-11e5-9156-13f14b7faae1",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -71,13 +71,13 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "971bc7b9-3b84-11e5-a6c6-3f17805480dc",
+            "x-amzn-requestid": "d350b813-4db5-11e5-9967-2b6cad2aa7b2",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -95,13 +95,13 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "97c378b2-3b84-11e5-8806-ef21d91ec4b9",
+            "x-amzn-requestid": "d3866e4c-4db5-11e5-af08-ab9fa7956514",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -118,16 +118,16 @@
         },
         "status": 200,
         "response": {
-            "runId": "22SPIjF5AMAN+ZsXH0rySqhbL6bUce8LyVx4ZeLr5q5e0="
+            "runId": "21v1GdPDUpBsFbVhk3m3LH7rHOQMJXB77v6A/ewhj0uBc="
         },
         "headers": {
-            "x-amzn-requestid": "984775bd-3b84-11e5-aad1-3bff193de2d3",
+            "x-amzn-requestid": "d3d1cf37-4db5-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -144,16 +144,16 @@
         },
         "status": 200,
         "response": {
-            "runId": "22Oe+a/fLt5jXrGtBiKCMgV8OzSyVu2pXgrlWqVJWswKE="
+            "runId": "21SjFa8AY068DprCtFGTxUcXYS51o4kKeQQT2zMJnw0fE="
         },
         "headers": {
-            "x-amzn-requestid": "98c669a5-3b84-11e5-9cad-33298761acc6",
+            "x-amzn-requestid": "d41c940b-4db5-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -168,7 +168,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787638.245,
+                    "eventTimestamp": 1440787904.33,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -195,7 +195,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787638.245,
+                    "eventTimestamp": 1440787904.33,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -204,15 +204,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787639.828,
+                    "eventTimestamp": 1440787905.355,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAArEfhhONZsLJ2wF9cZNehKPKZ/RMBq6FxOOpVIJISPwkurslyDCO0SpK7Dsk4K0KV1r+M30ta7x9Mtz0/vblxMdaQAz9PkVXBuKtuA+By98P4Urhm79yw9nbljsyeNn2CJfmRu374nPY98jOlN7vimD0/PDPHhdS+w5t7Qw56YqeSv5X9xlACZZTHTJsB9x66OhJ6Mskph7BI+l+5aQQ7q0rrntagFa/HwDyA8B5HQody6m83WOiPoi+ecaKs8NPIUvLnd9T60PfFe7J4dIBZsxupzw78wOt9wxo+PNFMgd2",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdErXyd3TZoIKMFmXJKxDckM4RG3+PlEbeWYq96ipdzdVl1+FmRKS7bUdfpoaGF5CAFyA23mS4PDMrZ6XqeKrM5Mo56g85UmzFMEa6U/C1BUsMIoIpnU2sL8lcOPhEX+PKQLxT7Zt8aLTtoScpcIr0Xdi9E0Gfd+LfujgHe6CZ389jsGi86SV70JzwpAk9hjEvR4wnYKUii3oggpMc/3HD+VN13qahAJMSdLNvsdtCY3jPBXYDbWkjRaAN1WIoGuXrsU/QYlzE2YC/U9vA07q4vXXZd/8nFWRT4SZ3G4mBDB",
             "workflowExecution": {
-                "runId": "22SPIjF5AMAN+ZsXH0rySqhbL6bUce8LyVx4ZeLr5q5e0=",
+                "runId": "21v1GdPDUpBsFbVhk3m3LH7rHOQMJXB77v6A/ewhj0uBc=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -221,17 +221,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "993fb8bf-3b84-11e5-9836-3b6568efdc90",
+            "x-amzn-requestid": "d46a3f1b-4db5-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1546"
+            "content-length": "1544"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAArEfhhONZsLJ2wF9cZNehKPKZ/RMBq6FxOOpVIJISPwkurslyDCO0SpK7Dsk4K0KV1r+M30ta7x9Mtz0/vblxMdaQAz9PkVXBuKtuA+By98P4Urhm79yw9nbljsyeNn2CJfmRu374nPY98jOlN7vimD0/PDPHhdS+w5t7Qw56YqeSv5X9xlACZZTHTJsB9x66OhJ6Mskph7BI+l+5aQQ7q0rrntagFa/HwDyA8B5HQody6m83WOiPoi+ecaKs8NPIUvLnd9T60PfFe7J4dIBZsxupzw78wOt9wxo+PNFMgd2",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdErXyd3TZoIKMFmXJKxDckM4RG3+PlEbeWYq96ipdzdVl1+FmRKS7bUdfpoaGF5CAFyA23mS4PDMrZ6XqeKrM5Mo56g85UmzFMEa6U/C1BUsMIoIpnU2sL8lcOPhEX+PKQLxT7Zt8aLTtoScpcIr0Xdi9E0Gfd+LfujgHe6CZ389jsGi86SV70JzwpAk9hjEvR4wnYKUii3oggpMc/3HD+VN13qahAJMSdLNvsdtCY3jPBXYDbWkjRaAN1WIoGuXrsU/QYlzE2YC/U9vA07q4vXXZd/8nFWRT4SZ3G4mBDB",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -250,13 +250,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "99b5851a-3b84-11e5-a189-979be7461fd4",
+            "x-amzn-requestid": "d4bd1921-4db5-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -271,7 +271,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787638.996,
+                    "eventTimestamp": 1440787904.814,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -298,7 +298,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787638.996,
+                    "eventTimestamp": 1440787904.814,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -307,15 +307,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787641.282,
+                    "eventTimestamp": 1440787906.322,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAuYdqMikjb7ssIP8Q/dxlJCNQ30nKfCId4ab0B0tsQqFM39mCIn4DUzg4LNou8L2zAccm9VtmyuJAyX1XgXBxzK+QgEw/0GDo/gUwF2Fu/kqkdbLceiVwvPq6RUuamvyFR08Qim5OmY99vrR8F3xwnI+ptr8+KEkv49UUthv65691xfEie+kq52lWAsc54rphBFgzBkdHlXvcONZ/73/qn2JD7aO9/KFLP2kiyY35CDqMqR1sz25v+2D6qFtxJnBM8mnNXBYI8Dp87bF8UVDw8gDZajc+kB+4PsAESe5i5xo",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUQBOmpCdBxUaOPr5AEaKVRpdiIVFXlZdgdFa0oMwlt1v1PvgzdTHXUX303YVHTyBajufkqRRrctYYyll5/LLqMCuGjxjGCpj1eBqc03SbkXmT9lwOjHlb5KDaRyc2f6EmwZInU33OSLmXoMtGjDaTnvcTBeCcN4FHVwpfoDZNP44npHmXJmaY4ScPRuTb6V05p9vPBUSutEniydn990tpzUCR1TjMbcBSsDR4lv0f2dWbebHFu6KRNvecSPcDBNI6e2wFXuBfsEqAC/Yk3R49iTVpucKgpfskkwwZpKb6dr",
             "workflowExecution": {
-                "runId": "22Oe+a/fLt5jXrGtBiKCMgV8OzSyVu2pXgrlWqVJWswKE=",
+                "runId": "21SjFa8AY068DprCtFGTxUcXYS51o4kKeQQT2zMJnw0fE=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -324,17 +324,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "9a244c4a-3b84-11e5-8c9b-fbe1f98d5243",
+            "x-amzn-requestid": "d5056d4f-4db5-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1551"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAuYdqMikjb7ssIP8Q/dxlJCNQ30nKfCId4ab0B0tsQqFM39mCIn4DUzg4LNou8L2zAccm9VtmyuJAyX1XgXBxzK+QgEw/0GDo/gUwF2Fu/kqkdbLceiVwvPq6RUuamvyFR08Qim5OmY99vrR8F3xwnI+ptr8+KEkv49UUthv65691xfEie+kq52lWAsc54rphBFgzBkdHlXvcONZ/73/qn2JD7aO9/KFLP2kiyY35CDqMqR1sz25v+2D6qFtxJnBM8mnNXBYI8Dp87bF8UVDw8gDZajc+kB+4PsAESe5i5xo",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUQBOmpCdBxUaOPr5AEaKVRpdiIVFXlZdgdFa0oMwlt1v1PvgzdTHXUX303YVHTyBajufkqRRrctYYyll5/LLqMCuGjxjGCpj1eBqc03SbkXmT9lwOjHlb5KDaRyc2f6EmwZInU33OSLmXoMtGjDaTnvcTBeCcN4FHVwpfoDZNP44npHmXJmaY4ScPRuTb6V05p9vPBUSutEniydn990tpzUCR1TjMbcBSsDR4lv0f2dWbebHFu6KRNvecSPcDBNI6e2wFXuBfsEqAC/Yk3R49iTVpucKgpfskkwwZpKb6dr",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -353,13 +353,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9a94e811-3b84-11e5-946c-c5271ea6f13f",
+            "x-amzn-requestid": "d54842de-4db5-11e5-af08-ab9fa7956514",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -378,36 +378,36 @@
             },
             "input": "{\"chunks\":[{\"message\":\"h e l l o\"}],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAqJk5ZvyEiLu657uhipHfCYISW7X4zMnWod611Xgye/4mIYpW/GN9TB+KhhPiz/olgtCaJPWOo6SCAEHlplvXdmuf5slW7sAmBV7l9uoEAatBwkKFoP74uSdsSWewhvSMfDflSAJmwnslrdiak/FC7FcQ35phg8n9RJ50F/80XRQwfCrujMCFTk06RUql4RpjJfwmVGYD1+QBLc2yyLCiaCCEpDS/dmIlmDHql+gGtAr68DKwiCqZGRNd2C5b8dOPBskn7E0PnMqRUL97KnxYCEKCnBQ8l4GFSDQp6Bz2RPa",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAY5ODVPBVoS1wkMS1QbZ5N/Elp6t4Zc+96SkzKbxdJiQwsH/hwthDH45VP0uo4eFZUpugqwta5+Dm0Ufm3KehkvIGUgL0zu8KQq4BSEyvNTzf5pG1QQaR8xysOrinhUjlH41O5wgtDF5LvmXUwd07zJaDj+XISMGnOEUXWojhVM9WRogolkzU1eo+4JHo7a6+KZreVd5QJuScG3b5/AvjpL/SGpuk5dGO5OZjzAdAkVPiT7bchhVLOetcT49ZbAzG7q2Q/ww3c4TAnWQ4QsXVgTZg4fxcpIwndXJxhoH3m8+",
             "workflowExecution": {
-                "runId": "22SPIjF5AMAN+ZsXH0rySqhbL6bUce8LyVx4ZeLr5q5e0=",
+                "runId": "21v1GdPDUpBsFbVhk3m3LH7rHOQMJXB77v6A/ewhj0uBc=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             }
         },
         "headers": {
-            "x-amzn-requestid": "9b031355-3b84-11e5-b0c1-07b8b3c9c0fa",
+            "x-amzn-requestid": "d585e837-4db5-11e5-9156-13f14b7faae1",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "726"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAqJk5ZvyEiLu657uhipHfCYISW7X4zMnWod611Xgye/4mIYpW/GN9TB+KhhPiz/olgtCaJPWOo6SCAEHlplvXdmuf5slW7sAmBV7l9uoEAatBwkKFoP74uSdsSWewhvSMfDflSAJmwnslrdiak/FC7FcQ35phg8n9RJ50F/80XRQwfCrujMCFTk06RUql4RpjJfwmVGYD1+QBLc2yyLCiaCCEpDS/dmIlmDHql+gGtAr68DKwiCqZGRNd2C5b8dOPBskn7E0PnMqRUL97KnxYCEKCnBQ8l4GFSDQp6Bz2RPa",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAY5ODVPBVoS1wkMS1QbZ5N/Elp6t4Zc+96SkzKbxdJiQwsH/hwthDH45VP0uo4eFZUpugqwta5+Dm0Ufm3KehkvIGUgL0zu8KQq4BSEyvNTzf5pG1QQaR8xysOrinhUjlH41O5wgtDF5LvmXUwd07zJaDj+XISMGnOEUXWojhVM9WRogolkzU1eo+4JHo7a6+KZreVd5QJuScG3b5/AvjpL/SGpuk5dGO5OZjzAdAkVPiT7bchhVLOetcT49ZbAzG7q2Q/ww3c4TAnWQ4QsXVgTZg4fxcpIwndXJxhoH3m8+",
             "result": "{\"chunks\":[{\"message\":\"h e l l o (reply)\"}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9b83dcad-3b84-11e5-8f8a-a75dfeb87f77",
+            "x-amzn-requestid": "d5ce62c6-4db5-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -426,37 +426,37 @@
             },
             "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjh5LZwUArh9rolznfyOR1CNip7rB3Q3k+YBkG5W806gu9/dO8CMIGwABf50ZASeNW5YylUKPlZdoFDhpp4UwsCeCd92WLQaVGoRfOGt+QayJCbi6r85lx5VuAAtK6/beylHGWvpyKXRJgkwgx0nHud8sGCk+b5H64Um9vNjDAxvs1wTDw/sF5J7f4XjTEorvKGyNxHkuAAFjBjX4fbDtBSdF/S7V4Fpj0V1Tg/jgMH0YsmkkN6IQtcLYddrd2d2HE+2I1O1FHT0dibR1JXWqXPzEHp9COi6X+5JUZM8EPDT",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAc4zshvMx/tT5jcDWJ4eTToFVTly1/iezKxjm23rmykZeyG5I4w7ifD702wZ756zUpV/1NGFAT/ZOELqd9j139QC5N8Mp+qzJSGEYxAhK5jmcbutY1Ooq5KYgR8SZD0w/n23zyXdEVjZ75toIfA2Tam6oDi6Tz7EK80nwwhgm8WmBUZedWfzy2CURXOLFcbkckmr9sLXWQXOMnQkak6sFDkyzXvdnOoVBVhPIYGXNSinCdhcfSaMLAAMmfFube7gsdoMIP007Cw7Tri+gK+DFc7b/bBep0iR6+J1i35DL6to",
             "workflowExecution": {
-                "runId": "22Oe+a/fLt5jXrGtBiKCMgV8OzSyVu2pXgrlWqVJWswKE=",
+                "runId": "21SjFa8AY068DprCtFGTxUcXYS51o4kKeQQT2zMJnw0fE=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             }
         },
         "headers": {
-            "x-amzn-requestid": "9bef96fe-3b84-11e5-be22-2d105b691cf3",
+            "x-amzn-requestid": "d6115ef6-4db5-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "731"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
             "reason": "Too afraid!",
             "details": "{\"stack\":\"~ stripped for tests ~\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAjh5LZwUArh9rolznfyOR1CNip7rB3Q3k+YBkG5W806gu9/dO8CMIGwABf50ZASeNW5YylUKPlZdoFDhpp4UwsCeCd92WLQaVGoRfOGt+QayJCbi6r85lx5VuAAtK6/beylHGWvpyKXRJgkwgx0nHud8sGCk+b5H64Um9vNjDAxvs1wTDw/sF5J7f4XjTEorvKGyNxHkuAAFjBjX4fbDtBSdF/S7V4Fpj0V1Tg/jgMH0YsmkkN6IQtcLYddrd2d2HE+2I1O1FHT0dibR1JXWqXPzEHp9COi6X+5JUZM8EPDT"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAc4zshvMx/tT5jcDWJ4eTToFVTly1/iezKxjm23rmykZeyG5I4w7ifD702wZ756zUpV/1NGFAT/ZOELqd9j139QC5N8Mp+qzJSGEYxAhK5jmcbutY1Ooq5KYgR8SZD0w/n23zyXdEVjZ75toIfA2Tam6oDi6Tz7EK80nwwhgm8WmBUZedWfzy2CURXOLFcbkckmr9sLXWQXOMnQkak6sFDkyzXvdnOoVBVhPIYGXNSinCdhcfSaMLAAMmfFube7gsdoMIP007Cw7Tri+gK+DFc7b/bBep0iR6+J1i35DL6to"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9c638dab-3b84-11e5-80b1-4fd5d604a31e",
+            "x-amzn-requestid": "d66dfddd-4db5-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -471,7 +471,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787638.245,
+                    "eventTimestamp": 1440787904.33,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -498,7 +498,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787638.245,
+                    "eventTimestamp": 1440787904.33,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -507,7 +507,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787639.828,
+                    "eventTimestamp": 1440787905.355,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -517,7 +517,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438787640.547,
+                    "eventTimestamp": 1440787905.846,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -539,7 +539,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438787640.547,
+                    "eventTimestamp": 1440787905.846,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -548,7 +548,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438787642.838,
+                    "eventTimestamp": 1440787907.153,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -558,7 +558,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438787643.564,
+                    "eventTimestamp": 1440787907.624,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -570,7 +570,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438787643.564,
+                    "eventTimestamp": 1440787907.624,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -579,15 +579,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438787645.747,
+                    "eventTimestamp": 1440787909.12,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAhTUNjuGSvCtkP7Vmuj7C6NGTFD47uh3iGDF+IB56WLS+4CNbF1CUviQh1EBAp4N4WIIa4jD4MCq4Ew/kaLwxOV80fdtiN8vpj5fHNzX6TkroIam9FSJJvZz3WYvf5d7AlTN2R7kLBtqrP7DRra9tlEmpQuZO1ydBuQPQVUu9NJ64zkZYmUsy2xeAYIdtDa6gznylK3g2LZhyoHRCFLGh4hjMYqtQOQum7Vlws3NfQrvC2la6TElAQsYIgaHWSVklmAqjJaYVgUGBVkPNm+iIRnywFIvJMRhPES+igawz8O1",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAASm0QDleM+b0v+A8hhSGO17dOmjTKLmkZMFSJrwUv0bG/9cFVkbp4/UDzA9X/imKv7hp8POO3ynLJr9P44qISYBDXOLKfo6NOTrYZTO02oUj+l4Bt8WgEj+8W9rYpzrkTFmv+KkqswbQzLKfjEK//YNf97rJ2+P1gE9rRxBl8KajNE4owerlSS+IxqAMZ40Pn3ZYk1WNEsuXrKllj+/j0Cm6Syfv0ZcfLZd2WZPcFCYXmaLpab8KVwNcpbM/o0dNPTh2EoooUZhUSofi82bTEzbxAnWGHdC7IHsy65sW4Jvj",
             "workflowExecution": {
-                "runId": "22SPIjF5AMAN+ZsXH0rySqhbL6bUce8LyVx4ZeLr5q5e0=",
+                "runId": "21v1GdPDUpBsFbVhk3m3LH7rHOQMJXB77v6A/ewhj0uBc=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -596,17 +596,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "9ccf2131-3b84-11e5-b902-ad783fab2f8b",
+            "x-amzn-requestid": "d6b20bbc-4db5-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3190"
+            "content-length": "3187"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAhTUNjuGSvCtkP7Vmuj7C6NGTFD47uh3iGDF+IB56WLS+4CNbF1CUviQh1EBAp4N4WIIa4jD4MCq4Ew/kaLwxOV80fdtiN8vpj5fHNzX6TkroIam9FSJJvZz3WYvf5d7AlTN2R7kLBtqrP7DRra9tlEmpQuZO1ydBuQPQVUu9NJ64zkZYmUsy2xeAYIdtDa6gznylK3g2LZhyoHRCFLGh4hjMYqtQOQum7Vlws3NfQrvC2la6TElAQsYIgaHWSVklmAqjJaYVgUGBVkPNm+iIRnywFIvJMRhPES+igawz8O1",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAASm0QDleM+b0v+A8hhSGO17dOmjTKLmkZMFSJrwUv0bG/9cFVkbp4/UDzA9X/imKv7hp8POO3ynLJr9P44qISYBDXOLKfo6NOTrYZTO02oUj+l4Bt8WgEj+8W9rYpzrkTFmv+KkqswbQzLKfjEK//YNf97rJ2+P1gE9rRxBl8KajNE4owerlSS+IxqAMZ40Pn3ZYk1WNEsuXrKllj+/j0Cm6Syfv0ZcfLZd2WZPcFCYXmaLpab8KVwNcpbM/o0dNPTh2EoooUZhUSofi82bTEzbxAnWGHdC7IHsy65sW4Jvj",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
@@ -620,13 +620,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9d422e40-3b84-11e5-b445-831937b3b916",
+            "x-amzn-requestid": "d6f6dc92-4db5-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -641,7 +641,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787638.996,
+                    "eventTimestamp": 1440787904.814,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -668,7 +668,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787638.996,
+                    "eventTimestamp": 1440787904.814,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -677,7 +677,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787641.282,
+                    "eventTimestamp": 1440787906.322,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -687,7 +687,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438787642.02,
+                    "eventTimestamp": 1440787906.753,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -709,7 +709,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438787642.02,
+                    "eventTimestamp": 1440787906.753,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -718,7 +718,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438787644.283,
+                    "eventTimestamp": 1440787908.068,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -729,7 +729,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438787645.036,
+                    "eventTimestamp": 1440787908.67,
                     "eventType": "ActivityTaskFailed"
                 },
                 {
@@ -741,7 +741,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438787645.036,
+                    "eventTimestamp": 1440787908.67,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -750,15 +750,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438787647.365,
+                    "eventTimestamp": 1440787909.983,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAhOXWofdP29eylv0Zi9pidiIZzCrVMcnk3CU/cRQs5RwEFErk6xH8W/Y0L/bxnawFZPdyq75l6GmUIGsnIvMttv3wYOeYg14OfqNItO5p46ulRe6LnJ9Gw4h2GySQ2yVZ6ppK35WdADzvQlTCWIpfvRXFBuVDLKCncjJP7O6TMq6G4MQl51FfzgdTfAGQXk2/nz3ql+jJO1NFFVhnZ1fpjgIq3ZmgATNTV1unsYXHdOYxRe3HJK0RmCXQTYk96TPJh9imWdX3fMt3QnRp29BwgIC4Y4HdobgX9OTQkHb5yay",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAU2TlD2hMdyDD8CeWly2kbr2w2iv/CPacN53YEB9v5pgaDxECuBSvXKp/LSFL+4R4fmz2sweq8T6QNUArqqpUdsblVAB2soi8UxynBkAgo8+Twxg7rPsN9z/Qlm+qGCLk2q5+XsAXh3AoUY9dQd07aaY3/0ZXDV0orS0OmglX1mhI+dnqkGmssth2sTcsj6WLOPb+lRN13rO+diFrQfRj8tFnnh5J3aB+ZLAY+F7xpl+0WiK78Dg+XszKcwwwrJivtvWv3PwjXYQKX/6OKEULel+9DMcqyxFyH1HZU3VNMv4",
             "workflowExecution": {
-                "runId": "22Oe+a/fLt5jXrGtBiKCMgV8OzSyVu2pXgrlWqVJWswKE=",
+                "runId": "21SjFa8AY068DprCtFGTxUcXYS51o4kKeQQT2zMJnw0fE=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -767,17 +767,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "9da9f0ef-3b84-11e5-b155-43a732740ecd",
+            "x-amzn-requestid": "d7363057-4db5-11e5-a151-2d125fd78398",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "3251"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAhOXWofdP29eylv0Zi9pidiIZzCrVMcnk3CU/cRQs5RwEFErk6xH8W/Y0L/bxnawFZPdyq75l6GmUIGsnIvMttv3wYOeYg14OfqNItO5p46ulRe6LnJ9Gw4h2GySQ2yVZ6ppK35WdADzvQlTCWIpfvRXFBuVDLKCncjJP7O6TMq6G4MQl51FfzgdTfAGQXk2/nz3ql+jJO1NFFVhnZ1fpjgIq3ZmgATNTV1unsYXHdOYxRe3HJK0RmCXQTYk96TPJh9imWdX3fMt3QnRp29BwgIC4Y4HdobgX9OTQkHb5yay",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAU2TlD2hMdyDD8CeWly2kbr2w2iv/CPacN53YEB9v5pgaDxECuBSvXKp/LSFL+4R4fmz2sweq8T6QNUArqqpUdsblVAB2soi8UxynBkAgo8+Twxg7rPsN9z/Qlm+qGCLk2q5+XsAXh3AoUY9dQd07aaY3/0ZXDV0orS0OmglX1mhI+dnqkGmssth2sTcsj6WLOPb+lRN13rO+diFrQfRj8tFnnh5J3aB+ZLAY+F7xpl+0WiK78Dg+XszKcwwwrJivtvWv3PwjXYQKX/6OKEULel+9DMcqyxFyH1HZU3VNMv4",
             "decisions": [
                 {
                     "decisionType": "FailWorkflowExecution",
@@ -792,13 +792,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9e523f1d-3b84-11e5-ba75-ad1f129b007a",
+            "x-amzn-requestid": "d77e0df0-4db5-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -815,16 +815,16 @@
         },
         "status": 200,
         "response": {
-            "runId": "229UjjebOCaiaMl5rWOcHX+HZlyWyPY9JHKd0O8UC2wso="
+            "runId": "21XzOFgwWb42k3oY8rXqrra38Vnn4+8lGGKZLPo/rmgL0="
         },
         "headers": {
-            "x-amzn-requestid": "9ebd5c9c-3b84-11e5-a966-2feaf5409d65",
+            "x-amzn-requestid": "d7c48d7f-4db5-11e5-af08-ab9fa7956514",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -839,7 +839,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787649.004,
+                    "eventTimestamp": 1440787910.934,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -866,7 +866,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787649.004,
+                    "eventTimestamp": 1440787910.934,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -875,15 +875,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787649.725,
+                    "eventTimestamp": 1440787911.36,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAuVU8F10AjfM/Sqhpjh06qwUGHlFRwQxFrNuwd9Rip2bEsaM99uHXIS9hJ2BxVjBOk+KDFV+qqB97jYgXfsaSGySL+8HWIJlkwX6xOjKcr/cs/ukXAXDU6JIyGRYHYe6DbqoO1HOpGdg+TGfYMvQBR9C5tSz780l8qRU8N3MVfyNywA1ETlRBwtcGrM8dKzmOYDaowWLYz8/3n1siscbZF8wZsC+obDIZY4+y7jYVimCDB9NHAUTFYeNx5fi86TlClUwURDdxBDmVKR+hTNyUrRjDL8ZA1FqALBWzUxl6tT+",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa/K7y1AdEBbdvMMf6fYEjo8MkU6p2Oxw4324+wcPlu7w9EV7SG8JvlQD5KoOMoQnaxzlFju6KCIeBcHBLUiHqehWYKV9tgqny83as2TOTG/69EIhtqoTyjC/g0UUnMwELrFwytCjgSeNJ5sXMybdZM1ZSZXmaY2urEFe2GWEjiepqwHzmHgVPbvGbLV4Q8Ab8/kM4vBkF3t4FaYVnnhbPgPoZ9Q0ZymC1biUfcy9MjTp0kRrZo+0cVvkWNzrP+z+FEhdFdj0EJigbJt+TtmDRmaHD62AHCevucT7xp6lWG+",
             "workflowExecution": {
-                "runId": "229UjjebOCaiaMl5rWOcHX+HZlyWyPY9JHKd0O8UC2wso=",
+                "runId": "21XzOFgwWb42k3oY8rXqrra38Vnn4+8lGGKZLPo/rmgL0=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -892,17 +892,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "9f2c7236-3b84-11e5-9a12-eb149b813211",
+            "x-amzn-requestid": "d8078938-4db5-11e5-9156-13f14b7faae1",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1554"
+            "content-length": "1553"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAuVU8F10AjfM/Sqhpjh06qwUGHlFRwQxFrNuwd9Rip2bEsaM99uHXIS9hJ2BxVjBOk+KDFV+qqB97jYgXfsaSGySL+8HWIJlkwX6xOjKcr/cs/ukXAXDU6JIyGRYHYe6DbqoO1HOpGdg+TGfYMvQBR9C5tSz780l8qRU8N3MVfyNywA1ETlRBwtcGrM8dKzmOYDaowWLYz8/3n1siscbZF8wZsC+obDIZY4+y7jYVimCDB9NHAUTFYeNx5fi86TlClUwURDdxBDmVKR+hTNyUrRjDL8ZA1FqALBWzUxl6tT+",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa/K7y1AdEBbdvMMf6fYEjo8MkU6p2Oxw4324+wcPlu7w9EV7SG8JvlQD5KoOMoQnaxzlFju6KCIeBcHBLUiHqehWYKV9tgqny83as2TOTG/69EIhtqoTyjC/g0UUnMwELrFwytCjgSeNJ5sXMybdZM1ZSZXmaY2urEFe2GWEjiepqwHzmHgVPbvGbLV4Q8Ab8/kM4vBkF3t4FaYVnnhbPgPoZ9Q0ZymC1biUfcy9MjTp0kRrZo+0cVvkWNzrP+z+FEhdFdj0EJigbJt+TtmDRmaHD62AHCevucT7xp6lWG+",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -921,13 +921,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "9f976926-3b84-11e5-a189-979be7461fd4",
+            "x-amzn-requestid": "d846673b-4db5-11e5-90c4-b9d661b8d022",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -946,36 +946,36 @@
             },
             "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAprjPlYSw0yjNfvBXLWUyhiuK07LDMqyuzML3dxK2S1vNx18/730sAKp8FlvaXwN0gbQsMU1QyjjKgK1bpvMNgpV97SVRgPmft61lMmA2jVyXLp8MkUTd3NU8HCoN3FHC3nOmWn6QlhZ8sFcIgfXKYw6jdiS5RLPD3SfyHhFn0fr4RQ5LpxSyZXrgt9nwyvFkHhc6ELXdnLfXVSk6Vjw/oV9V5QUReRgWmj5ItlfOkDLck0M36r/vyQqricIRB3D21PqOw3F9Ej2uBh2GBaZFoqEEgFpKr28tPe4FF/dUAPO",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUqVrSc9lnzu03BjOfCyun4I4/iq1uvheTmc9QShQe+6BEro3DUIh9Tz+EeodOyfyOPPTKE0yuQwmAm6bbBruQUuhaLuzjIkgrTr7fRm7BQQNkSbP7FHkUdZApWzArZbjFX7t5ozAZxjZV4UUiRvrxDEjZNduDtDP+fpSBkn3IEAphyPYnuJm5xAthB/7atjGrclxx83Ud6p/ziSbTA4ePfciW6yZ+CiDKSo8s+E8qL9WWtsQWy+FNRmSh6m6RIJss7hRQ6X4nvxIKxUOUURvZ6Jpswr1fM/uy6iN1hmURSm",
             "workflowExecution": {
-                "runId": "229UjjebOCaiaMl5rWOcHX+HZlyWyPY9JHKd0O8UC2wso=",
+                "runId": "21XzOFgwWb42k3oY8rXqrra38Vnn4+8lGGKZLPo/rmgL0=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             }
         },
         "headers": {
-            "x-amzn-requestid": "a006575f-3b84-11e5-9c8a-4946a2b2dda9",
+            "x-amzn-requestid": "d88740db-4db5-11e5-9967-2b6cad2aa7b2",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "734"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAprjPlYSw0yjNfvBXLWUyhiuK07LDMqyuzML3dxK2S1vNx18/730sAKp8FlvaXwN0gbQsMU1QyjjKgK1bpvMNgpV97SVRgPmft61lMmA2jVyXLp8MkUTd3NU8HCoN3FHC3nOmWn6QlhZ8sFcIgfXKYw6jdiS5RLPD3SfyHhFn0fr4RQ5LpxSyZXrgt9nwyvFkHhc6ELXdnLfXVSk6Vjw/oV9V5QUReRgWmj5ItlfOkDLck0M36r/vyQqricIRB3D21PqOw3F9Ej2uBh2GBaZFoqEEgFpKr28tPe4FF/dUAPO",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUqVrSc9lnzu03BjOfCyun4I4/iq1uvheTmc9QShQe+6BEro3DUIh9Tz+EeodOyfyOPPTKE0yuQwmAm6bbBruQUuhaLuzjIkgrTr7fRm7BQQNkSbP7FHkUdZApWzArZbjFX7t5ozAZxjZV4UUiRvrxDEjZNduDtDP+fpSBkn3IEAphyPYnuJm5xAthB/7atjGrclxx83Ud6p/ziSbTA4ePfciW6yZ+CiDKSo8s+E8qL9WWtsQWy+FNRmSh6m6RIJss7hRQ6X4nvxIKxUOUURvZ6Jpswr1fM/uy6iN1hmURSm",
             "result": "{\"chunks\":[{\"message\":\"Knock, knock, Neo (reply)\"}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "a077dd47-3b84-11e5-84ed-5fe2bfc64bd4",
+            "x-amzn-requestid": "d8ce0e36-4db5-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -990,7 +990,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787649.004,
+                    "eventTimestamp": 1440787910.934,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -1017,7 +1017,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787649.004,
+                    "eventTimestamp": 1440787910.934,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1026,7 +1026,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787649.725,
+                    "eventTimestamp": 1440787911.36,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -1036,7 +1036,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1438787650.407,
+                    "eventTimestamp": 1440787911.785,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -1058,7 +1058,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1438787650.407,
+                    "eventTimestamp": 1440787911.785,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -1067,7 +1067,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1438787651.147,
+                    "eventTimestamp": 1440787912.195,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -1077,7 +1077,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1438787651.885,
+                    "eventTimestamp": 1440787912.663,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -1089,7 +1089,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1438787651.885,
+                    "eventTimestamp": 1440787912.663,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1098,15 +1098,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1438787652.592,
+                    "eventTimestamp": 1440787913.133,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAtQhW3YfSAC3naQb9tmsdaGHySONkrJvz40I60SFBYzhNrIqqS8tQ/8s4TPxgAcdLz5A1uncuci8sPhZhrOv+tYrJEOWcqw9lhT+rWQQvXiVwThele7WM+ciqYOlNJ0OwXaGMvbewLxb6CCN62D0/1N60Qb+MfSBr2RW5iVC7p2RfC7ruFMNZWIDWEuzRxsdwgmZBZ5g0BONSJrNqg/yCzB4U8LBOkBThRGAlFRosT++urB14IZiZ1gpp7ONI+ry0qHMEyt2TNREob12Nafbw5aeeq/1xXDuCG/+CgBmzrGo",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAY9l5xDvYvSCilE2REy4Ik1cwE4ps848JkL9k7gEXgIex4owUZGqcTM7yH92Se8kOQ1cZYFTDn3FarVIkfBLcdv+eDlRC1ASzSTHIVrxx5cBbIhnK17LtwEpv40i9s+ifipu1V21lLxqrBo6/1SsVyUKwAzSp5CA8YQLX2rOSBB5DDzmSloiqLM5CjnvPbfpZGOQ0hfd+ytPlIuPdsIBcOUKikdYdLwE/QWJ4RgmxcYsVqI8Z61RcXbc201+sRr1iZX8jXRbFmdV8md3RGSyGU13uJFrFeeXumDBrlruvFXz",
             "workflowExecution": {
-                "runId": "229UjjebOCaiaMl5rWOcHX+HZlyWyPY9JHKd0O8UC2wso=",
+                "runId": "21XzOFgwWb42k3oY8rXqrra38Vnn4+8lGGKZLPo/rmgL0=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -1115,17 +1115,17 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "a0e3983a-3b84-11e5-b318-df820763c0ff",
+            "x-amzn-requestid": "d913c90c-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3214"
+            "content-length": "3213"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAtQhW3YfSAC3naQb9tmsdaGHySONkrJvz40I60SFBYzhNrIqqS8tQ/8s4TPxgAcdLz5A1uncuci8sPhZhrOv+tYrJEOWcqw9lhT+rWQQvXiVwThele7WM+ciqYOlNJ0OwXaGMvbewLxb6CCN62D0/1N60Qb+MfSBr2RW5iVC7p2RfC7ruFMNZWIDWEuzRxsdwgmZBZ5g0BONSJrNqg/yCzB4U8LBOkBThRGAlFRosT++urB14IZiZ1gpp7ONI+ry0qHMEyt2TNREob12Nafbw5aeeq/1xXDuCG/+CgBmzrGo",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAY9l5xDvYvSCilE2REy4Ik1cwE4ps848JkL9k7gEXgIex4owUZGqcTM7yH92Se8kOQ1cZYFTDn3FarVIkfBLcdv+eDlRC1ASzSTHIVrxx5cBbIhnK17LtwEpv40i9s+ifipu1V21lLxqrBo6/1SsVyUKwAzSp5CA8YQLX2rOSBB5DDzmSloiqLM5CjnvPbfpZGOQ0hfd+ytPlIuPdsIBcOUKikdYdLwE/QWJ4RgmxcYsVqI8Z61RcXbc201+sRr1iZX8jXRbFmdV8md3RGSyGU13uJFrFeeXumDBrlruvFXz",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
@@ -1139,13 +1139,13 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "a152fb5e-3b84-11e5-84a0-3b8e9de66f71",
+            "x-amzn-requestid": "d959f9f2-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -1162,16 +1162,16 @@
         },
         "status": 200,
         "response": {
-            "runId": "22PAqB5E5qvzQHEzjkKiJb6or3gQU69zoQzeWAuRpmxzw="
+            "runId": "21Q3Ld9MdVeY5OGmkJaK+56LIp4ocFbsBPGE+gTEMxtNQ="
         },
         "headers": {
-            "x-amzn-requestid": "a1c1c308-3b84-11e5-a7e1-65160d8d45e0",
+            "x-amzn-requestid": "d9972a18-4db5-11e5-9967-2b6cad2aa7b2",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -1186,7 +1186,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1438787654.054,
+                    "eventTimestamp": 1440787913.996,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -1213,7 +1213,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1438787654.054,
+                    "eventTimestamp": 1440787913.996,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1222,15 +1222,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1438787655.024,
+                    "eventTimestamp": 1440787914.445,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAqWKgO5lNxnTDrTObH5juJCfljDrPQHRQQQES2TlyB19aglMYCaQqncPMjXSNYE9IFm48exRTQYU/iKSvDSNDEILhwn3I1XBHEhmtwNGuBxt9MQ/jHGFhUZcrR/1FGCk3QubB1uyh31K9VqOnLcbyDqcEnVNtChJwhH3+AW66QKRJrRmsp3JnyWLb/F3auBFAe+FzlvXlX7tkwkKTaLSGXJ+v8pw+4H8Fc21rDnZgdtlGj0DJ6bGYBuBWVYf7OvRKf1CYltAGA8gOUri2NuVRbY3MFafqxTGZUHCD/vW7ID5",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQD8dZ0d/B6VgMmGOnJyLYmVUCUx4PzxfuycM2wURUjKBnJbIL5vbOEd/QDHl81LQJPbfLpxOPzCO34AKr5WWPqmTOlKm3gkNqQnqXxMJaclOO0hftV3OFmtni+xIq4V65PKge42ktQQRWzK7g/AIzoJm7tbnbHCWD9GiO0eMFypLuRayAtFT6pYXlnDmrTCxYC9Gx418/YxC7BC+hmytEBQztjSuDvve2X/aug4W8WJHIbvLTS01W9WXhk2BKdKRW4Vvuh1aUy2m3UbWI/zytPz3U9HlaT1QIaNAQjEUmxM",
             "workflowExecution": {
-                "runId": "22PAqB5E5qvzQHEzjkKiJb6or3gQU69zoQzeWAuRpmxzw=",
+                "runId": "21Q3Ld9MdVeY5OGmkJaK+56LIp4ocFbsBPGE+gTEMxtNQ=",
                 "workflowId": "BCCan2oRhKtCL8jQa"
             },
             "workflowType": {
@@ -1239,7 +1239,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "a2306329-3b84-11e5-b7c3-cd5db41de8b4",
+            "x-amzn-requestid": "d9de936e-4db5-11e5-af08-ab9fa7956514",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1542"
         }

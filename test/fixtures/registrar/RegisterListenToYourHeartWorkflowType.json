@@ -1,10 +1,9 @@
 [
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Test",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
@@ -14,14 +13,18 @@
             "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
-            "description": ""
+            "description": "",
+            "domain": "Test"
         },
-        "status": 200,
-        "response": "",
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
+        },
         "headers": {
-            "x-amzn-requestid": "94d4329a-2c6d-11e5-a21a-cff6c172f962",
+            "x-amzn-requestid": "da6d8d67-4db5-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "0"
+            "content-length": "129"
         }
     }
 ]

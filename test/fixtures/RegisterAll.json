@@ -1,6 +1,6 @@
 [
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
@@ -14,17 +14,16 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "48a5530e-2d91-11e5-aa6d-5d7f06b3c504",
+            "x-amzn-requestid": "bd90060d-4db5-11e5-9967-2b6cad2aa7b2",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "89"
+            "content-length": "83"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Test",
             "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
@@ -34,7 +33,8 @@
             "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskPriority": "0",
             "defaultChildPolicy": "REQUEST_CANCEL",
-            "description": ""
+            "description": "",
+            "domain": "Test"
         },
         "status": 400,
         "response": {
@@ -42,17 +42,16 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "494a455e-2d91-11e5-9fd7-d708e1d40f3c",
+            "x-amzn-requestid": "bdcd3616-4db5-11e5-97b4-95b7dfc21516",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
     },
     {
-        "scope": "https://swf.us-east-1.amazonaws.com:443",
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
         "body": {
-            "domain": "Test",
             "name": "Echo",
             "version": "1.0.0",
             "defaultTaskList": {
@@ -63,7 +62,8 @@
             "defaultTaskScheduleToStartTimeout": "1800",
             "defaultTaskStartToCloseTimeout": "600",
             "defaultTaskScheduleToCloseTimeout": "NONE",
-            "description": ""
+            "description": "",
+            "domain": "Test"
         },
         "status": 400,
         "response": {
@@ -71,7 +71,7 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "49c78b3b-2d91-11e5-a3c9-2da8e66babb1",
+            "x-amzn-requestid": "d08f9c3d-4db5-11e5-a151-2d125fd78398",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
