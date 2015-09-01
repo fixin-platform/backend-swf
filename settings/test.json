@@ -24,8 +24,12 @@
     "url": "mongodb://localhost/%database%"
   },
   "swf": {
+    "domain": "Test",
     "accessKeyId": "Define this key in dev.specific.json or dev.local.json",
     "secretAccessKey": "Define this key in dev.specific.json or dev.local.json",
     "region": "Define this key in dev.specific.json or dev.local.json"
+  },
+  "cron": {
+    "url": "http://localhost:3000"
   }
 }
