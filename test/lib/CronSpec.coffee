@@ -23,7 +23,7 @@ describe "Cron", ->
   @slow(500) # relevant for tests using fixtures
 
   dependencies = createDependencies(settings, "Cron")
-  mongodb = dependencies.mongodb;
+  mongodb = dependencies.mongodb
 
   Commands = mongodb.collection("Commands")
   Issues = mongodb.collection("Issues")
@@ -49,11 +49,6 @@ describe "Cron", ->
       cls: "ListenToYourHeart"
       isAutorun: true
       refreshPlannedAt: new Date(new Date().getTime() + 10000)
-
-  before ->
-    nock("#{settings.cron.url}")
-    .get("/step/input/#{steps.refreshPlannedAtPast._id}/#{settings.cron.token}")
-    .reply 200, {}
 
   beforeEach ->
     registrar = new Registrar(
@@ -114,23 +109,26 @@ describe "Cron", ->
           ,
             dependencies
           )
-          .then -> cron.start()
+          .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: chunks: [ message: "Hello Cron"]}]))
+          .then -> cron.start("zhk6CpJ75FB2GmNCe")
+          .delay(500)
           .then -> decider.poll()
           .then ->
             Commands.count().then (count) ->
               count.should.be.equal(1)
           .then ->
-            Commands.findOne({stepId: "wwzkZTu4qvSBdqJBX"}).then (command) ->
+            Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
               command.isStarted.should.be.true
               command.isCompleted.should.be.false
               command.isFailed.should.be.false
           .then -> worker.poll()
           .then -> decider.poll()# CompleteWorkflowExecution or FailWorkflowExecution
           .then ->
-            Commands.findOne({stepId: "wwzkZTu4qvSBdqJBX"}).then (command) ->
+            Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
               command.isStarted.should.be.true
               command.isCompleted.should.be.true
               command.isFailed.should.be.false
+          .then -> Cron::getInput.restore()
           .then resolve
           .catch reject
           .finally recordingDone

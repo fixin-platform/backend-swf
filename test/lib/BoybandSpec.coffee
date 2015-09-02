@@ -29,7 +29,7 @@ describe "Boyband: Decider & Worker", ->
   Issues = mongodb.collection("Issues")
 
   registrar = null; decider = null; worker = null;
-  
+
   inputs =
     hello: _.defaults
       commandId: "HC59Fwwvdnbcu2fyi"

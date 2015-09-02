@@ -4,7 +4,6 @@ errors = require "../../core/helper/errors"
 Match = require "mtr-match"
 Actor = require "../Actor"
 requestAsync = Promise.promisify(require "request")
-AWS = require "aws-sdk"
 Random = require "meteor-random"
 
 class Cron extends Actor
@@ -15,10 +14,7 @@ class Cron extends Actor
       maxLoops: Match.Optional(Match.Integer)
     super
     @settings = dependencies.settings
-    swf = new AWS.SWF _.extend
-      apiVersion: "2012-01-25",
-    , @settings.swf
-    @startWorkflowExecutionSync = Promise.promisify(swf.startWorkflowExecution, swf)
+    @swf = dependencies.swf
     @mongodb = dependencies.mongodb
     Match.check @mongodb, Match.Any
     @Commands = @mongodb.collection("Commands")
@@ -26,7 +22,8 @@ class Cron extends Actor
     @Steps = @mongodb.collection("Steps")
   name: -> "Cron"
   signature: -> ["domain", "identity"]
-  start: ->
+  start: (testCommandId) ->
+    @testCommandId = testCommandId
     @info "Cron:starting", @details()
     @loop()
 #    @interval = setInterval @workflowsRerun.bind(@), 60000
@@ -52,23 +49,27 @@ class Cron extends Actor
         @stop(1) # the process manager will restart it
       .then @countdown
       .then -> setTimeout(@loop.bind(@), 60000)
+  getInput: (step) ->
+    requestAsync({method: "GET", url: "#{@settings.cron.url}/step/input/#{step._id}/#{@settings.cron.token}", json: true})
   startWorkflowExecutions: ->
+    self = @
+    testCommandId = @testCommandId
     @info "Cron:startWorkflowExecutions", @details()
     now = new Date()
     Steps = @Steps
     Commands = @Commands
     settings = @settings
-    startWorkflowExecutionSync = @startWorkflowExecutionSync
+    swf = @swf
     Steps.find(
       isAutorun: true
       refreshPlannedAt:
         $lte: now
     )
     .map (step) ->
-      requestAsync({method: "GET", url: "#{settings.cron.url}/step/input/#{step._id}/#{settings.cron.token}", json: true})
+      self.getInput(step)
       .spread (response, input) ->
         Commands.insert(
-          _id: Random.id()
+          _id: testCommandId or Random.id()
           input: {}
           progressBars: []
           isStarted: false
@@ -99,7 +100,7 @@ class Cron extends Actor
               step.userId
             ]
             input: JSON.stringify(input)
-          startWorkflowExecutionSync(params)
+          swf.startWorkflowExecutionAsync(params)
           .then (data) ->
             Commands.update({_id: command._id}, {$set: {runId: data.runId}})
       .then ->

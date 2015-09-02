@@ -1,0 +1,465 @@
+[
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "Test",
+            "workflowExecutionRetentionPeriodInDays": "7",
+            "description": "Test description"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#DomainAlreadyExistsFault",
+            "message": "Test"
+        },
+        "headers": {
+            "x-amzn-requestid": "e7460dbe-5166-11e5-932d-9f7bde21be8c",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "83"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "ListenToYourHeart",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "ListenToYourHeart"
+            },
+            "defaultExecutionStartToCloseTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
+            "defaultTaskPriority": "0",
+            "defaultChildPolicy": "REQUEST_CANCEL",
+            "description": "",
+            "domain": "Test"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "e7677811-5166-11e5-a511-3fcf6cb2a2ba",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "129"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "name": "Echo",
+            "version": "1.0.0",
+            "defaultTaskList": {
+                "name": "Echo"
+            },
+            "defaultTaskHeartbeatTimeout": "30",
+            "defaultTaskPriority": "0",
+            "defaultTaskScheduleToStartTimeout": "1800",
+            "defaultTaskStartToCloseTimeout": "600",
+            "defaultTaskScheduleToCloseTimeout": "NONE",
+            "description": "",
+            "domain": "Test"
+        },
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "ActivityType=[name=Echo, version=1.0.0]"
+        },
+        "headers": {
+            "x-amzn-requestid": "e7897f33-5166-11e5-bb52-832261b44126",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "116"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "startTimeFilter": {
+                "oldestDate": 0
+            },
+            "typeFilter": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            }
+        },
+        "status": 200,
+        "response": {
+            "executionInfos": []
+        },
+        "headers": {
+            "x-amzn-requestid": "e7ac22a5-5166-11e5-870e-d158226e7a5f",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "21"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "workflowId": "zhk6CpJ75FB2GmNCe",
+            "workflowType": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            },
+            "taskList": {
+                "name": "ListenToYourHeart"
+            },
+            "tagList": [
+                "zhk6CpJ75FB2GmNCe",
+                "wwzkZTu4qvSBdqJBX",
+                "DenisGorbachev"
+            ],
+            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Hello Cron\"}]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
+        },
+        "status": 200,
+        "response": {
+            "runId": "21iqPSVMtuICdDv41hE/mCluNo7lrG1GHGODU5LbILIpA="
+        },
+        "headers": {
+            "x-amzn-requestid": "e7d4b956-5166-11e5-870e-d158226e7a5f",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "58"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "taskList": {
+                "name": "ListenToYourHeart"
+            },
+            "identity": "ListenToYourHeart-test-decider"
+        },
+        "status": 200,
+        "response": {
+            "events": [
+                {
+                    "eventId": 1,
+                    "eventTimestamp": 1441193812.298,
+                    "eventType": "WorkflowExecutionStarted",
+                    "workflowExecutionStartedEventAttributes": {
+                        "childPolicy": "REQUEST_CANCEL",
+                        "executionStartToCloseTimeout": "1800",
+                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Hello Cron\"}]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "parentInitiatedEventId": 0,
+                        "tagList": [
+                            "zhk6CpJ75FB2GmNCe",
+                            "wwzkZTu4qvSBdqJBX",
+                            "DenisGorbachev"
+                        ],
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0",
+                        "taskStartToCloseTimeout": "600",
+                        "workflowType": {
+                            "name": "ListenToYourHeart",
+                            "version": "1.0.0"
+                        }
+                    }
+                },
+                {
+                    "decisionTaskScheduledEventAttributes": {
+                        "startToCloseTimeout": "600",
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0"
+                    },
+                    "eventId": 2,
+                    "eventTimestamp": 1441193812.298,
+                    "eventType": "DecisionTaskScheduled"
+                },
+                {
+                    "decisionTaskStartedEventAttributes": {
+                        "identity": "ListenToYourHeart-test-decider",
+                        "scheduledEventId": 2
+                    },
+                    "eventId": 3,
+                    "eventTimestamp": 1441193812.777,
+                    "eventType": "DecisionTaskStarted"
+                }
+            ],
+            "previousStartedEventId": 0,
+            "startedEventId": 3,
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAczcwo0vdEhLFPI3syWcyMY8FwAEAV/R4vsjvaFH6DZ3VcqRqvhj4n0IxecHprUU6lHIJdVe2eluaU6Kg8jV45RVz4pXPo+VUdoQhklMa7zjW+e8oV73cL+JB8Bvnhj3785nAKioYa3Mhs8p9De/lyj0DTkCB1B0k+dJxbJgbXOZZXCzRCJE6CMm6Koz6kayeUgjNc0Gd4V8LTpQxxbTjmAiWF51ZxaTkIbw8e8Ixp+a6JA5uWgAE213wyuzkoel55Q6gkdZ9hvt9HGs8CwmrzedU4alrWVQyR2IT8+4BxMn",
+            "workflowExecution": {
+                "runId": "21iqPSVMtuICdDv41hE/mCluNo7lrG1GHGODU5LbILIpA=",
+                "workflowId": "zhk6CpJ75FB2GmNCe"
+            },
+            "workflowType": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            }
+        },
+        "headers": {
+            "x-amzn-requestid": "e81fcc2d-5166-11e5-870e-d158226e7a5f",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "1578"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAczcwo0vdEhLFPI3syWcyMY8FwAEAV/R4vsjvaFH6DZ3VcqRqvhj4n0IxecHprUU6lHIJdVe2eluaU6Kg8jV45RVz4pXPo+VUdoQhklMa7zjW+e8oV73cL+JB8Bvnhj3785nAKioYa3Mhs8p9De/lyj0DTkCB1B0k+dJxbJgbXOZZXCzRCJE6CMm6Koz6kayeUgjNc0Gd4V8LTpQxxbTjmAiWF51ZxaTkIbw8e8Ixp+a6JA5uWgAE213wyuzkoel55Q6gkdZ9hvt9HGs8CwmrzedU4alrWVQyR2IT8+4BxMn",
+            "decisions": [
+                {
+                    "decisionType": "ScheduleActivityTask",
+                    "scheduleActivityTaskDecisionAttributes": {
+                        "activityType": {
+                            "name": "Echo",
+                            "version": "1.0.0"
+                        },
+                        "activityId": "Echo",
+                        "input": "{\"chunks\":[{\"message\":\"Hello Cron\"}],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
+                    }
+                }
+            ],
+            "executionContext": "{\"updates\":[[{\"_id\":\"zhk6CpJ75FB2GmNCe\"},{\"$set\":{\"isStarted\":true}}]]}"
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "e845072b-5166-11e5-ae70-55faa9bfcedb",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "taskList": {
+                "name": "Echo"
+            },
+            "identity": "Echo-test-worker"
+        },
+        "status": 200,
+        "response": {
+            "activityId": "Echo",
+            "activityType": {
+                "name": "Echo",
+                "version": "1.0.0"
+            },
+            "input": "{\"chunks\":[{\"message\":\"Hello Cron\"}],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+            "startedEventId": 6,
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAfPezTqGbv8xPys9qtAOMU8wJIExJiordeOX042k/OiVI1GlgPoilvWulSybiO7q/JJnWmlTaBp5k3A2ePuZHwnpynw6axbkYzud0+dELxU3AMO34i/xlctNKVv6VqsSC7OzM9ArVqdO6X6vDl4gQHuqoBLZLxase1Qwb7s1/t7tNOAJQjsFz33gcJ4UX3TEgFyfk/X/8+KTJovEOnisOihF/Szf+Ba0pIixmThNX6yNqjb0qH9RquTUkJStcxOMgZSUQGXVOleAGKd46lNkG+5BfYQOOyTt21vIAiDAiK99",
+            "workflowExecution": {
+                "runId": "21iqPSVMtuICdDv41hE/mCluNo7lrG1GHGODU5LbILIpA=",
+                "workflowId": "zhk6CpJ75FB2GmNCe"
+            }
+        },
+        "headers": {
+            "x-amzn-requestid": "e86bc973-5166-11e5-870e-d158226e7a5f",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "689"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAfPezTqGbv8xPys9qtAOMU8wJIExJiordeOX042k/OiVI1GlgPoilvWulSybiO7q/JJnWmlTaBp5k3A2ePuZHwnpynw6axbkYzud0+dELxU3AMO34i/xlctNKVv6VqsSC7OzM9ArVqdO6X6vDl4gQHuqoBLZLxase1Qwb7s1/t7tNOAJQjsFz33gcJ4UX3TEgFyfk/X/8+KTJovEOnisOihF/Szf+Ba0pIixmThNX6yNqjb0qH9RquTUkJStcxOMgZSUQGXVOleAGKd46lNkG+5BfYQOOyTt21vIAiDAiK99",
+            "result": "{\"chunks\":[{\"message\":\"Hello Cron (reply)\"}]}"
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "e891046f-5166-11e5-a511-3fcf6cb2a2ba",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "taskList": {
+                "name": "ListenToYourHeart"
+            },
+            "identity": "ListenToYourHeart-test-decider"
+        },
+        "status": 200,
+        "response": {
+            "events": [
+                {
+                    "eventId": 1,
+                    "eventTimestamp": 1441193812.298,
+                    "eventType": "WorkflowExecutionStarted",
+                    "workflowExecutionStartedEventAttributes": {
+                        "childPolicy": "REQUEST_CANCEL",
+                        "executionStartToCloseTimeout": "1800",
+                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Hello Cron\"}]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "parentInitiatedEventId": 0,
+                        "tagList": [
+                            "zhk6CpJ75FB2GmNCe",
+                            "wwzkZTu4qvSBdqJBX",
+                            "DenisGorbachev"
+                        ],
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0",
+                        "taskStartToCloseTimeout": "600",
+                        "workflowType": {
+                            "name": "ListenToYourHeart",
+                            "version": "1.0.0"
+                        }
+                    }
+                },
+                {
+                    "decisionTaskScheduledEventAttributes": {
+                        "startToCloseTimeout": "600",
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0"
+                    },
+                    "eventId": 2,
+                    "eventTimestamp": 1441193812.298,
+                    "eventType": "DecisionTaskScheduled"
+                },
+                {
+                    "decisionTaskStartedEventAttributes": {
+                        "identity": "ListenToYourHeart-test-decider",
+                        "scheduledEventId": 2
+                    },
+                    "eventId": 3,
+                    "eventTimestamp": 1441193812.777,
+                    "eventType": "DecisionTaskStarted"
+                },
+                {
+                    "decisionTaskCompletedEventAttributes": {
+                        "executionContext": "{\"updates\":[[{\"_id\":\"zhk6CpJ75FB2GmNCe\"},{\"$set\":{\"isStarted\":true}}]]}",
+                        "scheduledEventId": 2,
+                        "startedEventId": 3
+                    },
+                    "eventId": 4,
+                    "eventTimestamp": 1441193813.032,
+                    "eventType": "DecisionTaskCompleted"
+                },
+                {
+                    "activityTaskScheduledEventAttributes": {
+                        "activityId": "Echo",
+                        "activityType": {
+                            "name": "Echo",
+                            "version": "1.0.0"
+                        },
+                        "decisionTaskCompletedEventId": 4,
+                        "heartbeatTimeout": "30",
+                        "input": "{\"chunks\":[{\"message\":\"Hello Cron\"}],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "scheduleToCloseTimeout": "NONE",
+                        "scheduleToStartTimeout": "1800",
+                        "startToCloseTimeout": "600",
+                        "taskList": {
+                            "name": "Echo"
+                        },
+                        "taskPriority": "0"
+                    },
+                    "eventId": 5,
+                    "eventTimestamp": 1441193813.032,
+                    "eventType": "ActivityTaskScheduled"
+                },
+                {
+                    "activityTaskStartedEventAttributes": {
+                        "identity": "Echo-test-worker",
+                        "scheduledEventId": 5
+                    },
+                    "eventId": 6,
+                    "eventTimestamp": 1441193813.281,
+                    "eventType": "ActivityTaskStarted"
+                },
+                {
+                    "activityTaskCompletedEventAttributes": {
+                        "result": "{\"chunks\":[{\"message\":\"Hello Cron (reply)\"}]}",
+                        "scheduledEventId": 5,
+                        "startedEventId": 6
+                    },
+                    "eventId": 7,
+                    "eventTimestamp": 1441193813.508,
+                    "eventType": "ActivityTaskCompleted"
+                },
+                {
+                    "decisionTaskScheduledEventAttributes": {
+                        "startToCloseTimeout": "600",
+                        "taskList": {
+                            "name": "ListenToYourHeart"
+                        },
+                        "taskPriority": "0"
+                    },
+                    "eventId": 8,
+                    "eventTimestamp": 1441193813.508,
+                    "eventType": "DecisionTaskScheduled"
+                },
+                {
+                    "decisionTaskStartedEventAttributes": {
+                        "identity": "ListenToYourHeart-test-decider",
+                        "scheduledEventId": 8
+                    },
+                    "eventId": 9,
+                    "eventTimestamp": 1441193813.728,
+                    "eventType": "DecisionTaskStarted"
+                }
+            ],
+            "previousStartedEventId": 3,
+            "startedEventId": 9,
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcYhvEuZ4hnwN31F2P9IHtql02YVLiH1HaEqCiPQQLLV1Ai47JtQKqrxWSb3s4OaW5z0cUDb97gkiUlZ1jsJ/SDn4Pv5bW6ylxSgyhYVAVfviw7U+EMP5Z73MzGe6S30aze0/2xWMBDhwZhtTElq4/UA69XMflmdBslMOVD7H14XclOXXIjw9fLxoI/w3efLoH7ftGvK7Fc5mKolP91JvfEhHwyNo/xNDJSHNznkGYzm8ZgTadYjp8FGJguw2DsBo143jTl4vPMkjqFqd3hYTrCbUueuMHi9O0H+2cl6Saxa",
+            "workflowExecution": {
+                "runId": "21iqPSVMtuICdDv41hE/mCluNo7lrG1GHGODU5LbILIpA=",
+                "workflowId": "zhk6CpJ75FB2GmNCe"
+            },
+            "workflowType": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            }
+        },
+        "headers": {
+            "x-amzn-requestid": "e8b29638-5166-11e5-a511-3fcf6cb2a2ba",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "3186"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcYhvEuZ4hnwN31F2P9IHtql02YVLiH1HaEqCiPQQLLV1Ai47JtQKqrxWSb3s4OaW5z0cUDb97gkiUlZ1jsJ/SDn4Pv5bW6ylxSgyhYVAVfviw7U+EMP5Z73MzGe6S30aze0/2xWMBDhwZhtTElq4/UA69XMflmdBslMOVD7H14XclOXXIjw9fLxoI/w3efLoH7ftGvK7Fc5mKolP91JvfEhHwyNo/xNDJSHNznkGYzm8ZgTadYjp8FGJguw2DsBo143jTl4vPMkjqFqd3hYTrCbUueuMHi9O0H+2cl6Saxa",
+            "decisions": [
+                {
+                    "decisionType": "CompleteWorkflowExecution",
+                    "completeWorkflowExecutionDecisionAttributes": {
+                        "result": "{\"message\":\"Hello Cron (reply)\"}"
+                    }
+                }
+            ],
+            "executionContext": "{\"updates\":[[{\"_id\":\"zhk6CpJ75FB2GmNCe\"},{\"$set\":{\"isCompleted\":true}}],[{\"_id\":\"zhk6CpJ75FB2GmNCe\"},{\"$set\":{\"result\":{\"message\":\"Hello Cron (reply)\"}}}]]}"
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "e8d75c69-5166-11e5-a511-3fcf6cb2a2ba",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
+        }
+    }
+]
