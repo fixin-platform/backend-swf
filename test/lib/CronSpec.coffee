@@ -110,8 +110,7 @@ describe "Cron", ->
             dependencies
           )
           .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: chunks: [ message: "Hello Cron"]}]))
-          .then -> cron.start("zhk6CpJ75FB2GmNCe")
-          .delay(500)
+          .then -> cron.startWorkflowExecutions("zhk6CpJ75FB2GmNCe")
           .then -> decider.poll()
           .then ->
             Commands.count().then (count) ->

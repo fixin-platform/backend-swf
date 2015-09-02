@@ -22,8 +22,7 @@ class Cron extends Actor
     @Steps = @mongodb.collection("Steps")
   name: -> "Cron"
   signature: -> ["domain", "identity"]
-  start: (testCommandId) ->
-    @testCommandId = testCommandId
+  start: ->
     @info "Cron:starting", @details()
     @loop()
 #    @interval = setInterval @workflowsRerun.bind(@), 60000
@@ -51,9 +50,9 @@ class Cron extends Actor
       .then -> setTimeout(@loop.bind(@), 60000)
   getInput: (step) ->
     requestAsync({method: "GET", url: "#{@settings.cron.url}/step/input/#{step._id}/#{@settings.cron.token}", json: true})
-  startWorkflowExecutions: ->
+  startWorkflowExecutions: (testCommandId) ->
     self = @
-    testCommandId = @testCommandId
+    commandId = testCommandId or Random.id()
     @info "Cron:startWorkflowExecutions", @details()
     now = new Date()
     Steps = @Steps
@@ -69,7 +68,7 @@ class Cron extends Actor
       self.getInput(step)
       .spread (response, input) ->
         Commands.insert(
-          _id: testCommandId or Random.id()
+          _id: commandId
           input: {}
           progressBars: []
           isStarted: false
