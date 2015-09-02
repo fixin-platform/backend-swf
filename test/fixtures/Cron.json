@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "8f237a1d-516d-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "fce9b8b0-517f-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "8f43857f-516d-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "fd0e30bc-517f-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -71,7 +71,7 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "8f636976-516d-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "fd2eb08f-517f-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
@@ -95,7 +95,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "8f843704-516d-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "fd4f3117-517f-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }
@@ -123,10 +123,10 @@
         },
         "status": 200,
         "response": {
-            "runId": "21HXBFjFF74NelJHWKizqWvGOLUsewPLgWO58zQUHmYZk="
+            "runId": "21hh4a2vilRhpsDqnF16ddKSbWErHpjk4huCiJAGvMLrE="
         },
         "headers": {
-            "x-amzn-requestid": "8fab20ea-516d-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "fd76dd6c-517f-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -147,7 +147,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441196670.859,
+                    "eventTimestamp": 1441204586.002,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -179,7 +179,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441196670.859,
+                    "eventTimestamp": 1441204586.002,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -188,15 +188,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441196670.925,
+                    "eventTimestamp": 1441204586.068,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAc5mcIEhsHbTe63B+m+2ohv/WEZElHll+ZC9gHZgtZt5esXWOS7pJRPWBM50HmbrmHIxgFjihMH+fAu13UoL9kIst7IYx6xR5cn54V+Xtg5CvWKq/Rv7DaGq2jDnDXx4cA4LzIItoW2PQayyKpLe+OJCZqYEWuDNqnmLNWJUryl98fxCfyTy6EGk4I+rj7jzr0/pM06WVU1QuLwr719eVF+X0nTNORaGJAgy/VhPTlR1yEDBWFmtnj6V5cNGWrPqL4NF6smH6ghjOL+zp1Q7lq9uNRVm7HEbC+XmIVwJQNA/",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbXOOEq8cb29TL29a2RNqePsgl9k+028ETXg5FF5zlaJONGFJJ9tZN2VzHmRH4I8JmSvDnO8Yp9l9doUbAx7e82prW7uM1ATzYD3+uJYldi3uVB7pn8m9Y3to1GMDTYXXZhoaldpGEyllZgLpr6FAAyo7ood8HlzvYugnxKOrbHxq4FvQBprmUEHXzLBPSFL3grKxzTcx+54B0jLwYZ8gYgMszZM69843TrWtvtN+2yX2si/F//IIEF0x3TqtN15IdAAcYwZPOzbP8ZiTv9iqgAqytB+QUiK3e3TPTCSru7i",
             "workflowExecution": {
-                "runId": "21HXBFjFF74NelJHWKizqWvGOLUsewPLgWO58zQUHmYZk=",
+                "runId": "21hh4a2vilRhpsDqnF16ddKSbWErHpjk4huCiJAGvMLrE=",
                 "workflowId": "zhk6CpJ75FB2GmNCe"
             },
             "workflowType": {
@@ -205,7 +205,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "8faa35ad-516d-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "fd7667e0-517f-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "1578"
         }
@@ -215,7 +215,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAc5mcIEhsHbTe63B+m+2ohv/WEZElHll+ZC9gHZgtZt5esXWOS7pJRPWBM50HmbrmHIxgFjihMH+fAu13UoL9kIst7IYx6xR5cn54V+Xtg5CvWKq/Rv7DaGq2jDnDXx4cA4LzIItoW2PQayyKpLe+OJCZqYEWuDNqnmLNWJUryl98fxCfyTy6EGk4I+rj7jzr0/pM06WVU1QuLwr719eVF+X0nTNORaGJAgy/VhPTlR1yEDBWFmtnj6V5cNGWrPqL4NF6smH6ghjOL+zp1Q7lq9uNRVm7HEbC+XmIVwJQNA/",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbXOOEq8cb29TL29a2RNqePsgl9k+028ETXg5FF5zlaJONGFJJ9tZN2VzHmRH4I8JmSvDnO8Yp9l9doUbAx7e82prW7uM1ATzYD3+uJYldi3uVB7pn8m9Y3to1GMDTYXXZhoaldpGEyllZgLpr6FAAyo7ood8HlzvYugnxKOrbHxq4FvQBprmUEHXzLBPSFL3grKxzTcx+54B0jLwYZ8gYgMszZM69843TrWtvtN+2yX2si/F//IIEF0x3TqtN15IdAAcYwZPOzbP8ZiTv9iqgAqytB+QUiK3e3TPTCSru7i",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -234,7 +234,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "8fdbf449-516d-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "fda6ee2a-517f-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -259,14 +259,14 @@
             },
             "input": "{\"chunks\":[{\"message\":\"Hello Cron\"}],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAATMjeEbV9tneS9qA2uodztaOwYrUNmkrZg3vN5kTzXR8v7mptVpeLKsOJucZ8y0Z6pInBmTX8VcMrwaGuUTmCguS90dRUrlj9VOzULOiYqByCSSu/CssneRHq0PWFmx8AbetYYquM99AxG/w5iHWsaQkXkDwHgA8mn5Ab/aNIHQ74gqNWD+fBWGMuJiLWHwpMVEszvjyx9xqaVH83tpk9qDE8B/WmZDf67/FM3WAJJTkw8mgHfFclRVxKDnNWEbcKyUwFpa6JYW7ZW6A0qlUYCmDLK6GSgfKK7gweEUmBmUI",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAShQqoZ62c+tyfH+LSwDe3cJaWkPlM8EIyqt4rhkCRbLREXktbUOPuwcHHAvWf+MTkOAS5hk3AXj8wTVMW/n8e0ewuH7cGwR69Ry4lFtBOIMHOxUdGGvt9krnCm+mV1QluWs1dQreROHDzyQHzGAVKZ2IKOzpAUTwUiOcAu4N6SHRVP+ewZma4CoOGQLgWBvdex0isWqiSfzxjP+wxeAfCWRUoaGwfPEAwLGVyH9laebFGo7C2DN00Xs5LrO8O0Et9bkt/cHv4p8J+5QCJjnGeDVJ6W31QHFy4h50rX8b0jH",
             "workflowExecution": {
-                "runId": "21HXBFjFF74NelJHWKizqWvGOLUsewPLgWO58zQUHmYZk=",
+                "runId": "21hh4a2vilRhpsDqnF16ddKSbWErHpjk4huCiJAGvMLrE=",
                 "workflowId": "zhk6CpJ75FB2GmNCe"
             }
         },
         "headers": {
-            "x-amzn-requestid": "900156bb-516d-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "fdd020d6-517f-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "689"
         }
@@ -276,13 +276,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAATMjeEbV9tneS9qA2uodztaOwYrUNmkrZg3vN5kTzXR8v7mptVpeLKsOJucZ8y0Z6pInBmTX8VcMrwaGuUTmCguS90dRUrlj9VOzULOiYqByCSSu/CssneRHq0PWFmx8AbetYYquM99AxG/w5iHWsaQkXkDwHgA8mn5Ab/aNIHQ74gqNWD+fBWGMuJiLWHwpMVEszvjyx9xqaVH83tpk9qDE8B/WmZDf67/FM3WAJJTkw8mgHfFclRVxKDnNWEbcKyUwFpa6JYW7ZW6A0qlUYCmDLK6GSgfKK7gweEUmBmUI",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAShQqoZ62c+tyfH+LSwDe3cJaWkPlM8EIyqt4rhkCRbLREXktbUOPuwcHHAvWf+MTkOAS5hk3AXj8wTVMW/n8e0ewuH7cGwR69Ry4lFtBOIMHOxUdGGvt9krnCm+mV1QluWs1dQreROHDzyQHzGAVKZ2IKOzpAUTwUiOcAu4N6SHRVP+ewZma4CoOGQLgWBvdex0isWqiSfzxjP+wxeAfCWRUoaGwfPEAwLGVyH9laebFGo7C2DN00Xs5LrO8O0Et9bkt/cHv4p8J+5QCJjnGeDVJ6W31QHFy4h50rX8b0jH",
             "result": "{\"chunks\":[{\"message\":\"Hello Cron (reply)\"}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "902f1d7d-516d-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "fdf953e6-517f-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -303,7 +303,7 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441196670.859,
+                    "eventTimestamp": 1441204586.002,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
@@ -335,7 +335,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441196670.859,
+                    "eventTimestamp": 1441204586.002,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -344,7 +344,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441196670.925,
+                    "eventTimestamp": 1441204586.068,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -354,7 +354,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1441196671.169,
+                    "eventTimestamp": 1441204586.322,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -376,7 +376,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1441196671.169,
+                    "eventTimestamp": 1441204586.322,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -385,7 +385,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1441196671.47,
+                    "eventTimestamp": 1441204586.604,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -395,7 +395,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1441196671.708,
+                    "eventTimestamp": 1441204586.839,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -407,7 +407,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1441196671.708,
+                    "eventTimestamp": 1441204586.839,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -416,15 +416,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1441196671.925,
+                    "eventTimestamp": 1441204587.09,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAejQ3Eg3KYEp4j/VVP2rtJwkUEM7zvf02/RQvwVeGmF0GfaF5nEiKbTVvaddV+MRFKGlQq/fN2Bx/OBj5mF5BjSnnfNfEh33Tyde5nH3f3JMa47HsGdNL4FTmgYW7mrMPP1w0enUZWZlSCuFlviCsy9JL72QBwtVjNFSkni6bBgraRMVr6up5xHXV1c3oKtrgHDnwxrAlsA46MIOxUBG/hHOfrJOIE7Bq/RxbPmMu0ssZXLw9IvQV3H2nE7Sh33rgTW2SiMcqGkkOmzXEO0t7pVmvTLEuodjOeaou926PsRS",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAYXpCu925RSdHw1O9hWHp7pRDcq/QDuoQoLe6Qfw2kLGvi2J7qT8yaqIIvyWDRwgw8vvDMHTMZh0e5pBzGLsm4dypdsDL8Zk3k8j+FSf93rgHUB1KkhJP5JAlw5/6RLWDBPhrpaxOdzUuTr9wwusaxmfiQg4D6dHzl2mu4OztkD0vloND+OFhnM0iaq0HR7TGVbE9mFSn223QXxf1M8hsPQVTMCw2uu9MUKxrIhKLdVdqfmy6NGTweawY1tFy0qCGnpA+6S4wmoUUJLyt+jSgHard0LWxmQ+v15LPyj1ReXx",
             "workflowExecution": {
-                "runId": "21HXBFjFF74NelJHWKizqWvGOLUsewPLgWO58zQUHmYZk=",
+                "runId": "21hh4a2vilRhpsDqnF16ddKSbWErHpjk4huCiJAGvMLrE=",
                 "workflowId": "zhk6CpJ75FB2GmNCe"
             },
             "workflowType": {
@@ -433,7 +433,7 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "9050af61-516d-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "fe1eb66c-517f-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "3185"
         }
@@ -443,7 +443,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAejQ3Eg3KYEp4j/VVP2rtJwkUEM7zvf02/RQvwVeGmF0GfaF5nEiKbTVvaddV+MRFKGlQq/fN2Bx/OBj5mF5BjSnnfNfEh33Tyde5nH3f3JMa47HsGdNL4FTmgYW7mrMPP1w0enUZWZlSCuFlviCsy9JL72QBwtVjNFSkni6bBgraRMVr6up5xHXV1c3oKtrgHDnwxrAlsA46MIOxUBG/hHOfrJOIE7Bq/RxbPmMu0ssZXLw9IvQV3H2nE7Sh33rgTW2SiMcqGkkOmzXEO0t7pVmvTLEuodjOeaou926PsRS",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAYXpCu925RSdHw1O9hWHp7pRDcq/QDuoQoLe6Qfw2kLGvi2J7qT8yaqIIvyWDRwgw8vvDMHTMZh0e5pBzGLsm4dypdsDL8Zk3k8j+FSf93rgHUB1KkhJP5JAlw5/6RLWDBPhrpaxOdzUuTr9wwusaxmfiQg4D6dHzl2mu4OztkD0vloND+OFhnM0iaq0HR7TGVbE9mFSn223QXxf1M8hsPQVTMCw2uu9MUKxrIhKLdVdqfmy6NGTweawY1tFy0qCGnpA+6S4wmoUUJLyt+jSgHard0LWxmQ+v15LPyj1ReXx",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
@@ -457,7 +457,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "907526de-516d-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "fe43553e-517f-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }

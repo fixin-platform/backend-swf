@@ -11,6 +11,8 @@ class Cron extends Actor
     Match.check options,
       domain: String
       identity: String
+      token: String
+      url: String
       maxLoops: Match.Optional(Match.Integer)
     super
     @settings = dependencies.settings
@@ -21,7 +23,7 @@ class Cron extends Actor
     @Issues = @mongodb.collection("Issues")
     @Steps = @mongodb.collection("Steps")
   name: -> "Cron"
-  signature: -> ["domain", "identity"]
+  signature: -> ["domain", "identity", "token", "url"]
   start: ->
     @info "Cron:starting", @details()
     @loop()
@@ -49,7 +51,7 @@ class Cron extends Actor
       .then @countdown
       .then -> setTimeout(@loop.bind(@), 60000)
   getInput: (step) ->
-    requestAsync({method: "GET", url: "#{@settings.cron.url}/step/input/#{step._id}/#{@settings.cron.token}", json: true})
+    requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
   startWorkflowExecutions: (testCommandId) ->
     self = @
     commandId = testCommandId or Random.id()
@@ -57,7 +59,7 @@ class Cron extends Actor
     now = new Date()
     Steps = @Steps
     Commands = @Commands
-    settings = @settings
+    domain = @domain
     swf = @swf
     Steps.find(
       isAutorun: true
@@ -86,7 +88,7 @@ class Cron extends Actor
             stepId: step._id
             userId: step.userId
           params =
-            domain: settings.swf.domain
+            domain: domain
             workflowId: command._id
             workflowType:
               name: step.cls

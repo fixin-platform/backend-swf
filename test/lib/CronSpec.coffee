@@ -78,6 +78,8 @@ describe "Cron", ->
     cron = new Cron(
       domain: "Test"
       identity: "Cron-test-worker"
+      token: "TBN871ukMn14Hyb0437tt5B1EGmX01u9xzF96nFCDQZI4Yh3xraCVCekoxOm6C2A"
+      url: "http://localhost:3000"
     ,
       dependencies
     )
