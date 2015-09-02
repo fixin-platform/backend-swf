@@ -21,6 +21,16 @@ argv = yargs
       type: "string"
       description: "Amazon SWF domain"
       demand: true
+    "t":
+      alias: "token"
+      type: "string"
+      description: "Cron token"
+      demand: true
+    "l":
+      alias: "url"
+      type: "string"
+      description: "Cron url"
+      demand: true
     "i":
       alias: "identity"
       type: "string"
