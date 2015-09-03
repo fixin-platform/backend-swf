@@ -65,6 +65,8 @@ cron = new Cron
   domain: argv.domain
   identity: identity
   maxLoops: argv.maxLoops
+  token: argv.token
+  url: argv.url
 ,
   dependencies
 

@@ -11,9 +11,9 @@ class Cron extends Actor
     Match.check options,
       domain: String
       identity: String
+      maxLoops: Match.Optional(Match.Integer)
       token: String
       url: String
-      maxLoops: Match.Optional(Match.Integer)
     super
     @settings = dependencies.settings
     @swf = dependencies.swf
