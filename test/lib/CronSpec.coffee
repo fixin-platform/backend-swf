@@ -93,46 +93,43 @@ describe "Cron", ->
     .then ->
       Promise.all(Steps.insert(step)  for mode, step of steps)
 
-  describe "domains", ->
-    it "should run Cron @fast", ->
-      new Promise (resolve, reject) ->
-        nock.back "test/fixtures/Cron.json", (recordingDone) ->
-          Promise.resolve()
-          .then -> registrar.registerDomains(domains)
-          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
-          .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
-          .then -> cleanup(
-            domain: "Test"
-            startTimeFilter:
-              oldestDate: 0
-            typeFilter:
-              name: "ListenToYourHeart"
-              version: "1.0.0"
-          ,
-            dependencies
-          )
-          .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: chunks: [ message: "Hello Cron"]}]))
-          .then -> cron.startWorkflowExecutions("zhk6CpJ75FB2GmNCe")
-          .then -> decider.poll()
-          .then ->
-            Commands.count().then (count) ->
-              count.should.be.equal(1)
-          .then ->
-            Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
-              command.isStarted.should.be.true
-              command.isCompleted.should.be.false
-              command.isFailed.should.be.false
-          .then -> worker.poll()
-          .then -> decider.poll()# CompleteWorkflowExecution or FailWorkflowExecution
-          .then ->
-            Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
-              command.isStarted.should.be.true
-              command.isCompleted.should.be.true
-              command.isFailed.should.be.false
-          .then -> Cron::getInput.restore()
-          .then resolve
-          .catch reject
-          .finally recordingDone
-
-  describe "error handling", ->
+  it "should run Cron @fast", ->
+    new Promise (resolve, reject) ->
+      nock.back "test/fixtures/Cron.json", (recordingDone) ->
+        Promise.resolve()
+        .then -> registrar.registerDomains(domains)
+        .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
+        .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
+        .then -> cleanup(
+          domain: "Test"
+          startTimeFilter:
+            oldestDate: 0
+          typeFilter:
+            name: "ListenToYourHeart"
+            version: "1.0.0"
+        ,
+          dependencies
+        )
+        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: chunks: [ message: "Hello Cron"]}]))
+        .then -> cron.startWorkflowExecutions("zhk6CpJ75FB2GmNCe")
+        .then -> decider.poll()
+        .then ->
+          Commands.count().then (count) ->
+            count.should.be.equal(1)
+        .then ->
+          Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
+            command.isStarted.should.be.true
+            command.isCompleted.should.be.false
+            command.isFailed.should.be.false
+        .then -> worker.poll()
+        .then -> decider.poll()# CompleteWorkflowExecution or FailWorkflowExecution
+        .then ->
+          Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
+            command.isStarted.should.be.true
+            command.isCompleted.should.be.true
+            command.isFailed.should.be.false
+        .then -> Cron::getInput.restore()
+        .then resolve
+        .catch reject
+        .finally recordingDone
 

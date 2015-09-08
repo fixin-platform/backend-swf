@@ -16,7 +16,6 @@ class Decider extends Actor
     super
     @mongodb = dependencies.mongodb
     Match.check @mongodb, Match.Any
-    @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
   name: -> "Decider"
   signature: -> ["domain", "taskList", "identity"]
@@ -100,9 +99,6 @@ class Decider extends Actor
         ]
         .then -> throw error # let it crash
   executeCommandUpdates: (updates) ->
-    Promise.all(
-      for update in updates
-        @Commands.update.apply(@Commands, update)
-    )
+    Promise.all(@mongodb.collection(update.collection).update(update.selector, update.modifier) for update in updates)
 
 module.exports = Decider
