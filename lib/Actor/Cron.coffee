@@ -39,37 +39,36 @@ class Cron extends Actor
   halt: (code) ->
     @info "Cron:stopped", @details()
     process.exit(code)
+  catchError: (error) ->
+    @error "Cron:failed", @details(error)
+    @stop(1) # the process manager will restart it
   loop: ->
     return @stop(0) if @shouldStop
     return @cease(0) if @shouldCease
     process.nextTick =>
       Promise.bind(@)
       .then @startWorkflowExecutions
-      .catch (error) ->
-        @error "Cron:failed", @details(error)
-        @stop(1) # the process manager will restart it
+      .catch @catchError.bind(@)
       .then @countdown
       .then -> setTimeout(@loop.bind(@), 60000)
   getInput: (step) ->
-    requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
+    if @domain is "Test"
+      Promise.resolve([{}, {}])
+    else
+      requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
   startWorkflowExecutions: (testCommandId) ->
-    self = @
     commandId = testCommandId or Random.id()
     @info "Cron:startWorkflowExecutions", @details()
     now = new Date()
-    Steps = @Steps
-    Commands = @Commands
-    domain = @domain
-    swf = @swf
-    Steps.find(
+    @Steps.find(
       isAutorun: true
       refreshPlannedAt:
         $lte: now
     )
-    .map (step) ->
-      self.getInput(step)
-      .spread (response, input) ->
-        Commands.insert(
+    .map (step) =>
+      @getInput(step)
+      .spread (response, input) =>
+        @Commands.insert(
           _id: commandId
           input: {}
           progressBars: []
@@ -82,13 +81,13 @@ class Cron extends Actor
           userId: step.userId
           updatedAt: now
           createdAt: now
-        ).then (command) ->
+        ).then (command) =>
           _.defaults input,
             commandId: command._id
             stepId: step._id
             userId: step.userId
           params =
-            domain: domain
+            domain: @domain
             workflowId: command._id
             workflowType:
               name: step.cls
@@ -101,10 +100,11 @@ class Cron extends Actor
               step.userId
             ]
             input: JSON.stringify(input)
-          swf.startWorkflowExecutionAsync(params)
-          .then (data) ->
-            Commands.update({_id: command._id}, {$set: {runId: data.runId}})
-      .then ->
-        Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
+          @swf.startWorkflowExecutionAsync(params)
+          .then (data) =>
+            @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
+          .catch @catchError.bind(@)
+      .then =>
+        @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
 
 module.exports = Cron
