@@ -21,15 +21,15 @@ describe "ListenToYourHeart", ->
       events: [
         @WorkflowExecutionStarted _.defaults
           Echo:
-            chunks: [
-              message: "h e l l o"
+            messages: [
+              "h e l l o"
             ]
         , input
       ]
       decisions: [
         @ScheduleActivityTask "Echo", _.defaults
-          chunks: [
-            message: "h e l l o"
+          messages: [
+            "h e l l o"
           ]
         , input
       ]
@@ -39,11 +39,11 @@ describe "ListenToYourHeart", ->
         decisions: [@CancelWorkflowExecution()]
         updates: []
       ,
-        events: [@ActivityTaskCompleted "Echo", {chunks: [{message: "h e l l o (reply)"}]}]
-        decisions: [@CompleteWorkflowExecution({message: "h e l l o (reply)"})]
+        events: [@ActivityTaskCompleted "Echo", {messages: ["h e l l o (reply)"]}]
+        decisions: [@CompleteWorkflowExecution({messages: ["h e l l o (reply)"]})]
         updates: [
           @commandSetIsCompleted input.commandId
-          @commandSetResult input.commandId, {message: "h e l l o (reply)"}
+          @commandSetResult input.commandId, {messages: ["h e l l o (reply)"]}
         ]
       ,
         events: [@ActivityTaskFailed "Echo"]

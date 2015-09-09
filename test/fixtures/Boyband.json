@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "4ac14837-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "e9fd975e-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "4b099bec-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ea4044b0-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -71,7 +71,7 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "4b474145-5663-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "ea816c9e-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
@@ -92,12 +92,42 @@
         },
         "status": 200,
         "response": {
-            "executionInfos": []
+            "executionInfos": [
+                {
+                    "cancelRequested": false,
+                    "execution": {
+                        "runId": "21HsC464nyN+pvK1/SQsgzGEPVFgOU9UG8e+ianAF67is=",
+                        "workflowId": "BCCan2oRhKtCL8jQa"
+                    },
+                    "executionStatus": "OPEN",
+                    "startTimestamp": 1441799386.99,
+                    "workflowType": {
+                        "name": "ListenToYourHeart",
+                        "version": "1.0.0"
+                    }
+                }
+            ]
         },
         "headers": {
-            "x-amzn-requestid": "4b88b74e-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "eac1f88d-56e8-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "21"
+            "content-length": "270"
+        }
+    },
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "workflowId": "BCCan2oRhKtCL8jQa"
+        },
+        "status": 200,
+        "response": "",
+        "headers": {
+            "x-amzn-requestid": "eb16a7a3-56e8-11e5-bb52-832261b44126",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "0"
         }
     },
     {
@@ -114,14 +144,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"h e l l o\"}]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"Echo\":{\"messages\":[\"h e l l o\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "21P4GfqgCD/QmybWAx1ZIIL1eAcyf9/GXQLI41kQCZpSM="
+            "runId": "210AAYFyUDwv30ZzyjyIWbVxf02Q27bA+MEEGwejMiQZI="
         },
         "headers": {
-            "x-amzn-requestid": "4bcb3ead-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "eb5b039d-56e8-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -140,14 +170,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Schmetterling!\"}]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"Echo\":{\"messages\":[\"Schmetterling!\"]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "21RfeMrUau6Ui9+Fo9rHfc3Q/3Hyxyqb1TJl8bWb76nIU="
+            "runId": "21O9Kqs/kg9u/WE8Ri+aBGfIkc1GLwLc0snyYBobZTW28="
         },
         "headers": {
-            "x-amzn-requestid": "4c1e8e09-5663-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "eba700de-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -168,12 +198,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742017.831,
+                    "eventTimestamp": 1441799408.591,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"h e l l o\"}]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"h e l l o\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -195,7 +225,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742017.831,
+                    "eventTimestamp": 1441799408.591,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -204,15 +234,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742018.82,
+                    "eventTimestamp": 1441799409.602,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAfgsdKA9T7qVLKhXf9H/nsAD56HXS0yMCGlumkWvhoDTr3kNPAvKkuWXA32jYUqks9Wlcu9lV1S0kAMPc1H6LJHnw5VasPq9f+YgYtZc/QH6kytvo+JJ8hRbIr1LRABl+9aKBMb6x1R/n10YXCv7I4LZr1Cuw/KwixSA0WqRuNtN94JfWr3qTsdg62LNpGm9356HftEk/ZmVeYEqpgZyL2wpvyoVvAK6XoAjcmAdQxpiph9HE+Wpsnkfkfz3mtMFm7ggNZau965qJ+93cyoC9YrSyUA4jCXp44y5YyHc6nqC",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAXdwjJJTESoaCtc8kb070pt4UDrgboe4SUM0j2qfikFEU6Qc3zanga8wM6qzQNi84SpSaphHLAICAsOmj3ZVA7VVGU9JO/EX8fosFBcxSuyl/8VIx5MEDrDYOIfvCouqmiQtrsuDuNZ2OOrlSK/zbgnbf1Cls/4L+1IVWbO9Mn6DXbPqMxTa47qHnDzuD2AVprXH38hTT7DWD/1/0v80eCi+l10PIvvCD44WVEx1TEIk4I5hwKyddDUYyHC6C7j+Xei3aFd8maD4ooh/byJW0mzd2d8a9XmHlOX/LitZC4xS",
             "workflowExecution": {
-                "runId": "21P4GfqgCD/QmybWAx1ZIIL1eAcyf9/GXQLI41kQCZpSM=",
+                "runId": "210AAYFyUDwv30ZzyjyIWbVxf02Q27bA+MEEGwejMiQZI=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -221,9 +251,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "4c64e603-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ebf19f2d-56e8-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1545"
+            "content-length": "1534"
         }
     },
     {
@@ -231,7 +261,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAfgsdKA9T7qVLKhXf9H/nsAD56HXS0yMCGlumkWvhoDTr3kNPAvKkuWXA32jYUqks9Wlcu9lV1S0kAMPc1H6LJHnw5VasPq9f+YgYtZc/QH6kytvo+JJ8hRbIr1LRABl+9aKBMb6x1R/n10YXCv7I4LZr1Cuw/KwixSA0WqRuNtN94JfWr3qTsdg62LNpGm9356HftEk/ZmVeYEqpgZyL2wpvyoVvAK6XoAjcmAdQxpiph9HE+Wpsnkfkfz3mtMFm7ggNZau965qJ+93cyoC9YrSyUA4jCXp44y5YyHc6nqC",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAXdwjJJTESoaCtc8kb070pt4UDrgboe4SUM0j2qfikFEU6Qc3zanga8wM6qzQNi84SpSaphHLAICAsOmj3ZVA7VVGU9JO/EX8fosFBcxSuyl/8VIx5MEDrDYOIfvCouqmiQtrsuDuNZ2OOrlSK/zbgnbf1Cls/4L+1IVWbO9Mn6DXbPqMxTa47qHnDzuD2AVprXH38hTT7DWD/1/0v80eCi+l10PIvvCD44WVEx1TEIk4I5hwKyddDUYyHC6C7j+Xei3aFd8maD4ooh/byJW0mzd2d8a9XmHlOX/LitZC4xS",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -241,7 +271,7 @@
                             "version": "1.0.0"
                         },
                         "activityId": "Echo",
-                        "input": "{\"chunks\":[{\"message\":\"h e l l o\"}],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+                        "input": "{\"messages\":[\"h e l l o\"],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
                     }
                 }
             ],
@@ -250,7 +280,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4cadfd35-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ec3e1098-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -271,12 +301,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742018.373,
+                    "eventTimestamp": 1441799409.096,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Schmetterling!\"}]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"Schmetterling!\"]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -298,7 +328,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742018.373,
+                    "eventTimestamp": 1441799409.096,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -307,15 +337,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742019.743,
+                    "eventTimestamp": 1441799410.532,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdXVdzR0MNNlcT2KZXeIdBdtWpnDRsFgekqljwiTFPqUcvT0Xnmcig2N1Jgm/fBssSl0DJJSKXli9sh8xLuJxrOYeAunkuNJJ6Ya/t5lr/eBp2m7H80sMCF2n89bKhRIQiA3Nosf+vB7thoSVwjhxIFw9aq/WHSYsP1wYybebln/gJzAo7NHBNPxz7RW8jLGIalC01TKRyH0uGSPWP5qRZnesSZWRI2dnvrttAHsqxdVdU/Qg32QV+8bOLjhnM6U3T9163pD05nUTuvlMwJFDAhfkIHv4qwJcbAzZQbZx8Rs",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAASprny4vCmr09UE5Kg9x1N915NX/MqQEGCocNw9gXKtxFQW3l6dhRpqI5maif9BXAH2U+gxw3/e7aXq778Dod/VGCg7ETnROXaREUceOOgAAt49IFNXpnR1cUCzPfcbHIrTmVXs4cIWm2PAMuWfXnyS1Yzz179Ze1g97eciVUyP9x5Fk1TqCOKsrzTJpB24b9NaxoZAUxH1gmZp+ynmoSP84CJn+CuHS2ziKJy0Iu7M/3Cy3Nxryx6lKV/deK/JLDGXKcGW1j0NXPBVzrGGeZa4UUsSywJJBYqqxS4ZxWkA6",
             "workflowExecution": {
-                "runId": "21RfeMrUau6Ui9+Fo9rHfc3Q/3Hyxyqb1TJl8bWb76nIU=",
+                "runId": "21O9Kqs/kg9u/WE8Ri+aBGfIkc1GLwLc0snyYBobZTW28=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -324,9 +354,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "4cf1209e-5663-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "ec8504ee-56e8-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1551"
+            "content-length": "1539"
         }
     },
     {
@@ -334,7 +364,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdXVdzR0MNNlcT2KZXeIdBdtWpnDRsFgekqljwiTFPqUcvT0Xnmcig2N1Jgm/fBssSl0DJJSKXli9sh8xLuJxrOYeAunkuNJJ6Ya/t5lr/eBp2m7H80sMCF2n89bKhRIQiA3Nosf+vB7thoSVwjhxIFw9aq/WHSYsP1wYybebln/gJzAo7NHBNPxz7RW8jLGIalC01TKRyH0uGSPWP5qRZnesSZWRI2dnvrttAHsqxdVdU/Qg32QV+8bOLjhnM6U3T9163pD05nUTuvlMwJFDAhfkIHv4qwJcbAzZQbZx8Rs",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAASprny4vCmr09UE5Kg9x1N915NX/MqQEGCocNw9gXKtxFQW3l6dhRpqI5maif9BXAH2U+gxw3/e7aXq778Dod/VGCg7ETnROXaREUceOOgAAt49IFNXpnR1cUCzPfcbHIrTmVXs4cIWm2PAMuWfXnyS1Yzz179Ze1g97eciVUyP9x5Fk1TqCOKsrzTJpB24b9NaxoZAUxH1gmZp+ynmoSP84CJn+CuHS2ziKJy0Iu7M/3Cy3Nxryx6lKV/deK/JLDGXKcGW1j0NXPBVzrGGeZa4UUsSywJJBYqqxS4ZxWkA6",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -344,7 +374,7 @@
                             "version": "1.0.0"
                         },
                         "activityId": "Echo",
-                        "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+                        "input": "{\"messages\":[\"Schmetterling!\"],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
                     }
                 }
             ],
@@ -353,7 +383,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4d35a326-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ecc9fd7d-56e8-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -376,18 +406,18 @@
                 "name": "Echo",
                 "version": "1.0.0"
             },
-            "input": "{\"chunks\":[{\"message\":\"h e l l o\"}],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+            "input": "{\"messages\":[\"h e l l o\"],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAWL5lqFnURwCUKjQMIdgjfknrSH36s8i3Od141qaLZcAxRTezQu18r91YizJWa5SKzQFI+iPNBGxiU/u6IxpUzq8sjOVcrjyKCFj1SK3ncM+AVxau1onq3ECgG07QMMJvQLuHtZl6WwI68H1YPqmlUSo+WIbAXbTSrmMgCgeaPNImY+zzPNRyYEMIm+Kly8Q1xg1e/FVuALuqbDUT7HGDVGvWMfqyfglWV71Rg3tFSP73VeWXrARGjPDACI2qDL2qff7WnE3YhqUWn/K/noOI7orXpkZ++Ef+cl1aO8RLUd/",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUFS21tnsvTCLrNXkV0mH9O9O4Jz7XDoX4wK2qqgXPi6Bsxp7U34jvhwnpDGhlWPss+lb6pUd7kvfl0GVAq1V3MN1Rl47Inv5eTiX8IEt3kBbgxTTmw8ji90E++01UwQ275dshs1auoyx/Bbcc94s6kWWJo+Dpai4MS+lxxlqDX0ZjjniF+Fwr8ZhEVwQMARlZQnjg9vtKPBo4CjCOQujpzplUDOUc1MsHrP6ZEd3nHAqeaokaddEoUsaIkwz/u9pXueEBaYTRRscKaStT6COCxTuYxkk+G9kPibxPJV28KH",
             "workflowExecution": {
-                "runId": "21P4GfqgCD/QmybWAx1ZIIL1eAcyf9/GXQLI41kQCZpSM=",
+                "runId": "210AAYFyUDwv30ZzyjyIWbVxf02Q27bA+MEEGwejMiQZI=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             }
         },
         "headers": {
-            "x-amzn-requestid": "4d7ac2b7-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "ed102e15-56e8-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "726"
+            "content-length": "714"
         }
     },
     {
@@ -395,13 +425,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAWL5lqFnURwCUKjQMIdgjfknrSH36s8i3Od141qaLZcAxRTezQu18r91YizJWa5SKzQFI+iPNBGxiU/u6IxpUzq8sjOVcrjyKCFj1SK3ncM+AVxau1onq3ECgG07QMMJvQLuHtZl6WwI68H1YPqmlUSo+WIbAXbTSrmMgCgeaPNImY+zzPNRyYEMIm+Kly8Q1xg1e/FVuALuqbDUT7HGDVGvWMfqyfglWV71Rg3tFSP73VeWXrARGjPDACI2qDL2qff7WnE3YhqUWn/K/noOI7orXpkZ++Ef+cl1aO8RLUd/",
-            "result": "{\"chunks\":[{\"message\":\"h e l l o (reply)\"}]}"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUFS21tnsvTCLrNXkV0mH9O9O4Jz7XDoX4wK2qqgXPi6Bsxp7U34jvhwnpDGhlWPss+lb6pUd7kvfl0GVAq1V3MN1Rl47Inv5eTiX8IEt3kBbgxTTmw8ji90E++01UwQ275dshs1auoyx/Bbcc94s6kWWJo+Dpai4MS+lxxlqDX0ZjjniF+Fwr8ZhEVwQMARlZQnjg9vtKPBo4CjCOQujpzplUDOUc1MsHrP6ZEd3nHAqeaokaddEoUsaIkwz/u9pXueEBaYTRRscKaStT6COCxTuYxkk+G9kPibxPJV28KH",
+            "result": "{\"messages\":[\"h e l l o (reply)\"]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4dbbea40-5663-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "ed591e48-56e8-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -424,18 +454,18 @@
                 "name": "Echo",
                 "version": "1.0.0"
             },
-            "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+            "input": "{\"messages\":[\"Schmetterling!\"],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcJ5E/Gr4dAIKLFKIByikbyI0LpJhKyRWKkEEMWI3N51jldlC+pYrQSMEzW0a0F5thpeaGgxz2ckyvQRx8kn93tX3UN+g/qIsXvD+qG5ZxWx3jm61Pr8QYXFaYXY2PL8+GYrlvmIKcdnjskB6byFkMgjIVDFyv2YqjX9OasJFb9NldMnRqzVc4w4B2jfhkLKEd/yP/20wIKFIcWj83Z3+ouOfnT5FX8N6tlZsj3xE4jKSx0Y3CsQ8riWgXYFe5Grpej0NrqlH0TM0m9JTpb9Me+9aKCzMpIdJ7MVOffkullv",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcY7467Exl/Vy/zkwVCj4S2ipgBo5aJ5kb/5Y8YRZmpyCBREPPRZE9CTl4UN8rXIU6wXncB31H8j98PEDX8zeW/9/fbmeGcPPPV/cqB9EWfPmTKu+f5MLdTB97AWnFCYEEM1aHXFTSSJgO2RxhCX6DYiJb7BeAn84CG8zRmqnEK1oxYzR/kwhZ4l7GDnN479hMq1UoSlZ5ln4mpNM60OJ4bo8nMlssClyvkVqLXi752Pu8zsSF0YlB/rwQiJLMvPPYCrLmGLHmq26Zd20vf1evuYtod22Q8bjChl3yzR+Fb7",
             "workflowExecution": {
-                "runId": "21RfeMrUau6Ui9+Fo9rHfc3Q/3Hyxyqb1TJl8bWb76nIU=",
+                "runId": "21O9Kqs/kg9u/WE8Ri+aBGfIkc1GLwLc0snyYBobZTW28=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             }
         },
         "headers": {
-            "x-amzn-requestid": "4e1f8eaa-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "ed9def12-56e8-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "731"
+            "content-length": "719"
         }
     },
     {
@@ -445,12 +475,12 @@
         "body": {
             "reason": "Too afraid!",
             "details": "{\"stack\":\"~ stripped for tests ~\",\"message\":\"Too afraid!\",\"name\":\"Error\"}",
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcJ5E/Gr4dAIKLFKIByikbyI0LpJhKyRWKkEEMWI3N51jldlC+pYrQSMEzW0a0F5thpeaGgxz2ckyvQRx8kn93tX3UN+g/qIsXvD+qG5ZxWx3jm61Pr8QYXFaYXY2PL8+GYrlvmIKcdnjskB6byFkMgjIVDFyv2YqjX9OasJFb9NldMnRqzVc4w4B2jfhkLKEd/yP/20wIKFIcWj83Z3+ouOfnT5FX8N6tlZsj3xE4jKSx0Y3CsQ8riWgXYFe5Grpej0NrqlH0TM0m9JTpb9Me+9aKCzMpIdJ7MVOffkullv"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcY7467Exl/Vy/zkwVCj4S2ipgBo5aJ5kb/5Y8YRZmpyCBREPPRZE9CTl4UN8rXIU6wXncB31H8j98PEDX8zeW/9/fbmeGcPPPV/cqB9EWfPmTKu+f5MLdTB97AWnFCYEEM1aHXFTSSJgO2RxhCX6DYiJb7BeAn84CG8zRmqnEK1oxYzR/kwhZ4l7GDnN479hMq1UoSlZ5ln4mpNM60OJ4bo8nMlssClyvkVqLXi752Pu8zsSF0YlB/rwQiJLMvPPYCrLmGLHmq26Zd20vf1evuYtod22Q8bjChl3yzR+Fb7"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4e6dd5e5-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "edecd288-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -471,12 +501,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742017.831,
+                    "eventTimestamp": 1441799408.591,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"h e l l o\"}]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"h e l l o\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -498,7 +528,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742017.831,
+                    "eventTimestamp": 1441799408.591,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -507,7 +537,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742018.82,
+                    "eventTimestamp": 1441799409.602,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -517,7 +547,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1441742019.312,
+                    "eventTimestamp": 1441799410.073,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -529,7 +559,7 @@
                         },
                         "decisionTaskCompletedEventId": 4,
                         "heartbeatTimeout": "30",
-                        "input": "{\"chunks\":[{\"message\":\"h e l l o\"}],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"messages\":[\"h e l l o\"],\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "scheduleToCloseTimeout": "NONE",
                         "scheduleToStartTimeout": "1800",
                         "startToCloseTimeout": "600",
@@ -539,7 +569,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1441742019.312,
+                    "eventTimestamp": 1441799410.073,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -548,17 +578,17 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1441742020.641,
+                    "eventTimestamp": 1441799411.475,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
                     "activityTaskCompletedEventAttributes": {
-                        "result": "{\"chunks\":[{\"message\":\"h e l l o (reply)\"}]}",
+                        "result": "{\"messages\":[\"h e l l o (reply)\"]}",
                         "scheduledEventId": 5,
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1441742021.062,
+                    "eventTimestamp": 1441799411.929,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -570,7 +600,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1441742021.062,
+                    "eventTimestamp": 1441799411.929,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -579,15 +609,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1441742022.681,
+                    "eventTimestamp": 1441799413.365,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQezjycZycsOOY/3CSOtUmlvJPxHFHaX9KrxYKQmJ0K+vSkS3K3nx32uKAZJ5vbKx8qOo8/jkq6tLU0V0LKSOxcJC6eAWJ3Ll73eXMtVVEPR1M+VoCIbSmRN3CyyOkeKPXDUYls2ZXYuhu96pVwv5VSB8cQcPTjHOPJDJ7s27IUmvsYkTk/RaGkFS7cFkreG3cdLRJvl8TCuMkH92BCJu/kFBgSyHhynSeVLhBjTVIHC1v0YCDf58/Ajg26uq8uw8u5wzw8mC2qrsV4zynIMer7SctO6vl1JWi5uazVEZAbi",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdZA7snN571Lmg9ITzHEvoXTLKOkpgiKJIPfLcPKviNZMFEM9m4PurTrVt66HdDEUPuoWw+owJFKpHGJENsOVp7ksDe3xACRxBQbjsR0rlumBngGQeHiXPkTmS5FPbb5Y+Suek9uhjznVqrM5LALPavBo6K/fF1XCsrJ+u5b/j5ORlmNWjzkvvOecp16sND1mUKMB61MN0CG016WfQ0HLeage+zAfZv6eqa26M8axpaJ+IKMo0t4wRSRErst1ntDfDbCcQWhVbkt1ejidvjnKAfjfyIIuZibAnIDum8Ueo93",
             "workflowExecution": {
-                "runId": "21P4GfqgCD/QmybWAx1ZIIL1eAcyf9/GXQLI41kQCZpSM=",
+                "runId": "210AAYFyUDwv30ZzyjyIWbVxf02Q27bA+MEEGwejMiQZI=",
                 "workflowId": "HC59Fwwvdnbcu2fyi"
             },
             "workflowType": {
@@ -596,9 +626,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "4eafe72e-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "ee3489d2-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3243"
+            "content-length": "3208"
         }
     },
     {
@@ -606,21 +636,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQezjycZycsOOY/3CSOtUmlvJPxHFHaX9KrxYKQmJ0K+vSkS3K3nx32uKAZJ5vbKx8qOo8/jkq6tLU0V0LKSOxcJC6eAWJ3Ll73eXMtVVEPR1M+VoCIbSmRN3CyyOkeKPXDUYls2ZXYuhu96pVwv5VSB8cQcPTjHOPJDJ7s27IUmvsYkTk/RaGkFS7cFkreG3cdLRJvl8TCuMkH92BCJu/kFBgSyHhynSeVLhBjTVIHC1v0YCDf58/Ajg26uq8uw8u5wzw8mC2qrsV4zynIMer7SctO6vl1JWi5uazVEZAbi",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdZA7snN571Lmg9ITzHEvoXTLKOkpgiKJIPfLcPKviNZMFEM9m4PurTrVt66HdDEUPuoWw+owJFKpHGJENsOVp7ksDe3xACRxBQbjsR0rlumBngGQeHiXPkTmS5FPbb5Y+Suek9uhjznVqrM5LALPavBo6K/fF1XCsrJ+u5b/j5ORlmNWjzkvvOecp16sND1mUKMB61MN0CG016WfQ0HLeage+zAfZv6eqa26M8axpaJ+IKMo0t4wRSRErst1ntDfDbCcQWhVbkt1ejidvjnKAfjfyIIuZibAnIDum8Ueo93",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
                     "completeWorkflowExecutionDecisionAttributes": {
-                        "result": "{\"message\":\"h e l l o (reply)\"}"
+                        "result": "{\"messages\":[\"h e l l o (reply)\"]}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"HC59Fwwvdnbcu2fyi\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"HC59Fwwvdnbcu2fyi\"},\"modifier\":{\"$set\":{\"result\":{\"message\":\"h e l l o (reply)\"}}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"HC59Fwwvdnbcu2fyi\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"HC59Fwwvdnbcu2fyi\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[\"h e l l o (reply)\"]}}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4ef26e5a-5663-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "ee7ba534-56e8-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -641,12 +671,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742018.373,
+                    "eventTimestamp": 1441799409.096,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Schmetterling!\"}]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"Schmetterling!\"]},\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -668,7 +698,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742018.373,
+                    "eventTimestamp": 1441799409.096,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -677,7 +707,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742019.743,
+                    "eventTimestamp": 1441799410.532,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -687,7 +717,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1441742020.199,
+                    "eventTimestamp": 1441799410.997,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -699,7 +729,7 @@
                         },
                         "decisionTaskCompletedEventId": 4,
                         "heartbeatTimeout": "30",
-                        "input": "{\"chunks\":[{\"message\":\"Schmetterling!\"}],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"messages\":[\"Schmetterling!\"],\"commandId\":\"SC7Eyt6HnmQdfuk79\",\"stepId\":\"SSqRtZSdND2WoDkwM\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "scheduleToCloseTimeout": "NONE",
                         "scheduleToStartTimeout": "1800",
                         "startToCloseTimeout": "600",
@@ -709,7 +739,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1441742020.199,
+                    "eventTimestamp": 1441799410.997,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -718,7 +748,7 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1441742021.73,
+                    "eventTimestamp": 1441799412.378,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
@@ -729,7 +759,7 @@
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1441742022.236,
+                    "eventTimestamp": 1441799412.893,
                     "eventType": "ActivityTaskFailed"
                 },
                 {
@@ -741,7 +771,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1441742022.236,
+                    "eventTimestamp": 1441799412.893,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -750,15 +780,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1441742023.55,
+                    "eventTimestamp": 1441799414.305,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAb/0QvGEp47jwtiT5h8gQCOHrykNTs5XlewCOKDVDHmJSSHGI0ZBNq3Tz5RKKFX5zF9FBZMSM2kboKgzkEK7csA6C0u8SirRJCFxDS+L7kFiwQfFEd3nt4toexKD9hzVvObUREAmm+rqmBoqEiLlYHBe7dbQbrMMj4sy2x8Rom9wrySpcnSUcwoTzek0q7gNtXR6syRdrxynVDoTejxnrPYAks/djpLxYBexx9cRCzQqvT7kLw86ru2tkZFgQD/LbVSLPTiwyavK8TVmNmCJX+mF5wDhbDPXoYBiKhZrM5Qp",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcCZcx8tqMCwP/7BzrvpGHg/07JfofuPYZ64xPz0+sIuzaMwBqED2ODU7t00ePsWh6m/EbiK1LsjjQ4gwXfo6Tml4PdQFFH9EeM/IXo5hmKOwNMahMDsW4mUvRxy1l2BfyKN1b59Amr/XHStFpLDBvImrqfq9WmgknDoVwIg2uZTgBcHMdgNhvOJYvsfwgxOJmVWvL7L9VXUyjAVIIa6VNky6Pt2MZNYn8A9cYLO4g0zSuA6oXnj0qtZqWhRQxOti+kRzLET6pxmU0/OiUWzCoL045CN3+ijkxd+j3y2x5F5",
             "workflowExecution": {
-                "runId": "21RfeMrUau6Ui9+Fo9rHfc3Q/3Hyxyqb1TJl8bWb76nIU=",
+                "runId": "21O9Kqs/kg9u/WE8Ri+aBGfIkc1GLwLc0snyYBobZTW28=",
                 "workflowId": "SC7Eyt6HnmQdfuk79"
             },
             "workflowType": {
@@ -767,9 +797,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "4f35b928-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "eec334c4-56e8-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3305"
+            "content-length": "3283"
         }
     },
     {
@@ -777,7 +807,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAb/0QvGEp47jwtiT5h8gQCOHrykNTs5XlewCOKDVDHmJSSHGI0ZBNq3Tz5RKKFX5zF9FBZMSM2kboKgzkEK7csA6C0u8SirRJCFxDS+L7kFiwQfFEd3nt4toexKD9hzVvObUREAmm+rqmBoqEiLlYHBe7dbQbrMMj4sy2x8Rom9wrySpcnSUcwoTzek0q7gNtXR6syRdrxynVDoTejxnrPYAks/djpLxYBexx9cRCzQqvT7kLw86ru2tkZFgQD/LbVSLPTiwyavK8TVmNmCJX+mF5wDhbDPXoYBiKhZrM5Qp",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAcCZcx8tqMCwP/7BzrvpGHg/07JfofuPYZ64xPz0+sIuzaMwBqED2ODU7t00ePsWh6m/EbiK1LsjjQ4gwXfo6Tml4PdQFFH9EeM/IXo5hmKOwNMahMDsW4mUvRxy1l2BfyKN1b59Amr/XHStFpLDBvImrqfq9WmgknDoVwIg2uZTgBcHMdgNhvOJYvsfwgxOJmVWvL7L9VXUyjAVIIa6VNky6Pt2MZNYn8A9cYLO4g0zSuA6oXnj0qtZqWhRQxOti+kRzLET6pxmU0/OiUWzCoL045CN3+ijkxd+j3y2x5F5",
             "decisions": [
                 {
                     "decisionType": "FailWorkflowExecution",
@@ -792,7 +822,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "4f7c3827-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ef0d0f7a-56e8-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -811,14 +841,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"Echo\":{\"messages\":[\"Knock, knock, Neo\"]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "21eVQSa/rhiXWsb5gTe0soydMiAg7HRQqXQ54Y9hBkdxA="
+            "runId": "21Umq2rFqzjSj16L9UDuz4dGBRE67QzMVQFywT6MtR9aQ="
         },
         "headers": {
-            "x-amzn-requestid": "4fc4da49-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "ef525635-56e8-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -839,12 +869,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742024.482,
+                    "eventTimestamp": 1441799415.244,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"Knock, knock, Neo\"]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -866,7 +896,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742024.482,
+                    "eventTimestamp": 1441799415.244,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -875,15 +905,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742024.962,
+                    "eventTimestamp": 1441799415.883,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAZafvmkxOBzEUG72kpqFkXVrG7lH6kSXWukb6g3bEc0tJX+PScOJO5JoX2zISmVjtLHrd1TDmMnHOMjcnMG47KhroZ9eYjG5gVcd6U1P8yn3B0isQ6GdibG71PIwxXs3qgpNpcg+3RT36Tap7XqumlxIvN8nKjISffSzhGUXeNgPdpSENVMq9fbQA2RalLFh+D19buiRc1KO56sATN1n9MkCu+pVgYixFiqcpss6L4lBwcix/RazdQIDQ5qZ3r+inkBWIPXdnE9HyVjRJDMarcrGPKUrel8PPizPvCjo12AV",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAejuV+d7Idxi7san/GofD/rWKhHALgnaeW/vgDxI26iV3Ao4ZmCZrvUY+tp7UnUXUgFW72pGSH+bawmbwLHnWnqBTRExY6u+IqN+TsG6GwZzClhpO/MDC789XcYLP03R1SZdG3bpxfIl3PJAB+GFJfPtkmo49aZmU/CpI1lRrZRi/3pLfgw8Z2EO1mWDikvGzqm0QqQtM1Yua+R0g3rguEt4Mwr7MLMFY6oY7gUufpMmc+Gwwm7wyFsXDKq15KHlOaIzx3oXI5nNuXaH6cC6DmAujeaC1s39G1eQq+IHb2mZ",
             "workflowExecution": {
-                "runId": "21eVQSa/rhiXWsb5gTe0soydMiAg7HRQqXQ54Y9hBkdxA=",
+                "runId": "21Umq2rFqzjSj16L9UDuz4dGBRE67QzMVQFywT6MtR9aQ=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -892,9 +922,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "500dca2a-5663-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "efb2c5a1-56e8-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1554"
+            "content-length": "1542"
         }
     },
     {
@@ -902,7 +932,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAZafvmkxOBzEUG72kpqFkXVrG7lH6kSXWukb6g3bEc0tJX+PScOJO5JoX2zISmVjtLHrd1TDmMnHOMjcnMG47KhroZ9eYjG5gVcd6U1P8yn3B0isQ6GdibG71PIwxXs3qgpNpcg+3RT36Tap7XqumlxIvN8nKjISffSzhGUXeNgPdpSENVMq9fbQA2RalLFh+D19buiRc1KO56sATN1n9MkCu+pVgYixFiqcpss6L4lBwcix/RazdQIDQ5qZ3r+inkBWIPXdnE9HyVjRJDMarcrGPKUrel8PPizPvCjo12AV",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAejuV+d7Idxi7san/GofD/rWKhHALgnaeW/vgDxI26iV3Ao4ZmCZrvUY+tp7UnUXUgFW72pGSH+bawmbwLHnWnqBTRExY6u+IqN+TsG6GwZzClhpO/MDC789XcYLP03R1SZdG3bpxfIl3PJAB+GFJfPtkmo49aZmU/CpI1lRrZRi/3pLfgw8Z2EO1mWDikvGzqm0QqQtM1Yua+R0g3rguEt4Mwr7MLMFY6oY7gUufpMmc+Gwwm7wyFsXDKq15KHlOaIzx3oXI5nNuXaH6cC6DmAujeaC1s39G1eQq+IHb2mZ",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -912,7 +942,7 @@
                             "version": "1.0.0"
                         },
                         "activityId": "Echo",
-                        "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+                        "input": "{\"messages\":[\"Knock, knock, Neo\"],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
                     }
                 }
             ],
@@ -921,7 +951,7 @@
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "5051d81b-5663-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "f0066380-56e8-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -944,18 +974,18 @@
                 "name": "Echo",
                 "version": "1.0.0"
             },
-            "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+            "input": "{\"messages\":[\"Knock, knock, Neo\"],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQDXAW2TotbJxY07KzGXAtyjIUQIUMDLdquSta4L/DDfKtOlUl7RF4b9q7Bc/5YXSoHEuWMIcijPaSlVf9Q/SMTqrFBLOhJPP1ALYYqwY0vLRVcwcoeXpVwt8gcJq6hC27O0nuil8nzVV77wgIOz+9cbiZyplNrelHRVAFAq5WxmOhGuZGUeLU8DBJJmGaL7LrpU+F+p3wzauXNrpAk6iKLYdTKpENnNyMCzqejZ61p/VvNxOVYQueyuZqDNEt1sctas7SM/RAn70etM4hWth9+bsjDnbLdpuJ4UMBW8eP9q",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQBG5OGvsMIQU2ZXoZwT1B50KkQgAdCnHTgb0JptPr4KsOgO9CXSaIseGgcSpx37SjA0IZL1ixG1Lpy2WbWi0xlZVkocPDhwD9IUQXFeACMINRf39UOOOw3bORCPzhqmacKNXunpJ2po/zWt/hPbXRRFoO+EXnfpnEgeS8H8G51T5KtxiX6Jq+5YTctgQU2P7tLmyyRcxn15LyKiEz2ZpIf+D8gLWlwDstCLIrpHpItt/yVM18FEvOs1E4COded9i0x/04HFPCCfvFgOt1J/ecTq+MkPjQ8f1jG4feU/fmrY",
             "workflowExecution": {
-                "runId": "21eVQSa/rhiXWsb5gTe0soydMiAg7HRQqXQ54Y9hBkdxA=",
+                "runId": "21Umq2rFqzjSj16L9UDuz4dGBRE67QzMVQFywT6MtR9aQ=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             }
         },
         "headers": {
-            "x-amzn-requestid": "5092ffef-5663-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "f051768f-56e8-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "734"
+            "content-length": "722"
         }
     },
     {
@@ -963,13 +993,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQDXAW2TotbJxY07KzGXAtyjIUQIUMDLdquSta4L/DDfKtOlUl7RF4b9q7Bc/5YXSoHEuWMIcijPaSlVf9Q/SMTqrFBLOhJPP1ALYYqwY0vLRVcwcoeXpVwt8gcJq6hC27O0nuil8nzVV77wgIOz+9cbiZyplNrelHRVAFAq5WxmOhGuZGUeLU8DBJJmGaL7LrpU+F+p3wzauXNrpAk6iKLYdTKpENnNyMCzqejZ61p/VvNxOVYQueyuZqDNEt1sctas7SM/RAn70etM4hWth9+bsjDnbLdpuJ4UMBW8eP9q",
-            "result": "{\"chunks\":[{\"message\":\"Knock, knock, Neo (reply)\"}]}"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAQBG5OGvsMIQU2ZXoZwT1B50KkQgAdCnHTgb0JptPr4KsOgO9CXSaIseGgcSpx37SjA0IZL1ixG1Lpy2WbWi0xlZVkocPDhwD9IUQXFeACMINRf39UOOOw3bORCPzhqmacKNXunpJ2po/zWt/hPbXRRFoO+EXnfpnEgeS8H8G51T5KtxiX6Jq+5YTctgQU2P7tLmyyRcxn15LyKiEz2ZpIf+D8gLWlwDstCLIrpHpItt/yVM18FEvOs1E4COded9i0x/04HFPCCfvFgOt1J/ecTq+MkPjQ8f1jG4feU/fmrY",
+            "result": "{\"messages\":[\"Knock, knock, Neo (reply)\"]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "50e78800-5663-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "f09c3b68-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -990,12 +1020,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742024.482,
+                    "eventTimestamp": 1441799415.244,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"Knock, knock, Neo\"]},\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -1017,7 +1047,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742024.482,
+                    "eventTimestamp": 1441799415.244,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1026,7 +1056,7 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742024.962,
+                    "eventTimestamp": 1441799415.883,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
@@ -1036,7 +1066,7 @@
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1441742025.423,
+                    "eventTimestamp": 1441799416.415,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -1048,7 +1078,7 @@
                         },
                         "decisionTaskCompletedEventId": 4,
                         "heartbeatTimeout": "30",
-                        "input": "{\"chunks\":[{\"message\":\"Knock, knock, Neo\"}],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"messages\":[\"Knock, knock, Neo\"],\"commandId\":\"NC2CsND9f6iRh2HHf\",\"stepId\":\"NSEZvsapGgGiE5Qw4\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "scheduleToCloseTimeout": "NONE",
                         "scheduleToStartTimeout": "1800",
                         "startToCloseTimeout": "600",
@@ -1058,7 +1088,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1441742025.423,
+                    "eventTimestamp": 1441799416.415,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -1067,17 +1097,17 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1441742025.861,
+                    "eventTimestamp": 1441799416.907,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
                     "activityTaskCompletedEventAttributes": {
-                        "result": "{\"chunks\":[{\"message\":\"Knock, knock, Neo (reply)\"}]}",
+                        "result": "{\"messages\":[\"Knock, knock, Neo (reply)\"]}",
                         "scheduledEventId": 5,
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1441742026.409,
+                    "eventTimestamp": 1441799417.399,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -1089,7 +1119,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1441742026.409,
+                    "eventTimestamp": 1441799417.399,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1098,15 +1128,15 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1441742026.907,
+                    "eventTimestamp": 1441799417.892,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAASQneBfFLO8dt7XGwMXjTztLH4bVAuL9QId5FsEfdaTSQ5oxyE/EQU+7aisgQ0FlAAlbEPtLDTyXlbdKW9tk+4et6H5ZcVFCjIM474BuK9aZf25ad4zKQ9vObxFrlnC/8SvwUTffi46CKu9geAhIFBA9rgWJAZthEFxBC1quikpdxUk8Z0oWNA9bu59qkZNbSuncFoyTQ8OXCAuKKPi4bPYqv6VqU3NDzV0tXpQfJ38WHtogbAxIjLGtLcCisd45795a4CXtzylrLgPObrfDZ+pIz1r5+Y8/EXksRYLUT2yz",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbkbLpC+Nafac2dvR8yT1WKMxZlTIOlZduhyXXmlmU9WtzhgSil1KskXcf5hnYrw3bNCWph2xljH48yhPsbB+6ToL/CEF0U3p6qUyKAElZqHMDT3e0134mFgV6LLNV0BXAfaEj76KfQs7YOd2siFLRglePbzKjjvnPxwDLiyuezDlOc2aCdkjiHGMvaNap6HP5EY5GFu4MbVF/4bVOfdEpWZDCO6uUakwuxqG/NDCg3lSm44K4pqLzY7YAoPRfsGrsiEdPxjPdAE2FLlglM56+zg90d/LLNpxp4+VeJ6cgCO",
             "workflowExecution": {
-                "runId": "21eVQSa/rhiXWsb5gTe0soydMiAg7HRQqXQ54Y9hBkdxA=",
+                "runId": "21Umq2rFqzjSj16L9UDuz4dGBRE67QzMVQFywT6MtR9aQ=",
                 "workflowId": "NC2CsND9f6iRh2HHf"
             },
             "workflowType": {
@@ -1115,9 +1145,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "51364456-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "f0e7e9c3-56e8-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3268"
+            "content-length": "3232"
         }
     },
     {
@@ -1125,21 +1155,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAASQneBfFLO8dt7XGwMXjTztLH4bVAuL9QId5FsEfdaTSQ5oxyE/EQU+7aisgQ0FlAAlbEPtLDTyXlbdKW9tk+4et6H5ZcVFCjIM474BuK9aZf25ad4zKQ9vObxFrlnC/8SvwUTffi46CKu9geAhIFBA9rgWJAZthEFxBC1quikpdxUk8Z0oWNA9bu59qkZNbSuncFoyTQ8OXCAuKKPi4bPYqv6VqU3NDzV0tXpQfJ38WHtogbAxIjLGtLcCisd45795a4CXtzylrLgPObrfDZ+pIz1r5+Y8/EXksRYLUT2yz",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbkbLpC+Nafac2dvR8yT1WKMxZlTIOlZduhyXXmlmU9WtzhgSil1KskXcf5hnYrw3bNCWph2xljH48yhPsbB+6ToL/CEF0U3p6qUyKAElZqHMDT3e0134mFgV6LLNV0BXAfaEj76KfQs7YOd2siFLRglePbzKjjvnPxwDLiyuezDlOc2aCdkjiHGMvaNap6HP5EY5GFu4MbVF/4bVOfdEpWZDCO6uUakwuxqG/NDCg3lSm44K4pqLzY7YAoPRfsGrsiEdPxjPdAE2FLlglM56+zg90d/LLNpxp4+VeJ6cgCO",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
                     "completeWorkflowExecutionDecisionAttributes": {
-                        "result": "{\"message\":\"Knock, knock, Neo (reply)\"}"
+                        "result": "{\"messages\":[\"Knock, knock, Neo (reply)\"]}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"NC2CsND9f6iRh2HHf\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"NC2CsND9f6iRh2HHf\"},\"modifier\":{\"$set\":{\"result\":{\"message\":\"Knock, knock, Neo (reply)\"}}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"NC2CsND9f6iRh2HHf\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"NC2CsND9f6iRh2HHf\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[\"Knock, knock, Neo (reply)\"]}}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "517c0016-5663-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "f13211e5-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -1158,14 +1188,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Bork!\"}]},\"commandId\":\"BCCan2oRhKtCL8jQa\",\"stepId\":\"BSrLMhAvAzyXrsvxe\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"Echo\":{\"messages\":[\"Bork!\"]},\"commandId\":\"BCCan2oRhKtCL8jQa\",\"stepId\":\"BSrLMhAvAzyXrsvxe\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "21XYzITlUV1kMwHXG22aN1Ips+2YKEy3oau/ivTNtRJjM="
+            "runId": "21PNHUXlom7NJsU2q9lvs+E2w3UzmMYj5Mijw4oyq72AA="
         },
         "headers": {
-            "x-amzn-requestid": "51c3b6d5-5663-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "f1822e39-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -1186,12 +1216,12 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1441742027.849,
+                    "eventTimestamp": 1441799418.919,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"chunks\":[{\"message\":\"Bork!\"}]},\"commandId\":\"BCCan2oRhKtCL8jQa\",\"stepId\":\"BSrLMhAvAzyXrsvxe\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
+                        "input": "{\"Echo\":{\"messages\":[\"Bork!\"]},\"commandId\":\"BCCan2oRhKtCL8jQa\",\"stepId\":\"BSrLMhAvAzyXrsvxe\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}",
                         "parentInitiatedEventId": 0,
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -1213,7 +1243,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1441742027.849,
+                    "eventTimestamp": 1441799418.919,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -1222,15 +1252,15 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1441742028.314,
+                    "eventTimestamp": 1441799419.409,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAaZTDT9PGtB9sMZgFTm910/LjhVgSJaQ/fzUyEpEKcsBNmWj9PTcv0ILx3yE1Nwlpc12+VahA3DajUeh75R3683/1loPV8g8wKtElQNDICoAMLtR4fwK7ju7ZrrQtx8FsL4YOyuJHM09AXrexDGQOeDKPug96vFDGr3Mdl1sjSjkLXfKyNSjIpddQ2s8scCGeje4Fw0Euj7+y9bxBthukoABcymCsOa3Uxd2tbbq+6CQCBojvfKM4C3Trw/xaczvKGexRT3RSi1x9ign5b2s2/YgBvL2n7FDw4PAukfEVodd",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAYzmiUCn294x9ddQjbstfyMhXeCY6wGCh0GgyCVBpXErYdm4SoQa2FiwJi+uZjw+XlG1S5HHSltvkvrFOSqVWcnUzQgQ6aIIlvy4dl+oobntxH+mrZrR5ESdA/qW3FkXcvqlZbrrFhoGrD0oRDklrkSwrTaXN3H6hyLeeFruMJuXD1qWDm3rDzWYvYy4ZDvms46KNWbSeNdNI0x1B6YNE1eoCM+mrtXJR7GPr1jN+OUE4b9nLQNHO7gQNaGcIURqGJCOW6eVL+HOCsLaB8Hyc8JUIjhGXdFPVdb5LfGgp/eB",
             "workflowExecution": {
-                "runId": "21XYzITlUV1kMwHXG22aN1Ips+2YKEy3oau/ivTNtRJjM=",
+                "runId": "21PNHUXlom7NJsU2q9lvs+E2w3UzmMYj5Mijw4oyq72AA=",
                 "workflowId": "BCCan2oRhKtCL8jQa"
             },
             "workflowType": {
@@ -1239,9 +1269,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "520ca743-5663-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "f1d04e8b-56e8-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1542"
+            "content-length": "1530"
         }
     }
 ]

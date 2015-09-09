@@ -22,21 +22,24 @@ describe "Echo", ->
     ,
       {}
     ,
-      in: new stream.Readable({objectMode: true})
-      out: new stream.Writable({objectMode: true})
-    ,
       dependencies
     )
+
+  it "should echo messages back @fast", ->
+    task.messages = [
+      "h e l l o"
+      "Knock, knock, Neo"
+    ]
+    task.execute().should.become messages: [
+      "h e l l o (reply)"
+      "Knock, knock, Neo (reply)"
+    ]
 
   describe "error handling", ->
 
     it "should stop reading off input if it throws an exception @fast", ->
-      task.in._read = ->
-        @push {message: "Schmetterling!"}
-        @push {message: "Not read"}
-        @push null
-      task.out._write = sinon.spy()
-      task.execute()
-      .catch ((error) -> error.message is "Too afraid!"), ((error) ->)
-      .finally ->
-        task.out._write.should.have.not.been.called
+      task.messages = [
+        "Schmetterling!"
+        "Not read"
+      ]
+      task.execute().should.be.rejected

@@ -76,34 +76,20 @@ class Worker extends Actor
           input = JSON.parse(options.input)
           Match.check input, Match.ObjectIncluding
             commandId: String
-          @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
-          inchunks = input.chunks or []
-          outchunks = []
-          streams =
-            in: new stream.Readable({objectMode: true})
-            out: new stream.Writable({objectMode: true})
-          streams.in.on "error", reject
-          streams.in._read = ->
-            @push object for object in inchunks
-            @push null # end stream
-          streams.out.on "error", reject
-          streams.out._write = (chunk, encoding, callback) ->
-            outchunks.push chunk
-            callback()
-          delete input.chunks
           delete options.input
+          @info "Worker:executing", @details({input: input, options: options}) # probability of exception on JSON.parse is quite low, while it's very convenient to have input in JSON
           dependencies =
             logger: @logger
             bookshelf: @bookshelf
             knex: @knex
             mongodb: @mongodb
-          task = new @taskCls input, options, streams, dependencies
+          task = new @taskCls input, options, dependencies
           Promise.bind(@)
           .then -> @progressBarSetIsStarted input.commandId, options.activityId
           .then -> task.execute()
           .then (result) ->
             @progressBarSetIsCompleted input.commandId, options.activityId
-            resolve _.extend {chunks: outchunks}, result
+            resolve(result)
           .catch (error) ->
             @progressBarSetIsFailed input.commandId, options.activityId
             reject(error)
@@ -111,7 +97,7 @@ class Worker extends Actor
           reject(error)
       .bind(@)
       .then (result) ->
-        @info "Worker:completed", @details({result: result, options: options})
+        @info "Worker:completed", @details({result: result, input: input, options: options})
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
           result: JSON.stringify result

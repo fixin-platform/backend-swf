@@ -7,28 +7,14 @@ class Echo extends ActivityTask
   execute: ->
     Promise.bind(@)
     .then -> @progressBarSetTotal(0)
-    .then ->
-      new Promise (resolve, reject) =>
-        @in.on "readable", =>
-          try
-            while (object = @in.read())
-              Match.check object,
-                message: String
-              if object.message is "Schmetterling!"
-                throw new Error("Too afraid!")
-              else
-                object.message = "#{object.message} (reply)"
-                @out.write(object)
-                @progressBarIncCurrent(1)
-            true
-          catch error
-            reject(error)
-        @in.on "end", resolve
-        @in.on "error", reject
-      .bind(@)
-      .catch (error) ->
-        @in.removeAllListeners()
-        throw error
-    .then -> @out.end()
+    .then -> @messages
+    .map (message) ->
+      Match.check message, String
+      if message is "Schmetterling!"
+        throw new Error("Too afraid!")
+      else
+        message = "#{message} (reply)"
+      @progressBarIncCurrent(1).thenReturn(message)
+    .then (messages) -> {messages: messages}
 
 module.exports = Echo

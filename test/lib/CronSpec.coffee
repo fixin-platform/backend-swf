@@ -110,12 +110,11 @@ describe "Cron", ->
         ,
           dependencies
         )
-        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: chunks: [ message: "Hello Cron"]}]))
+        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
         .then -> cron.startWorkflowExecutions("zhk6CpJ75FB2GmNCe")
         .then -> decider.poll()
         .then ->
-          Commands.count().then (count) ->
-            count.should.be.equal(1)
+          Commands.count().should.eventually.equal(1)
         .then ->
           Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
             command.isStarted.should.be.true

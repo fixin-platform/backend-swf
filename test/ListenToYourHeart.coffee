@@ -8,6 +8,6 @@ class ListenToYourHeart extends DecisionTask
     @addDecision @ScheduleActivityTask "Echo", stamp(@input["Echo"], @input)
 
   CompleteWorkflowExecutionBarrierPassed: ->
-    @addDecision @CompleteWorkflowExecution(@results["Echo"].chunks[0])
+    @addDecision @CompleteWorkflowExecution(@results["Echo"])
 
 module.exports = ListenToYourHeart

@@ -169,7 +169,7 @@ describe "Boyband: Decider & Worker", ->
               command.isStarted.should.be.true
               command.isCompleted.should.be.true
               command.isFailed.should.be.false
-              command.result.should.be.deep.equal({message: "h e l l o (reply)"})
+              command.result.should.be.deep.equal({messages: ["h e l l o (reply)"]})
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
               command.isStarted.should.be.true

@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "ba2a1e98-4db5-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "ac4878cb-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -36,12 +36,15 @@
             "description": "",
             "domain": "Test"
         },
-        "status": 200,
-        "response": "",
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
+        },
         "headers": {
-            "x-amzn-requestid": "ba70c4c8-4db5-11e5-9156-13f14b7faae1",
+            "x-amzn-requestid": "ac907de9-56e8-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "0"
+            "content-length": "129"
         }
     },
     {
@@ -62,12 +65,15 @@
             "description": "",
             "domain": "Test"
         },
-        "status": 200,
-        "response": "",
+        "status": 400,
+        "response": {
+            "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
+            "message": "ActivityType=[name=Echo, version=1.0.0]"
+        },
         "headers": {
-            "x-amzn-requestid": "bad4b6b6-4db5-11e5-ae70-55faa9bfcedb",
+            "x-amzn-requestid": "ace15d03-56e8-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "0"
+            "content-length": "116"
         }
     },
     {
@@ -89,7 +95,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "bb328e48-4db5-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "ad240b91-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }
@@ -108,14 +114,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"chunks\":[{\"message\":\"This message won't even reach the decider\"}]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"Echo\":{\"messages\":[\"This message won't even reach the decider\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "216DrwoqxiYs1W5X2BoXAuHah9em5vmNQUDxgrLSOGNE8="
+            "runId": "21PRQpQTyFeSH2ECZPeZY6qE42mr5/Xtzos4JCC8gg6yM="
         },
         "headers": {
-            "x-amzn-requestid": "bb81bf91-4db5-11e5-9967-2b6cad2aa7b2",
+            "x-amzn-requestid": "ad6b4d10-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -136,11 +142,11 @@
                 {
                     "cancelRequested": false,
                     "execution": {
-                        "runId": "216DrwoqxiYs1W5X2BoXAuHah9em5vmNQUDxgrLSOGNE8=",
+                        "runId": "21PRQpQTyFeSH2ECZPeZY6qE42mr5/Xtzos4JCC8gg6yM=",
                         "workflowId": "HC59Fwwvdnbcu2fyi"
                     },
                     "executionStatus": "OPEN",
-                    "startTimestamp": 1440787863.546,
+                    "startTimestamp": 1441799304.686,
                     "workflowType": {
                         "name": "ListenToYourHeart",
                         "version": "1.0.0"
@@ -149,7 +155,7 @@
             ]
         },
         "headers": {
-            "x-amzn-requestid": "bbd18d0e-4db5-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "adb91f46-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "271"
         }
@@ -169,7 +175,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "bd4f5446-4db5-11e5-9156-13f14b7faae1",
+            "x-amzn-requestid": "af45d991-56e8-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }

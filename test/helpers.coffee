@@ -12,7 +12,5 @@ module.exports =
       name: "ListenToYourHeart"
     input: JSON.stringify _.defaults
       Echo:
-        chunks: [
-          message: message
-        ]
+        messages: [message]
     , input
