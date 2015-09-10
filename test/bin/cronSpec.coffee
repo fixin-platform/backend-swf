@@ -59,7 +59,6 @@ describe "bin/cron", ->
           url: "http://localhost:3000"
           timeout: 10
         .spread (stdout, stderr, code) ->
-          console.log 123
           stderr.should.contain("NetworkingError") # we've forced that
         .then resolve
         .catch reject
