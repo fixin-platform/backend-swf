@@ -131,6 +131,14 @@ describe "Boyband: Decider & Worker", ->
           .then -> decider.poll() # ScheduleActivityTask 2
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
+              if not command # try debugging the Snap CI error
+                return Promise.join(
+                  mongodb.collection("Commands").find().then -> console.log 'mongodb.collection("Commands")', arguments
+                ,
+                  Commands.find().then -> console.log 'Commands', arguments
+                ,
+                  mongodb.getCollectionNames().then -> console.log 'getCollectionNames', arguments
+                )
               command.isStarted.should.be.true
               command.isCompleted.should.be.false
               command.isFailed.should.be.false
