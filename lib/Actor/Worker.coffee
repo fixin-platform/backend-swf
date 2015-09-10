@@ -27,16 +27,16 @@ class Worker extends Actor
   name: -> "Worker"
   signature: -> ["domain", "taskList", "identity"]
   start: ->
-    @info "Worker:starting", @details()
+    @verbose "Worker:starting", @details()
     @loop()
   stop: (code) ->
-    @info "Worker:stopping", @details()
+    @verbose "Worker:stopping", @details()
     Promise.join(@knex.destroy(), @mongodb.close())
     .bind(@)
     .then ->
       # Don't remove extra logging
       # I'm trying to catch a bug which causes the worker to continue running even after "Worker:failed" and "Worker:stopping"
-      @info "Worker:halting", @details
+      @verbose "Worker:halting", @details
         requestIsComplete: @request.isComplete
       if @request.isComplete
         @halt(code)
@@ -44,7 +44,7 @@ class Worker extends Actor
         @request.on "complete", @halt.bind(@, code)
         @request.abort()
   halt: (code) ->
-    @info "Worker:stopped", @details()
+    @verbose "Worker:stopped", @details()
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
@@ -58,7 +58,7 @@ class Worker extends Actor
       .then @countdown
       .then @loop
   poll: ->
-    @info "Worker:polling", @details()
+    @verbose "Worker:polling", @details()
     Promise.bind(@)
     .then ->
       Promise.fromNode (callback) =>

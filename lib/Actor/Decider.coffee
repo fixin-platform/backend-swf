@@ -20,16 +20,16 @@ class Decider extends Actor
   name: -> "Decider"
   signature: -> ["domain", "taskList", "identity"]
   start: ->
-    @info "Decider:starting", @details()
+    @verbose "Decider:starting", @details()
     @loop()
   stop: (code) ->
-    @info "Decider:stopping", @details()
+    @verbose "Decider:stopping", @details()
     Promise.join(@mongodb.close())
     .bind(@)
     .then ->
       # Don't remove extra logging
       # I'm trying to catch a bug which causes the decider to continue running even after "Decider:failed" and "Decider:stopping"
-      @info "Decider:halting", @details
+      @verbose "Decider:halting", @details
         requestIsComplete: @request.isComplete
       if @request.isComplete
         @halt(code)
@@ -37,7 +37,7 @@ class Decider extends Actor
         @request.on "complete", @halt.bind(@, code)
         @request.abort()
   halt: (code) ->
-    @info "Decider:stopped", @details()
+    @verbose "Decider:stopped", @details()
     process.exit(code)
   loop: ->
     return @stop(0) if @shouldStop
@@ -51,7 +51,7 @@ class Decider extends Actor
       .then @countdown
       .then @loop
   poll: ->
-    @info "Decider:polling", @details()
+    @verbose "Decider:polling", @details()
     Promise.bind(@)
     .then ->
       Promise.fromNode (callback) =>

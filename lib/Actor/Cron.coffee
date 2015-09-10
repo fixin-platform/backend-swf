@@ -25,19 +25,19 @@ class Cron extends Actor
   name: -> "Cron"
   signature: -> ["domain", "identity", "token", "url"]
   start: ->
-    @info "Cron:starting", @details()
+    @verbose "Cron:starting", @details()
     @loop()
 #    @interval = setInterval @workflowsRerun.bind(@), 60000
 #    clearInterval(@interval)
   stop: (code) ->
-    @info "Cron:stopping", @details()
+    @verbose "Cron:stopping", @details()
     Promise.join(@mongodb.close())
     .bind(@)
     .then ->
-      @info "Cron:halting", @details()
+      @verbose "Cron:halting", @details()
       @halt(code)
   halt: (code) ->
-    @info "Cron:stopped", @details()
+    @verbose "Cron:stopped", @details()
     process.exit(code)
   catchError: (error) ->
     @error "Cron:failed", @details(error)

@@ -23,7 +23,7 @@ class Actor
     @maxLoops--
     @shouldStop = true if @maxLoops <= 0
   cease: (code) ->
-    @info "#{@name()}:ceasing", @details()
+    @verbose "#{@name()}:ceasing", @details()
     @isCeased = true
   trap: (signal) ->
     switch signal
