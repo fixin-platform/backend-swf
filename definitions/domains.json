@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Dev",
+    "workflowExecutionRetentionPeriodInDays": "7",
+    "description": ""
+  },
+  {
+    "name": "Test",
+    "workflowExecutionRetentionPeriodInDays": "7",
+    "description": ""
+  },
+  {
+    "name": "Stage",
+    "workflowExecutionRetentionPeriodInDays": "7",
+    "description": ""
+  },
+  {
+    "name": "Prod",
+    "workflowExecutionRetentionPeriodInDays": "14",
+    "description": ""
+  }
+]
