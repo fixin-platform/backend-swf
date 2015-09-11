@@ -56,16 +56,17 @@ class Cron extends Actor
       Promise.resolve([{}, {}])
     else
       requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
-  startWorkflowExecutions: (testCommandId) ->
-    commandId = testCommandId or Random.id()
+  startWorkflowExecutions: (testCommandIds) ->
     @info "Cron:startWorkflowExecutions", @details()
     now = new Date()
+    i = 0
     @Steps.find(
       isAutorun: true
       refreshPlannedAt:
         $lte: now
     )
     .map (step) =>
+      commandId = testCommandIds?[i++] or Random.id()
       @getInput(step)
       .spread (response, input) =>
         @Commands.insert(

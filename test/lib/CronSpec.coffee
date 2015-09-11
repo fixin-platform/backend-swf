@@ -42,13 +42,13 @@ describe "Cron", ->
       userId: "DenisGorbachev"
       cls: "ListenToYourHeart"
       isAutorun: true
-      refreshPlannedAt: new Date(new Date().getTime() - 10000)
+      refreshPlannedAt: new Date(new Date().getTime() - 5 * 60 * 1000)
     refreshPlannedAtFuture:
       _id: "Kvw3vj8XFHHZ3emSx"
       userId: "DenisGorbachev"
       cls: "ListenToYourHeart"
       isAutorun: true
-      refreshPlannedAt: new Date(new Date().getTime() + 10000)
+      refreshPlannedAt: new Date(new Date().getTime() + 5 * 60 * 1000)
 
   beforeEach ->
     registrar = new Registrar(
@@ -111,7 +111,7 @@ describe "Cron", ->
           dependencies
         )
         .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
-        .then -> cron.startWorkflowExecutions("zhk6CpJ75FB2GmNCe")
+        .then -> cron.startWorkflowExecutions(["zhk6CpJ75FB2GmNCe"])
         .then -> decider.poll()
         .then ->
           Commands.count().should.eventually.equal(1)
