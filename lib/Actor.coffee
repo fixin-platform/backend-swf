@@ -26,6 +26,7 @@ class Actor
     @verbose "#{@name()}:ceasing", @details()
     @isCeased = true
   trap: (signal) ->
+    @verbose "#{@name()}:trapped", @details({signal: signal})
     switch signal
       when "SIGQUIT"
         @shouldCease = true

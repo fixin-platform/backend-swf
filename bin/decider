@@ -75,7 +75,4 @@ decider.start()
 
 # In nomine SIGINT, SIGTERM, SIGQUIT, amen
 onDeath = require "death"
-onDeath (signal) ->
-  decider.info "Decider:trapped", decider.details
-    signal: signal
-  decider.trap(signal)
+onDeath (signal) -> decider.trap(signal)

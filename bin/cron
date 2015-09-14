@@ -74,7 +74,4 @@ cron.start()
 
 # In nomine SIGINT, SIGTERM, SIGQUIT, amen
 onDeath = require "death"
-onDeath (signal) ->
-  cron.info "Cron:trapped", cron.details
-    signal: signal
-  cron.trap(signal)
+onDeath (signal) -> cron.trap(signal)

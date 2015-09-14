@@ -75,7 +75,4 @@ worker.start("vodka") # hope it helps
 
 # In nomine SIGINT, SIGTERM, SIGQUIT, amen
 onDeath = require "death"
-onDeath (signal) ->
-  worker.info "Worker:trapped", worker.details
-    signal: signal
-  worker.trap(signal)
+onDeath (signal) -> worker.trap(signal)
