@@ -102,6 +102,8 @@ class Worker extends Actor
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
           result: JSON.stringify result
+        .bind(@)
+        .then -> @info "Worker:completed:sent"
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
         details.stack = "~ stripped for tests ~" if @env is "test" # nock will complain about non-matching record, because stack traces are different on different machines
