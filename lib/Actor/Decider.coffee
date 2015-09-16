@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 errors = require "../../core/helper/errors"
+mongodbEscape = require "../../core/helper/mongodb-escape"
 Match = require "mtr-match"
 Actor = require "../Actor"
 
@@ -88,7 +89,7 @@ class Decider extends Actor
         Promise.all [
           @Issues.insert(
             reason: reason
-            details: details
+            details: mongodbEscape details
             taskToken: taskToken
             commandId: task.input.commandId
             stepId: task.input.stepId

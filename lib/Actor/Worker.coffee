@@ -2,6 +2,7 @@ _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
 errors = require "../../core/helper/errors"
+mongodbEscape = require "../../core/helper/mongodb-escape"
 Match = require "mtr-match"
 Actor = require "../Actor"
 
@@ -122,7 +123,7 @@ class Worker extends Actor
         ,
           @Issues.insert(
             reason: reason
-            details: details
+            details: mongodbEscape details
             taskToken: taskToken
             commandId: input.commandId
             stepId: input.stepId
