@@ -81,6 +81,7 @@ class Decider extends Actor
           promises.push @swf.respondDecisionTaskCompletedAsync({taskToken: options.taskToken, decisions: task.decisions, executionContext: task.executionContext})
           promises.push @executeCommandUpdates(task.updates)
           Promise.all(promises)
+          .bind(@)
           .then -> @info "Decider:completed:sent"
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
