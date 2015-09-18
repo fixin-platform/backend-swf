@@ -8,12 +8,15 @@ Random = require "meteor-random"
 
 class Cron extends Actor
   constructor: (options, dependencies) ->
+    _.defaults options,
+      isDryRun: false
     Match.check options,
       domain: String
       identity: String
       maxLoops: Match.Optional(Match.Integer)
       token: String
       url: String
+      isDryRun: Boolean
     super
     @settings = dependencies.settings
     @swf = dependencies.swf
@@ -47,7 +50,7 @@ class Cron extends Actor
     return @cease(0) if @shouldCease
     process.nextTick =>
       Promise.bind(@)
-      .then @startWorkflowExecutions
+      .then @schedule
       .catch @catchError.bind(@)
       .then @countdown
       .then -> setTimeout(@loop.bind(@), 60000)
@@ -56,8 +59,8 @@ class Cron extends Actor
       Promise.resolve([{}, {}])
     else
       requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
-  startWorkflowExecutions: (testCommandIds) ->
-    @info "Cron:startWorkflowExecutions", @details()
+  schedule: (testCommandIds) ->
+    @info "Cron:schedule", @details()
     now = new Date()
     i = 0
     @Steps.find(
@@ -101,10 +104,11 @@ class Cron extends Actor
               step.userId
             ]
             input: JSON.stringify(input)
-          @swf.startWorkflowExecutionAsync(params)
-          .then (data) =>
-            @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
-          .catch @catchError.bind(@)
+          if not @isDryRun
+            @swf.startWorkflowExecutionAsync(params)
+            .then (data) =>
+              @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
+            .catch @catchError.bind(@)
       .then =>
         @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
 

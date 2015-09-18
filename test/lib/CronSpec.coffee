@@ -93,9 +93,9 @@ describe "Cron", ->
     .then ->
       Promise.all(Steps.insert(step)  for mode, step of steps)
 
-  it "should run Cron @fast", ->
+  it "should run @fast", ->
     new Promise (resolve, reject) ->
-      nock.back "test/fixtures/Cron.json", (recordingDone) ->
+      nock.back "test/fixtures/cron/NormalRun.json", (recordingDone) ->
         Promise.resolve()
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
@@ -111,7 +111,7 @@ describe "Cron", ->
           dependencies
         )
         .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
-        .then -> cron.startWorkflowExecutions(["zhk6CpJ75FB2GmNCe"])
+        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
         .then -> decider.poll()
         .then ->
           Commands.count().should.eventually.equal(1)
@@ -132,3 +132,24 @@ describe "Cron", ->
         .catch reject
         .finally recordingDone
 
+  it "shouldn't start workflow execution in dry-run mode @fast", ->
+    cron.isDryRun = true
+    new Promise (resolve, reject) ->
+      nock.back "test/fixtures/cron/isDryRun.json", (recordingDone) ->
+        Promise.resolve()
+        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
+        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
+        .then ->
+          Commands.count().should.eventually.equal(1)
+        .then -> dependencies.swf.listOpenWorkflowExecutionsAsync(
+          domain: "Test"
+          startTimeFilter:
+            oldestDate: 0
+          typeFilter:
+            name: "ListenToYourHeart"
+            version: "1.0.0"
+        )
+        .then (data) -> data.executionInfos.length.should.be.equal(0)
+        .then resolve
+        .catch reject
+        .finally recordingDone
