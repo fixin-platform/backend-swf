@@ -1,0 +1,26 @@
+[
+    {
+        "scope": "https://swf.eu-central-1.amazonaws.com:443",
+        "method": "POST",
+        "path": "/",
+        "body": {
+            "domain": "Test",
+            "startTimeFilter": {
+                "oldestDate": 0
+            },
+            "typeFilter": {
+                "name": "ListenToYourHeart",
+                "version": "1.0.0"
+            }
+        },
+        "status": 200,
+        "response": {
+            "executionInfos": []
+        },
+        "headers": {
+            "x-amzn-requestid": "3a0eaa82-5e37-11e5-a151-2d125fd78398",
+            "content-type": "application/x-amz-json-1.0",
+            "content-length": "21"
+        }
+    }
+]
