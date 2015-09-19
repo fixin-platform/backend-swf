@@ -75,31 +75,31 @@ describe "Boyband: Decider & Worker", ->
     )
     Promise.bind(@)
     .then ->
-    Promise.all [
-      Commands.remove()
-      Issues.remove()
-    ]
+      Promise.all [
+        Commands.remove()
+        Issues.remove()
+      ]
     .then ->
-    Promise.all [
-      Commands.insert
-        _id: inputs.hello.commandId
-        progressBars: [
-          activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
-        ]
-        isStarted: false, isCompleted: false, isFailed: false
-      Commands.insert
-        _id: inputs.Schmetterling.commandId
-        progressBars: [
-          activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
-        ]
-        isStarted: false, isCompleted: false, isFailed: false
-      Commands.insert
-        _id: inputs.Neo.commandId
-        progressBars: [
-          activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
-        ]
-        isStarted: false, isCompleted: false, isFailed: false
-    ]
+      Promise.all [
+        Commands.insert
+          _id: inputs.hello.commandId
+          progressBars: [
+            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+          ]
+          isStarted: false, isCompleted: false, isFailed: false
+        Commands.insert
+          _id: inputs.Schmetterling.commandId
+          progressBars: [
+            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+          ]
+          isStarted: false, isCompleted: false, isFailed: false
+        Commands.insert
+          _id: inputs.Neo.commandId
+          progressBars: [
+            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+          ]
+          isStarted: false, isCompleted: false, isFailed: false
+      ]
 
   describe "domains", ->
 
@@ -132,6 +132,7 @@ describe "Boyband: Decider & Worker", ->
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
               if not command # try debugging the Snap CI error
+                console.log 'Commands.findOne(inputs.hello.commandId) failed'
                 return Promise.join(
                   mongodb.collection("Commands").find().then -> console.log 'mongodb.collection("Commands")', arguments
                 ,
@@ -144,6 +145,15 @@ describe "Boyband: Decider & Worker", ->
               command.isFailed.should.be.false
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
+              if not command # try debugging the Snap CI error
+                console.log 'Commands.findOne(inputs.Schmetterling.commandId)'
+                return Promise.join(
+                  mongodb.collection("Commands").find().then -> console.log 'mongodb.collection("Commands")', arguments
+                ,
+                  Commands.find().then -> console.log 'Commands', arguments
+                ,
+                  mongodb.getCollectionNames().then -> console.log 'getCollectionNames', arguments
+                )
               command.isStarted.should.be.true
               command.isCompleted.should.be.false
               command.isFailed.should.be.false
