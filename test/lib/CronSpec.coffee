@@ -93,7 +93,7 @@ describe "Cron", ->
     .then ->
       Promise.all(Steps.insert(step)  for mode, step of steps)
 
-  it "should run @fast", ->
+  it "should run once each step with multiple instances @fast", ->
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/NormalRun.json", (recordingDone) ->
         Promise.resolve()
@@ -111,6 +111,7 @@ describe "Cron", ->
           dependencies
         )
         .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
+        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
         .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
         .then -> decider.poll()
         .then ->
@@ -150,6 +151,7 @@ describe "Cron", ->
             version: "1.0.0"
         )
         .then (data) -> data.executionInfos.length.should.be.equal(0)
+        .then -> Cron::getInput.restore()
         .then resolve
         .catch reject
         .finally recordingDone
