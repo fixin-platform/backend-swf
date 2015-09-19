@@ -63,54 +63,74 @@ class Cron extends Actor
     @info "Cron:schedule", @details()
     now = new Date()
     i = 0
-    @Steps.find(
+    query =
       isAutorun: true
       refreshPlannedAt:
         $lte: now
-    )
-    .map (step) =>
-      commandId = testCommandIds?[i++] or Random.id()
-      @getInput(step)
-      .spread (response, input) =>
-        @Commands.insert(
-          _id: commandId
-          input: {}
-          progressBars: []
-          isStarted: false
-          isCompleted: false
-          isFailed: false
-          isDryRun: false
-          isShallow: false
-          stepId: step._id
-          userId: step.userId
-          updatedAt: now
-          createdAt: now
-        ).then (command) =>
-          _.defaults input,
-            commandId: command._id
+
+    promiseWhile = Promise.method (condition, action) =>
+      condition()
+      .then (res) ->
+        if res
+          action().then(promiseWhile.bind(@, condition, action))
+
+    promiseWhile =>
+      @Steps.count(query)
+      .then (count) ->
+        count
+    , =>
+      @Steps.findAndModify(
+        query: query
+        sort:
+          refreshPlannedAt: 1
+        update:
+          $set:
+            refreshPlannedAt: new Date(now.getTime() + 5 * 60000)
+      )
+      .then (findAndModifyResult) =>
+        step = findAndModifyResult.value
+        commandId = testCommandIds?[i++] or Random.id()
+        @getInput(step)
+        .spread (response, input) =>
+          @Commands.insert(
+            _id: commandId
+            input: {}
+            progressBars: []
+            isStarted: false
+            isCompleted: false
+            isFailed: false
+            isDryRun: false
+            isShallow: false
             stepId: step._id
             userId: step.userId
-          params =
-            domain: @domain
-            workflowId: command._id
-            workflowType:
-              name: step.cls
-              version: step.version or "1.0.0"
-            taskList:
-              name: step.cls
-            tagList: [# unused for now, but helpful in debug
-              command._id
-              step._id
-              step.userId
-            ]
-            input: JSON.stringify(input)
-          if not @isDryRun
-            @swf.startWorkflowExecutionAsync(params)
-            .then (data) =>
-              @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
-            .catch @catchError.bind(@)
-      .then =>
-        refreshInterval = step.refreshInterval or (5 * 60000)
-        @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
+            updatedAt: now
+            createdAt: now
+          ).then (command) =>
+            _.defaults input,
+              commandId: command._id
+              stepId: step._id
+              userId: step.userId
+            params =
+              domain: @domain
+              workflowId: command._id
+              workflowType:
+                name: step.cls
+                version: step.version or "1.0.0"
+              taskList:
+                name: step.cls
+              tagList: [# unused for now, but helpful in debug
+                command._id
+                step._id
+                step.userId
+              ]
+              input: JSON.stringify(input)
+            if not @isDryRun
+              @swf.startWorkflowExecutionAsync(params)
+              .then (data) =>
+                @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
+              .catch @catchError.bind(@)
+#              .then =>
+#                @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
+
 
 module.exports = Cron
