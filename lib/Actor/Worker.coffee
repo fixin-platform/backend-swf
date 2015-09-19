@@ -103,6 +103,14 @@ class Worker extends Actor
           taskToken: options.taskToken
           result: JSON.stringify result
         .bind(@)
+# The following .catch() accounts for a race condition:
+# * Decider schedules two activity tasks in parallel
+# * SWF starts two activity tasks, delegating them to individual workers
+# * Worker A fails its activity task early during execution
+# * Decider fails the workflow execution
+# * Worker B completes its activity task
+# * SWF responds with UnknownResourceFault (because workflow execution has already been closed by Decider)
+        .catch ((error) -> error.code is "UnknownResourceFault"), (error) -> console.log error; @warn "Worker:UnknownResourceFault", @details({error: error})
         .then -> @info "Worker:completed:sent"
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
