@@ -110,6 +110,7 @@ class Cron extends Actor
               @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
             .catch @catchError.bind(@)
       .then =>
-        @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
+        refreshInterval = step.refreshInterval or (5 * 60000)
+        @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
 
 module.exports = Cron
