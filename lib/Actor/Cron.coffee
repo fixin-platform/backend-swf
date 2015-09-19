@@ -85,13 +85,14 @@ class Cron extends Actor
           refreshPlannedAt: 1
         update:
           $set:
-            refreshPlannedAt: new Date(now.getTime() + 5 * 60000)
+            refreshPlannedAt: new Date(now.getTime() + 5 * 60000) # this is only for locking; actual refreshPlannedAt is calculated based on refreshInterval
       )
       .then (findAndModifyResult) =>
         step = findAndModifyResult.value
         commandId = testCommandIds?[i++] or Random.id()
         @getInput(step)
         .spread (response, input) =>
+          updatedAt = createdAt = new Date()
           @Commands.insert(
             _id: commandId
             input: {}
@@ -103,8 +104,8 @@ class Cron extends Actor
             isShallow: false
             stepId: step._id
             userId: step.userId
-            updatedAt: now
-            createdAt: now
+            updatedAt: updatedAt
+            createdAt: createdAt
           ).then (command) =>
             _.defaults input,
               commandId: command._id
@@ -129,8 +130,8 @@ class Cron extends Actor
               .then (data) =>
                 @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
               .catch @catchError.bind(@)
-#              .then =>
-#                @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + 5 * 60000)}})
-
+          .then =>
+            refreshInterval = step.refreshInterval or 5 * 60000
+            @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
 
 module.exports = Cron

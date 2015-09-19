@@ -91,7 +91,7 @@ describe "Cron", ->
         Steps.remove()
       ]
     .then ->
-      Promise.all(Steps.insert(step)  for mode, step of steps)
+      Promise.all(Steps.insert(step) for mode, step of steps)
 
   it "should run once each step with multiple instances @fast", ->
     new Promise (resolve, reject) ->
@@ -155,3 +155,14 @@ describe "Cron", ->
         .then resolve
         .catch reject
         .finally recordingDone
+
+  it "shouldn't error when there are no steps @fast", ->
+    cron.isDryRun = true
+    Promise.bind(@)
+    .then -> Steps.remove()
+    .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {
+      Echo:
+        messages: ["Hello Cron"]
+    }]))
+    .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
+    .finally -> Cron::getInput.restore()
