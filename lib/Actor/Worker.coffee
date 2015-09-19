@@ -110,7 +110,7 @@ class Worker extends Actor
 # * Decider fails the workflow execution
 # * Worker B completes its activity task
 # * SWF responds with UnknownResourceFault (because workflow execution has already been closed by Decider)
-        .catch ((error) -> error.code is "UnknownResourceFault"), (error) -> console.log error; @warn "Worker:UnknownResourceFault", @details({error: error})
+        .catch ((error) -> error.code is "UnknownResourceFault"), (error) -> @warn "Worker:UnknownResourceFault", @details({error: error})
         .then -> @info "Worker:completed:sent"
       .catch (error) ->
         details = error.toJSON?() or errors.errorToJSON(error)
@@ -130,6 +130,7 @@ class Worker extends Actor
             details: JSON.stringify details
             taskToken: taskToken
           )
+          .catch ((error) -> error.code is "UnknownResourceFault"), (error) -> @warn "Worker:UnknownResourceFault", @details({error: error})
         ,
           @Issues.insert(
             reason: reason
