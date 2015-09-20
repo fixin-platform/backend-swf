@@ -106,7 +106,7 @@ describe "Boyband: Decider & Worker", ->
     it "should run through `ListenToYourHeart` workflow multiple times @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/Boyband.json", (recordingDone) ->
-          Promise.resolve()
+          Promise.bind(@)
           .then -> registrar.registerDomains(domains)
           .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
           .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
@@ -215,6 +215,7 @@ describe "Boyband: Decider & Worker", ->
               issues[1].stepId.should.be.equal(inputs.Bork.stepId)
               issues[1].userId.should.be.equal(inputs.Bork.userId)
           .then -> ListenToYourHeart::WorkflowExecutionStarted.restore()
+          .then @assertScopesFinished
           .then resolve
           .catch reject
           .finally recordingDone

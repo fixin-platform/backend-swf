@@ -34,7 +34,7 @@ describe "bin/cleanup", ->
     new Promise (resolve, reject) ->
       # bins are launched as separate process, so we can't record and replay their SWF requests
       nock.back "test/fixtures/cleanup/Normal.json", (recordingDone) ->
-        Promise.resolve()
+        Promise.bind(@)
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
@@ -72,6 +72,7 @@ describe "bin/cleanup", ->
         )
         .then (data) ->
           data.executionInfos.length.should.equal(0)
+        .then @assertScopesFinished
         .then resolve
         .catch reject
         .finally recordingDone

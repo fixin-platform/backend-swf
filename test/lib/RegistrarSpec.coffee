@@ -29,7 +29,9 @@ describe "Registrar", ->
     it "should register `Dev` domain @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterDevDomain.json", (recordingDone) ->
-          registrar.registerDomains(domains)
+          Promise.bind(@)
+          .then -> registrar.registerDomains(domains)
+          .then @assertScopesFinished
           .then resolve
           .catch reject
           .finally recordingDone
@@ -37,7 +39,9 @@ describe "Registrar", ->
     it "should register `ListenToYourHeart` workflow type @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterListenToYourHeartWorkflowType.json", (recordingDone) ->
-          registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
+          Promise.bind(@)
+          .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
+          .then @assertScopesFinished
           .then resolve
           .catch reject
           .finally recordingDone
@@ -45,7 +49,9 @@ describe "Registrar", ->
     it "should register `Echo` activity type @fast", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
-          registrar.registerActivityTypesForDomain(activityTypes, "Test")
+          Promise.bind(@)
+          .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
+          .then @assertScopesFinished
           .then resolve
           .catch reject
           .finally recordingDone
@@ -57,11 +63,13 @@ describe "Registrar", ->
       new Promise (resolve, reject) ->
         nock.back "test/fixtures/registrar/RegisterDevDomainWithInvalidCredentials.json", (recordingDone) ->
           catcherInTheRye = sinon.spy()
-          registrar.registerDomains(domains)
+          Promise.bind(@)
+          .then -> registrar.registerDomains(domains)
           .catch catcherInTheRye
           .finally ->
             catcherInTheRye.should.have.been.calledWithMatch sinon.match (error) ->
               error.code is "IncompleteSignatureException"
+          .then @assertScopesFinished
           .then resolve
           .catch reject
           .finally recordingDone
