@@ -31,7 +31,7 @@ describe "Cron", ->
 
   registrar = null; decider = null; worker = null; cron = null;
 
-  refreshPlannedAtPast = new Date(new Date().getTime() - 5 * 60 * 1000)
+  commandIds = ["zhk6CpJ75FB2GmNCe", "vLZmn6aCwekJ7HvxX"]
   steps =
     manualMode:
       _id: "CCykeZzwd3ZTurM3i"
@@ -43,13 +43,20 @@ describe "Cron", ->
       userId: "DenisGorbachev"
       cls: "ListenToYourHeart"
       isAutorun: true
-      refreshPlannedAt: refreshPlannedAtPast
+      refreshPlannedAt: new Date("2015-05-15T17:52:00.000Z")
+    refreshPlannedAtPastWithExplicitRefreshInterval:
+      _id: "hSjHoH2drFcayvDSB"
+      userId: "DenisGorbachev"
+      cls: "ListenToYourHeart"
+      isAutorun: true
+      refreshPlannedAt: new Date("2015-05-15T17:56:00.000Z")
+      refreshInterval: 30 * 60000
     refreshPlannedAtFuture:
       _id: "Kvw3vj8XFHHZ3emSx"
       userId: "DenisGorbachev"
       cls: "ListenToYourHeart"
       isAutorun: true
-      refreshPlannedAt: new Date(new Date().getTime() + 5 * 60 * 1000)
+      refreshPlannedAt: new Date("2015-05-15T18:08:00.000Z")
 
   beforeEach ->
     registrar = new Registrar(
@@ -84,6 +91,7 @@ describe "Cron", ->
     ,
       dependencies
     )
+    sinon.stub(cron, "getCurrentDate").returns(new Date("2015-05-15T18:00:00.000Z"))
     Promise.bind(@)
     .then ->
       Promise.all [
@@ -111,35 +119,42 @@ describe "Cron", ->
         ,
           dependencies
         )
-        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
+        .then -> sinon.stub(cron, "getInput").returns(new Promise.resolve([{}, {
+          Echo:
+            messages: ["Hello Cron"]
+        }]))
         .then ->
-          Steps.findOne({_id: steps.refreshPlannedAtPast._id}).then (step) ->
-            step.refreshPlannedAt.should.eql(refreshPlannedAtPast)
-        .then ->
-          Promise.all [
-            cron.schedule(["zhk6CpJ75FB2GmNCe"])
-            cron.schedule(["zhk6CpJ75FB2GmNCe"])
+          Promise.all [# let it burn!
+            cron.schedule(commandIds)
+            cron.schedule(commandIds)
+            cron.schedule(commandIds)
+            cron.schedule(commandIds)
+            cron.schedule(commandIds)
           ]
+        .then -> decider.poll()
         .then -> decider.poll()
         .then ->
           Steps.findOne({_id: steps.refreshPlannedAtPast._id}).then (step) ->
-            console.log step.refreshPlannedAt
-            step.refreshPlannedAt.should.be.above(refreshPlannedAtPast)
+            step.refreshPlannedAt.getTime().should.equal(new Date("2015-05-15T18:05:00.000Z").getTime())
         .then ->
-          Commands.count().should.eventually.equal(1)
+          Steps.findOne({_id: steps.refreshPlannedAtPastWithExplicitRefreshInterval._id}).then (step) ->
+            step.refreshPlannedAt.getTime().should.equal(new Date("2015-05-15T18:30:00.000Z").getTime())
+        .then ->
+          Commands.count().should.eventually.equal(2)
         .then ->
           Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
             command.isStarted.should.be.true
             command.isCompleted.should.be.false
             command.isFailed.should.be.false
         .then -> worker.poll()
-        .then -> decider.poll()# CompleteWorkflowExecution or FailWorkflowExecution
+        .then -> worker.poll()
+        .then -> decider.poll()# CompleteWorkflowExecution
+        .then -> decider.poll()# CompleteWorkflowExecution
         .then ->
           Commands.findOne({stepId: steps.refreshPlannedAtPast._id}).then (command) ->
             command.isStarted.should.be.true
             command.isCompleted.should.be.true
             command.isFailed.should.be.false
-        .then -> Cron::getInput.restore()
         .then @assertScopesFinished
         .then resolve
         .catch reject
@@ -150,10 +165,13 @@ describe "Cron", ->
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/isDryRun.json", (recordingDone) ->
         Promise.bind(@)
-        .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
-        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
+        .then -> sinon.stub(cron, "getInput").returns(new Promise.resolve([{}, {
+          Echo:
+            messages: ["Hello Cron"]
+        }]))
+        .then -> cron.schedule(commandIds)
         .then ->
-          Commands.count().should.eventually.equal(1)
+          Commands.count().should.eventually.equal(2)
         .then -> dependencies.swf.listOpenWorkflowExecutionsAsync(
           domain: "Test"
           startTimeFilter:
@@ -163,7 +181,6 @@ describe "Cron", ->
             version: "1.0.0"
         )
         .then (data) -> data.executionInfos.length.should.be.equal(0)
-        .then -> Cron::getInput.restore()
         .then @assertScopesFinished
         .then resolve
         .catch reject
@@ -173,9 +190,8 @@ describe "Cron", ->
     cron.isDryRun = true
     Promise.bind(@)
     .then -> Steps.remove()
-    .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {
+    .then -> sinon.stub(cron, "getInput").returns(new Promise.resolve([{}, {
       Echo:
         messages: ["Hello Cron"]
     }]))
-    .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
-    .finally -> Cron::getInput.restore()
+    .then -> cron.schedule(commandIds)

@@ -33,6 +33,7 @@
     "aws-sdk": "2.1.39",
     "bluebird": "^2.9.34",
     "death": "^1.0.0",
+    "meteor-random": "0.0.3",
     "mtr-match": "0.0.4",
     "path-parse": "^1.0.5",
     "readable-stream": "^2.0.1",
@@ -41,7 +42,6 @@
     "underscore.deep": "^0.5.1",
     "underscore.string": "^3.1.1",
     "validate-obj": "^0.8.4",
-    "yargs": "^3.15.0",
-    "meteor-random": "0.0.3"
+    "yargs": "^3.15.0"
   }
 }
