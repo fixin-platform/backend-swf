@@ -31,6 +31,7 @@ describe "Cron", ->
 
   registrar = null; decider = null; worker = null; cron = null;
 
+  refreshPlannedAtPast = new Date(new Date().getTime() - 5 * 60 * 1000)
   steps =
     manualMode:
       _id: "CCykeZzwd3ZTurM3i"
@@ -42,7 +43,7 @@ describe "Cron", ->
       userId: "DenisGorbachev"
       cls: "ListenToYourHeart"
       isAutorun: true
-      refreshPlannedAt: new Date(new Date().getTime() - 5 * 60 * 1000)
+      refreshPlannedAt: refreshPlannedAtPast
     refreshPlannedAtFuture:
       _id: "Kvw3vj8XFHHZ3emSx"
       userId: "DenisGorbachev"
@@ -111,9 +112,19 @@ describe "Cron", ->
           dependencies
         )
         .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
-        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
-        .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
+        .then ->
+          Steps.findOne({_id: steps.refreshPlannedAtPast._id}).then (step) ->
+            step.refreshPlannedAt.should.eql(refreshPlannedAtPast)
+        .then ->
+          Promise.all [
+            cron.schedule(["zhk6CpJ75FB2GmNCe"])
+            cron.schedule(["zhk6CpJ75FB2GmNCe"])
+          ]
         .then -> decider.poll()
+        .then ->
+          Steps.findOne({_id: steps.refreshPlannedAtPast._id}).then (step) ->
+            console.log step.refreshPlannedAt
+            step.refreshPlannedAt.should.be.above(refreshPlannedAtPast)
         .then ->
           Commands.count().should.eventually.equal(1)
         .then ->
