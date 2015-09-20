@@ -32,7 +32,7 @@ describe "bin/decider", ->
     new Promise (resolve, reject) ->
       # bins are launched as separate process, so we can't record and replay their SWF requests
       nock.back "test/fixtures/RegisterAll.json", (recordingDone) ->
-        Promise.resolve()
+        Promise.bind(@)
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
@@ -41,6 +41,7 @@ describe "bin/decider", ->
         , "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"
         .spread (stdout, stderr, code) ->
           stderr.should.contain("NetworkingError") # we've forced that
+        .then @assertScopesFinished
         .then resolve
         .catch reject
         .finally recordingDone

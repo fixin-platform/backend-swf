@@ -50,16 +50,18 @@ describe "bin/cron", ->
     new Promise (resolve, reject) ->
       # bins are launched as separate process, so we can't record and replay their SWF requests
       nock.back "test/fixtures/RegisterAll.json", (recordingDone) ->
-        Promise.resolve()
+        Promise.bind(@)
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
-        .then -> exec "bin/cron",
+        .then -> exec("bin/cron",
           token: "TBN871ukMn14Hyb0437tt5B1EGmX01u9xzF96nFCDQZI4Yh3xraCVCekoxOm6C2A"
           url: "http://localhost:3000"
           timeout: 10
+        )
         .spread (stdout, stderr, code) ->
           stderr.should.contain("NetworkingError") # we've forced that
+        .then @assertScopesFinished
         .then resolve
         .catch reject
         .finally recordingDone

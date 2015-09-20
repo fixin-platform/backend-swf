@@ -92,12 +92,12 @@ describe "Cron", ->
         Steps.remove()
       ]
     .then ->
-      Promise.all(Steps.insert(step)  for mode, step of steps)
+      Promise.all(Steps.insert(step) for mode, step of steps)
 
   it "should run once each step with multiple instances @fast", ->
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/NormalRun.json", (recordingDone) ->
-        Promise.resolve()
+        Promise.bind(@)
         .then -> registrar.registerDomains(domains)
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
@@ -140,6 +140,7 @@ describe "Cron", ->
             command.isCompleted.should.be.true
             command.isFailed.should.be.false
         .then -> Cron::getInput.restore()
+        .then @assertScopesFinished
         .then resolve
         .catch reject
         .finally recordingDone
@@ -148,7 +149,7 @@ describe "Cron", ->
     cron.isDryRun = true
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/isDryRun.json", (recordingDone) ->
-        Promise.resolve()
+        Promise.bind(@)
         .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {Echo: messages: ["Hello Cron"]}]))
         .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
         .then ->
@@ -163,6 +164,18 @@ describe "Cron", ->
         )
         .then (data) -> data.executionInfos.length.should.be.equal(0)
         .then -> Cron::getInput.restore()
+        .then @assertScopesFinished
         .then resolve
         .catch reject
         .finally recordingDone
+
+  it "shouldn't error when there are no steps @fast", ->
+    cron.isDryRun = true
+    Promise.bind(@)
+    .then -> Steps.remove()
+    .then -> sinon.stub(Cron::, "getInput").returns(new Promise.resolve([{}, {
+      Echo:
+        messages: ["Hello Cron"]
+    }]))
+    .then -> cron.schedule(["zhk6CpJ75FB2GmNCe"])
+    .finally -> Cron::getInput.restore()
