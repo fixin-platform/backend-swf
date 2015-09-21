@@ -36,6 +36,7 @@ class Cron extends Actor
     @verbose "Cron:stopping", @details()
     Promise.join(@mongodb.close())
     .bind(@)
+    .catch (error) -> @error "Cron:stopping:failed", @details(error)
     .then ->
       @verbose "Cron:halting", @details()
       @halt(code)

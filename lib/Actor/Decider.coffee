@@ -27,6 +27,7 @@ class Decider extends Actor
     @verbose "Decider:stopping", @details()
     Promise.join(@mongodb.close())
     .bind(@)
+    .catch (error) -> @error "Decider:stopping:failed", @details(error)
     .then ->
       # Don't remove extra logging
       # I'm trying to catch a bug which causes the decider to continue running even after "Decider:failed" and "Decider:stopping"

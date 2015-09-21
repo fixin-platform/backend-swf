@@ -34,6 +34,7 @@ class Worker extends Actor
     @verbose "Worker:stopping", @details()
     Promise.join(@knex.destroy(), @mongodb.close())
     .bind(@)
+    .catch (error) -> @error "Worker:stopping:failed", @details(error)
     .then ->
       # Don't remove extra logging
       # I'm trying to catch a bug which causes the worker to continue running even after "Worker:failed" and "Worker:stopping"
