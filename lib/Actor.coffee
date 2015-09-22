@@ -1,6 +1,7 @@
 _ = require "underscore"
 Promise = require "bluebird"
 Match = require "mtr-match"
+errors = require "../core/helper/errors"
 
 class Actor
   constructor: (options, dependencies) ->
@@ -17,8 +18,8 @@ class Actor
       isCeased: false
     @logger.extend @
   details: (details = {}) ->
-    if details instanceof Error
-      details = {errorToString: details.toString(), error: details}
+    if details instanceof Error and not errors.isError(details) # don't ask me about `isError` name choice
+      details = errors.errorToJSON(details)
     _.extend _.pick(@, @signature()), details
   signature: -> throw new Error("Implement me!")
   countdown: ->
