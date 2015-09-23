@@ -57,10 +57,10 @@ class Cron extends Actor
       .then -> setTimeout(@loop.bind(@), 60000)
   getCurrentDate: -> # for stubbing in tests
     new Date()
-  schedule: (testCommandIds) ->
+  schedule: ->
     @info "Cron:schedule", @details()
     new Promise (resolve, reject) =>
-      @scheduleStep(testCommandIds, resolve, reject)
+      @scheduleStep(resolve, reject)
   scheduleStep: (resolve, reject) ->
     @info "Cron:scheduleStep", @details()
     now = @getCurrentDate()
