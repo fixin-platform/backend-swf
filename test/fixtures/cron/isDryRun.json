@@ -1,5 +1,33 @@
 [
     {
+        "scope": "http://localhost:3000",
+        "method": "GET",
+        "path": "/step/run/ZkGwBLePh2LvJzmDe/T252d4WerylYPZGabdYnz72910E954Zzm/true",
+        "body": "",
+        "status": 200,
+        "response": "",
+        "headers": {
+            "vary": "Accept-Encoding",
+            "date": "Wed, 23 Sep 2015 22:34:39 GMT",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+        }
+    },
+    {
+        "scope": "http://localhost:3000",
+        "method": "GET",
+        "path": "/step/run/JqSe2h7WGG6AtjGvZ/T252d4WerylYPZGabdYnz72910E954Zzm/true",
+        "body": "",
+        "status": 200,
+        "response": "",
+        "headers": {
+            "vary": "Accept-Encoding",
+            "date": "Wed, 23 Sep 2015 22:34:39 GMT",
+            "connection": "close",
+            "transfer-encoding": "chunked"
+        }
+    },
+    {
         "scope": "https://swf.eu-central-1.amazonaws.com:443",
         "method": "POST",
         "path": "/",
@@ -18,7 +46,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "3a0eaa82-5e37-11e5-a151-2d125fd78398",
+            "x-amzn-requestid": "4728dfab-6243-11e5-947e-4397dfd39476",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }

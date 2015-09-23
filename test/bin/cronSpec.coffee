@@ -55,7 +55,7 @@ describe "bin/cron", ->
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec("bin/cron",
-          token: "TBN871ukMn14Hyb0437tt5B1EGmX01u9xzF96nFCDQZI4Yh3xraCVCekoxOm6C2A"
+          token: "T252d4WerylYPZGabdYnz72910E954Zzm"
           url: "http://localhost:3000"
           timeout: 10
         )

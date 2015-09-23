@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "3014fd6a-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "440c5de0-6243-11e5-b759-53e3ae14c2ea",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "30444aeb-5fd6-11e5-b063-096de8da6309",
+            "x-amzn-requestid": "442d7a43-6243-11e5-8eb4-a986b631c3f8",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -71,7 +71,7 @@
             "message": "ActivityType=[name=Echo, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "30843a2d-5fd6-11e5-b063-096de8da6309",
+            "x-amzn-requestid": "444d36f9-6243-11e5-b063-096de8da6309",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "116"
         }
@@ -96,15 +96,15 @@
                 {
                     "cancelRequested": false,
                     "execution": {
-                        "runId": "21H3ezkVArRIEtZJsBq5aT91zLnrVqHonAtqmd3w/PHUs=",
-                        "workflowId": "zhk6CpJ75FB2GmNCe"
+                        "runId": "211YwuaWpzsSiLsnnlh4C/lKK/v6TujMGLJDbCbsLuWI0=",
+                        "workflowId": "Yb6v9a2GcSh4DgoSL"
                     },
                     "executionStatus": "OPEN",
-                    "startTimestamp": 1442780830.944,
+                    "startTimestamp": 1443047419.341,
                     "tagList": [
-                        "zhk6CpJ75FB2GmNCe",
-                        "wwzkZTu4qvSBdqJBX",
-                        "DenisGorbachev"
+                        "Yb6v9a2GcSh4DgoSL",
+                        "ZkGwBLePh2LvJzmDe",
+                        "CharlieDalton"
                     ],
                     "workflowType": {
                         "name": "ListenToYourHeart",
@@ -114,15 +114,15 @@
                 {
                     "cancelRequested": false,
                     "execution": {
-                        "runId": "21noYcQ+5sPAkfLdv5lQHVaTgJK45EDXHkg5WEw2pumrw=",
-                        "workflowId": "vLZmn6aCwekJ7HvxX"
+                        "runId": "21PQKYNvuNXJzdNdQ1/x0PeheGvNn3bs+1Y9I3tcsyl84=",
+                        "workflowId": "xbRbEwMGuM2i9XDdk"
                     },
                     "executionStatus": "OPEN",
-                    "startTimestamp": 1442780830.941,
+                    "startTimestamp": 1443047419.33,
                     "tagList": [
-                        "vLZmn6aCwekJ7HvxX",
-                        "hSjHoH2drFcayvDSB",
-                        "DenisGorbachev"
+                        "xbRbEwMGuM2i9XDdk",
+                        "JqSe2h7WGG6AtjGvZ",
+                        "CharlieDalton"
                     ],
                     "workflowType": {
                         "name": "ListenToYourHeart",
@@ -132,9 +132,9 @@
             ]
         },
         "headers": {
-            "x-amzn-requestid": "30c27bab-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "446db7ec-6243-11e5-bc35-8f05fdf98d49",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "660"
+            "content-length": "657"
         }
     },
     {
@@ -143,12 +143,12 @@
         "path": "/",
         "body": {
             "domain": "Test",
-            "workflowId": "zhk6CpJ75FB2GmNCe"
+            "workflowId": "xbRbEwMGuM2i9XDdk"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "31015889-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "449738f3-6243-11e5-bc35-8f05fdf98d49",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -159,76 +159,42 @@
         "path": "/",
         "body": {
             "domain": "Test",
-            "workflowId": "vLZmn6aCwekJ7HvxX"
+            "workflowId": "Yb6v9a2GcSh4DgoSL"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "310158a4-5fd6-11e5-b759-53e3ae14c2ea",
+            "x-amzn-requestid": "4496c3af-6243-11e5-a2cf-1b4c5256e392",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
     },
     {
-        "scope": "https://swf.eu-central-1.amazonaws.com:443",
-        "method": "POST",
-        "path": "/",
-        "body": {
-            "domain": "Test",
-            "workflowId": "vLZmn6aCwekJ7HvxX",
-            "workflowType": {
-                "name": "ListenToYourHeart",
-                "version": "1.0.0"
-            },
-            "taskList": {
-                "name": "ListenToYourHeart"
-            },
-            "tagList": [
-                "vLZmn6aCwekJ7HvxX",
-                "hSjHoH2drFcayvDSB",
-                "DenisGorbachev"
-            ],
-            "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
-        },
+        "scope": "http://localhost:3000",
+        "method": "GET",
+        "path": "/step/run/ZkGwBLePh2LvJzmDe/T252d4WerylYPZGabdYnz72910E954Zzm/false",
+        "body": "",
         "status": 200,
-        "response": {
-            "runId": "210z8/PuIRAZzffbf4UaEU1TpHX5qMJaFBw/DXsLQkVDk="
-        },
+        "response": "",
         "headers": {
-            "x-amzn-requestid": "3143e0b1-5fd6-11e5-a2cf-1b4c5256e392",
-            "content-type": "application/x-amz-json-1.0",
-            "content-length": "58"
+            "vary": "Accept-Encoding",
+            "date": "Wed, 23 Sep 2015 22:34:36 GMT",
+            "connection": "close",
+            "transfer-encoding": "chunked"
         }
     },
     {
-        "scope": "https://swf.eu-central-1.amazonaws.com:443",
-        "method": "POST",
-        "path": "/",
-        "body": {
-            "domain": "Test",
-            "workflowId": "zhk6CpJ75FB2GmNCe",
-            "workflowType": {
-                "name": "ListenToYourHeart",
-                "version": "1.0.0"
-            },
-            "taskList": {
-                "name": "ListenToYourHeart"
-            },
-            "tagList": [
-                "zhk6CpJ75FB2GmNCe",
-                "wwzkZTu4qvSBdqJBX",
-                "DenisGorbachev"
-            ],
-            "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
-        },
+        "scope": "http://localhost:3000",
+        "method": "GET",
+        "path": "/step/run/JqSe2h7WGG6AtjGvZ/T252d4WerylYPZGabdYnz72910E954Zzm/false",
+        "body": "",
         "status": 200,
-        "response": {
-            "runId": "2160P5wP7EoPUk9YMOVvIy9fF5650bJDL7abn8i3z25hw="
-        },
+        "response": "",
         "headers": {
-            "x-amzn-requestid": "31445540-5fd6-11e5-bc35-8f05fdf98d49",
-            "content-type": "application/x-amz-json-1.0",
-            "content-length": "58"
+            "vary": "Accept-Encoding",
+            "date": "Wed, 23 Sep 2015 22:34:36 GMT",
+            "connection": "close",
+            "transfer-encoding": "chunked"
         }
     },
     {
@@ -247,17 +213,17 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1442780925.907,
+                    "eventTimestamp": 1443047676.535,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"Echo\":{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[]},\"commandId\":\"WkNeAheRQ9kLMYzYv\",\"stepId\":\"JqSe2h7WGG6AtjGvZ\",\"userId\":\"CharlieDalton\"}",
                         "parentInitiatedEventId": 0,
                         "tagList": [
-                            "vLZmn6aCwekJ7HvxX",
-                            "hSjHoH2drFcayvDSB",
-                            "DenisGorbachev"
+                            "WkNeAheRQ9kLMYzYv",
+                            "JqSe2h7WGG6AtjGvZ",
+                            "CharlieDalton"
                         ],
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -279,7 +245,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1442780925.907,
+                    "eventTimestamp": 1443047676.535,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -288,16 +254,16 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1442780926.43,
+                    "eventTimestamp": 1443047676.865,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAWyaMTXBe9v+BqNXyUqS7483R9diameHngq7d5yZwW2D2evrun9m8va0b84whzzZzYlMNbuOdI26R3Vqsy1ALvzA2XK60cG4TBuhrf8cUcVcLxHRPmMJzhUx/cNXzQgxQeD0JEdbiwEb9ie/G1S8h6QBI3KYhTgCFFFgO7PSntyujYdTcPYI1kY+0AwufsopM6Oj1k0c6VqYkBwy3IqQVaTIubsSTMsDBTpoe2GuyHY3jdjnlqwZpsEE2XbOLjxo/De2GDL5IIi8Op5HzJwLGglP10mmyOdTq+dATjrplX0z",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAVQOwSNQVFpN4mVX2cIyjNbPlLIdUuR1wueDP98HI0JyIgO/rrC54AkdOS4IQLYVRX1509RJw1GOeAQV8T1q/NW7i7wuFFF+Fv8dpA/pkA4+tFHn4RrJX7qV4OnviG4YkopNoKA9ZkR5Ul/FyQgp8VtyoJRKnvFNLoFPcyueU1RcoS5UTf6ag2MH3g30ij6OPafSrotxs85T4k2umZfTm95RXYl8BQvTsWCYaXFo9IDbdnGxpJIUxzUrKNb7WmkrrJn871YKJ5qTBgDkwNWxKAWHTYNB/IkaDjzURY199SlV",
             "workflowExecution": {
-                "runId": "210z8/PuIRAZzffbf4UaEU1TpHX5qMJaFBw/DXsLQkVDk=",
-                "workflowId": "vLZmn6aCwekJ7HvxX"
+                "runId": "21VGIOwWDqI5KMWbZ/BO65nEOgRKHRdCdaXJ1nn6WCfyk=",
+                "workflowId": "WkNeAheRQ9kLMYzYv"
             },
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -305,9 +271,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "31888a31-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "453107a8-6243-11e5-b063-096de8da6309",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1565"
+            "content-length": "1585"
         }
     },
     {
@@ -315,7 +281,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAWyaMTXBe9v+BqNXyUqS7483R9diameHngq7d5yZwW2D2evrun9m8va0b84whzzZzYlMNbuOdI26R3Vqsy1ALvzA2XK60cG4TBuhrf8cUcVcLxHRPmMJzhUx/cNXzQgxQeD0JEdbiwEb9ie/G1S8h6QBI3KYhTgCFFFgO7PSntyujYdTcPYI1kY+0AwufsopM6Oj1k0c6VqYkBwy3IqQVaTIubsSTMsDBTpoe2GuyHY3jdjnlqwZpsEE2XbOLjxo/De2GDL5IIi8Op5HzJwLGglP10mmyOdTq+dATjrplX0z",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAVQOwSNQVFpN4mVX2cIyjNbPlLIdUuR1wueDP98HI0JyIgO/rrC54AkdOS4IQLYVRX1509RJw1GOeAQV8T1q/NW7i7wuFFF+Fv8dpA/pkA4+tFHn4RrJX7qV4OnviG4YkopNoKA9ZkR5Ul/FyQgp8VtyoJRKnvFNLoFPcyueU1RcoS5UTf6ag2MH3g30ij6OPafSrotxs85T4k2umZfTm95RXYl8BQvTsWCYaXFo9IDbdnGxpJIUxzUrKNb7WmkrrJn871YKJ5qTBgDkwNWxKAWHTYNB/IkaDjzURY199SlV",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -325,16 +291,16 @@
                             "version": "1.0.0"
                         },
                         "activityId": "Echo",
-                        "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
+                        "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"WkNeAheRQ9kLMYzYv\",\"stepId\":\"JqSe2h7WGG6AtjGvZ\",\"userId\":\"CharlieDalton\"}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"WkNeAheRQ9kLMYzYv\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "31ca4e66-5fd6-11e5-bc35-8f05fdf98d49",
+            "x-amzn-requestid": "455ef501-6243-11e5-a2cf-1b4c5256e392",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -355,17 +321,17 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1442780925.985,
+                    "eventTimestamp": 1443047676.534,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"Echo\":{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[]},\"commandId\":\"BAfaLHdZwhpoiWar4\",\"stepId\":\"ZkGwBLePh2LvJzmDe\",\"userId\":\"CharlieDalton\"}",
                         "parentInitiatedEventId": 0,
                         "tagList": [
-                            "zhk6CpJ75FB2GmNCe",
-                            "wwzkZTu4qvSBdqJBX",
-                            "DenisGorbachev"
+                            "BAfaLHdZwhpoiWar4",
+                            "ZkGwBLePh2LvJzmDe",
+                            "CharlieDalton"
                         ],
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -387,7 +353,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1442780925.985,
+                    "eventTimestamp": 1443047676.534,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -396,16 +362,16 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1442780927.124,
+                    "eventTimestamp": 1443047677.343,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 0,
             "startedEventId": 3,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdfbazxv50iuaCHfSF39px2EaG1FYlrzpC2xzP4Pccge2b+8eTNgtQYJ6X/tUm68OBkpAcyZ51o3mVqqsUVIQcA5xArotNLwlvXml+52SV8gJqCQcA5O7D+vZep9t3UyTTGhlyZ5XbRT5bUb9IS9bl2GKHLrL9grJmGwaP6gtMan+BJfjQ/Ytlu46XCM6HLRtFZ2+1gTxEnvG2KmgZfoRrCSykA66b5bCQsEjZA+49UHU+d+GqpHb2LfLrCgeWE+IqZp7GqWEP1zt0jfh1kCfBKUsQcRp0vNWWSo4gwOfdlL",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbs90WVG/4siv7tkkB6LlZeR0GVpHfidrbJK5j9APvFZ6Psa9ngr1PJs7p9v/QUDihN5NUmTIjHQE9UQ1EkJl2Ch/0/oOrqxk+lj/lJ1iaOD1Amu3jiuU+vAxylPx0wFxD1IU/2G089RjMt420AB9NcdzXiCATFv9PyDOL20dh9SImIXh0/u8rXvgw+m7fWATjh5x+dxSNsUJcCQkJPZQKQne+hOkOPACcuRf3jchO1gAo6wrUb63g7mbmKibW3G7qE+oZbOxegGmk63zYvvDKxvTfdr3e9cZMhfhwcJ0nkQ",
             "workflowExecution": {
-                "runId": "2160P5wP7EoPUk9YMOVvIy9fF5650bJDL7abn8i3z25hw=",
-                "workflowId": "zhk6CpJ75FB2GmNCe"
+                "runId": "21CYoDrQ5KpLTLDsRRxiJ2wxbxtGfS4SH7dQzkrwtjr1A=",
+                "workflowId": "BAfaLHdZwhpoiWar4"
             },
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -413,9 +379,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "31ff8ed7-5fd6-11e5-8eb4-a986b631c3f8",
+            "x-amzn-requestid": "45831f73-6243-11e5-b063-096de8da6309",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "1566"
+            "content-length": "1585"
         }
     },
     {
@@ -423,7 +389,7 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAdfbazxv50iuaCHfSF39px2EaG1FYlrzpC2xzP4Pccge2b+8eTNgtQYJ6X/tUm68OBkpAcyZ51o3mVqqsUVIQcA5xArotNLwlvXml+52SV8gJqCQcA5O7D+vZep9t3UyTTGhlyZ5XbRT5bUb9IS9bl2GKHLrL9grJmGwaP6gtMan+BJfjQ/Ytlu46XCM6HLRtFZ2+1gTxEnvG2KmgZfoRrCSykA66b5bCQsEjZA+49UHU+d+GqpHb2LfLrCgeWE+IqZp7GqWEP1zt0jfh1kCfBKUsQcRp0vNWWSo4gwOfdlL",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAbs90WVG/4siv7tkkB6LlZeR0GVpHfidrbJK5j9APvFZ6Psa9ngr1PJs7p9v/QUDihN5NUmTIjHQE9UQ1EkJl2Ch/0/oOrqxk+lj/lJ1iaOD1Amu3jiuU+vAxylPx0wFxD1IU/2G089RjMt420AB9NcdzXiCATFv9PyDOL20dh9SImIXh0/u8rXvgw+m7fWATjh5x+dxSNsUJcCQkJPZQKQne+hOkOPACcuRf3jchO1gAo6wrUb63g7mbmKibW3G7qE+oZbOxegGmk63zYvvDKxvTfdr3e9cZMhfhwcJ0nkQ",
             "decisions": [
                 {
                     "decisionType": "ScheduleActivityTask",
@@ -433,16 +399,16 @@
                             "version": "1.0.0"
                         },
                         "activityId": "Echo",
-                        "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}"
+                        "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"BAfaLHdZwhpoiWar4\",\"stepId\":\"ZkGwBLePh2LvJzmDe\",\"userId\":\"CharlieDalton\"}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"BAfaLHdZwhpoiWar4\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "3232ad2d-5fd6-11e5-b063-096de8da6309",
+            "x-amzn-requestid": "45a6faba-6243-11e5-b759-53e3ae14c2ea",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -465,18 +431,18 @@
                 "name": "Echo",
                 "version": "1.0.0"
             },
-            "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+            "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"WkNeAheRQ9kLMYzYv\",\"stepId\":\"JqSe2h7WGG6AtjGvZ\",\"userId\":\"CharlieDalton\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAU8/JhZxQd1TWYRwRr6jMsHhTqrpwGlUlgHAXfMqTPs3WekHeqE+U5MTCq+E7AlY8B4m4vwyw8L04VoIuerSMsILW2hehWEJrT7U47qgzNyRbygZJaGOlMwAeeq6MlcZt91rLmpp0Qv6/Bs/o6m5W6BE2rAbinGLXoSWL9Q91jepJH8bEgxbU72OOzMcbyWEKQMwRcOClxqbeZaIVkT0pzcQ4GZV40lLfnlj7CGfKzW/17dQVqJZQ2rYMEoND35KmxOkWLpiZXs2NZ5pYP+i//6TBdXxGZsmY5bNh6IwQETZ",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAes0oDppGERNVvPle5PAKG2lZ3FaqnOmUC9eMDdrHw2HTH/isIb6gMmNGZvCF+g1MPlcmHffpKXfaikTbvZxSmItulUP0MP8oE30fdoya8Oy3Oz+yISBR/BssK97FKvLLi8WRrUG62Pqn2MzFZBVrVSuk00InUdn5AuHMYLcHz6B59RkRt6VAUMFC0lZaGXppBxBz4wXPzopO1lcW0FUTvfpl/DzHz8JeKpWbEAsCDrnlgpYBkTuUkVYSHNYTd6klls7oYvMmbfx+ohlIbdKmHbmi2WE95cbIdAeTqxIH2o/",
             "workflowExecution": {
-                "runId": "2160P5wP7EoPUk9YMOVvIy9fF5650bJDL7abn8i3z25hw=",
-                "workflowId": "zhk6CpJ75FB2GmNCe"
+                "runId": "21VGIOwWDqI5KMWbZ/BO65nEOgRKHRdCdaXJ1nn6WCfyk=",
+                "workflowId": "WkNeAheRQ9kLMYzYv"
             }
         },
         "headers": {
-            "x-amzn-requestid": "3268ff3d-5fd6-11e5-8eb4-a986b631c3f8",
+            "x-amzn-requestid": "45ca614e-6243-11e5-bc35-8f05fdf98d49",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "677"
+            "content-length": "697"
         }
     },
     {
@@ -484,13 +450,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAU8/JhZxQd1TWYRwRr6jMsHhTqrpwGlUlgHAXfMqTPs3WekHeqE+U5MTCq+E7AlY8B4m4vwyw8L04VoIuerSMsILW2hehWEJrT7U47qgzNyRbygZJaGOlMwAeeq6MlcZt91rLmpp0Qv6/Bs/o6m5W6BE2rAbinGLXoSWL9Q91jepJH8bEgxbU72OOzMcbyWEKQMwRcOClxqbeZaIVkT0pzcQ4GZV40lLfnlj7CGfKzW/17dQVqJZQ2rYMEoND35KmxOkWLpiZXs2NZ5pYP+i//6TBdXxGZsmY5bNh6IwQETZ",
-            "result": "{\"messages\":[\"Hello Cron (reply)\"]}"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAes0oDppGERNVvPle5PAKG2lZ3FaqnOmUC9eMDdrHw2HTH/isIb6gMmNGZvCF+g1MPlcmHffpKXfaikTbvZxSmItulUP0MP8oE30fdoya8Oy3Oz+yISBR/BssK97FKvLLi8WRrUG62Pqn2MzFZBVrVSuk00InUdn5AuHMYLcHz6B59RkRt6VAUMFC0lZaGXppBxBz4wXPzopO1lcW0FUTvfpl/DzHz8JeKpWbEAsCDrnlgpYBkTuUkVYSHNYTd6klls7oYvMmbfx+ohlIbdKmHbmi2WE95cbIdAeTqxIH2o/",
+            "result": "{\"messages\":[]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "32a45af2-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "45fa98f9-6243-11e5-a2cf-1b4c5256e392",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -513,18 +479,18 @@
                 "name": "Echo",
                 "version": "1.0.0"
             },
-            "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+            "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"BAfaLHdZwhpoiWar4\",\"stepId\":\"ZkGwBLePh2LvJzmDe\",\"userId\":\"CharlieDalton\"}",
             "startedEventId": 6,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUkR9V0RskpcH2zmK573u1D8rsHImD+apvN/VVHk33Adx8/9XsUp0GXx1FNGnjFsBky9a+GlBFWowsOBB+7T2YapRn7+JyKZdpZJHgbEzwjTCEcvj8I5QUpCh7jpZ4STnu8FojpAPX/C6XsgsCP/PdU+u15EOK5yLq0SvGDLU2rvkxkORO+QWVNWTdvwxfuvhPX1x6JJAgULqdKN0gEs36d4jZbwJccPxRNJBe+u9jdnIF0kW+W11MkGiDnVDAda6twV44yGayS1O1flaklFFjEyeYPMYga72EW1B+6d5DTO",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa7nKlsWTtClOOSY/7DcdiFaLzPkDPHm/nTzdj0uVYcHlpwiWlMk7YSytclrlVTqijcPRhhsqCJC3r0Jh+v4+NuOhX+EYPvUg+5gXQwRhRQ1cndqD2Ni5roA2gDN0rnne5NAjfl8unknI2uTT8ublLjFANgi5Zl0OMu2aa4jzOVG6tC1tRTLYljpNys9pYpFeZ/Og8C9/36Wunegyvyvg4FHChkjW+fSzXCkLv368nHEtV+sEPaXnNGbGvcoIc7EUAbyY/t5aobz2S9/EY48+kjzIY4LQ6jDF8ZSEcWkR9bP",
             "workflowExecution": {
-                "runId": "210z8/PuIRAZzffbf4UaEU1TpHX5qMJaFBw/DXsLQkVDk=",
-                "workflowId": "vLZmn6aCwekJ7HvxX"
+                "runId": "21CYoDrQ5KpLTLDsRRxiJ2wxbxtGfS4SH7dQzkrwtjr1A=",
+                "workflowId": "BAfaLHdZwhpoiWar4"
             }
         },
         "headers": {
-            "x-amzn-requestid": "32dea4eb-5fd6-11e5-b063-096de8da6309",
+            "x-amzn-requestid": "4623f30e-6243-11e5-a2cf-1b4c5256e392",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "677"
+            "content-length": "697"
         }
     },
     {
@@ -532,13 +498,13 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAUkR9V0RskpcH2zmK573u1D8rsHImD+apvN/VVHk33Adx8/9XsUp0GXx1FNGnjFsBky9a+GlBFWowsOBB+7T2YapRn7+JyKZdpZJHgbEzwjTCEcvj8I5QUpCh7jpZ4STnu8FojpAPX/C6XsgsCP/PdU+u15EOK5yLq0SvGDLU2rvkxkORO+QWVNWTdvwxfuvhPX1x6JJAgULqdKN0gEs36d4jZbwJccPxRNJBe+u9jdnIF0kW+W11MkGiDnVDAda6twV44yGayS1O1flaklFFjEyeYPMYga72EW1B+6d5DTO",
-            "result": "{\"messages\":[\"Hello Cron (reply)\"]}"
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa7nKlsWTtClOOSY/7DcdiFaLzPkDPHm/nTzdj0uVYcHlpwiWlMk7YSytclrlVTqijcPRhhsqCJC3r0Jh+v4+NuOhX+EYPvUg+5gXQwRhRQ1cndqD2Ni5roA2gDN0rnne5NAjfl8unknI2uTT8ublLjFANgi5Zl0OMu2aa4jzOVG6tC1tRTLYljpNys9pYpFeZ/Og8C9/36Wunegyvyvg4FHChkjW+fSzXCkLv368nHEtV+sEPaXnNGbGvcoIc7EUAbyY/t5aobz2S9/EY48+kjzIY4LQ6jDF8ZSEcWkR9bP",
+            "result": "{\"messages\":[]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "33119ae6-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "464b5160-6243-11e5-b759-53e3ae14c2ea",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -559,17 +525,17 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1442780925.985,
+                    "eventTimestamp": 1443047676.535,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"Echo\":{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[]},\"commandId\":\"WkNeAheRQ9kLMYzYv\",\"stepId\":\"JqSe2h7WGG6AtjGvZ\",\"userId\":\"CharlieDalton\"}",
                         "parentInitiatedEventId": 0,
                         "tagList": [
-                            "zhk6CpJ75FB2GmNCe",
-                            "wwzkZTu4qvSBdqJBX",
-                            "DenisGorbachev"
+                            "WkNeAheRQ9kLMYzYv",
+                            "JqSe2h7WGG6AtjGvZ",
+                            "CharlieDalton"
                         ],
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -591,7 +557,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1442780925.985,
+                    "eventTimestamp": 1443047676.535,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -600,17 +566,17 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1442780927.124,
+                    "eventTimestamp": 1443047676.865,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
                     "decisionTaskCompletedEventAttributes": {
-                        "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}",
+                        "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"WkNeAheRQ9kLMYzYv\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}",
                         "scheduledEventId": 2,
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1442780927.467,
+                    "eventTimestamp": 1443047677.104,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -622,7 +588,7 @@
                         },
                         "decisionTaskCompletedEventId": 4,
                         "heartbeatTimeout": "30",
-                        "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"WkNeAheRQ9kLMYzYv\",\"stepId\":\"JqSe2h7WGG6AtjGvZ\",\"userId\":\"CharlieDalton\"}",
                         "scheduleToCloseTimeout": "NONE",
                         "scheduleToStartTimeout": "1800",
                         "startToCloseTimeout": "600",
@@ -632,7 +598,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1442780927.467,
+                    "eventTimestamp": 1443047677.104,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -641,17 +607,17 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1442780927.829,
+                    "eventTimestamp": 1443047677.897,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
                     "activityTaskCompletedEventAttributes": {
-                        "result": "{\"messages\":[\"Hello Cron (reply)\"]}",
+                        "result": "{\"messages\":[]}",
                         "scheduledEventId": 5,
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1442780928.215,
+                    "eventTimestamp": 1443047678.114,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -663,7 +629,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1442780928.215,
+                    "eventTimestamp": 1443047678.114,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -672,16 +638,16 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1442780929.276,
+                    "eventTimestamp": 1443047678.869,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAZFD9SbfYxv9jlKrWffaVcX7VCZUI3Vp2OgzR6dE9T5HW8ozeIt3Fs9Q6f/sNft/UkhrpM0XUMNdwbzCa+gHtB8XQ0o6WzLRXGgJqg0JYgMOfGYVKD2lPvMG0KO/QEfpJiS/hIztcwbCLJU1TTleFlMnXrZlpzU9KakVqWvniXkLAkuWLIe9OPvVz5BvBWK9p2Q5b6Bj1aG0w0aIr5lY+SVlbe/nodwBWBTJL3iWVomAt6ij7LVy3u3k8qpfobWOjEg+akQ8fWozmviOC6VI/MdgglN4OfFdJEM82uOws/4W",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAYwRCSk6mHJKv+9FiAOUnxcr3cbDnhqYO4SWDf9cpU1VsxERgVYq9TgESpidPAfy5TFHZVJTa1fyBQH/73R0504QOZGNoR5O1FfgDQcUujXvn+8ocza5K4vwPQj2n5qTtC5eOD1a0kM5O630KU6794dt44tAoQL33+s4Gb7Ue+8EhlQpMWsbsDJD7Ve68jIxzWi1OXvx1yqXGt2IkQl0nteZiyVpYddaanoUJKaNZYvCkCreF3ojLT7AsnvJw8S1UtrDBJAJ5Q/RiaKi4vvS35dhFIZ0ByzXUEpDWZeDCR1y",
             "workflowExecution": {
-                "runId": "2160P5wP7EoPUk9YMOVvIy9fF5650bJDL7abn8i3z25hw=",
-                "workflowId": "zhk6CpJ75FB2GmNCe"
+                "runId": "21VGIOwWDqI5KMWbZ/BO65nEOgRKHRdCdaXJ1nn6WCfyk=",
+                "workflowId": "WkNeAheRQ9kLMYzYv"
             },
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -689,9 +655,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "3347c70d-5fd6-11e5-a2cf-1b4c5256e392",
+            "x-amzn-requestid": "466d584f-6243-11e5-a2cf-1b4c5256e392",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3204"
+            "content-length": "3221"
         }
     },
     {
@@ -699,21 +665,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAZFD9SbfYxv9jlKrWffaVcX7VCZUI3Vp2OgzR6dE9T5HW8ozeIt3Fs9Q6f/sNft/UkhrpM0XUMNdwbzCa+gHtB8XQ0o6WzLRXGgJqg0JYgMOfGYVKD2lPvMG0KO/QEfpJiS/hIztcwbCLJU1TTleFlMnXrZlpzU9KakVqWvniXkLAkuWLIe9OPvVz5BvBWK9p2Q5b6Bj1aG0w0aIr5lY+SVlbe/nodwBWBTJL3iWVomAt6ij7LVy3u3k8qpfobWOjEg+akQ8fWozmviOC6VI/MdgglN4OfFdJEM82uOws/4W",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAYwRCSk6mHJKv+9FiAOUnxcr3cbDnhqYO4SWDf9cpU1VsxERgVYq9TgESpidPAfy5TFHZVJTa1fyBQH/73R0504QOZGNoR5O1FfgDQcUujXvn+8ocza5K4vwPQj2n5qTtC5eOD1a0kM5O630KU6794dt44tAoQL33+s4Gb7Ue+8EhlQpMWsbsDJD7Ve68jIxzWi1OXvx1yqXGt2IkQl0nteZiyVpYddaanoUJKaNZYvCkCreF3ojLT7AsnvJw8S1UtrDBJAJ5Q/RiaKi4vvS35dhFIZ0ByzXUEpDWZeDCR1y",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
                     "completeWorkflowExecutionDecisionAttributes": {
-                        "result": "{\"messages\":[\"Hello Cron (reply)\"]}"
+                        "result": "{\"messages\":[]}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[\"Hello Cron (reply)\"]}}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"WkNeAheRQ9kLMYzYv\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"WkNeAheRQ9kLMYzYv\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[]}}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "33825e91-5fd6-11e5-947e-4397dfd39476",
+            "x-amzn-requestid": "46921e77-6243-11e5-b759-53e3ae14c2ea",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }
@@ -734,17 +700,17 @@
             "events": [
                 {
                     "eventId": 1,
-                    "eventTimestamp": 1442780925.907,
+                    "eventTimestamp": 1443047676.534,
                     "eventType": "WorkflowExecutionStarted",
                     "workflowExecutionStartedEventAttributes": {
                         "childPolicy": "REQUEST_CANCEL",
                         "executionStartToCloseTimeout": "1800",
-                        "input": "{\"Echo\":{\"messages\":[\"Hello Cron\"]},\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"Echo\":{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[]},\"commandId\":\"BAfaLHdZwhpoiWar4\",\"stepId\":\"ZkGwBLePh2LvJzmDe\",\"userId\":\"CharlieDalton\"}",
                         "parentInitiatedEventId": 0,
                         "tagList": [
-                            "vLZmn6aCwekJ7HvxX",
-                            "hSjHoH2drFcayvDSB",
-                            "DenisGorbachev"
+                            "BAfaLHdZwhpoiWar4",
+                            "ZkGwBLePh2LvJzmDe",
+                            "CharlieDalton"
                         ],
                         "taskList": {
                             "name": "ListenToYourHeart"
@@ -766,7 +732,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 2,
-                    "eventTimestamp": 1442780925.907,
+                    "eventTimestamp": 1443047676.534,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -775,17 +741,17 @@
                         "scheduledEventId": 2
                     },
                     "eventId": 3,
-                    "eventTimestamp": 1442780926.43,
+                    "eventTimestamp": 1443047677.343,
                     "eventType": "DecisionTaskStarted"
                 },
                 {
                     "decisionTaskCompletedEventAttributes": {
-                        "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}",
+                        "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"BAfaLHdZwhpoiWar4\"},\"modifier\":{\"$set\":{\"isStarted\":true}}}]}",
                         "scheduledEventId": 2,
                         "startedEventId": 3
                     },
                     "eventId": 4,
-                    "eventTimestamp": 1442780926.787,
+                    "eventTimestamp": 1443047677.574,
                     "eventType": "DecisionTaskCompleted"
                 },
                 {
@@ -797,7 +763,7 @@
                         },
                         "decisionTaskCompletedEventId": 4,
                         "heartbeatTimeout": "30",
-                        "input": "{\"messages\":[\"Hello Cron\"],\"commandId\":\"zhk6CpJ75FB2GmNCe\",\"stepId\":\"wwzkZTu4qvSBdqJBX\",\"userId\":\"DenisGorbachev\"}",
+                        "input": "{\"avatarId\":\"ph97QcNowToYymcTZ\",\"messages\":[],\"commandId\":\"BAfaLHdZwhpoiWar4\",\"stepId\":\"ZkGwBLePh2LvJzmDe\",\"userId\":\"CharlieDalton\"}",
                         "scheduleToCloseTimeout": "NONE",
                         "scheduleToStartTimeout": "1800",
                         "startToCloseTimeout": "600",
@@ -807,7 +773,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 5,
-                    "eventTimestamp": 1442780926.787,
+                    "eventTimestamp": 1443047677.574,
                     "eventType": "ActivityTaskScheduled"
                 },
                 {
@@ -816,17 +782,17 @@
                         "scheduledEventId": 5
                     },
                     "eventId": 6,
-                    "eventTimestamp": 1442780928.586,
+                    "eventTimestamp": 1443047678.396,
                     "eventType": "ActivityTaskStarted"
                 },
                 {
                     "activityTaskCompletedEventAttributes": {
-                        "result": "{\"messages\":[\"Hello Cron (reply)\"]}",
+                        "result": "{\"messages\":[]}",
                         "scheduledEventId": 5,
                         "startedEventId": 6
                     },
                     "eventId": 7,
-                    "eventTimestamp": 1442780928.92,
+                    "eventTimestamp": 1443047678.642,
                     "eventType": "ActivityTaskCompleted"
                 },
                 {
@@ -838,7 +804,7 @@
                         "taskPriority": "0"
                     },
                     "eventId": 8,
-                    "eventTimestamp": 1442780928.92,
+                    "eventTimestamp": 1443047678.642,
                     "eventType": "DecisionTaskScheduled"
                 },
                 {
@@ -847,16 +813,16 @@
                         "scheduledEventId": 8
                     },
                     "eventId": 9,
-                    "eventTimestamp": 1442780929.996,
+                    "eventTimestamp": 1443047679.349,
                     "eventType": "DecisionTaskStarted"
                 }
             ],
             "previousStartedEventId": 3,
             "startedEventId": 9,
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa6QG726kMWR45xL2A4VjTrFdOYbLJexY02pmUPARZEAF8ptrqr5g21MKx79VXnBtoF6s48L8oKNSaPLaXqDmloUqUQHgVvadKdqByImUXRy25Ee1USjuMNeKxtCmrExFFEXuSqiqEuKfV/Jr+Bil4DC1yAnPKWwv/q7SE5JCEFqbE58/rByziR1tvlfzf1VQY8xvz1w36LLJEapiRn7diGp3Xg0e6Hsokr6dDAHbJoORalOH7lOtxU9ZEyWrTd0h1nqhjjfF2qLv556zyyet2VodeINos6DqAWXgRTBCfYy",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAXqNrBdNkj7rYwLOmLU8pr/DDzFJwVfQdT5CJIE994ed2hNo2ysJ/HBazP+yazyjl7K+Aam6ehvzs32Q/qsst5+cHM6Nu0BJ0pAxdhildTheE51sBfqF1TFlxnPg3A348lQkBm8n0oIrV13KFZV+HSjvLoP6Azyi1h2YkkRLxPJKTgIOlsQrW50xMaYO4Aid39Pco6HTA8LZtU1KtdMWto/Ibz6D8np4Ocw5X+Di+RBmTxW6xTb3nbcHWONgaD6WQqTV01BCA83mHWUR32KrNejBjmjVsX5eBDJ6XIRNgN04",
             "workflowExecution": {
-                "runId": "210z8/PuIRAZzffbf4UaEU1TpHX5qMJaFBw/DXsLQkVDk=",
-                "workflowId": "vLZmn6aCwekJ7HvxX"
+                "runId": "21CYoDrQ5KpLTLDsRRxiJ2wxbxtGfS4SH7dQzkrwtjr1A=",
+                "workflowId": "BAfaLHdZwhpoiWar4"
             },
             "workflowType": {
                 "name": "ListenToYourHeart",
@@ -864,9 +830,9 @@
             }
         },
         "headers": {
-            "x-amzn-requestid": "33b52e33-5fd6-11e5-aeb2-bb55e497c055",
+            "x-amzn-requestid": "46b732ce-6243-11e5-bc35-8f05fdf98d49",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "3201"
+            "content-length": "3221"
         }
     },
     {
@@ -874,21 +840,21 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "taskToken": "AAAAKgAAAAIAAAAAAAAAAa6QG726kMWR45xL2A4VjTrFdOYbLJexY02pmUPARZEAF8ptrqr5g21MKx79VXnBtoF6s48L8oKNSaPLaXqDmloUqUQHgVvadKdqByImUXRy25Ee1USjuMNeKxtCmrExFFEXuSqiqEuKfV/Jr+Bil4DC1yAnPKWwv/q7SE5JCEFqbE58/rByziR1tvlfzf1VQY8xvz1w36LLJEapiRn7diGp3Xg0e6Hsokr6dDAHbJoORalOH7lOtxU9ZEyWrTd0h1nqhjjfF2qLv556zyyet2VodeINos6DqAWXgRTBCfYy",
+            "taskToken": "AAAAKgAAAAIAAAAAAAAAAXqNrBdNkj7rYwLOmLU8pr/DDzFJwVfQdT5CJIE994ed2hNo2ysJ/HBazP+yazyjl7K+Aam6ehvzs32Q/qsst5+cHM6Nu0BJ0pAxdhildTheE51sBfqF1TFlxnPg3A348lQkBm8n0oIrV13KFZV+HSjvLoP6Azyi1h2YkkRLxPJKTgIOlsQrW50xMaYO4Aid39Pco6HTA8LZtU1KtdMWto/Ibz6D8np4Ocw5X+Di+RBmTxW6xTb3nbcHWONgaD6WQqTV01BCA83mHWUR32KrNejBjmjVsX5eBDJ6XIRNgN04",
             "decisions": [
                 {
                     "decisionType": "CompleteWorkflowExecution",
                     "completeWorkflowExecutionDecisionAttributes": {
-                        "result": "{\"messages\":[\"Hello Cron (reply)\"]}"
+                        "result": "{\"messages\":[]}"
                     }
                 }
             ],
-            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"zhk6CpJ75FB2GmNCe\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[\"Hello Cron (reply)\"]}}}}]}"
+            "executionContext": "{\"updates\":[{\"collection\":\"Commands\",\"selector\":{\"_id\":\"BAfaLHdZwhpoiWar4\"},\"modifier\":{\"$set\":{\"isCompleted\":true}}},{\"collection\":\"Commands\",\"selector\":{\"_id\":\"BAfaLHdZwhpoiWar4\"},\"modifier\":{\"$set\":{\"result\":{\"messages\":[]}}}}]}"
         },
         "status": 200,
         "response": "",
         "headers": {
-            "x-amzn-requestid": "33e9850b-5fd6-11e5-947e-4397dfd39476",
+            "x-amzn-requestid": "46dae740-6243-11e5-8eb4-a986b631c3f8",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "0"
         }

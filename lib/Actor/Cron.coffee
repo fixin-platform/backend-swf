@@ -55,18 +55,13 @@ class Cron extends Actor
       .catch @catchError.bind(@)
       .then @countdown
       .then -> setTimeout(@loop.bind(@), 60000)
-  getInput: (step) ->
-    if @domain is "Test"
-      Promise.resolve([{}, {}])
-    else
-      requestAsync({method: "GET", url: "#{@url}/step/input/#{step._id}/#{@token}", json: true})
   getCurrentDate: -> # for stubbing in tests
     new Date()
   schedule: (testCommandIds) ->
     @info "Cron:schedule", @details()
     new Promise (resolve, reject) =>
       @scheduleStep(testCommandIds, resolve, reject)
-  scheduleStep: (testCommandIds, resolve, reject) ->
+  scheduleStep: (resolve, reject) ->
     @info "Cron:scheduleStep", @details()
     now = @getCurrentDate()
     query =
@@ -87,53 +82,15 @@ class Cron extends Actor
       if not step # findAndModify may return nothing
         resolve()
         return false
-      @getInput(step).bind(@)
-      .spread (response, input) ->
-        commandId = if testCommandIds then testCommandIds.shift() else Random.id() # shift() is necessary, because testCommandIds are shared between separate invocations of schedule() in tests
-        updatedAt = createdAt = @getCurrentDate()
-        Promise.bind(@)
-        .then -> @Commands.insert(
-          _id: commandId
-          input: {}
-          progressBars: []
-          isStarted: false
-          isCompleted: false
-          isFailed: false
-          isDryRun: false
-          isShallow: false
-          stepId: step._id
-          userId: step.userId
-          updatedAt: updatedAt
-          createdAt: createdAt
-        )
-        .then (command) ->
-          return true if @isDryRun
-          @swf.startWorkflowExecutionAsync(
-            domain: @domain
-            workflowId: command._id
-            workflowType:
-              name: step.cls
-              version: step.version or "1.0.0"
-            taskList:
-              name: step.cls
-            tagList: [# unused for now, but helpful in debug
-              command._id
-              step._id
-              step.userId
-            ]
-            input: JSON.stringify _.defaults input,
-              commandId: command._id
-              stepId: step._id
-              userId: step.userId
-          ).bind(@)
-          .then (data) ->
-            @Commands.update({_id: command._id}, {$set: {runId: data.runId}})
-          .then ->
-            refreshInterval = step.refreshInterval or 5 * 60000
-            @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
-          .thenReturn(true)
+      requestAsync({method: "GET", url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRun}", json: true})
+      .bind(@)
+      .spread (response, body) ->
+        return false if response.statusCode isnt 200
+        refreshInterval = step.refreshInterval or 5 * 60000
+        @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
+        .then -> true
     .then (shouldContinue) ->
-      if shouldContinue then process.nextTick(@scheduleStep.bind(@, testCommandIds, resolve, reject))
+      if shouldContinue then process.nextTick(@scheduleStep.bind(@, resolve, reject))
     .catch reject
 
 module.exports = Cron
