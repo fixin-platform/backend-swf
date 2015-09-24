@@ -9,14 +9,14 @@ Random = require "meteor-random"
 class Cron extends Actor
   constructor: (options, dependencies) ->
     _.defaults options,
-      isDryRun: false
+      isDryRunWorkflowExecution: false
     Match.check options,
       domain: String
       identity: String
       maxLoops: Match.Optional(Match.Integer)
       token: String
       url: String
-      isDryRun: Boolean
+      isDryRunWorkflowExecution: Boolean
     super
     @settings = dependencies.settings
     @swf = dependencies.swf
@@ -82,13 +82,14 @@ class Cron extends Actor
       if not step # findAndModify may return nothing
         resolve()
         return false
-      requestAsync({method: "GET", url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRun}", json: true})
+      requestAsync({method: "GET", url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRunWorkflowExecution}", json: true})
       .bind(@)
       .spread (response, body) ->
-        return false if response.statusCode isnt 200
+        throw new errors.RuntimeError({response: response.toJSON(), body: body}) if response.statusCode isnt 200
+      .then ->
         refreshInterval = step.refreshInterval or 5 * 60000
         @Steps.update({_id: step._id}, {$set: {refreshPlannedAt: new Date(now.getTime() + refreshInterval)}})
-        .then -> true
+      .thenReturn(true)
     .then (shouldContinue) ->
       if shouldContinue then process.nextTick(@scheduleStep.bind(@, resolve, reject))
     .catch reject

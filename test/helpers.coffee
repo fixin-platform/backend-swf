@@ -11,6 +11,6 @@ module.exports =
     taskList:
       name: "ListenToYourHeart"
     input: JSON.stringify _.defaults
-      Echo:
+      ListenToYourHeart:
         messages: [message]
     , input

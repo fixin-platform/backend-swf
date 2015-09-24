@@ -46,9 +46,9 @@ describe "Registrar", ->
           .catch reject
           .finally recordingDone
 
-    it "should register `Echo` activity type @fast", ->
+    it "should register `ListenToYourHeart` activity type @fast", ->
       new Promise (resolve, reject) ->
-        nock.back "test/fixtures/registrar/RegisterEchoActivityType.json", (recordingDone) ->
+        nock.back "test/fixtures/registrar/RegisterListenToYourHeartActivityType.json", (recordingDone) ->
           Promise.bind(@)
           .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
           .then @assertScopesFinished

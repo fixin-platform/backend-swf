@@ -1,23 +1,23 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-input = require "../../core/test-helper/input"
-createDependencies = require "../../core/helper/dependencies"
-settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
+input = require "../../../core/test-helper/input"
+createDependencies = require "../../../core/helper/dependencies"
+settings = (require "../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
-definitions = require "../definitions/domains.json"
-createSWF = require "../../core/helper/swf"
-helpers = require "../helpers"
+definitions = require "../../definitions/domains.json"
+createSWF = require "../../../core/helper/swf"
+helpers = require "../../helpers"
 
-Echo = require "../Echo"
+ListenToYourHeart = require "../../ActivityTask/ListenToYourHeart"
 
-describe "Echo", ->
-  dependencies = createDependencies(settings, "Echo")
+describe "ListenToYourHeart", ->
+  dependencies = createDependencies(settings, "ListenToYourHeart")
 
   task = null;
 
   beforeEach ->
-    task = new Echo(
+    task = new ListenToYourHeart(
       _.defaults {}, input
     ,
       {}

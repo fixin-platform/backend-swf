@@ -60,7 +60,7 @@ describe "bin/cron", ->
           timeout: 10
         )
         .spread (stdout, stderr, code) ->
-          stderr.should.contain("OperationalError") # we've forced that
+          stderr.should.contain("RuntimeError") # we've forced that
         .then @assertScopesFinished
         .then resolve
         .catch reject

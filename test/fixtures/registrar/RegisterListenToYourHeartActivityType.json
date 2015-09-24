@@ -4,10 +4,10 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Echo",
+            "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
-                "name": "Echo"
+                "name": "ListenToYourHeart"
             },
             "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
@@ -20,12 +20,12 @@
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
-            "message": "ActivityType=[name=Echo, version=1.0.0]"
+            "message": "ActivityType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "7487df94-5706-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "c42744b1-62f7-11e5-932d-9f7bde21be8c",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "116"
+            "content-length": "129"
         }
     }
 ]

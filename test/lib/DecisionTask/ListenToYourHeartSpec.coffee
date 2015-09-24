@@ -1,14 +1,14 @@
 _ = require "underscore"
 Promise = require "bluebird"
 stream = require "readable-stream"
-input = require "../../core/test-helper/input"
-createDependencies = require "../../core/helper/dependencies"
-settings = (require "../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
+input = require "../../../core/test-helper/input"
+createDependencies = require "../../../core/helper/dependencies"
+settings = (require "../../../core/helper/settings")("#{process.env.ROOT_DIR}/settings/test.json")
 
-WorkflowExecutionHistoryGenerator = require "../../core/lib/WorkflowExecutionHistoryGenerator"
-helpers = require "../helpers"
+WorkflowExecutionHistoryGenerator = require "../../../core/lib/WorkflowExecutionHistoryGenerator"
+helpers = require "../../helpers"
 
-ListenToYourHeart = require "../ListenToYourHeart"
+ListenToYourHeart = require "../../DecisionTask/ListenToYourHeart"
 
 describe "ListenToYourHeart", ->
   dependencies = createDependencies(settings, "ListenToYourHeart")
@@ -20,14 +20,14 @@ describe "ListenToYourHeart", ->
     [
       events: [
         @WorkflowExecutionStarted _.defaults
-          Echo:
+          ListenToYourHeart:
             messages: [
               "h e l l o"
             ]
         , input
       ]
       decisions: [
-        @ScheduleActivityTask "Echo", _.defaults
+        @ScheduleActivityTask "ListenToYourHeart", _.defaults
           messages: [
             "h e l l o"
           ]
@@ -39,14 +39,14 @@ describe "ListenToYourHeart", ->
         decisions: [@CancelWorkflowExecution()]
         updates: []
       ,
-        events: [@ActivityTaskCompleted "Echo", {messages: ["h e l l o (reply)"]}]
+        events: [@ActivityTaskCompleted "ListenToYourHeart", {messages: ["h e l l o (reply)"]}]
         decisions: [@CompleteWorkflowExecution({messages: ["h e l l o (reply)"]})]
         updates: [
           @commandSetIsCompleted input.commandId
           @commandSetResult input.commandId, {messages: ["h e l l o (reply)"]}
         ]
       ,
-        events: [@ActivityTaskFailed "Echo"]
+        events: [@ActivityTaskFailed "ListenToYourHeart"]
         decisions: [@FailWorkflowExecution()]
         updates: [@commandSetIsFailed input.commandId]
       ]

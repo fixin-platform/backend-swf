@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "6b2ed689-5706-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "b702db9a-62f7-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "6b4d3423-5706-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "b723830f-62f7-11e5-ae70-55faa9bfcedb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -52,10 +52,10 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Echo",
+            "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
-                "name": "Echo"
+                "name": "ListenToYourHeart"
             },
             "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
@@ -68,12 +68,12 @@
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
-            "message": "ActivityType=[name=Echo, version=1.0.0]"
+            "message": "ActivityType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "6b6d6655-5706-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "b7427c7c-62f7-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "116"
+            "content-length": "129"
         }
     }
 ]

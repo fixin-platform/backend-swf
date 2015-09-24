@@ -14,8 +14,8 @@ cleanup = require "../../helper/cleanup"
 Registrar = require "../../lib/Actor/Registrar"
 Decider = require "../../lib/Actor/Decider"
 Worker = require "../../lib/Actor/Worker"
-ListenToYourHeart = require "../ListenToYourHeart"
-Echo = require "../Echo"
+DecisionTask = require "../DecisionTask/ListenToYourHeart"
+ActivityTask = require "../ActivityTask/ListenToYourHeart"
 
 describe "Boyband: Decider & Worker", ->
   @timeout(30000) if process.env.NOCK_BACK_MODE is "record"
@@ -58,7 +58,7 @@ describe "Boyband: Decider & Worker", ->
       domain: "Test"
       taskList:
         name: "ListenToYourHeart"
-      taskCls: ListenToYourHeart
+      taskCls: DecisionTask
       identity: "ListenToYourHeart-test-decider"
     ,
       dependencies
@@ -66,9 +66,9 @@ describe "Boyband: Decider & Worker", ->
     worker = new Worker(
       domain: "Test"
       taskList:
-        name: "Echo"
-      taskCls: Echo
-      identity: "Echo-test-worker"
+        name: "ListenToYourHeart"
+      taskCls: ActivityTask
+      identity: "ListenToYourHeart-test-worker"
       env: "test"
     ,
       dependencies
@@ -84,19 +84,19 @@ describe "Boyband: Decider & Worker", ->
         Commands.insert
           _id: inputs.hello.commandId
           progressBars: [
-            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+            activityId: "ListenToYourHeart", isStarted: false, isCompleted: false, isFailed: false
           ]
           isStarted: false, isCompleted: false, isFailed: false
         Commands.insert
           _id: inputs.Schmetterling.commandId
           progressBars: [
-            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+            activityId: "ListenToYourHeart", isStarted: false, isCompleted: false, isFailed: false
           ]
           isStarted: false, isCompleted: false, isFailed: false
         Commands.insert
           _id: inputs.Neo.commandId
           progressBars: [
-            activityId: "Echo", isStarted: false, isCompleted: false, isFailed: false
+            activityId: "ListenToYourHeart", isStarted: false, isCompleted: false, isFailed: false
           ]
           isStarted: false, isCompleted: false, isFailed: false
       ]
@@ -170,16 +170,16 @@ describe "Boyband: Decider & Worker", ->
               issues[0].userId.should.be.equal(inputs.Schmetterling.userId)
           .then ->
             Commands.findOne(inputs.hello.commandId).then (command) ->
-              EchoProgressBar = command.progressBars[0]
-              EchoProgressBar.activityId.should.be.equal("Echo")
-              EchoProgressBar.total.should.be.equal(0)
-              EchoProgressBar.current.should.be.equal(1)
+              ListenToYourHeartProgressBar = command.progressBars[0]
+              ListenToYourHeartProgressBar.activityId.should.be.equal("ListenToYourHeart")
+              ListenToYourHeartProgressBar.total.should.be.equal(0)
+              ListenToYourHeartProgressBar.current.should.be.equal(1)
           .then ->
             Commands.findOne(inputs.Schmetterling.commandId).then (command) ->
-              EchoProgressBar = command.progressBars[0]
-              EchoProgressBar.activityId.should.be.equal("Echo")
-              EchoProgressBar.total.should.be.equal(0)
-              should.not.exist(EchoProgressBar.current) # Worker has failed, so he couldn't set current
+              ListenToYourHeartProgressBar = command.progressBars[0]
+              ListenToYourHeartProgressBar.activityId.should.be.equal("ListenToYourHeart")
+              ListenToYourHeartProgressBar.total.should.be.equal(0)
+              should.not.exist(ListenToYourHeartProgressBar.current) # Worker has failed, so he couldn't set current
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then -> decider.poll() # CompleteWorkflowExecution or FailWorkflowExecution
           .then ->
@@ -198,12 +198,12 @@ describe "Boyband: Decider & Worker", ->
             helpers.generateWorkflowExecutionParams(inputs.Neo, "Knock, knock, Neo")
           )
           .then -> decider.poll() # ScheduleActivityTask 3
-          .then -> worker.poll() # Echo 3 Completed
+          .then -> worker.poll() # ListenToYourHeart 3 Completed
           .then -> decider.poll() # CompleteWorkflowExecution
           .then -> dependencies.swf.startWorkflowExecutionAsync(
             helpers.generateWorkflowExecutionParams(inputs.Bork, "Bork!")
           )
-          .then -> sinon.stub(ListenToYourHeart::, "WorkflowExecutionStarted").throws(new Error("Bork!"))
+          .then -> sinon.stub(DecisionTask::, "WorkflowExecutionStarted").throws(new Error("Bork!"))
           .then -> decider.poll() # Exception
           .catch ((error) -> error.message is "Bork!"), ((error) ->) # catch it
           .then ->
@@ -214,7 +214,7 @@ describe "Boyband: Decider & Worker", ->
               issues[1].commandId.should.be.equal(inputs.Bork.commandId)
               issues[1].stepId.should.be.equal(inputs.Bork.stepId)
               issues[1].userId.should.be.equal(inputs.Bork.userId)
-          .then -> ListenToYourHeart::WorkflowExecutionStarted.restore()
+          .then -> DecisionTask::WorkflowExecutionStarted.restore()
           .then @assertScopesFinished
           .then resolve
           .catch reject

@@ -14,7 +14,7 @@
             "message": "Test"
         },
         "headers": {
-            "x-amzn-requestid": "69062a42-5706-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "b4f35ce8-62f7-11e5-bc06-cb0465d880eb",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "83"
         }
@@ -42,7 +42,7 @@
             "message": "WorkflowType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "6927e32e-5706-11e5-a511-3fcf6cb2a2ba",
+            "x-amzn-requestid": "b514ee64-62f7-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "129"
         }
@@ -52,10 +52,10 @@
         "method": "POST",
         "path": "/",
         "body": {
-            "name": "Echo",
+            "name": "ListenToYourHeart",
             "version": "1.0.0",
             "defaultTaskList": {
-                "name": "Echo"
+                "name": "ListenToYourHeart"
             },
             "defaultTaskHeartbeatTimeout": "30",
             "defaultTaskPriority": "0",
@@ -68,12 +68,12 @@
         "status": 400,
         "response": {
             "__type": "com.amazonaws.swf.base.model#TypeAlreadyExistsFault",
-            "message": "ActivityType=[name=Echo, version=1.0.0]"
+            "message": "ActivityType=[name=ListenToYourHeart, version=1.0.0]"
         },
         "headers": {
-            "x-amzn-requestid": "695beb54-5706-11e5-bb52-832261b44126",
+            "x-amzn-requestid": "b534d28f-62f7-11e5-870e-d158226e7a5f",
             "content-type": "application/x-amz-json-1.0",
-            "content-length": "116"
+            "content-length": "129"
         }
     },
     {
@@ -95,7 +95,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "697da404-5706-11e5-870e-d158226e7a5f",
+            "x-amzn-requestid": "b5544108-62f7-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }
@@ -114,14 +114,14 @@
             "taskList": {
                 "name": "ListenToYourHeart"
             },
-            "input": "{\"Echo\":{\"messages\":[\"This message won't even reach the decider\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
+            "input": "{\"ListenToYourHeart\":{\"messages\":[\"This message won't even reach the decider\"]},\"commandId\":\"HC59Fwwvdnbcu2fyi\",\"stepId\":\"aGLB8nRHd6WMYjAeB\",\"userId\":\"UktL8T4QcYZHiTSQy\",\"avatarId\":\"AeEKAkvE7ooC78P9Z\"}"
         },
         "status": 200,
         "response": {
-            "runId": "21KygV9hxrtRzwriseTA3SyazJLI2P0N0CHOtxAZfZqls="
+            "runId": "21SbJbn1AeiaA2AnahHhpmtu9VbebxwK+rr+vqnW9KDCY="
         },
         "headers": {
-            "x-amzn-requestid": "69a4b421-5706-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "b5805a28-62f7-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "58"
         }
@@ -142,11 +142,11 @@
                 {
                     "cancelRequested": false,
                     "execution": {
-                        "runId": "21KygV9hxrtRzwriseTA3SyazJLI2P0N0CHOtxAZfZqls=",
+                        "runId": "21SbJbn1AeiaA2AnahHhpmtu9VbebxwK+rr+vqnW9KDCY=",
                         "workflowId": "HC59Fwwvdnbcu2fyi"
                     },
                     "executionStatus": "OPEN",
-                    "startTimestamp": 1441812075.876,
+                    "startTimestamp": 1443125174.649,
                     "workflowType": {
                         "name": "ListenToYourHeart",
                         "version": "1.0.0"
@@ -155,7 +155,7 @@
             ]
         },
         "headers": {
-            "x-amzn-requestid": "69cd4adb-5706-11e5-932d-9f7bde21be8c",
+            "x-amzn-requestid": "b5a8f0db-62f7-11e5-a511-3fcf6cb2a2ba",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "271"
         }
@@ -175,7 +175,7 @@
             "executionInfos": []
         },
         "headers": {
-            "x-amzn-requestid": "6b0184cb-5706-11e5-bc06-cb0465d880eb",
+            "x-amzn-requestid": "b6d6e9fa-62f7-11e5-bb52-832261b44126",
             "content-type": "application/x-amz-json-1.0",
             "content-length": "21"
         }

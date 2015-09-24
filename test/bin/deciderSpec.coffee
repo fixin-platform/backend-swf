@@ -38,7 +38,7 @@ describe "bin/decider", ->
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec "bin/decider",
           timeout: 10
-        , "#{process.env.ROOT_DIR}/test/ListenToYourHeart.coffee"
+        , "#{process.env.ROOT_DIR}/test/DecisionTask/ListenToYourHeart.coffee"
         .spread (stdout, stderr, code) ->
           stderr.should.contain("NetworkingError") # we've forced that
         .then @assertScopesFinished

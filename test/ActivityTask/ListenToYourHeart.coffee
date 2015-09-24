@@ -1,9 +1,9 @@
 _ = require "underscore"
 Promise = require "bluebird"
 Match = require "mtr-match"
-ActivityTask = require "../core/lib/Task/ActivityTask"
+ActivityTask = require "../../core/lib/Task/ActivityTask"
 
-class Echo extends ActivityTask
+class ListenToYourHeart extends ActivityTask
   execute: ->
     Promise.bind(@)
     .then -> @progressBarSetTotal(0)
@@ -17,4 +17,4 @@ class Echo extends ActivityTask
       @progressBarIncCurrent(1).thenReturn(message)
     .then (messages) -> {messages: messages}
 
-module.exports = Echo
+module.exports = ListenToYourHeart

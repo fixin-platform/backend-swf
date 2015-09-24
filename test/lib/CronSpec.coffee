@@ -15,8 +15,8 @@ Registrar = require "../../lib/Actor/Registrar"
 Decider = require "../../lib/Actor/Decider"
 Worker = require "../../lib/Actor/Worker"
 Cron = require "../../lib/Actor/Cron"
-ListenToYourHeart = require "../ListenToYourHeart"
-Echo = require "../Echo"
+DecisionTask = require "../DecisionTask/ListenToYourHeart"
+ActivityTask = require "../ActivityTask/ListenToYourHeart"
 
 describe "Cron", ->
   @timeout(60000) if process.env.NOCK_BACK_MODE is "record"
@@ -67,7 +67,7 @@ describe "Cron", ->
       domain: "Test"
       taskList:
         name: "ListenToYourHeart"
-      taskCls: ListenToYourHeart
+      taskCls: DecisionTask
       identity: "ListenToYourHeart-test-decider"
     ,
       dependencies
@@ -75,9 +75,9 @@ describe "Cron", ->
     worker = new Worker(
       domain: "Test"
       taskList:
-        name: "Echo"
-      taskCls: Echo
-      identity: "Echo-test-worker"
+        name: "ListenToYourHeart"
+      taskCls: ActivityTask
+      identity: "ListenToYourHeart-test-worker"
       env: "test"
     ,
       dependencies
@@ -144,9 +144,9 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't start workflow execution in dry-run mode @fast", ->
-    cron.isDryRun = true
+    cron.isDryRunWorkflowExecution = true
     new Promise (resolve, reject) ->
-      nock.back "test/fixtures/cron/isDryRun.json", (recordingDone) ->
+      nock.back "test/fixtures/cron/isDryRunWorkflowExecution.json", (recordingDone) ->
         Promise.bind(@)
         .then -> cron.schedule()
         .then -> dependencies.swf.listOpenWorkflowExecutionsAsync(
@@ -164,7 +164,7 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't error when there are no steps @fast", ->
-    cron.isDryRun = true
+    cron.isDryRunWorkflowExecution = true
     Promise.bind(@)
     .then -> Steps.remove()
     .then -> cron.schedule()

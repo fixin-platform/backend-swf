@@ -39,7 +39,7 @@ describe "bin/worker", ->
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec "bin/worker",
           timeout: 10
-        , "#{process.env.ROOT_DIR}/test/Echo.coffee"
+        , "#{process.env.ROOT_DIR}/test/ActivityTask/ListenToYourHeart.coffee"
         .spread (stdout, stderr, code) ->
           stderr.should.contain("NetworkingError") # we've forced that
         .then @assertScopesFinished
