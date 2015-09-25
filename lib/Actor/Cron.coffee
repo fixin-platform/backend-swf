@@ -62,7 +62,6 @@ class Cron extends Actor
     new Promise (resolve, reject) =>
       @scheduleStep(resolve, reject)
   scheduleStep: (resolve, reject) ->
-    @info "Cron:scheduleStep", @details()
     now = @getCurrentDate()
     query =
       isAutorun: true
@@ -82,6 +81,7 @@ class Cron extends Actor
       if not step # findAndModify may return nothing
         resolve()
         return false
+      @info "Cron:scheduleStep", @details(step)
       requestAsync({method: "GET", url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRunWorkflowExecution}", json: true})
       .bind(@)
       .spread (response, body) ->

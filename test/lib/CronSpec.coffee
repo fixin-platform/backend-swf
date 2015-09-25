@@ -19,7 +19,7 @@ DecisionTask = require "../DecisionTask/ListenToYourHeart"
 ActivityTask = require "../ActivityTask/ListenToYourHeart"
 
 describe "Cron", ->
-  @timeout(60000) if process.env.NOCK_BACK_MODE is "record"
+  @timeout(60000) if process.env.NOCK_BACK_MODE in ["record", "wild"]
   @slow(500) # relevant for tests using fixtures
 
   dependencies = createDependencies(settings, "Cron")
