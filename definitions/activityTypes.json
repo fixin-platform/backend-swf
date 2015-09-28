@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ListenToYourHeart",
+    "version": "1.0.0",
+    "defaultTaskList": {
+      "name": "ListenToYourHeart"
+    },
+    "defaultTaskPriority": "0",
+    "defaultTaskScheduleToStartTimeout": "600",
+    "defaultTaskStartToCloseTimeout": "1800",
+    "defaultTaskScheduleToCloseTimeout": "NONE",
+    "defaultTaskHeartbeatTimeout": "NONE",
+    "description": ""
+  }
+]
