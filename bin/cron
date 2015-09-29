@@ -21,16 +21,6 @@ argv = yargs
       type: "string"
       description: "Amazon SWF domain"
       demand: true
-    "t":
-      alias: "token"
-      type: "string"
-      description: "Cron token"
-      demand: true
-    "l":
-      alias: "url"
-      type: "string"
-      description: "Cron url"
-      demand: true
     "i":
       alias: "identity"
       type: "string"
@@ -65,8 +55,7 @@ cron = new Cron
   domain: argv.domain
   identity: identity
   maxLoops: argv.maxLoops
-  token: argv.token
-  url: argv.url
+  cron: settings.cron
 ,
   dependencies
 

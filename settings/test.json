@@ -30,6 +30,8 @@
     "region": "Define this key in dev.specific.json or dev.local.json"
   },
   "cron": {
-    "url": "http://localhost:3000"
+    "url": "http://localhost:3000",
+    "token": "T252d4WerylYPZGabdYnz72910E954Zzm",
+    "isDryRunWorkflowExecution": false
   }
 }

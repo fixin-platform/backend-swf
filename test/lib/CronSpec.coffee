@@ -85,8 +85,7 @@ describe "Cron", ->
     cron = new Cron(
       domain: "Test"
       identity: "Cron-test-worker"
-      token: "T252d4WerylYPZGabdYnz72910E954Zzm"
-      url: "http://localhost:3000"
+      cron: dependencies.settings.cron
     ,
       dependencies
     )
@@ -144,7 +143,7 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't start workflow execution in dry-run mode @fast", ->
-    cron.isDryRunWorkflowExecution = true
+    cron.cron.isDryRunWorkflowExecution = true
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/isDryRunWorkflowExecution.json", (recordingDone) ->
         Promise.bind(@)
@@ -164,7 +163,7 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't error when there are no steps @fast", ->
-    cron.isDryRunWorkflowExecution = true
+    cron.cron.isDryRunWorkflowExecution = true
     Promise.bind(@)
     .then -> Steps.remove()
     .then -> cron.schedule()

@@ -9,14 +9,16 @@ Random = require "meteor-random"
 class Cron extends Actor
   constructor: (options, dependencies) ->
     _.defaults options,
-      isDryRunWorkflowExecution: false
+      cron:
+        isDryRunWorkflowExecution: false
     Match.check options,
       domain: String
       identity: String
       maxLoops: Match.Optional(Match.Integer)
-      token: String
-      url: String
-      isDryRunWorkflowExecution: Boolean
+      cron:
+        token: String
+        url: String
+        isDryRunWorkflowExecution: Boolean
     super
     @settings = dependencies.settings
     @swf = dependencies.swf
@@ -26,7 +28,7 @@ class Cron extends Actor
     @Issues = @mongodb.collection("Issues")
     @Steps = @mongodb.collection("Steps")
   name: -> "Cron"
-  signature: -> ["domain", "identity", "token", "url"]
+  signature: -> ["domain", "identity"]
   start: ->
     @verbose "Cron:starting", @details()
     @loop()
@@ -82,7 +84,7 @@ class Cron extends Actor
         resolve()
         return false
       @info "Cron:scheduleStep", @details(step)
-      requestAsync({method: "GET", url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRunWorkflowExecution}", json: true})
+      requestAsync({method: "GET", url: "#{@cron.url}/step/run/#{step._id}/#{@cron.token}/#{@cron.isDryRunWorkflowExecution}", json: true})
       .bind(@)
       .spread (response, body) ->
         throw new errors.RuntimeError({response: response.toJSON(), body: body}) if response.statusCode isnt 200
