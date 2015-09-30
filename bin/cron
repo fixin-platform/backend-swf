@@ -35,12 +35,6 @@ argv = yargs
       description: "Execute that many loops and exit (useful for testing)"
       demand: false
       default: 0
-    "u":
-      alias: "timeout"
-      type: "number"
-      description: "Override cron refresh timeout (useful for testing) (in milliseconds)"
-      demand: false
-      default: 0
   )
   .strict()
   .argv

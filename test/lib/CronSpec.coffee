@@ -85,13 +85,16 @@ describe "Cron", ->
     cron = new Cron(_.defaults(
         domain: "Test"
         identity: "Cron-test-worker"
+# override settings from test.json to simulate normal cron behavior in tests
+        timeout: 60000
+        isDryRunRequest: false
+        isDryRunWorkflowExecution: false
       ,
         settings.cron
       )
     ,
       dependencies
     )
-    cron.isDryRunRequest = false
     sinon.stub(cron, "getCurrentDate").returns(new Date("2015-05-15T18:00:00.000Z"))
     Promise.bind(@)
     .then ->

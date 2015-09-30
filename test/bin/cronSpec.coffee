@@ -55,7 +55,6 @@ describe "bin/cron", ->
         .then -> registrar.registerWorkflowTypesForDomain(workflowTypes, "Test")
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec("bin/cron",
-          timeout: 10
           maxLoops: 1
         )
         .spread (stdout, stderr, code) ->
