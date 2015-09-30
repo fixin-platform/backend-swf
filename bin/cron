@@ -1,12 +1,15 @@
 #!/usr/bin/env coffee
 
+_ = require "underscore"
 path = require "path"
 parse = require "path-parse"
 yargs = require "yargs"
-domain = require "domain"
+Promise = require "bluebird"
 Cron = require "../lib/Actor/Cron"
 settingsLoader = require "../core/helper/settings"
 createDependencies = require "../core/helper/dependencies"
+
+Promise.longStackTraces() # slows down execution but simplifies debugging
 
 argv = yargs
   .usage('Usage: $0 [options]')
@@ -35,7 +38,7 @@ argv = yargs
     "u":
       alias: "timeout"
       type: "number"
-      description: "Override SWF socket timeout (useful for testing) (in milliseconds)"
+      description: "Override cron refresh timeout (useful for testing) (in milliseconds)"
       demand: false
       default: 0
   )
@@ -45,17 +48,16 @@ argv = yargs
 settings = settingsLoader path.resolve(process.cwd(), argv.settings)
 identity = argv.identity or "cron://#{require("os").hostname()}/Cron\##{process.pid}"
 
-if argv.timeout
-  settings.swf.httpOptions ?= {}
-  settings.swf.httpOptions.timeout = argv.timeout
-
 dependencies = createDependencies(settings, "bin_cron")
 
-cron = new Cron
-  domain: argv.domain
-  identity: identity
-  maxLoops: argv.maxLoops
-  cron: settings.cron
+cron = new Cron _.defaults(
+    domain: argv.domain
+    identity: identity
+    maxLoops: argv.maxLoops
+    timeout: argv.timeout
+  ,
+    settings.cron
+  )
 ,
   dependencies
 

@@ -9,16 +9,18 @@ Random = require "meteor-random"
 class Cron extends Actor
   constructor: (options, dependencies) ->
     _.defaults options,
-      cron:
-        isDryRunWorkflowExecution: false
+      timeout: 60000
+      isDryRunRequest: false
+      isDryRunWorkflowExecution: false
     Match.check options,
       domain: String
       identity: String
       maxLoops: Match.Optional(Match.Integer)
-      cron:
-        token: String
-        url: String
-        isDryRunWorkflowExecution: Boolean
+      token: String
+      url: String
+      timeout: Match.Integer
+      isDryRunRequest: Boolean
+      isDryRunWorkflowExecution: Boolean
     super
     @settings = dependencies.settings
     @swf = dependencies.swf
@@ -28,7 +30,7 @@ class Cron extends Actor
     @Issues = @mongodb.collection("Issues")
     @Steps = @mongodb.collection("Steps")
   name: -> "Cron"
-  signature: -> ["domain", "identity"]
+  signature: -> ["domain", "identity", "url"]
   start: ->
     @verbose "Cron:starting", @details()
     @loop()
@@ -56,7 +58,7 @@ class Cron extends Actor
       .then @schedule
       .catch @catchError.bind(@)
       .then @countdown
-      .then -> setTimeout(@loop.bind(@), 60000)
+      .then -> setTimeout(@loop.bind(@), @timeout)
   getCurrentDate: -> # for stubbing in tests
     new Date()
   schedule: ->
@@ -84,8 +86,16 @@ class Cron extends Actor
         resolve()
         return false
       @info "Cron:scheduleStep", @details(step)
-      requestAsync({method: "GET", url: "#{@cron.url}/step/run/#{step._id}/#{@cron.token}/#{@cron.isDryRunWorkflowExecution}", json: true})
-      .bind(@)
+      Promise.bind(@)
+      .then ->
+        if @isDryRunRequest
+          [{statusCode: 200}, {}]
+        else
+          requestAsync({
+            method: "GET",
+            url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRunWorkflowExecution}",
+            json: true
+          })
       .spread (response, body) ->
         throw new errors.RuntimeError({response: response.toJSON(), body: body}) if response.statusCode isnt 200
       .then ->

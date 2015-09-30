@@ -82,13 +82,16 @@ describe "Cron", ->
     ,
       dependencies
     )
-    cron = new Cron(
-      domain: "Test"
-      identity: "Cron-test-worker"
-      cron: dependencies.settings.cron
+    cron = new Cron(_.defaults(
+        domain: "Test"
+        identity: "Cron-test-worker"
+      ,
+        settings.cron
+      )
     ,
       dependencies
     )
+    cron.isDryRunRequest = false
     sinon.stub(cron, "getCurrentDate").returns(new Date("2015-05-15T18:00:00.000Z"))
     Promise.bind(@)
     .then ->
@@ -143,7 +146,7 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't start workflow execution in dry-run mode @fast", ->
-    cron.cron.isDryRunWorkflowExecution = true
+    cron.isDryRunWorkflowExecution = true
     new Promise (resolve, reject) ->
       nock.back "test/fixtures/cron/isDryRunWorkflowExecution.json", (recordingDone) ->
         Promise.bind(@)
@@ -163,7 +166,7 @@ describe "Cron", ->
         .finally recordingDone
 
   it "shouldn't error when there are no steps @fast", ->
-    cron.cron.isDryRunWorkflowExecution = true
+    cron.isDryRunWorkflowExecution = true
     Promise.bind(@)
     .then -> Steps.remove()
     .then -> cron.schedule()

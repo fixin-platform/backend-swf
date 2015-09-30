@@ -32,6 +32,6 @@
   "cron": {
     "url": "http://localhost:3000",
     "token": "T252d4WerylYPZGabdYnz72910E954Zzm",
-    "isDryRunWorkflowExecution": false
+    "isDryRunRequest": true
   }
 }

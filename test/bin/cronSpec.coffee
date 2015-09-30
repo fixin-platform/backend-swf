@@ -56,9 +56,11 @@ describe "bin/cron", ->
         .then -> registrar.registerActivityTypesForDomain(activityTypes, "Test")
         .then -> exec("bin/cron",
           timeout: 10
+          maxLoops: 1
         )
         .spread (stdout, stderr, code) ->
-          stderr.should.contain("ECONNREFUSED") # we've forced that
+          code.should.equal(0)
+          stderr.should.equal("")
         .then @assertScopesFinished
         .then resolve
         .catch reject

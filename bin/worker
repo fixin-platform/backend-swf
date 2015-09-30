@@ -3,10 +3,12 @@
 path = require "path"
 parse = require "path-parse"
 yargs = require "yargs"
-domain = require "domain"
+Promise = require "bluebird"
 Worker = require "../lib/Actor/Worker"
 settingsLoader = require "../core/helper/settings"
 createDependencies = require "../core/helper/dependencies"
+
+Promise.longStackTraces() # slows down execution but simplifies debugging
 
 argv = yargs
   .usage('Usage: $0 [options] activityTaskPath')
