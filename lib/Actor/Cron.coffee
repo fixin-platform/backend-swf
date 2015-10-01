@@ -89,6 +89,7 @@ class Cron extends Actor
             method: "GET",
             url: "#{@url}/step/run/#{step._id}/#{@token}/#{@isDryRunWorkflowExecution}",
             json: true
+            timeout: 3 * 60000# less than default lock inverval
       .spread (response, body) ->
         throw new errors.RuntimeError({response: response.toJSON(), body: body}) if response.statusCode isnt 200
       .then ->
