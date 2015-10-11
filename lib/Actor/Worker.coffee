@@ -19,9 +19,11 @@ class Worker extends Actor
     @knex = dependencies.knex
     @bookshelf = dependencies.bookshelf
     @mongodb = dependencies.mongodb
+    @redis = dependencies.redis
     Match.check @knex, Match.Any
     Match.check @bookshelf, Match.Any
     Match.check @mongodb, Match.Any
+    Match.check @redis, Match.Any
     @Commands = @mongodb.collection("Commands")
     @Issues = @mongodb.collection("Issues")
     super
@@ -85,6 +87,7 @@ class Worker extends Actor
             bookshelf: @bookshelf
             knex: @knex
             mongodb: @mongodb
+            redis: @redis
           task = new @taskCls input, options, dependencies
           Promise.bind(@)
           .then -> @progressBarSetIsStarted input.commandId, options.activityId
