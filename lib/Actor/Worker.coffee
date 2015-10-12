@@ -102,7 +102,7 @@ class Worker extends Actor
           reject(error)
       .bind(@)
       .then (result) ->
-#        @info "Worker:completed", @details({result: result, input: input, options: options}) # call stack size exceeded!!!
+        @info "Worker:completed", @details({result: result, input: input, options: options})
         @swf.respondActivityTaskCompletedAsync
           taskToken: options.taskToken
           result: JSON.stringify result
