@@ -60,7 +60,7 @@ class Worker extends Actor
         @error "Worker:failed", @details(error)
         @stop(1) # the process manager will restart it
       .then @countdown
-      .then @loop
+      #.then @loop # let PM2 rebirth the process and clear the memory
   poll: ->
     @verbose "Worker:polling", @details()
     Promise.bind(@)
