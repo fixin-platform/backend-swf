@@ -50,7 +50,7 @@ class Decider extends Actor
       .catch (error) ->
         @error "Decider:failed", @details(error)
         @stop(1) # the process manager will restart it
-      .then @countdown
+      .then @checkLoop
       .then @loop
   poll: ->
     @verbose "Decider:polling", @details()
@@ -102,6 +102,7 @@ class Decider extends Actor
           )
         ]
         .then -> throw error # let it crash
+      .finally @countdown
   executeCommandUpdates: (updates) ->
     Promise.all(@mongodb.collection(update.collection).update(update.selector, update.modifier) for update in updates)
 

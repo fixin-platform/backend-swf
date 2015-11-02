@@ -25,7 +25,9 @@ class Actor
   countdown: ->
     return if not @maxLoops
     @maxLoops--
-    @shouldStop = true if @maxLoops <= 0
+    @shouldStop = true if @maxLoops is 0
+  checkLoop: ->
+    @shouldStop = true if @maxLoops < 0
   cease: (code) ->
     @verbose "#{@name()}:ceasing", @details()
     @isCeased = true

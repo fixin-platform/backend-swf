@@ -59,8 +59,8 @@ class Worker extends Actor
       .catch (error) ->
         @error "Worker:failed", @details(error)
         @stop(1) # the process manager will restart it
-      .then @countdown
-      #.then @loop # let PM2 rebirth the process and clear the memory
+      .then @checkLoop
+      .then @loop
   poll: ->
     @verbose "Worker:polling", @details()
     Promise.bind(@)
@@ -149,6 +149,7 @@ class Worker extends Actor
         ]
         .catch (anotherError) -> throw anotherError # if we hit another error while reporting the original error, throw another error instead (we'll see it in console)
         .then -> throw error # otherwise let it crash with original error
+      .finally @countdown
   progressBarSetIsStarted: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isStarted": true}}).then -> true
   progressBarSetIsCompleted: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isCompleted": true}}).then -> true
   progressBarSetIsFailed: (commandId, activityId) -> @Commands.update({_id: commandId, "progressBars.activityId": activityId}, {$set: {"progressBars.$.isFailed": true}}).then -> true
